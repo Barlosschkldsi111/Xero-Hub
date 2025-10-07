@@ -1,7 +1,5 @@
 Library = {}
 local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-ScreenGui.BackgroundTransparency = 0.5
 ScreenGui.Name = "Fetching"
 ScreenGui.Parent =
     not game:GetService("RunService"):IsStudio() and game:GetService("CoreGui") or
@@ -83,8 +81,6 @@ function Library:CreateWindow(info)
         DepthOfField.Name = "DPT_" .. gToken
 
         local frame = Instance.new("Frame")
-frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-frame.BackgroundTransparency = 0.5
         frame.Parent = getFrame
         frame.Size = UDim2.new(0.95, 0, 0.95, 0)
         frame.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -160,8 +156,6 @@ frame.BackgroundTransparency = 0.5
 
                 if not p0 then
                     p0 = Instance.new("Part")
-p0.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-p0.BackgroundTransparency = 0.5
                     p0.FormFactor = "Custom"
                     p0.TopSurface = 0
                     p0.BottomSurface = 0
@@ -214,7 +208,7 @@ p0.BackgroundTransparency = 0.5
 
         local function UpdateOrientation(fetchProps)
             local properties = {
-                Transparency = 0.5,
+                Transparency = 0.98,
                 BrickColor = BrickColor.new("Institutional white")
             }
             local zIndex = 1 - 0.05 * frame.ZIndex
@@ -297,8 +291,8 @@ p0.BackgroundTransparency = 0.5
 
         local ClickButtonCircle = Instance.new("Frame")
         ClickButtonCircle.Parent = p
-        ClickButtonCircle.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
-        ClickButtonCircle.BackgroundTransparency = 0.5
+        ClickButtonCircle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        ClickButtonCircle.BackgroundTransparency = 0.7
         ClickButtonCircle.BorderSizePixel = 0
         ClickButtonCircle.AnchorPoint = Vector2.new(0.5, 0.5)
         ClickButtonCircle.Position = UDim2.new(0, relativeX, 0, relativeY)
@@ -306,8 +300,6 @@ p0.BackgroundTransparency = 0.5
         ClickButtonCircle.ZIndex = 10
 
         local UICorner = Instance.new("UICorner")
-UICorner.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UICorner.BackgroundTransparency = 0.5
         UICorner.CornerRadius = UDim.new(1, 0)
         UICorner.Parent = ClickButtonCircle
 
@@ -331,8 +323,8 @@ UICorner.BackgroundTransparency = 0.5
     local function jcf(p, p2)
         local ClickButtonCircle = Instance.new("Frame")
         ClickButtonCircle.Parent = p
-        ClickButtonCircle.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
-        ClickButtonCircle.BackgroundTransparency = 0.5
+        ClickButtonCircle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        ClickButtonCircle.BackgroundTransparency = 0.7
         ClickButtonCircle.BorderSizePixel = 0
         ClickButtonCircle.AnchorPoint = Vector2.new(0.5, 0.5)
         ClickButtonCircle.Position =
@@ -346,8 +338,6 @@ UICorner.BackgroundTransparency = 0.5
         ClickButtonCircle.ZIndex = 10
 
         local UICorner = Instance.new("UICorner")
-UICorner.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UICorner.BackgroundTransparency = 0.5
         UICorner.CornerRadius = UDim.new(1, 0)
         UICorner.Parent = ClickButtonCircle
 
@@ -460,12 +450,10 @@ UICorner.BackgroundTransparency = 0.5
     end
     local function click(p)
         local Click = Instance.new("TextButton")
-Click.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Click.BackgroundTransparency = 0.5
 
         Click.Name = "Click"
         Click.Parent = p
-        Click.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+        Click.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         Click.BackgroundTransparency = 1.000
         Click.BorderColor3 = Color3.fromRGB(0, 0, 0)
         Click.BorderSizePixel = 0
@@ -481,24 +469,16 @@ Click.BackgroundTransparency = 0.5
     local function background(p, t, d)
         local ToggleDesc = Instance.new("Frame")
         local UICorner_1 = Instance.new("UICorner")
-UICorner_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UICorner_1.BackgroundTransparency = 0.5
         local Frame_4 = Instance.new("Frame")
-Frame_4.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Frame_4.BackgroundTransparency = 0.5
         local UIListLayout_2 = Instance.new("UIListLayout")
-UIListLayout_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIListLayout_2.BackgroundTransparency = 0.5
         local UIPadding_2 = Instance.new("UIPadding")
-UIPadding_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIPadding_2.BackgroundTransparency = 0.5
         local TextLabel_1 = Instance.new("TextLabel")
         local Title_1 = Instance.new("TextLabel")
 
         ToggleDesc.Name = "ToggleDesc"
         ToggleDesc.Parent = p
         ToggleDesc.BackgroundTransparency = Transparency
-        ToggleDesc.BackgroundColor3 = Color3.fromRGB(18, 19, 23)
+        ToggleDesc.BackgroundColor3 = Color3.fromRGB(36, 39, 46)
         ToggleDesc.BorderColor3 = Color3.fromRGB(0, 0, 0)
         ToggleDesc.BorderSizePixel = 0
         ToggleDesc.Size = UDim2.new(1, 0, 0, 40) -- ขยายขึ้นมานิดหน่อย
@@ -509,7 +489,7 @@ UIPadding_2.BackgroundTransparency = 0.5
 
         Frame_4.Parent = ToggleDesc
         Frame_4.AnchorPoint = Vector2.new(0, 0.5)
-        Frame_4.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+        Frame_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         Frame_4.BackgroundTransparency = 1
         Frame_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
         Frame_4.BorderSizePixel = 0
@@ -526,7 +506,7 @@ UIPadding_2.BackgroundTransparency = 0.5
 
         -- Desc
         TextLabel_1.Parent = Frame_4
-        TextLabel_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+        TextLabel_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         TextLabel_1.BackgroundTransparency = 1
         TextLabel_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
         TextLabel_1.BorderSizePixel = 0
@@ -534,7 +514,7 @@ UIPadding_2.BackgroundTransparency = 0.5
         TextLabel_1.Size = UDim2.new(1, 0, 0, 16)
         TextLabel_1.Font = Enum.Font.Gotham
         TextLabel_1.RichText = true
-        TextLabel_1.TextColor3 = Color3.fromRGB(63, 63, 63)
+        TextLabel_1.TextColor3 = Color3.fromRGB(255, 255, 255)
         TextLabel_1.TextSize = 10
         TextLabel_1.TextTransparency = 0.5
         TextLabel_1.TextWrapped = true
@@ -546,7 +526,7 @@ UIPadding_2.BackgroundTransparency = 0.5
         -- Title
         Title_1.Name = "Title"
         Title_1.Parent = Frame_4
-        Title_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+        Title_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         Title_1.BackgroundTransparency = 1
         Title_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
         Title_1.BorderSizePixel = 0
@@ -555,7 +535,7 @@ UIPadding_2.BackgroundTransparency = 0.5
         Title_1.Font = Enum.Font.GothamBold
         Title_1.RichText = true
         Title_1.Text = t
-        Title_1.TextColor3 = Color3.fromRGB(63, 63, 63)
+        Title_1.TextColor3 = Color3.fromRGB(255, 255, 255)
         Title_1.TextSize = 13
         Title_1.TextWrapped = true
         Title_1.TextXAlignment = Enum.TextXAlignment.Left
@@ -588,67 +568,31 @@ UIPadding_2.BackgroundTransparency = 0.5
     local Keycode = info.Keycode
     local Size = info.Size
     local Background_1 = Instance.new("Frame")
-Background_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Background_1.BackgroundTransparency = 0.5
     local UICorner_1 = Instance.new("UICorner")
-UICorner_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UICorner_1.BackgroundTransparency = 0.5
     local UIStroke_1 = Instance.new("UIStroke")
-UIStroke_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIStroke_1.BackgroundTransparency = 0.5
     local Topbar_1 = Instance.new("Frame")
-Topbar_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Topbar_1.BackgroundTransparency = 0.5
     local Line_1 = Instance.new("Frame")
-Line_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Line_1.BackgroundTransparency = 0.5
     local Func_1 = Instance.new("Frame")
-Func_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Func_1.BackgroundTransparency = 0.5
     local UIPadding_1 = Instance.new("UIPadding")
-UIPadding_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIPadding_1.BackgroundTransparency = 0.5
     local ImageLabel_1 = Instance.new("ImageLabel")
     local TabFrame_1 = Instance.new("Frame")
-TabFrame_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-TabFrame_1.BackgroundTransparency = 0.5
     local Shadow = Instance.new("ImageLabel")
-Shadow.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Shadow.BackgroundTransparency = 0.5
     local resize = Instance.new("TextButton")
-resize.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-resize.BackgroundTransparency = 0.5
     local effect = Instance.new("ImageLabel")
-effect.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-effect.BackgroundTransparency = 0.5
     local effectcircle = Instance.new("ImageLabel")
-effectcircle.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-effectcircle.BackgroundTransparency = 0.5
     local effectcircle2 = Instance.new("ImageLabel")
-effectcircle2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-effectcircle2.BackgroundTransparency = 0.5
     local effectcircle3 = Instance.new("ImageLabel")
-effectcircle3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-effectcircle3.BackgroundTransparency = 0.5
     local effectcircle4 = Instance.new("ImageLabel")
-effectcircle4.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-effectcircle4.BackgroundTransparency = 0.5
     local effectcircle5 = Instance.new("ImageLabel")
-effectcircle5.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-effectcircle5.BackgroundTransparency = 0.5
 
     local UIcornEffect = Instance.new("UICorner")
-UIcornEffect.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIcornEffect.BackgroundTransparency = 0.5
     local frameef = Instance.new("Frame")
-frameef.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-frameef.BackgroundTransparency = 0.5
 
     Background_1.Name = "Background"
     Background_1.Parent = ScreenGui
     Background_1.AnchorPoint = Vector2.new(0.5, 0.5)
     Background_1.BackgroundTransparency = Transparency
-    Background_1.BackgroundColor3 = Color3.fromRGB(15, 17, 20)
+    Background_1.BackgroundColor3 = Color3.fromRGB(31, 34, 40)
     Background_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Background_1.BorderSizePixel = 0
     Background_1.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -657,8 +601,8 @@ frameef.BackgroundTransparency = 0.5
     UICorner_1.Parent = Background_1
 
     UIStroke_1.Parent = Background_1
-    UIStroke_1.Color = Color3.fromRGB(23, 24, 25)
-    UIStroke_1.Transparency = 0.5
+    UIStroke_1.Color = Color3.fromRGB(47, 48, 51)
+    UIStroke_1.Transparency = 0.3
     UIStroke_1.Thickness = 3
 
     resize.Parent = Background_1
@@ -671,7 +615,7 @@ frameef.BackgroundTransparency = 0.5
 
     frameef.Parent = Background_1
     frameef.BackgroundTransparency = 1
-    frameef.BackgroundColor3 = Color3.fromRGB(15, 17, 20)
+    frameef.BackgroundColor3 = Color3.fromRGB(31, 34, 40)
     frameef.BorderColor3 = Color3.fromRGB(0, 0, 0)
     frameef.BorderSizePixel = 0
     frameef.Size = UDim2.new(1, 0, 1, 0)
@@ -679,7 +623,7 @@ frameef.BackgroundTransparency = 0.5
     effect.Parent = Background_1
     effect.Size = UDim2.new(1, 0, 1, 0)
     effect.Image = "rbxassetid://133167155418861"
-    effect.ImageTransparency = 0.5
+    effect.ImageTransparency = 0.85
     effect.BackgroundTransparency = 1
     effect.Position = UDim2.new(0, 0, 0, 0)
     UIcornEffect.Parent = effect
@@ -687,34 +631,34 @@ frameef.BackgroundTransparency = 0.5
     effectcircle.Parent = frameef
     effectcircle.Size = UDim2.new(0, 400, 0, 400)
     effectcircle.Image = "rbxassetid://132180927784800"
-    effectcircle.ImageTransparency = 0.5
+    effectcircle.ImageTransparency = 0.8
     effectcircle.BackgroundTransparency = 1
     effectcircle.Position = UDim2.new(0.5, 0, 0.5, 0)
 
     effectcircle2.Parent = frameef
     effectcircle2.Size = UDim2.new(0, 400, 0, 400)
     effectcircle2.Image = "rbxassetid://135880574040377"
-    effectcircle2.ImageTransparency = 0.5
+    effectcircle2.ImageTransparency = 0.8
     effectcircle2.BackgroundTransparency = 1
 
     effectcircle3.Parent = frameef
     effectcircle3.Size = UDim2.new(0, 600, 0, 600)
     effectcircle3.Image = "rbxassetid://78169354814171"
-    effectcircle3.ImageTransparency = 0.5
+    effectcircle3.ImageTransparency = 0.8
     effectcircle3.BackgroundTransparency = 1
     effectcircle3.Position = UDim2.new(0.5, 0, 0.1, 0)
 
     effectcircle4.Parent = frameef
     effectcircle4.Size = UDim2.new(0, 600, 0, 600)
     effectcircle4.Image = "rbxassetid://119323583847129"
-    effectcircle4.ImageTransparency = 0.5
+    effectcircle4.ImageTransparency = 0.8
     effectcircle4.BackgroundTransparency = 1
     effectcircle4.Position = UDim2.new(0.9, 0, 0.5, 0)
 
     effectcircle5.Parent = frameef
     effectcircle5.Size = UDim2.new(0, 600, 0, 600)
     effectcircle5.Image = "rbxassetid://133790688650660"
-    effectcircle5.ImageTransparency = 0.5
+    effectcircle5.ImageTransparency = 0.8
     effectcircle5.BackgroundTransparency = 1
     effectcircle5.Position = UDim2.new(0.9, 0, 0.5, 0)
 
@@ -777,7 +721,7 @@ frameef.BackgroundTransparency = 0.5
     Shadow.Parent = Background_1
     Shadow.Name = "DropShadow"
     Shadow.AnchorPoint = Vector2.new(0.5, 0.5)
-    Shadow.BackgroundColor3 = Color3.fromRGB(14, 14, 15)
+    Shadow.BackgroundColor3 = Color3.fromRGB(28, 28, 30)
     Shadow.BackgroundTransparency = 1
     Shadow.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Shadow.BorderSizePixel = 0
@@ -786,7 +730,7 @@ frameef.BackgroundTransparency = 0.5
     Shadow.ZIndex = 0
     Shadow.Image = "rbxassetid://8992230677"
     Shadow.ImageColor3 = Color3.new(0, 0, 0)
-    Shadow.ImageTransparency = 0.5
+    Shadow.ImageTransparency = 0.4
     Shadow.ResampleMode = Enum.ResamplerMode.Default
     Shadow.ScaleType = Enum.ScaleType.Slice
     Shadow.SliceScale = 1
@@ -795,7 +739,7 @@ frameef.BackgroundTransparency = 0.5
 
     Topbar_1.Name = "Topbar"
     Topbar_1.Parent = Background_1
-    Topbar_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+    Topbar_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     Topbar_1.BackgroundTransparency = 1
     Topbar_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Topbar_1.BorderSizePixel = 0
@@ -805,7 +749,7 @@ frameef.BackgroundTransparency = 0.5
     Line_1.Name = "Line"
     Line_1.Parent = Topbar_1
     Line_1.AnchorPoint = Vector2.new(0, 1)
-    Line_1.BackgroundColor3 = Color3.fromRGB(27, 29, 34)
+    Line_1.BackgroundColor3 = Color3.fromRGB(54, 58, 69)
     Line_1.BackgroundTransparency = Transparency
     Line_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Line_1.BorderSizePixel = 0
@@ -814,7 +758,7 @@ frameef.BackgroundTransparency = 0.5
 
     Func_1.Name = "Func"
     Func_1.Parent = Topbar_1
-    Func_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+    Func_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     Func_1.BackgroundTransparency = 1
     Func_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Func_1.BorderSizePixel = 0
@@ -826,7 +770,7 @@ frameef.BackgroundTransparency = 0.5
 
     ImageLabel_1.Parent = Func_1
     ImageLabel_1.AnchorPoint = Vector2.new(0, 0.5)
-    ImageLabel_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+    ImageLabel_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     ImageLabel_1.BackgroundTransparency = 1
     ImageLabel_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
     ImageLabel_1.BorderSizePixel = 0
@@ -837,7 +781,7 @@ frameef.BackgroundTransparency = 0.5
     TabFrame_1.Name = "TabFrame"
     TabFrame_1.Parent = Func_1
     TabFrame_1.AnchorPoint = Vector2.new(0, 0.5)
-    TabFrame_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+    TabFrame_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     TabFrame_1.BackgroundTransparency = 1
     TabFrame_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
     TabFrame_1.BorderSizePixel = 0
@@ -845,22 +789,14 @@ frameef.BackgroundTransparency = 0.5
     TabFrame_1.Size = UDim2.new(1, 0, 0, 50)
 
     local Profile = Instance.new("ImageLabel")
-Profile.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Profile.BackgroundTransparency = 0.5
     local UICornerProfile_1 = Instance.new("UICorner")
-UICornerProfile_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UICornerProfile_1.BackgroundTransparency = 0.5
     local UIStrokeProfile_1 = Instance.new("UIStroke")
-UIStrokeProfile_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIStrokeProfile_1.BackgroundTransparency = 0.5
     local ProfileImage_1 = Instance.new("ImageLabel")
-ProfileImage_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-ProfileImage_1.BackgroundTransparency = 0.5
 
     Profile.Name = "Profile"
     Profile.Parent = Func_1
     Profile.AnchorPoint = Vector2.new(1, 0.5)
-    Profile.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+    Profile.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     Profile.BackgroundTransparency = 1
     Profile.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Profile.BorderSizePixel = 0
@@ -879,18 +815,12 @@ ProfileImage_1.BackgroundTransparency = 0.5
 
     UIStrokeProfile_1.Name = "UIStrokeProfile"
     UIStrokeProfile_1.Parent = Profile
-    UIStrokeProfile_1.Color = Color3.fromRGB(27, 29, 34)
+    UIStrokeProfile_1.Color = Color3.fromRGB(54, 58, 69)
     UIStrokeProfile_1.Thickness = 1.5
 
     local UIPadding_2 = Instance.new("UIPadding")
-UIPadding_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIPadding_2.BackgroundTransparency = 0.5
     local ScrollingFrame_1 = Instance.new("ScrollingFrame")
-ScrollingFrame_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-ScrollingFrame_1.BackgroundTransparency = 0.5
     local FrameTab_1 = Instance.new("Frame")
-FrameTab_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-FrameTab_1.BackgroundTransparency = 0.5
 
     UIPadding_2.Parent = TabFrame_1
     UIPadding_2.PaddingLeft = UDim.new(0, 50)
@@ -898,7 +828,7 @@ FrameTab_1.BackgroundTransparency = 0.5
     ScrollingFrame_1.Name = "ScrollingFrame"
     ScrollingFrame_1.Parent = TabFrame_1
     ScrollingFrame_1.Active = true
-    ScrollingFrame_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+    ScrollingFrame_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     ScrollingFrame_1.BackgroundTransparency = 1
     ScrollingFrame_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
     ScrollingFrame_1.BorderSizePixel = 0
@@ -921,24 +851,16 @@ FrameTab_1.BackgroundTransparency = 0.5
 
     FrameTab_1.Name = "FrameTab"
     FrameTab_1.Parent = ScrollingFrame_1
-    FrameTab_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+    FrameTab_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     FrameTab_1.BackgroundTransparency = 1
     FrameTab_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
     FrameTab_1.BorderSizePixel = 0
     FrameTab_1.Size = UDim2.new(1, 0, 1, 0)
 
     local UIPadding_5 = Instance.new("UIPadding")
-UIPadding_5.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIPadding_5.BackgroundTransparency = 0.5
     local UIListLayout_3 = Instance.new("UIListLayout")
-UIListLayout_3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIListLayout_3.BackgroundTransparency = 0.5
     local Select_1 = Instance.new("Frame")
-Select_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Select_1.BackgroundTransparency = 0.5
     local UIGradient_5 = Instance.new("UIGradient")
-UIGradient_5.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIGradient_5.BackgroundTransparency = 0.5
 
     UIPadding_5.Parent = FrameTab_1
     UIPadding_5.PaddingLeft = UDim.new(0, 5)
@@ -952,7 +874,7 @@ UIGradient_5.BackgroundTransparency = 0.5
     Select_1.Name = "Select"
     Select_1.Parent = ScrollingFrame_1
     Select_1.AnchorPoint = Vector2.new(0, 1)
-    Select_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+    Select_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     Select_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Select_1.BorderSizePixel = 0
     Select_1.Position = UDim2.new(0, 0, 1, 0)
@@ -963,16 +885,12 @@ UIGradient_5.BackgroundTransparency = 0.5
         ColorSequence.new {ColorSequenceKeypoint.new(0, MainColor), ColorSequenceKeypoint.new(1, DropColor)}
 
     local Notification = Instance.new("Frame")
-Notification.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Notification.BackgroundTransparency = 0.5
     local UIListLayout_1 = Instance.new("UIListLayout")
-UIListLayout_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIListLayout_1.BackgroundTransparency = 0.5
 
     Notification.Name = "Notification"
     Notification.Parent = ScreenGui
     Notification.AnchorPoint = Vector2.new(1, 1)
-    Notification.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+    Notification.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     Notification.BackgroundTransparency = 1
     Notification.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Notification.BorderSizePixel = 0
@@ -986,15 +904,11 @@ UIListLayout_1.BackgroundTransparency = 0.5
     UIListLayout_1.VerticalAlignment = Enum.VerticalAlignment.Bottom
 
     local PageFolder = Instance.new("Frame")
-PageFolder.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-PageFolder.BackgroundTransparency = 0.5
     local UIPageLayout = Instance.new("UIPageLayout")
-UIPageLayout.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIPageLayout.BackgroundTransparency = 0.5
 
     PageFolder.Name = "PageFolder"
     PageFolder.Parent = Background_1
-    PageFolder.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+    PageFolder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     PageFolder.BackgroundTransparency = 1
     PageFolder.BorderColor3 = Color3.fromRGB(0, 0, 0)
     PageFolder.BorderSizePixel = 0
@@ -1018,38 +932,20 @@ UIPageLayout.BackgroundTransparency = 0.5
         local Icon = info.Icon
 
         local Tab = Instance.new("Frame")
-Tab.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Tab.BackgroundTransparency = 0.5
         local Tab_1 = Instance.new("Frame")
-Tab_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Tab_1.BackgroundTransparency = 0.5
         local UICorner_2 = Instance.new("UICorner")
-UICorner_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UICorner_2.BackgroundTransparency = 0.5
         local UIStroke_2 = Instance.new("UIStroke")
-UIStroke_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIStroke_2.BackgroundTransparency = 0.5
         local UIGradient_1 = Instance.new("UIGradient")
-UIGradient_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIGradient_1.BackgroundTransparency = 0.5
         local UIGradient_2 = Instance.new("UIGradient")
-UIGradient_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIGradient_2.BackgroundTransparency = 0.5
         local UIListLayout_1 = Instance.new("UIListLayout")
-UIListLayout_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIListLayout_1.BackgroundTransparency = 0.5
         local ImageLabel_2 = Instance.new("ImageLabel")
         local UIPadding_3 = Instance.new("UIPadding")
-UIPadding_3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIPadding_3.BackgroundTransparency = 0.5
         local Title_1 = Instance.new("TextLabel")
         local UICorner_3 = Instance.new("UICorner")
-UICorner_3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UICorner_3.BackgroundTransparency = 0.5
 
         Tab.Name = "Tab"
         Tab.Parent = FrameTab_1
-        Tab.BackgroundColor3 = Color3.fromRGB(18, 19, 23)
+        Tab.BackgroundColor3 = Color3.fromRGB(36, 39, 46)
         Tab.BackgroundTransparency = Transparency
         Tab.BorderColor3 = Color3.fromRGB(0, 0, 0)
         Tab.BorderSizePixel = 0
@@ -1061,7 +957,7 @@ UICorner_3.BackgroundTransparency = 0.5
 
         Tab_1.Name = "Tab"
         Tab_1.Parent = Tab
-        Tab_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+        Tab_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         Tab_1.BackgroundTransparency = 1
         Tab_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
         Tab_1.BorderSizePixel = 0
@@ -1071,7 +967,7 @@ UICorner_3.BackgroundTransparency = 0.5
         UICorner_2.CornerRadius = UDim.new(1, 0)
 
         UIStroke_2.Parent = Tab_1
-        UIStroke_2.Color = Color3.fromRGB(63, 63, 63)
+        UIStroke_2.Color = Color3.fromRGB(255, 255, 255)
         UIStroke_2.Thickness = 2
         UIStroke_2.Transparency = Transparency
 
@@ -1086,7 +982,7 @@ UICorner_3.BackgroundTransparency = 0.5
 
         ImageLabel_2.Parent = Tab_1
         ImageLabel_2.AnchorPoint = Vector2.new(0.5, 0.5)
-        ImageLabel_2.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+        ImageLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         ImageLabel_2.BackgroundTransparency = 1
         ImageLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
         ImageLabel_2.BorderSizePixel = 0
@@ -1096,36 +992,18 @@ UICorner_3.BackgroundTransparency = 0.5
         ImageLabel_2.Position = UDim2.new(0.5, 0, 0.5, 0)
 
         local Page_1 = Instance.new("Frame")
-Page_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Page_1.BackgroundTransparency = 0.5
         local UIPadding_1Tab = Instance.new("UIPadding")
-UIPadding_1Tab.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIPadding_1Tab.BackgroundTransparency = 0.5
         local TabFrame_1Tab = Instance.new("Frame")
-TabFrame_1Tab.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-TabFrame_1Tab.BackgroundTransparency = 0.5
         local ScrollingFrame_1Tab = Instance.new("ScrollingFrame")
-ScrollingFrame_1Tab.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-ScrollingFrame_1Tab.BackgroundTransparency = 0.5
         local Frame_1 = Instance.new("Frame")
-Frame_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Frame_1.BackgroundTransparency = 0.5
         local UIPadding_2Tab = Instance.new("UIPadding")
-UIPadding_2Tab.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIPadding_2Tab.BackgroundTransparency = 0.5
         local UIListLayout_1Tab = Instance.new("UIListLayout")
-UIListLayout_1Tab.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIListLayout_1Tab.BackgroundTransparency = 0.5
         local SelectTab = Instance.new("Frame")
-SelectTab.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-SelectTab.BackgroundTransparency = 0.5
         local UIGradient_3Tab = Instance.new("UIGradient")
-UIGradient_3Tab.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIGradient_3Tab.BackgroundTransparency = 0.5
 
         Page_1.Name = "Page"
         Page_1.Parent = PageFolder
-        Page_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+        Page_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         Page_1.BackgroundTransparency = 1
         Page_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
         Page_1.BorderSizePixel = 0
@@ -1137,20 +1015,18 @@ UIGradient_3Tab.BackgroundTransparency = 0.5
 
         TabFrame_1Tab.Name = "TabFrame"
         TabFrame_1Tab.Parent = Page_1
-        TabFrame_1Tab.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+        TabFrame_1Tab.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         TabFrame_1Tab.BackgroundTransparency = 1
         TabFrame_1Tab.BorderColor3 = Color3.fromRGB(0, 0, 0)
         TabFrame_1Tab.BorderSizePixel = 0
         TabFrame_1Tab.Size = UDim2.new(0, 70, 1, 0)
 
         local Line = Instance.new("Frame")
-Line.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Line.BackgroundTransparency = 0.5
 
         Line.Name = "Line"
         Line.Parent = TabFrame_1Tab
         Line.AnchorPoint = Vector2.new(0, 1)
-        Line.BackgroundColor3 = Color3.fromRGB(27, 29, 34)
+        Line.BackgroundColor3 = Color3.fromRGB(54, 58, 69)
         Line.BorderColor3 = Color3.fromRGB(0, 0, 0)
         Line.BorderSizePixel = 0
         Line.Position = UDim2.new(1, 0, 1, 0)
@@ -1160,7 +1036,7 @@ Line.BackgroundTransparency = 0.5
         ScrollingFrame_1Tab.Name = "ScrollingFrame"
         ScrollingFrame_1Tab.Parent = TabFrame_1Tab
         ScrollingFrame_1Tab.Active = true
-        ScrollingFrame_1Tab.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+        ScrollingFrame_1Tab.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         ScrollingFrame_1Tab.BackgroundTransparency = 1
         ScrollingFrame_1Tab.BorderColor3 = Color3.fromRGB(0, 0, 0)
         ScrollingFrame_1Tab.BorderSizePixel = 0
@@ -1181,7 +1057,7 @@ Line.BackgroundTransparency = 0.5
         ScrollingFrame_1Tab.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Right
 
         Frame_1.Parent = ScrollingFrame_1Tab
-        Frame_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+        Frame_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         Frame_1.BackgroundTransparency = 1
         Frame_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
         Frame_1.BorderSizePixel = 0
@@ -1200,7 +1076,7 @@ Line.BackgroundTransparency = 0.5
 
         SelectTab.Name = "Line"
         SelectTab.Parent = ScrollingFrame_1Tab
-        SelectTab.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+        SelectTab.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         SelectTab.BorderColor3 = Color3.fromRGB(0, 0, 0)
         SelectTab.BorderSizePixel = 0
         SelectTab.Position = UDim2.new(0, 0, 0, 4)
@@ -1248,7 +1124,7 @@ Line.BackgroundTransparency = 0.5
                             g = {ImageTransparency = 0.5}
                         }
                     ):Play()
-                    v.Tab.UIStroke.Color = Color3.fromRGB(33, 33, 34)
+                    v.Tab.UIStroke.Color = Color3.fromRGB(67, 67, 69)
                     v.Tab.UIStroke.UIGradient.Enabled = false
                 end
             end
@@ -1260,7 +1136,7 @@ Line.BackgroundTransparency = 0.5
                     t = 0.15,
                     s = Enum.EasingStyle.Linear,
                     d = "Out",
-                    g = {Color = Color3.fromRGB(63, 63, 63)}
+                    g = {Color = Color3.fromRGB(255, 255, 255)}
                 }
             ):Play()
             tw({v = ImageLabel_2, t = 0.15, s = Enum.EasingStyle.Linear, d = "Out", g = {ImageTransparency = 0}}):Play()
@@ -1292,32 +1168,18 @@ Line.BackgroundTransparency = 0.5
             local Title = info.Title
             local Icon = info.Icon
             local Tab_2 = Instance.new("Frame")
-Tab_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Tab_2.BackgroundTransparency = 0.5
             local Tab_1 = Instance.new("Frame")
-Tab_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Tab_1.BackgroundTransparency = 0.5
             local UICorner_1 = Instance.new("UICorner")
-UICorner_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UICorner_1.BackgroundTransparency = 0.5
             local UICorner_12 = Instance.new("UICorner")
-UICorner_12.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UICorner_12.BackgroundTransparency = 0.5
             local UIGradient_2 = Instance.new("UIGradient")
-UIGradient_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIGradient_2.BackgroundTransparency = 0.5
             local UIListLayout_2 = Instance.new("UIListLayout")
-UIListLayout_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIListLayout_2.BackgroundTransparency = 0.5
             local ImageLabel_1 = Instance.new("ImageLabel")
             local UIPadding_3 = Instance.new("UIPadding")
-UIPadding_3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIPadding_3.BackgroundTransparency = 0.5
             local Title_1 = Instance.new("TextLabel")
 
             Tab_2.Name = "Tab"
             Tab_2.Parent = Frame_1
-            Tab_2.BackgroundColor3 = Color3.fromRGB(18, 19, 23)
+            Tab_2.BackgroundColor3 = Color3.fromRGB(36, 39, 46)
             Tab_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Tab_2.BorderSizePixel = 0
             Tab_2.Size = UDim2.new(0, 60, 0, 50)
@@ -1328,7 +1190,7 @@ UIPadding_3.BackgroundTransparency = 0.5
 
             Tab_1.Name = "Tab"
             Tab_1.Parent = Tab_2
-            Tab_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+            Tab_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             Tab_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Tab_1.BorderSizePixel = 0
             Tab_1.Size = UDim2.new(1, 0, 1, 0)
@@ -1344,7 +1206,7 @@ UIPadding_3.BackgroundTransparency = 0.5
 
             ImageLabel_1.Parent = Tab_1
             ImageLabel_1.AnchorPoint = Vector2.new(0.5, 0.5)
-            ImageLabel_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+            ImageLabel_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             ImageLabel_1.BackgroundTransparency = 1
             ImageLabel_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
             ImageLabel_1.BorderSizePixel = 0
@@ -1357,7 +1219,7 @@ UIPadding_3.BackgroundTransparency = 0.5
             Title_1.Name = "Title"
             Title_1.Parent = Tab_1
             Title_1.AnchorPoint = Vector2.new(0.5, 1)
-            Title_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+            Title_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             Title_1.BackgroundTransparency = 1
             Title_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Title_1.BorderSizePixel = 0
@@ -1365,27 +1227,19 @@ UIPadding_3.BackgroundTransparency = 0.5
             Title_1.Size = UDim2.new(0, 50, 0, 15)
             Title_1.Font = Enum.Font.GothamBold
             Title_1.Text = Title
-            Title_1.TextColor3 = Color3.fromRGB(63, 63, 63)
+            Title_1.TextColor3 = Color3.fromRGB(255, 255, 255)
             Title_1.TextSize = 11
             Title_1.TextXAlignment = Enum.TextXAlignment.Center
             Title_1.Position = UDim2.new(0.5, 0, 0.87, 0)
 
             local FuncFrameSec = Instance.new("Frame")
-FuncFrameSec.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-FuncFrameSec.BackgroundTransparency = 0.5
             local UIPaddingSec_1 = Instance.new("UIPadding")
-UIPaddingSec_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIPaddingSec_1.BackgroundTransparency = 0.5
             local Section_1 = Instance.new("ScrollingFrame")
-Section_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Section_1.BackgroundTransparency = 0.5
             local UIListLayoutSec_1 = Instance.new("UIListLayout")
-UIListLayoutSec_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIListLayoutSec_1.BackgroundTransparency = 0.5
 
             FuncFrameSec.Name = "FuncFrameSec"
             FuncFrameSec.Parent = Page_1
-            FuncFrameSec.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+            FuncFrameSec.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             FuncFrameSec.BackgroundTransparency = 1
             FuncFrameSec.BorderColor3 = Color3.fromRGB(0, 0, 0)
             FuncFrameSec.BorderSizePixel = 0
@@ -1401,7 +1255,7 @@ UIListLayoutSec_1.BackgroundTransparency = 0.5
 
             Section_1.Name = "Section"
             Section_1.Parent = FuncFrameSec
-            Section_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+            Section_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             Section_1.BackgroundTransparency = 1
             Section_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Section_1.BorderSizePixel = 0
@@ -1513,23 +1367,19 @@ UIListLayoutSec_1.BackgroundTransparency = 0.5
             function Main:CreateSection(info)
                 local Title = info.Title
                 local Section_2 = Instance.new("Frame")
-Section_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Section_2.BackgroundTransparency = 0.5
                 local TextLabel_2 = Instance.new("TextLabel")
                 local UIPadding_3Sec = Instance.new("UIPadding")
-UIPadding_3Sec.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIPadding_3Sec.BackgroundTransparency = 0.5
 
                 Section_2.Name = "Section"
                 Section_2.Parent = Section_1
-                Section_2.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                Section_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 Section_2.BackgroundTransparency = 1
                 Section_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Section_2.BorderSizePixel = 0
                 Section_2.Size = UDim2.new(1, 0, 0, 30)
 
                 TextLabel_2.Parent = Section_2
-                TextLabel_2.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 TextLabel_2.BackgroundTransparency = 1
                 TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 TextLabel_2.BorderSizePixel = 0
@@ -1537,7 +1387,7 @@ UIPadding_3Sec.BackgroundTransparency = 0.5
                 TextLabel_2.Size = UDim2.new(0, 200, 0, 30)
                 TextLabel_2.Font = Enum.Font.GothamBold
                 TextLabel_2.Text = Title
-                TextLabel_2.TextColor3 = Color3.fromRGB(63, 63, 63)
+                TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
                 TextLabel_2.TextSize = 18
                 TextLabel_2.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -1562,8 +1412,6 @@ UIPadding_3Sec.BackgroundTransparency = 0.5
                 LabelFrame.Parent = info.Parent
 
                 local Layout = Instance.new("UIListLayout")
-Layout.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Layout.BackgroundTransparency = 0.5
                 Layout.Parent = LabelFrame
                 Layout.FillDirection = Enum.FillDirection.Horizontal
                 Layout.VerticalAlignment = Enum.VerticalAlignment.Center
@@ -1571,8 +1419,6 @@ Layout.BackgroundTransparency = 0.5
                 Layout.Padding = UDim.new(0, 5)
 
                 local IconImage = Instance.new("ImageLabel")
-IconImage.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-IconImage.BackgroundTransparency = 0.5
                 IconImage.Name = "Icon"
                 IconImage.Size = UDim2.new(0, 20, 0, 20)
                 IconImage.BackgroundTransparency = 1
@@ -1584,7 +1430,7 @@ IconImage.BackgroundTransparency = 0.5
                 TextLabel.Size = UDim2.new(1, 0, 1, 0)
                 TextLabel.BackgroundTransparency = 1
                 TextLabel.Text = TitleText
-                TextLabel.TextColor3 = Color3.fromRGB(63, 63, 63)
+                TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
                 TextLabel.Font = Enum.Font.Gotham
                 TextLabel.TextSize = 16
                 TextLabel.TextWrapped = true
@@ -1620,36 +1466,18 @@ IconImage.BackgroundTransparency = 0.5
                 local Toggle = background(Section_1, Title, Desc)
 
                 local Frame = Instance.new("Frame")
-Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Frame.BackgroundTransparency = 0.5
                 local UIListLayout_1 = Instance.new("UIListLayout")
-UIListLayout_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIListLayout_1.BackgroundTransparency = 0.5
                 local UIPadding_1 = Instance.new("UIPadding")
-UIPadding_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIPadding_1.BackgroundTransparency = 0.5
                 local Frame_1 = Instance.new("Frame")
-Frame_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Frame_1.BackgroundTransparency = 0.5
                 local UICorner_1 = Instance.new("UICorner")
-UICorner_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UICorner_1.BackgroundTransparency = 0.5
                 local Frame_2 = Instance.new("Frame")
-Frame_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Frame_2.BackgroundTransparency = 0.5
                 local UICorner_2 = Instance.new("UICorner")
-UICorner_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UICorner_2.BackgroundTransparency = 0.5
                 local UIGradient_1 = Instance.new("UIGradient")
-UIGradient_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIGradient_1.BackgroundTransparency = 0.5
                 local UIStroke_1 = Instance.new("UIStroke")
-UIStroke_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIStroke_1.BackgroundTransparency = 0.5
 
                 Frame.Parent = Toggle
                 Frame.AnchorPoint = Vector2.new(1, 0.5)
-                Frame.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 Frame.BackgroundTransparency = 1
                 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Frame.BorderSizePixel = 0
@@ -1666,7 +1494,7 @@ UIStroke_1.BackgroundTransparency = 0.5
                 UIPadding_1.PaddingRight = UDim.new(0, 13)
 
                 Frame_1.Parent = Frame
-                Frame_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                Frame_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 Frame_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Frame_1.BorderSizePixel = 0
                 Frame_1.Size = UDim2.new(0, 45, 0, 23)
@@ -1677,7 +1505,7 @@ UIStroke_1.BackgroundTransparency = 0.5
 
                 Frame_2.Parent = Frame_1
                 Frame_2.AnchorPoint = Vector2.new(0.5, 0.5)
-                Frame_2.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                Frame_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 Frame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Frame_2.BorderSizePixel = 0
                 Frame_2.Position = UDim2.new(0.3, 0, 0.5, 0)
@@ -1691,9 +1519,9 @@ UIStroke_1.BackgroundTransparency = 0.5
                     ColorSequence.new {ColorSequenceKeypoint.new(0, MainColor), ColorSequenceKeypoint.new(1, DropColor)}
                 UIGradient_1.Rotation = -150
                 UIStroke_1.Parent = Frame_1
-                UIStroke_1.Color = Color3.fromRGB(53, 65, 73)
+                UIStroke_1.Color = Color3.fromRGB(106, 130, 146)
                 UIStroke_1.Thickness = 1.5
-                UIStroke_1.Transparency = 0.5
+                UIStroke_1.Transparency = 0.8
 
                 local Click = click(Toggle)
 
@@ -1720,7 +1548,7 @@ UIStroke_1.BackgroundTransparency = 0.5
                                 d = "Out",
                                 g = {
                                     Position = UDim2.new(0.75, 0, 0.5, 0),
-                                    BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                                    BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                                 }
                             }
                         ):Play()
@@ -1754,7 +1582,7 @@ UIStroke_1.BackgroundTransparency = 0.5
                                 d = "Out",
                                 g = {
                                     Position = UDim2.new(0.27, 0, 0.5, 0),
-                                    BackgroundColor3 = Color3.fromRGB(27, 29, 34)
+                                    BackgroundColor3 = Color3.fromRGB(54, 58, 69)
                                 }
                             }
                         ):Play()
@@ -1767,7 +1595,7 @@ UIStroke_1.BackgroundTransparency = 0.5
                                 g = {BackgroundTransparency = 1}
                             }
                         ):Play()
-                        tw({v = UIStroke_1, t = 0.15, s = Enum.EasingStyle.Linear, d = "Out", g = {Transparency = 0.5}}):Play(
+                        tw({v = UIStroke_1, t = 0.15, s = Enum.EasingStyle.Linear, d = "Out", g = {Transparency = 0.8}}):Play(
 
                         )
                     end
@@ -1820,55 +1648,25 @@ UIStroke_1.BackgroundTransparency = 0.5
                 Slider.Frame.UIPadding.PaddingRight = UDim.new(0, 270)
 
                 local Frame = Instance.new("Frame")
-Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Frame.BackgroundTransparency = 0.5
                 local UIListLayout_1 = Instance.new("UIListLayout")
-UIListLayout_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIListLayout_1.BackgroundTransparency = 0.5
                 local UIPadding_1 = Instance.new("UIPadding")
-UIPadding_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIPadding_1.BackgroundTransparency = 0.5
                 local ValueBar_1 = Instance.new("Frame")
-ValueBar_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-ValueBar_1.BackgroundTransparency = 0.5
                 local UICorner_1 = Instance.new("UICorner")
-UICorner_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UICorner_1.BackgroundTransparency = 0.5
                 local BarValue_1 = Instance.new("Frame")
-BarValue_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-BarValue_1.BackgroundTransparency = 0.5
                 local Frame_1 = Instance.new("Frame")
-Frame_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Frame_1.BackgroundTransparency = 0.5
                 local UICorner_2 = Instance.new("UICorner")
-UICorner_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UICorner_2.BackgroundTransparency = 0.5
                 local UIGradient_1 = Instance.new("UIGradient")
-UIGradient_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIGradient_1.BackgroundTransparency = 0.5
                 local UICorner_3 = Instance.new("UICorner")
-UICorner_3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UICorner_3.BackgroundTransparency = 0.5
                 local UIGradient_2 = Instance.new("UIGradient")
-UIGradient_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIGradient_2.BackgroundTransparency = 0.5
                 local Click_1 = Instance.new("TextButton")
-Click_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Click_1.BackgroundTransparency = 0.5
                 local ValueBox_1 = Instance.new("Frame")
-ValueBox_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-ValueBox_1.BackgroundTransparency = 0.5
                 local UICorner_4 = Instance.new("UICorner")
-UICorner_4.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UICorner_4.BackgroundTransparency = 0.5
                 local UIStroke_1 = Instance.new("UIStroke")
-UIStroke_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIStroke_1.BackgroundTransparency = 0.5
                 local TextBox_1 = Instance.new("TextBox")
 
                 Frame.Parent = Slider
                 Frame.AnchorPoint = Vector2.new(1, 0.5)
-                Frame.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 Frame.BackgroundTransparency = 1
                 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Frame.BorderSizePixel = 0
@@ -1887,7 +1685,7 @@ UIStroke_1.BackgroundTransparency = 0.5
 
                 ValueBar_1.Name = "ValueBar"
                 ValueBar_1.Parent = Frame
-                ValueBar_1.BackgroundColor3 = Color3.fromRGB(23, 24, 25)
+                ValueBar_1.BackgroundColor3 = Color3.fromRGB(47, 48, 51)
                 ValueBar_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 ValueBar_1.BorderSizePixel = 0
                 ValueBar_1.Size = UDim2.new(0, 200, 0, 4)
@@ -1897,14 +1695,14 @@ UIStroke_1.BackgroundTransparency = 0.5
 
                 BarValue_1.Name = "BarValue"
                 BarValue_1.Parent = ValueBar_1
-                BarValue_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                BarValue_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 BarValue_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 BarValue_1.BorderSizePixel = 0
                 BarValue_1.Size = UDim2.new(0.800000012, 0, 1, 0)
 
                 Frame_1.Parent = BarValue_1
                 Frame_1.AnchorPoint = Vector2.new(1, 0.5)
-                Frame_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                Frame_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 Frame_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Frame_1.BorderSizePixel = 0
                 Frame_1.Position = UDim2.new(1, 0, 0.5, 0)
@@ -1928,7 +1726,7 @@ UIStroke_1.BackgroundTransparency = 0.5
                 Click_1.Parent = ValueBar_1
                 Click_1.Active = true
                 Click_1.AnchorPoint = Vector2.new(0.5, 0.5)
-                Click_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                Click_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 Click_1.BackgroundTransparency = 1
                 Click_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Click_1.BorderSizePixel = 0
@@ -1940,7 +1738,7 @@ UIStroke_1.BackgroundTransparency = 0.5
 
                 ValueBox_1.Name = "ValueBox"
                 ValueBox_1.Parent = Frame
-                ValueBox_1.BackgroundColor3 = Color3.fromRGB(14, 14, 15)
+                ValueBox_1.BackgroundColor3 = Color3.fromRGB(28, 28, 30)
                 ValueBox_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 ValueBox_1.BorderSizePixel = 0
                 ValueBox_1.LayoutOrder = -1
@@ -1950,21 +1748,21 @@ UIStroke_1.BackgroundTransparency = 0.5
                 UICorner_4.CornerRadius = UDim.new(1, 0)
 
                 UIStroke_1.Parent = ValueBox_1
-                UIStroke_1.Color = Color3.fromRGB(23, 24, 25)
+                UIStroke_1.Color = Color3.fromRGB(47, 48, 51)
                 UIStroke_1.Thickness = 2.5
 
                 TextBox_1.Parent = ValueBox_1
                 TextBox_1.Active = true
-                TextBox_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                TextBox_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 TextBox_1.BackgroundTransparency = 1
                 TextBox_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 TextBox_1.BorderSizePixel = 0
                 TextBox_1.Size = UDim2.new(1, 0, 1, 0)
                 TextBox_1.Font = Enum.Font.Gotham
-                TextBox_1.PlaceholderColor3 = Color3.fromRGB(89, 89, 89)
+                TextBox_1.PlaceholderColor3 = Color3.fromRGB(178, 178, 178)
                 TextBox_1.PlaceholderText = ""
                 TextBox_1.Text = "80"
-                TextBox_1.TextColor3 = Color3.fromRGB(63, 63, 63)
+                TextBox_1.TextColor3 = Color3.fromRGB(255, 255, 255)
                 TextBox_1.TextSize = 9
 
                 local function roundToDecimal(value, decimals)
@@ -2089,32 +1887,18 @@ UIStroke_1.BackgroundTransparency = 0.5
                 Dropdown.Frame.UIPadding.PaddingRight = UDim.new(0, 150)
 
                 local Frame = Instance.new("Frame")
-Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Frame.BackgroundTransparency = 0.5
                 local UIListLayout_1 = Instance.new("UIListLayout")
-UIListLayout_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIListLayout_1.BackgroundTransparency = 0.5
                 local UIPadding_1 = Instance.new("UIPadding")
-UIPadding_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIPadding_1.BackgroundTransparency = 0.5
                 local ValueBox_1 = Instance.new("Frame")
-ValueBox_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-ValueBox_1.BackgroundTransparency = 0.5
                 local UICorner_1 = Instance.new("UICorner")
-UICorner_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UICorner_1.BackgroundTransparency = 0.5
                 local UIStroke_1 = Instance.new("UIStroke")
-UIStroke_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIStroke_1.BackgroundTransparency = 0.5
                 local TextLabelValue_1 = Instance.new("TextLabel")
                 local UIPadding_2 = Instance.new("UIPadding")
-UIPadding_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIPadding_2.BackgroundTransparency = 0.5
                 local ImageLabel_1D = Instance.new("ImageLabel")
 
                 Frame.Parent = Dropdown
                 Frame.AnchorPoint = Vector2.new(1, 0.5)
-                Frame.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 Frame.BackgroundTransparency = 1
                 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Frame.BorderSizePixel = 0
@@ -2133,7 +1917,7 @@ UIPadding_2.BackgroundTransparency = 0.5
 
                 ValueBox_1.Name = "ValueBox"
                 ValueBox_1.Parent = Frame
-                ValueBox_1.BackgroundColor3 = Color3.fromRGB(15, 17, 20)
+                ValueBox_1.BackgroundColor3 = Color3.fromRGB(31, 34, 40)
                 ValueBox_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 ValueBox_1.BorderSizePixel = 0
                 ValueBox_1.LayoutOrder = -1
@@ -2143,20 +1927,20 @@ UIPadding_2.BackgroundTransparency = 0.5
                 UICorner_1.CornerRadius = UDim.new(0, 6)
 
                 UIStroke_1.Parent = ValueBox_1
-                UIStroke_1.Color = Color3.fromRGB(27, 29, 34)
+                UIStroke_1.Color = Color3.fromRGB(54, 58, 69)
                 UIStroke_1.Thickness = 2.5
 
                 TextLabelValue_1.Name = "TextBox"
                 TextLabelValue_1.Parent = ValueBox_1
                 TextLabelValue_1.Active = true
-                TextLabelValue_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                TextLabelValue_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 TextLabelValue_1.BackgroundTransparency = 1
                 TextLabelValue_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 TextLabelValue_1.BorderSizePixel = 0
                 TextLabelValue_1.Size = UDim2.new(0.800000012, 0, 1, 0)
                 TextLabelValue_1.Font = Enum.Font.GothamBold
                 TextLabelValue_1.Text = tostring(Value)
-                TextLabelValue_1.TextColor3 = Color3.fromRGB(63, 63, 63)
+                TextLabelValue_1.TextColor3 = Color3.fromRGB(255, 255, 255)
                 TextLabelValue_1.TextSize = 10
                 TextLabelValue_1.TextTruncate = Enum.TextTruncate.AtEnd
                 TextLabelValue_1.TextXAlignment = Enum.TextXAlignment.Left
@@ -2167,7 +1951,7 @@ UIPadding_2.BackgroundTransparency = 0.5
 
                 ImageLabel_1D.Parent = ValueBox_1
                 ImageLabel_1D.AnchorPoint = Vector2.new(1, 0.5)
-                ImageLabel_1D.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                ImageLabel_1D.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 ImageLabel_1D.BackgroundTransparency = 1
                 ImageLabel_1D.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 ImageLabel_1D.BorderSizePixel = 0
@@ -2178,45 +1962,23 @@ UIPadding_2.BackgroundTransparency = 0.5
                 ImageLabel_1D.Rotation = 90
 
                 local MainDD = Instance.new("Frame")
-MainDD.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-MainDD.BackgroundTransparency = 0.5
                 local DropdownSelect = Instance.new("Frame")
-DropdownSelect.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-DropdownSelect.BackgroundTransparency = 0.5
                 local UICorner_1 = Instance.new("UICorner")
-UICorner_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UICorner_1.BackgroundTransparency = 0.5
                 local UIStroke_1 = Instance.new("UIStroke")
-UIStroke_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIStroke_1.BackgroundTransparency = 0.5
                 local UIListLayout_1 = Instance.new("UIListLayout")
-UIListLayout_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIListLayout_1.BackgroundTransparency = 0.5
                 local Search_1 = Instance.new("Frame")
-Search_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Search_1.BackgroundTransparency = 0.5
                 local UICorner_2 = Instance.new("UICorner")
-UICorner_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UICorner_2.BackgroundTransparency = 0.5
                 local TextBox_1 = Instance.new("TextBox")
                 local UIPadding_1 = Instance.new("UIPadding")
-UIPadding_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIPadding_1.BackgroundTransparency = 0.5
                 local ImageLabel_1 = Instance.new("ImageLabel")
                 local UIPadding_2 = Instance.new("UIPadding")
-UIPadding_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIPadding_2.BackgroundTransparency = 0.5
                 local ScrollingFrame_1 = Instance.new("ScrollingFrame")
-ScrollingFrame_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-ScrollingFrame_1.BackgroundTransparency = 0.5
                 local UIListLayout_2 = Instance.new("UIListLayout")
-UIListLayout_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIListLayout_2.BackgroundTransparency = 0.5
 
                 MainDD.Name = "Frame2"
                 MainDD.Parent = Background_1
                 MainDD.AnchorPoint = Vector2.new(0.5, 0.5)
-                MainDD.BackgroundColor3 = Color3.fromRGB(15, 17, 20)
+                MainDD.BackgroundColor3 = Color3.fromRGB(31, 34, 40)
                 MainDD.BackgroundTransparency = 1
                 MainDD.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 MainDD.BorderSizePixel = 0
@@ -2227,12 +1989,10 @@ UIListLayout_2.BackgroundTransparency = 0.5
                 MainDD.Name = "Dropdown Select"
 
                 local Shadow = Instance.new("ImageLabel")
-Shadow.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Shadow.BackgroundTransparency = 0.5
                 Shadow.Parent = MainDD
                 Shadow.Name = "DropShadow"
                 Shadow.AnchorPoint = Vector2.new(0.5, 0.5)
-                Shadow.BackgroundColor3 = Color3.fromRGB(14, 14, 15)
+                Shadow.BackgroundColor3 = Color3.fromRGB(28, 28, 30)
                 Shadow.BackgroundTransparency = 1
                 Shadow.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Shadow.BorderSizePixel = 0
@@ -2241,7 +2001,7 @@ Shadow.BackgroundTransparency = 0.5
                 Shadow.ZIndex = 0
                 Shadow.Image = "rbxassetid://8992230677"
                 Shadow.ImageColor3 = Color3.new(0, 0, 0)
-                Shadow.ImageTransparency = 0.5
+                Shadow.ImageTransparency = 0.6
                 Shadow.ResampleMode = Enum.ResamplerMode.Default
                 Shadow.ScaleType = Enum.ScaleType.Slice
                 Shadow.SliceScale = 1
@@ -2252,7 +2012,7 @@ Shadow.BackgroundTransparency = 0.5
                 DropdownSelect.Name = "DropdownSelect"
                 DropdownSelect.Parent = MainDD
                 DropdownSelect.AnchorPoint = Vector2.new(0.5, 0.5)
-                DropdownSelect.BackgroundColor3 = Color3.fromRGB(15, 17, 20)
+                DropdownSelect.BackgroundColor3 = Color3.fromRGB(31, 34, 40)
                 DropdownSelect.BackgroundTransparency = 0
                 DropdownSelect.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 DropdownSelect.BorderSizePixel = 0
@@ -2263,7 +2023,7 @@ Shadow.BackgroundTransparency = 0.5
                 UICorner_1.Parent = DropdownSelect
 
                 UIStroke_1.Parent = DropdownSelect
-                UIStroke_1.Color = Color3.fromRGB(27, 29, 34)
+                UIStroke_1.Color = Color3.fromRGB(54, 58, 69)
                 UIStroke_1.Thickness = 2.5
                 UIStroke_1.Transparency = 0.5
 
@@ -2274,7 +2034,7 @@ Shadow.BackgroundTransparency = 0.5
 
                 Search_1.Name = "Search"
                 Search_1.Parent = DropdownSelect
-                Search_1.BackgroundColor3 = Color3.fromRGB(12, 13, 15)
+                Search_1.BackgroundColor3 = Color3.fromRGB(24, 26, 31)
                 Search_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Search_1.BorderSizePixel = 0
                 Search_1.LayoutOrder = -1
@@ -2285,16 +2045,16 @@ Shadow.BackgroundTransparency = 0.5
 
                 TextBox_1.Parent = Search_1
                 TextBox_1.Active = true
-                TextBox_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                TextBox_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 TextBox_1.BackgroundTransparency = 1
                 TextBox_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 TextBox_1.BorderSizePixel = 0
                 TextBox_1.Size = UDim2.new(1, 0, 1, 0)
                 TextBox_1.Font = Enum.Font.Gotham
-                TextBox_1.PlaceholderColor3 = Color3.fromRGB(89, 89, 89)
+                TextBox_1.PlaceholderColor3 = Color3.fromRGB(178, 178, 178)
                 TextBox_1.PlaceholderText = "Search"
                 TextBox_1.Text = ""
-                TextBox_1.TextColor3 = Color3.fromRGB(63, 63, 63)
+                TextBox_1.TextColor3 = Color3.fromRGB(255, 255, 255)
                 TextBox_1.TextSize = 9
                 TextBox_1.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -2304,7 +2064,7 @@ Shadow.BackgroundTransparency = 0.5
 
                 ImageLabel_1.Parent = Search_1
                 ImageLabel_1.AnchorPoint = Vector2.new(1, 0.5)
-                ImageLabel_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                ImageLabel_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 ImageLabel_1.BackgroundTransparency = 1
                 ImageLabel_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 ImageLabel_1.BorderSizePixel = 0
@@ -2321,7 +2081,7 @@ Shadow.BackgroundTransparency = 0.5
                 ScrollingFrame_1.Name = "ScrollingFrame"
                 ScrollingFrame_1.Parent = DropdownSelect
                 ScrollingFrame_1.Active = true
-                ScrollingFrame_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                ScrollingFrame_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 ScrollingFrame_1.BackgroundTransparency = 1
                 ScrollingFrame_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 ScrollingFrame_1.BorderSizePixel = 0
@@ -2485,22 +2245,14 @@ Shadow.BackgroundTransparency = 0.5
 
                 function itemslist:Add(text)
                     local Item_1 = Instance.new("Frame")
-Item_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Item_1.BackgroundTransparency = 0.5
                     local UICorner_3 = Instance.new("UICorner")
-UICorner_3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UICorner_3.BackgroundTransparency = 0.5
                     local TextLabel_1 = Instance.new("TextLabel")
                     local UIPadding_3 = Instance.new("UIPadding")
-UIPadding_3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIPadding_3.BackgroundTransparency = 0.5
                     local Fade = Instance.new("UIGradient")
-Fade.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Fade.BackgroundTransparency = 0.5
 
                     Item_1.Name = "Item"
                     Item_1.Parent = ScrollingFrame_1
-                    Item_1.BackgroundColor3 = Color3.fromRGB(50, 54, 63)
+                    Item_1.BackgroundColor3 = Color3.fromRGB(200, 217, 255)
                     Item_1.BackgroundTransparency = 1
                     Item_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                     Item_1.BorderSizePixel = 0
@@ -2510,14 +2262,14 @@ Fade.BackgroundTransparency = 0.5
                     UICorner_3.CornerRadius = UDim.new(0, 6)
 
                     TextLabel_1.Parent = Item_1
-                    TextLabel_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                    TextLabel_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                     TextLabel_1.BackgroundTransparency = 1
                     TextLabel_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                     TextLabel_1.BorderSizePixel = 0
                     TextLabel_1.Size = UDim2.new(1, 0, 1, 0)
                     TextLabel_1.Font = Enum.Font.GothamBold
                     TextLabel_1.Text = text
-                    TextLabel_1.TextColor3 = Color3.fromRGB(63, 63, 63)
+                    TextLabel_1.TextColor3 = Color3.fromRGB(255, 255, 255)
                     TextLabel_1.TextSize = 10
                     TextLabel_1.TextXAlignment = Enum.TextXAlignment.Left
                     TextLabel_1.TextTransparency = 0.5
@@ -2564,7 +2316,7 @@ Fade.BackgroundTransparency = 0.5
                                 t = 0.15,
                                 s = Enum.EasingStyle.Linear,
                                 d = "Out",
-                                g = {BackgroundTransparency = 0.5}
+                                g = {BackgroundTransparency = 0.8}
                             }
                         ):Play()
                     end
@@ -2707,16 +2459,12 @@ Fade.BackgroundTransparency = 0.5
                 Button.Frame.UIPadding.PaddingRight = UDim.new(0, 50)
 
                 local Frame = Instance.new("Frame")
-Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Frame.BackgroundTransparency = 0.5
                 local UIPadding_1 = Instance.new("UIPadding")
-UIPadding_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIPadding_1.BackgroundTransparency = 0.5
                 local ImageLabel_1 = Instance.new("ImageLabel")
 
                 Frame.Parent = Button
                 Frame.AnchorPoint = Vector2.new(1, 0.5)
-                Frame.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 Frame.BackgroundTransparency = 1
                 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Frame.BorderSizePixel = 0
@@ -2728,7 +2476,7 @@ UIPadding_1.BackgroundTransparency = 0.5
 
                 ImageLabel_1.Parent = Frame
                 ImageLabel_1.AnchorPoint = Vector2.new(1, 0.5)
-                ImageLabel_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                ImageLabel_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 ImageLabel_1.BackgroundTransparency = 1
                 ImageLabel_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 ImageLabel_1.BorderSizePixel = 0
@@ -2772,11 +2520,7 @@ UIPadding_1.BackgroundTransparency = 0.5
                 local Label = background(Section_1, Title, Desc)
 
                 local Image = Instance.new("ImageLabel")
-Image.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Image.BackgroundTransparency = 0.5
                 local UICorner = Instance.new("UICorner")
-UICorner.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UICorner.BackgroundTransparency = 0.5
                 UICorner.Parent = Image
                 UICorner.CornerRadius = UDim.new(0, 6)
                 Image.Parent = Label
@@ -2826,28 +2570,16 @@ UICorner.BackgroundTransparency = 0.5
                 local Title_1 = Keybind.Frame.Title
 
                 local Frame = Instance.new("Frame")
-Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Frame.BackgroundTransparency = 0.5
                 local UIListLayout_1 = Instance.new("UIListLayout")
-UIListLayout_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIListLayout_1.BackgroundTransparency = 0.5
                 local UIPadding_1 = Instance.new("UIPadding")
-UIPadding_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIPadding_1.BackgroundTransparency = 0.5
                 local ValueBox_1 = Instance.new("Frame")
-ValueBox_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-ValueBox_1.BackgroundTransparency = 0.5
                 local UICorner_1 = Instance.new("UICorner")
-UICorner_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UICorner_1.BackgroundTransparency = 0.5
                 local UIStroke_1 = Instance.new("UIStroke")
-UIStroke_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIStroke_1.BackgroundTransparency = 0.5
                 local TextBox_1 = Instance.new("TextLabel")
 
                 Frame.Parent = Keybind
                 Frame.AnchorPoint = Vector2.new(1, 0.5)
-                Frame.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 Frame.BackgroundTransparency = 1
                 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Frame.BorderSizePixel = 0
@@ -2866,7 +2598,7 @@ UIStroke_1.BackgroundTransparency = 0.5
 
                 ValueBox_1.Name = "ValueBox"
                 ValueBox_1.Parent = Frame
-                ValueBox_1.BackgroundColor3 = Color3.fromRGB(15, 17, 20)
+                ValueBox_1.BackgroundColor3 = Color3.fromRGB(31, 34, 40)
                 ValueBox_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 ValueBox_1.BorderSizePixel = 0
                 ValueBox_1.LayoutOrder = -1
@@ -2876,20 +2608,20 @@ UIStroke_1.BackgroundTransparency = 0.5
                 UICorner_1.CornerRadius = UDim.new(0, 6)
 
                 UIStroke_1.Parent = ValueBox_1
-                UIStroke_1.Color = Color3.fromRGB(27, 29, 34)
+                UIStroke_1.Color = Color3.fromRGB(54, 58, 69)
                 UIStroke_1.Thickness = 2.5
 
                 TextBox_1.Name = "TextBox"
                 TextBox_1.Parent = ValueBox_1
                 TextBox_1.Active = true
-                TextBox_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                TextBox_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 TextBox_1.BackgroundTransparency = 1
                 TextBox_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 TextBox_1.BorderSizePixel = 0
                 TextBox_1.Size = UDim2.new(1, 0, 1, 0)
                 TextBox_1.Font = Enum.Font.GothamBold
                 TextBox_1.Text = tostring(Key):gsub("Enum.KeyCode.", "")
-                TextBox_1.TextColor3 = Color3.fromRGB(63, 63, 63)
+                TextBox_1.TextColor3 = Color3.fromRGB(255, 255, 255)
                 TextBox_1.TextSize = 14
                 TextBox_1.TextTruncate = Enum.TextTruncate.AtEnd
 
@@ -3016,24 +2748,16 @@ UIStroke_1.BackgroundTransparency = 0.5
 
                 local Textbox = Instance.new("Frame")
                 local UICorner_1 = Instance.new("UICorner")
-UICorner_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UICorner_1.BackgroundTransparency = 0.5
                 local ValueBox_1 = Instance.new("Frame")
-ValueBox_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-ValueBox_1.BackgroundTransparency = 0.5
                 local UICorner_2 = Instance.new("UICorner")
-UICorner_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UICorner_2.BackgroundTransparency = 0.5
                 local UIStroke_1 = Instance.new("UIStroke")
-UIStroke_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIStroke_1.BackgroundTransparency = 0.5
                 local TextBox_1 = Instance.new("TextBox")
                 local Title_1 = Instance.new("TextLabel")
                 local Desc_1 = Instance.new("TextLabel")
 
                 Textbox.Name = "Textbox"
                 Textbox.Parent = Section_1
-                Textbox.BackgroundColor3 = Color3.fromRGB(18, 19, 23)
+                Textbox.BackgroundColor3 = Color3.fromRGB(36, 39, 46)
                 Textbox.BackgroundTransparency = Transparency
                 Textbox.BorderSizePixel = 0
                 Textbox.Size = UDim2.new(1, 0, 0, 50)
@@ -3049,7 +2773,7 @@ UIStroke_1.BackgroundTransparency = 0.5
                 Title_1.Size = UDim2.new(1, -140, 0, 16) -- เหลือที่ให้กล่องขวา
                 Title_1.Font = Enum.Font.GothamBold
                 Title_1.Text = Title
-                Title_1.TextColor3 = Color3.fromRGB(63, 63, 63)
+                Title_1.TextColor3 = Color3.fromRGB(255, 255, 255)
                 Title_1.TextSize = 13
                 Title_1.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -3061,7 +2785,7 @@ UIStroke_1.BackgroundTransparency = 0.5
                 Desc_1.Size = UDim2.new(1, -140, 0, 14) -- เหลือที่ให้กล่องขวาเท่ากัน
                 Desc_1.Font = Enum.Font.Gotham
                 Desc_1.Text = Desc
-                Desc_1.TextColor3 = Color3.fromRGB(100, 100, 100)
+                Desc_1.TextColor3 = Color3.fromRGB(200, 200, 200)
                 Desc_1.TextSize = 10
                 Desc_1.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -3071,14 +2795,14 @@ UIStroke_1.BackgroundTransparency = 0.5
                 ValueBox_1.AnchorPoint = Vector2.new(1, 0.5)
                 ValueBox_1.Position = UDim2.new(1, -10, 0.5, 0) -- ชิดขวา
                 ValueBox_1.Size = UDim2.new(0, 120, 0, 28) -- กว้าง 120px สูง 28px
-                ValueBox_1.BackgroundColor3 = Color3.fromRGB(15, 17, 20)
+                ValueBox_1.BackgroundColor3 = Color3.fromRGB(31, 34, 40)
                 ValueBox_1.BorderSizePixel = 0
 
                 UICorner_2.Parent = ValueBox_1
                 UICorner_2.CornerRadius = UDim.new(1, 0)
 
                 UIStroke_1.Parent = ValueBox_1
-                UIStroke_1.Color = Color3.fromRGB(27, 29, 34)
+                UIStroke_1.Color = Color3.fromRGB(54, 58, 69)
                 UIStroke_1.Thickness = 2.5
 
                 TextBox_1.Parent = ValueBox_1
@@ -3086,10 +2810,10 @@ UIStroke_1.BackgroundTransparency = 0.5
                 TextBox_1.Size = UDim2.new(1, -10, 1, 0)
                 TextBox_1.Position = UDim2.new(0, 5, 0, 0)
                 TextBox_1.Font = Enum.Font.Gotham
-                TextBox_1.PlaceholderColor3 = Color3.fromRGB(89, 89, 89)
+                TextBox_1.PlaceholderColor3 = Color3.fromRGB(178, 178, 178)
                 TextBox_1.PlaceholderText = Placeholder
                 TextBox_1.Text = Value
-                TextBox_1.TextColor3 = Color3.fromRGB(63, 63, 63)
+                TextBox_1.TextColor3 = Color3.fromRGB(255, 255, 255)
                 TextBox_1.TextSize = 12
                 TextBox_1.ClearTextOnFocus = ClearText
 
@@ -3123,39 +2847,19 @@ UIStroke_1.BackgroundTransparency = 0.5
                 Selected.Frame.UIPadding.PaddingRight = UDim.new(0, 170)
 
                 local Frame = Instance.new("Frame")
-Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Frame.BackgroundTransparency = 0.5
                 local UIListLayout_1 = Instance.new("UIListLayout")
-UIListLayout_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIListLayout_1.BackgroundTransparency = 0.5
                 local UIPadding_1 = Instance.new("UIPadding")
-UIPadding_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIPadding_1.BackgroundTransparency = 0.5
                 local ValueBox_1 = Instance.new("Frame")
-ValueBox_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-ValueBox_1.BackgroundTransparency = 0.5
                 local UICorner_1 = Instance.new("UICorner")
-UICorner_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UICorner_1.BackgroundTransparency = 0.5
                 local UIStroke_1 = Instance.new("UIStroke")
-UIStroke_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIStroke_1.BackgroundTransparency = 0.5
                 local UIPadding_2 = Instance.new("UIPadding")
-UIPadding_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIPadding_2.BackgroundTransparency = 0.5
                 local UIPageLayout_1 = Instance.new("UIPageLayout")
-UIPageLayout_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIPageLayout_1.BackgroundTransparency = 0.5
                 local Left_1 = Instance.new("ImageButton")
-Left_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Left_1.BackgroundTransparency = 0.5
                 local Right_1 = Instance.new("ImageButton")
-Right_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Right_1.BackgroundTransparency = 0.5
 
                 Frame.Parent = Selected
                 Frame.AnchorPoint = Vector2.new(1, 0.5)
-                Frame.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 Frame.BackgroundTransparency = 1
                 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Frame.BorderSizePixel = 0
@@ -3174,7 +2878,7 @@ Right_1.BackgroundTransparency = 0.5
 
                 ValueBox_1.Name = "ValueBox"
                 ValueBox_1.Parent = Frame
-                ValueBox_1.BackgroundColor3 = Color3.fromRGB(15, 17, 20)
+                ValueBox_1.BackgroundColor3 = Color3.fromRGB(31, 34, 40)
                 ValueBox_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 ValueBox_1.BorderSizePixel = 0
                 ValueBox_1.Size = UDim2.new(0, 100, 0, 25)
@@ -3184,7 +2888,7 @@ Right_1.BackgroundTransparency = 0.5
                 UICorner_1.CornerRadius = UDim.new(1, 0)
 
                 UIStroke_1.Parent = ValueBox_1
-                UIStroke_1.Color = Color3.fromRGB(27, 29, 34)
+                UIStroke_1.Color = Color3.fromRGB(54, 58, 69)
                 UIStroke_1.Thickness = 2.5
 
                 UIPadding_2.Parent = ValueBox_1
@@ -3201,7 +2905,7 @@ Right_1.BackgroundTransparency = 0.5
                 Left_1.Name = "Left"
                 Left_1.Parent = Frame
                 Left_1.AnchorPoint = Vector2.new(1, 0.5)
-                Left_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                Left_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 Left_1.BackgroundTransparency = 1
                 Left_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Left_1.BorderSizePixel = 0
@@ -3214,7 +2918,7 @@ Right_1.BackgroundTransparency = 0.5
                 Right_1.Name = "Right"
                 Right_1.Parent = Frame
                 Right_1.AnchorPoint = Vector2.new(1, 0.5)
-                Right_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                Right_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 Right_1.BackgroundTransparency = 1
                 Right_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Right_1.BorderSizePixel = 0
@@ -3228,19 +2932,17 @@ Right_1.BackgroundTransparency = 0.5
 
                 function g:addlist(item)
                     local Value_1 = Instance.new("TextLabel")
-Value_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Value_1.BackgroundTransparency = 0.5
                     Value_1.Name = "Value"
                     Value_1.Parent = ValueBox_1
                     Value_1.Active = true
-                    Value_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                    Value_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                     Value_1.BackgroundTransparency = 1
                     Value_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                     Value_1.BorderSizePixel = 0
                     Value_1.Size = UDim2.new(1, 0, 1, 0)
                     Value_1.Font = Enum.Font.GothamBold
                     Value_1.Text = item
-                    Value_1.TextColor3 = Color3.fromRGB(63, 63, 63)
+                    Value_1.TextColor3 = Color3.fromRGB(255, 255, 255)
                     Value_1.TextSize = 10
                     Value_1.TextTruncate = Enum.TextTruncate.AtEnd
                 end
@@ -3336,49 +3038,29 @@ Value_1.BackgroundTransparency = 0.5
                 local Title = info.Title
                 local Desc = info.Desc or ""
                 local Icon = info.Icon
-                local Color = info.Color or Color3.fromRGB(63, 63, 63)
+                local Color = info.Color or Color3.fromRGB(255, 255, 255)
                 local Callback = info.Callback or function()
                     end
 
                 local Discord = Instance.new("Frame")
-Discord.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Discord.BackgroundTransparency = 0.5
                 local Click = click(Discord)
                 local UICorner_1 = Instance.new("UICorner")
-UICorner_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UICorner_1.BackgroundTransparency = 0.5
                 local Frame_1 = Instance.new("Frame")
-Frame_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Frame_1.BackgroundTransparency = 0.5
                 local UIListLayout_1 = Instance.new("UIListLayout")
-UIListLayout_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIListLayout_1.BackgroundTransparency = 0.5
                 local UIPadding_1 = Instance.new("UIPadding")
-UIPadding_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIPadding_1.BackgroundTransparency = 0.5
                 local TextLabel_1 = Instance.new("TextLabel")
                 local Title_1 = Instance.new("TextLabel")
                 local UIGradient_1 = Instance.new("UIGradient")
-UIGradient_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIGradient_1.BackgroundTransparency = 0.5
                 local Icon_1 = Instance.new("Frame")
-Icon_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Icon_1.BackgroundTransparency = 0.5
                 local IconDiscord_1 = Instance.new("ImageLabel")
-IconDiscord_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-IconDiscord_1.BackgroundTransparency = 0.5
                 local Frame_2 = Instance.new("Frame")
-Frame_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Frame_2.BackgroundTransparency = 0.5
                 local UIPadding_2 = Instance.new("UIPadding")
-UIPadding_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIPadding_2.BackgroundTransparency = 0.5
                 local ImageLabel_1 = Instance.new("ImageLabel")
                 local TextLabel_2 = Instance.new("TextButton")
 
                 Discord.Name = "Discord"
                 Discord.Parent = Section_1
-                Discord.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                Discord.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 Discord.BackgroundTransparency = Transparency
                 Discord.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Discord.BorderSizePixel = 0
@@ -3390,7 +3072,7 @@ UIPadding_2.BackgroundTransparency = 0.5
 
                 Frame_1.Parent = Discord
                 Frame_1.AnchorPoint = Vector2.new(0, 0.5)
-                Frame_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                Frame_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 Frame_1.BackgroundTransparency = 1
                 Frame_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Frame_1.BorderSizePixel = 0
@@ -3406,7 +3088,7 @@ UIPadding_2.BackgroundTransparency = 0.5
                 UIPadding_1.PaddingRight = UDim.new(0, 13)
 
                 TextLabel_1.Parent = Frame_1
-                TextLabel_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                TextLabel_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 TextLabel_1.BackgroundTransparency = 1
                 TextLabel_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 TextLabel_1.BorderSizePixel = 0
@@ -3415,7 +3097,7 @@ UIPadding_2.BackgroundTransparency = 0.5
                 TextLabel_1.Font = Enum.Font.GothamBold
                 TextLabel_1.RichText = true
                 TextLabel_1.Text = "<i>" .. Desc .. "</i>"
-                TextLabel_1.TextColor3 = Color3.fromRGB(63, 63, 63)
+                TextLabel_1.TextColor3 = Color3.fromRGB(255, 255, 255)
                 TextLabel_1.TextSize = 11
                 TextLabel_1.TextTransparency = 0.5
                 TextLabel_1.TextWrapped = true
@@ -3423,7 +3105,7 @@ UIPadding_2.BackgroundTransparency = 0.5
 
                 Title_1.Name = "Title"
                 Title_1.Parent = Frame_1
-                Title_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                Title_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 Title_1.BackgroundTransparency = 1
                 Title_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Title_1.BorderSizePixel = 0
@@ -3431,7 +3113,7 @@ UIPadding_2.BackgroundTransparency = 0.5
                 Title_1.Font = Enum.Font.GothamBold
                 Title_1.RichText = true
                 Title_1.Text = "<i>" .. Title .. "</i>"
-                Title_1.TextColor3 = Color3.fromRGB(63, 63, 63)
+                Title_1.TextColor3 = Color3.fromRGB(255, 255, 255)
                 Title_1.TextSize = 14
                 Title_1.TextWrapped = true
                 Title_1.TextXAlignment = Enum.TextXAlignment.Left
@@ -3440,12 +3122,12 @@ UIPadding_2.BackgroundTransparency = 0.5
                 UIGradient_1.Color =
                     ColorSequence.new {
                     ColorSequenceKeypoint.new(0, Color),
-                    ColorSequenceKeypoint.new(1, Color3.fromRGB(15, 17, 20))
+                    ColorSequenceKeypoint.new(1, Color3.fromRGB(31, 34, 40))
                 }
 
                 Icon_1.Name = "Icon"
                 Icon_1.Parent = Discord
-                Icon_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                Icon_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 Icon_1.BackgroundTransparency = 1
                 Icon_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Icon_1.BorderSizePixel = 0
@@ -3454,7 +3136,7 @@ UIPadding_2.BackgroundTransparency = 0.5
                 IconDiscord_1.Name = "IconDiscord"
                 IconDiscord_1.Parent = Icon_1
                 IconDiscord_1.AnchorPoint = Vector2.new(0.5, 0.5)
-                IconDiscord_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                IconDiscord_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 IconDiscord_1.BackgroundTransparency = 1
                 IconDiscord_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 IconDiscord_1.BorderSizePixel = 0
@@ -3465,7 +3147,7 @@ UIPadding_2.BackgroundTransparency = 0.5
 
                 Frame_2.Parent = Discord
                 Frame_2.AnchorPoint = Vector2.new(1, 0.5)
-                Frame_2.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                Frame_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 Frame_2.BackgroundTransparency = 1
                 Frame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Frame_2.BorderSizePixel = 0
@@ -3477,7 +3159,7 @@ UIPadding_2.BackgroundTransparency = 0.5
 
                 ImageLabel_1.Parent = Frame_2
                 ImageLabel_1.AnchorPoint = Vector2.new(1, 0.5)
-                ImageLabel_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                ImageLabel_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 ImageLabel_1.BackgroundTransparency = 1
                 ImageLabel_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 ImageLabel_1.BorderSizePixel = 0
@@ -3489,7 +3171,7 @@ UIPadding_2.BackgroundTransparency = 0.5
 
                 TextLabel_2.Name = "TextLabel"
                 TextLabel_2.Parent = Frame_2
-                TextLabel_2.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 TextLabel_2.BackgroundTransparency = 1
                 TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 TextLabel_2.BorderSizePixel = 0
@@ -3497,7 +3179,7 @@ UIPadding_2.BackgroundTransparency = 0.5
                 TextLabel_2.Font = Enum.Font.GothamBold
                 TextLabel_2.RichText = true
                 TextLabel_2.Text = "<i><u>Click Here</u></i>"
-                TextLabel_2.TextColor3 = Color3.fromRGB(63, 63, 63)
+                TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
                 TextLabel_2.TextSize = 14
                 TextLabel_2.TextTransparency = 0.5
                 TextLabel_2.TextXAlignment = Enum.TextXAlignment.Left
@@ -3551,15 +3233,11 @@ UIPadding_2.BackgroundTransparency = 0.5
                 local Icon = info.Icon
                 local Size = info.Size
                 local Image_1 = Instance.new("ImageLabel")
-Image_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Image_1.BackgroundTransparency = 0.5
                 local UICorner_1 = Instance.new("UICorner")
-UICorner_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UICorner_1.BackgroundTransparency = 0.5
 
                 Image_1.Parent = Section_1
                 Image_1.AnchorPoint = Vector2.new(0.5, 0.5)
-                Image_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+                Image_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 Image_1.BackgroundTransparency = 1
                 Image_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Image_1.BorderSizePixel = 0
@@ -3574,12 +3252,10 @@ UICorner_1.BackgroundTransparency = 0.5
 
             function Main:Line()
                 local Line_1 = Instance.new("Frame")
-Line_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Line_1.BackgroundTransparency = 0.5
                 Line_1.Name = "Line"
                 Line_1.Parent = Section_1
                 Line_1.AnchorPoint = Vector2.new(0, 1)
-                Line_1.BackgroundColor3 = Color3.fromRGB(27, 29, 34)
+                Line_1.BackgroundColor3 = Color3.fromRGB(54, 58, 69)
                 Line_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Line_1.BorderSizePixel = 0
                 Line_1.Position = UDim2.new(0, 0, 1, 0)
@@ -3597,37 +3273,21 @@ Line_1.BackgroundTransparency = 0.5
         local Time = info.Time or 5
         local Button = info.Button or {}
         local Notifytemple_1 = Instance.new("Frame")
-Notifytemple_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Notifytemple_1.BackgroundTransparency = 0.5
         local UICorner_1 = Instance.new("UICorner")
-UICorner_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UICorner_1.BackgroundTransparency = 0.5
         local UIStroke_1 = Instance.new("UIStroke")
-UIStroke_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIStroke_1.BackgroundTransparency = 0.5
         local Frame_1 = Instance.new("Frame")
-Frame_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Frame_1.BackgroundTransparency = 0.5
         local UIPadding_1 = Instance.new("UIPadding")
-UIPadding_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIPadding_1.BackgroundTransparency = 0.5
         local Desc_1 = Instance.new("TextLabel")
         local UIListLayout_2 = Instance.new("UIListLayout")
-UIListLayout_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIListLayout_2.BackgroundTransparency = 0.5
         local Title_1 = Instance.new("TextLabel")
         local ImageLabel_1 = Instance.new("ImageLabel")
 
         local Background = Instance.new("Frame")
-Background.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Background.BackgroundTransparency = 0.5
         local UIListLayoutBackgorund = Instance.new("UIListLayout")
-UIListLayoutBackgorund.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIListLayoutBackgorund.BackgroundTransparency = 0.5
 
         Background.Name = "Background"
         Background.Parent = Notification
-        Background.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+        Background.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         Background.BackgroundTransparency = 1.000
         Background.BorderColor3 = Color3.fromRGB(0, 0, 0)
         Background.BorderSizePixel = 0
@@ -3644,7 +3304,7 @@ UIListLayoutBackgorund.BackgroundTransparency = 0.5
 
         Notifytemple_1.Name = "Notifytemple"
         Notifytemple_1.Parent = Background
-        Notifytemple_1.BackgroundColor3 = Color3.fromRGB(14, 14, 15)
+        Notifytemple_1.BackgroundColor3 = Color3.fromRGB(28, 28, 30)
         Notifytemple_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
         Notifytemple_1.BorderSizePixel = 0
         Notifytemple_1.Size = UDim2.new(0, 0, 0, 0)
@@ -3653,11 +3313,11 @@ UIListLayoutBackgorund.BackgroundTransparency = 0.5
         UICorner_1.Parent = Notifytemple_1
 
         UIStroke_1.Parent = Notifytemple_1
-        UIStroke_1.Color = Color3.fromRGB(20, 21, 22)
+        UIStroke_1.Color = Color3.fromRGB(41, 42, 45)
         UIStroke_1.Thickness = 2
 
         Frame_1.Parent = Notifytemple_1
-        Frame_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+        Frame_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         Frame_1.BackgroundTransparency = 1
         Frame_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
         Frame_1.BorderSizePixel = 0
@@ -3671,7 +3331,7 @@ UIListLayoutBackgorund.BackgroundTransparency = 0.5
 
         Desc_1.Name = "Desc"
         Desc_1.Parent = Frame_1
-        Desc_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+        Desc_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         Desc_1.BackgroundTransparency = 1
         Desc_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
         Desc_1.BorderSizePixel = 0
@@ -3679,7 +3339,7 @@ UIListLayoutBackgorund.BackgroundTransparency = 0.5
         Desc_1.Size = UDim2.new(1, 0, 0, 65)
         Desc_1.Font = Enum.Font.GothamBold -- ตัวหนังสือเข้มเท่ากับ Title
         Desc_1.Text = Desc
-        Desc_1.TextColor3 = Color3.fromRGB(63, 63, 63)
+        Desc_1.TextColor3 = Color3.fromRGB(255, 255, 255)
         Desc_1.TextSize = 12
         Desc_1.TextTransparency = 0.5
         Desc_1.TextXAlignment = Enum.TextXAlignment.Left
@@ -3691,27 +3351,27 @@ UIListLayoutBackgorund.BackgroundTransparency = 0.5
 
         Title_1.Name = "Title"
         Title_1.Parent = Frame_1
-        Title_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+        Title_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         Title_1.BackgroundTransparency = 1
         Title_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
         Title_1.BorderSizePixel = 0
         Title_1.Size = UDim2.new(1, 0, 0, 20)
         Title_1.Font = Enum.Font.GothamBold
         Title_1.Text = Title
-        Title_1.TextColor3 = Color3.fromRGB(63, 63, 63)
+        Title_1.TextColor3 = Color3.fromRGB(255, 255, 255)
         Title_1.TextSize = 14
         Title_1.TextXAlignment = Enum.TextXAlignment.Left
 
         ImageLabel_1.Parent = Notifytemple_1
         ImageLabel_1.AnchorPoint = Vector2.new(1, 0.5)
-        ImageLabel_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+        ImageLabel_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         ImageLabel_1.BackgroundTransparency = 1
         ImageLabel_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
         ImageLabel_1.BorderSizePixel = 0
         ImageLabel_1.Position = UDim2.new(1.5, 0, 0.5, 0)
         ImageLabel_1.Size = UDim2.new(0, 200, 0, 200)
         ImageLabel_1.Image = "rbxassetid://107475662985726"
-        ImageLabel_1.ImageTransparency = 0.5
+        ImageLabel_1.ImageTransparency = 0.8999999761581421
 
         tw(
             {
@@ -3749,30 +3409,16 @@ UIListLayoutBackgorund.BackgroundTransparency = 0.5
 
         if type(Time) == "number" then
             local Cool_1 = Instance.new("Frame")
-Cool_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Cool_1.BackgroundTransparency = 0.5
             local Cooldown_1 = Instance.new("Frame")
-Cooldown_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Cooldown_1.BackgroundTransparency = 0.5
             local UIStroke_2 = Instance.new("UIStroke")
-UIStroke_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIStroke_2.BackgroundTransparency = 0.5
             local Cooldown_2 = Instance.new("Frame")
-Cooldown_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Cooldown_2.BackgroundTransparency = 0.5
             local UICorner_2 = Instance.new("UICorner")
-UICorner_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UICorner_2.BackgroundTransparency = 0.5
             local UICorner_3 = Instance.new("UICorner")
-UICorner_3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UICorner_3.BackgroundTransparency = 0.5
             local UIPadding_2 = Instance.new("UIPadding")
-UIPadding_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIPadding_2.BackgroundTransparency = 0.5
 
             Cool_1.Name = "Cool"
             Cool_1.Parent = Notifytemple_1
-            Cool_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+            Cool_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             Cool_1.BackgroundTransparency = 1
             Cool_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Cool_1.BorderSizePixel = 0
@@ -3781,20 +3427,20 @@ UIPadding_2.BackgroundTransparency = 0.5
             Cooldown_1.Name = "Cooldown"
             Cooldown_1.Parent = Cool_1
             Cooldown_1.AnchorPoint = Vector2.new(0, 1)
-            Cooldown_1.BackgroundColor3 = Color3.fromRGB(20, 21, 22)
+            Cooldown_1.BackgroundColor3 = Color3.fromRGB(41, 42, 45)
             Cooldown_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Cooldown_1.BorderSizePixel = 0
             Cooldown_1.Position = UDim2.new(0, 0, 1, 0)
             Cooldown_1.Size = UDim2.new(1, 0, 0, 4)
 
             UIStroke_2.Parent = Cooldown_1
-            UIStroke_2.Color = Color3.fromRGB(20, 21, 22)
+            UIStroke_2.Color = Color3.fromRGB(41, 42, 45)
             UIStroke_2.Thickness = 3
 
             Cooldown_2.Name = "Cooldown"
             Cooldown_2.Parent = Cool_1
             Cooldown_2.AnchorPoint = Vector2.new(0, 1)
-            Cooldown_2.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+            Cooldown_2.BackgroundColor3 = Color3.fromRGB(161, 161, 161)
             Cooldown_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Cooldown_2.BorderSizePixel = 0
             Cooldown_2.Position = UDim2.new(0, 0, 1, 0)
@@ -3871,24 +3517,18 @@ UIPadding_2.BackgroundTransparency = 0.5
     do
     local Closeui = Instance.new("Frame")
     local UICorner_1 = Instance.new("UICorner")
-UICorner_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UICorner_1.BackgroundTransparency = 0.5
     local UIStroke_1 = Instance.new("UIStroke")
-UIStroke_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UIStroke_1.BackgroundTransparency = 1
     local ImageLabel_1 = Instance.new("ImageLabel")
     local Click_1 = Instance.new("TextButton")
-Click_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Click_1.BackgroundTransparency = 0.5
 
     Closeui.Name = "Closeui"
     Closeui.Parent = ScreenGui
     Closeui.AnchorPoint = Vector2.new(0, 1)
-    Closeui.BackgroundColor3 = Color3.fromRGB(0, 0, 0) 
+    Closeui.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
     Closeui.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Closeui.BorderSizePixel = 0
     Closeui.Position = UDim2.new(0.01, 0, 0.99, 0)
-    Closeui.Size = UDim2.new(0, 45, 0, 45) 
+    Closeui.Size = UDim2.new(0, 45, 0, 45)
 
     UICorner_1.Parent = Closeui
     UICorner_1.CornerRadius = UDim.new(0, 10) 
@@ -3963,18 +3603,11 @@ Click_1.BackgroundTransparency = 0.5
             BlurFrame2 = init(Background_1)
         end
         tw({
-            v = Closeui,
-            t = 0.15,
-            s = Enum.EasingStyle.Back,
-            d = "Out",
-            g = {BackgroundColor3 = Color3.fromRGB(15, 17, 20)}
-        }):Play()
-        tw({
             v = ImageLabel_1,
             t = 0.15,
             s = Enum.EasingStyle.Back,
             d = "Out",
-            g = {Size = UDim2.new(0.80, 0, 0.80, 0)}
+            g = {Size = UDim2.new(0.8, 0, 0.8, 0)}
         }):Play()
         delay(0.016, function()
             tw({
@@ -3983,13 +3616,6 @@ Click_1.BackgroundTransparency = 0.5
                 s = Enum.EasingStyle.Back,
                 d = "Out",
                 g = {Size = UDim2.new(0.9, 0, 0.9, 0)}
-            }):Play()
-            tw({
-                v = Closeui,
-                t = 0.15,
-                s = Enum.EasingStyle.Back,
-                d = "Out",
-                g = {BackgroundColor3 = Color3.fromRGB(0, 0, 0)}
             }):Play()
         end)
     end
@@ -4001,6 +3627,7 @@ Click_1.BackgroundTransparency = 0.5
     end)
     Click_1.MouseButton1Click:Connect(o)
 end
+
     return Library.Tabs
 end
 
