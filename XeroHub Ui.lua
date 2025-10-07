@@ -688,7 +688,45 @@ function Library:CreateWindow(info)
 
         return position
     end
-    
+    local function randomTween(object)
+        while true do
+            local randomX = math.random() * 2 - 1
+            local randomY = math.random() * 2 - 1
+            local randomPosition = UDim2.new(math.clamp(randomX, 0, 1), 0, math.clamp(randomY, 0, 1), 0)
+            local tweenInfo =
+                TweenInfo.new(math.random(5, 10), Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, 0, false)
+            local tween = game:GetService("TweenService"):Create(object, tweenInfo, {Position = randomPosition})
+            tween:Play()
+            tween.Completed:Wait()
+            object.Position = checkBoundaries(object)
+        end
+    end
+    coroutine.wrap(
+        function()
+            randomTween(effectcircle)
+        end
+    )()
+    coroutine.wrap(
+        function()
+            randomTween(effectcircle3)
+        end
+    )()
+    coroutine.wrap(
+        function()
+            randomTween(effectcircle2)
+        end
+    )()
+    coroutine.wrap(
+        function()
+            randomTween(effectcircle4)
+        end
+    )()
+    coroutine.wrap(
+        function()
+            randomTween(effectcircle5)
+        end
+    )()
+
     Shadow.Parent = Background_1
     Shadow.Name = "DropShadow"
     Shadow.AnchorPoint = Vector2.new(0.5, 0.5)
