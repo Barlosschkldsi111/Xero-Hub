@@ -1,5 +1,7 @@
 Library = {}
 local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ScreenGui.BackgroundTransparency = 0.5
 ScreenGui.Name = "Fetching"
 ScreenGui.Parent =
     not game:GetService("RunService"):IsStudio() and game:GetService("CoreGui") or
@@ -81,6 +83,8 @@ function Library:CreateWindow(info)
         DepthOfField.Name = "DPT_" .. gToken
 
         local frame = Instance.new("Frame")
+frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+frame.BackgroundTransparency = 0.5
         frame.Parent = getFrame
         frame.Size = UDim2.new(0.95, 0, 0.95, 0)
         frame.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -156,6 +160,8 @@ function Library:CreateWindow(info)
 
                 if not p0 then
                     p0 = Instance.new("Part")
+p0.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+p0.BackgroundTransparency = 0.5
                     p0.FormFactor = "Custom"
                     p0.TopSurface = 0
                     p0.BottomSurface = 0
@@ -300,6 +306,8 @@ function Library:CreateWindow(info)
         ClickButtonCircle.ZIndex = 10
 
         local UICorner = Instance.new("UICorner")
+UICorner.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UICorner.BackgroundTransparency = 0.5
         UICorner.CornerRadius = UDim.new(1, 0)
         UICorner.Parent = ClickButtonCircle
 
@@ -338,6 +346,8 @@ function Library:CreateWindow(info)
         ClickButtonCircle.ZIndex = 10
 
         local UICorner = Instance.new("UICorner")
+UICorner.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UICorner.BackgroundTransparency = 0.5
         UICorner.CornerRadius = UDim.new(1, 0)
         UICorner.Parent = ClickButtonCircle
 
@@ -450,6 +460,8 @@ function Library:CreateWindow(info)
     end
     local function click(p)
         local Click = Instance.new("TextButton")
+Click.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Click.BackgroundTransparency = 0.5
 
         Click.Name = "Click"
         Click.Parent = p
@@ -469,9 +481,17 @@ function Library:CreateWindow(info)
     local function background(p, t, d)
         local ToggleDesc = Instance.new("Frame")
         local UICorner_1 = Instance.new("UICorner")
+UICorner_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UICorner_1.BackgroundTransparency = 0.5
         local Frame_4 = Instance.new("Frame")
+Frame_4.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame_4.BackgroundTransparency = 0.5
         local UIListLayout_2 = Instance.new("UIListLayout")
+UIListLayout_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIListLayout_2.BackgroundTransparency = 0.5
         local UIPadding_2 = Instance.new("UIPadding")
+UIPadding_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIPadding_2.BackgroundTransparency = 0.5
         local TextLabel_1 = Instance.new("TextLabel")
         local Title_1 = Instance.new("TextLabel")
 
@@ -568,25 +588,61 @@ function Library:CreateWindow(info)
     local Keycode = info.Keycode
     local Size = info.Size
     local Background_1 = Instance.new("Frame")
+Background_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Background_1.BackgroundTransparency = 0.5
     local UICorner_1 = Instance.new("UICorner")
+UICorner_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UICorner_1.BackgroundTransparency = 0.5
     local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIStroke_1.BackgroundTransparency = 0.5
     local Topbar_1 = Instance.new("Frame")
+Topbar_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Topbar_1.BackgroundTransparency = 0.5
     local Line_1 = Instance.new("Frame")
+Line_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Line_1.BackgroundTransparency = 0.5
     local Func_1 = Instance.new("Frame")
+Func_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Func_1.BackgroundTransparency = 0.5
     local UIPadding_1 = Instance.new("UIPadding")
+UIPadding_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIPadding_1.BackgroundTransparency = 0.5
     local ImageLabel_1 = Instance.new("ImageLabel")
     local TabFrame_1 = Instance.new("Frame")
+TabFrame_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TabFrame_1.BackgroundTransparency = 0.5
     local Shadow = Instance.new("ImageLabel")
+Shadow.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Shadow.BackgroundTransparency = 0.5
     local resize = Instance.new("TextButton")
+resize.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+resize.BackgroundTransparency = 0.5
     local effect = Instance.new("ImageLabel")
+effect.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+effect.BackgroundTransparency = 0.5
     local effectcircle = Instance.new("ImageLabel")
+effectcircle.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+effectcircle.BackgroundTransparency = 0.5
     local effectcircle2 = Instance.new("ImageLabel")
+effectcircle2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+effectcircle2.BackgroundTransparency = 0.5
     local effectcircle3 = Instance.new("ImageLabel")
+effectcircle3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+effectcircle3.BackgroundTransparency = 0.5
     local effectcircle4 = Instance.new("ImageLabel")
+effectcircle4.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+effectcircle4.BackgroundTransparency = 0.5
     local effectcircle5 = Instance.new("ImageLabel")
+effectcircle5.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+effectcircle5.BackgroundTransparency = 0.5
 
     local UIcornEffect = Instance.new("UICorner")
+UIcornEffect.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIcornEffect.BackgroundTransparency = 0.5
     local frameef = Instance.new("Frame")
+frameef.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+frameef.BackgroundTransparency = 0.5
 
     Background_1.Name = "Background"
     Background_1.Parent = ScreenGui
@@ -789,9 +845,17 @@ function Library:CreateWindow(info)
     TabFrame_1.Size = UDim2.new(1, 0, 0, 50)
 
     local Profile = Instance.new("ImageLabel")
+Profile.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Profile.BackgroundTransparency = 0.5
     local UICornerProfile_1 = Instance.new("UICorner")
+UICornerProfile_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UICornerProfile_1.BackgroundTransparency = 0.5
     local UIStrokeProfile_1 = Instance.new("UIStroke")
+UIStrokeProfile_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIStrokeProfile_1.BackgroundTransparency = 0.5
     local ProfileImage_1 = Instance.new("ImageLabel")
+ProfileImage_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ProfileImage_1.BackgroundTransparency = 0.5
 
     Profile.Name = "Profile"
     Profile.Parent = Func_1
@@ -819,8 +883,14 @@ function Library:CreateWindow(info)
     UIStrokeProfile_1.Thickness = 1.5
 
     local UIPadding_2 = Instance.new("UIPadding")
+UIPadding_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIPadding_2.BackgroundTransparency = 0.5
     local ScrollingFrame_1 = Instance.new("ScrollingFrame")
+ScrollingFrame_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ScrollingFrame_1.BackgroundTransparency = 0.5
     local FrameTab_1 = Instance.new("Frame")
+FrameTab_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+FrameTab_1.BackgroundTransparency = 0.5
 
     UIPadding_2.Parent = TabFrame_1
     UIPadding_2.PaddingLeft = UDim.new(0, 50)
@@ -858,9 +928,17 @@ function Library:CreateWindow(info)
     FrameTab_1.Size = UDim2.new(1, 0, 1, 0)
 
     local UIPadding_5 = Instance.new("UIPadding")
+UIPadding_5.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIPadding_5.BackgroundTransparency = 0.5
     local UIListLayout_3 = Instance.new("UIListLayout")
+UIListLayout_3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIListLayout_3.BackgroundTransparency = 0.5
     local Select_1 = Instance.new("Frame")
+Select_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Select_1.BackgroundTransparency = 0.5
     local UIGradient_5 = Instance.new("UIGradient")
+UIGradient_5.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIGradient_5.BackgroundTransparency = 0.5
 
     UIPadding_5.Parent = FrameTab_1
     UIPadding_5.PaddingLeft = UDim.new(0, 5)
@@ -885,7 +963,11 @@ function Library:CreateWindow(info)
         ColorSequence.new {ColorSequenceKeypoint.new(0, MainColor), ColorSequenceKeypoint.new(1, DropColor)}
 
     local Notification = Instance.new("Frame")
+Notification.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Notification.BackgroundTransparency = 0.5
     local UIListLayout_1 = Instance.new("UIListLayout")
+UIListLayout_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIListLayout_1.BackgroundTransparency = 0.5
 
     Notification.Name = "Notification"
     Notification.Parent = ScreenGui
@@ -904,7 +986,11 @@ function Library:CreateWindow(info)
     UIListLayout_1.VerticalAlignment = Enum.VerticalAlignment.Bottom
 
     local PageFolder = Instance.new("Frame")
+PageFolder.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+PageFolder.BackgroundTransparency = 0.5
     local UIPageLayout = Instance.new("UIPageLayout")
+UIPageLayout.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIPageLayout.BackgroundTransparency = 0.5
 
     PageFolder.Name = "PageFolder"
     PageFolder.Parent = Background_1
@@ -932,16 +1018,34 @@ function Library:CreateWindow(info)
         local Icon = info.Icon
 
         local Tab = Instance.new("Frame")
+Tab.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Tab.BackgroundTransparency = 0.5
         local Tab_1 = Instance.new("Frame")
+Tab_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Tab_1.BackgroundTransparency = 0.5
         local UICorner_2 = Instance.new("UICorner")
+UICorner_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UICorner_2.BackgroundTransparency = 0.5
         local UIStroke_2 = Instance.new("UIStroke")
+UIStroke_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIStroke_2.BackgroundTransparency = 0.5
         local UIGradient_1 = Instance.new("UIGradient")
+UIGradient_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIGradient_1.BackgroundTransparency = 0.5
         local UIGradient_2 = Instance.new("UIGradient")
+UIGradient_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIGradient_2.BackgroundTransparency = 0.5
         local UIListLayout_1 = Instance.new("UIListLayout")
+UIListLayout_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIListLayout_1.BackgroundTransparency = 0.5
         local ImageLabel_2 = Instance.new("ImageLabel")
         local UIPadding_3 = Instance.new("UIPadding")
+UIPadding_3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIPadding_3.BackgroundTransparency = 0.5
         local Title_1 = Instance.new("TextLabel")
         local UICorner_3 = Instance.new("UICorner")
+UICorner_3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UICorner_3.BackgroundTransparency = 0.5
 
         Tab.Name = "Tab"
         Tab.Parent = FrameTab_1
@@ -992,14 +1096,32 @@ function Library:CreateWindow(info)
         ImageLabel_2.Position = UDim2.new(0.5, 0, 0.5, 0)
 
         local Page_1 = Instance.new("Frame")
+Page_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Page_1.BackgroundTransparency = 0.5
         local UIPadding_1Tab = Instance.new("UIPadding")
+UIPadding_1Tab.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIPadding_1Tab.BackgroundTransparency = 0.5
         local TabFrame_1Tab = Instance.new("Frame")
+TabFrame_1Tab.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TabFrame_1Tab.BackgroundTransparency = 0.5
         local ScrollingFrame_1Tab = Instance.new("ScrollingFrame")
+ScrollingFrame_1Tab.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ScrollingFrame_1Tab.BackgroundTransparency = 0.5
         local Frame_1 = Instance.new("Frame")
+Frame_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame_1.BackgroundTransparency = 0.5
         local UIPadding_2Tab = Instance.new("UIPadding")
+UIPadding_2Tab.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIPadding_2Tab.BackgroundTransparency = 0.5
         local UIListLayout_1Tab = Instance.new("UIListLayout")
+UIListLayout_1Tab.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIListLayout_1Tab.BackgroundTransparency = 0.5
         local SelectTab = Instance.new("Frame")
+SelectTab.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+SelectTab.BackgroundTransparency = 0.5
         local UIGradient_3Tab = Instance.new("UIGradient")
+UIGradient_3Tab.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIGradient_3Tab.BackgroundTransparency = 0.5
 
         Page_1.Name = "Page"
         Page_1.Parent = PageFolder
@@ -1022,6 +1144,8 @@ function Library:CreateWindow(info)
         TabFrame_1Tab.Size = UDim2.new(0, 70, 1, 0)
 
         local Line = Instance.new("Frame")
+Line.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Line.BackgroundTransparency = 0.5
 
         Line.Name = "Line"
         Line.Parent = TabFrame_1Tab
@@ -1168,13 +1292,27 @@ function Library:CreateWindow(info)
             local Title = info.Title
             local Icon = info.Icon
             local Tab_2 = Instance.new("Frame")
+Tab_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Tab_2.BackgroundTransparency = 0.5
             local Tab_1 = Instance.new("Frame")
+Tab_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Tab_1.BackgroundTransparency = 0.5
             local UICorner_1 = Instance.new("UICorner")
+UICorner_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UICorner_1.BackgroundTransparency = 0.5
             local UICorner_12 = Instance.new("UICorner")
+UICorner_12.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UICorner_12.BackgroundTransparency = 0.5
             local UIGradient_2 = Instance.new("UIGradient")
+UIGradient_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIGradient_2.BackgroundTransparency = 0.5
             local UIListLayout_2 = Instance.new("UIListLayout")
+UIListLayout_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIListLayout_2.BackgroundTransparency = 0.5
             local ImageLabel_1 = Instance.new("ImageLabel")
             local UIPadding_3 = Instance.new("UIPadding")
+UIPadding_3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIPadding_3.BackgroundTransparency = 0.5
             local Title_1 = Instance.new("TextLabel")
 
             Tab_2.Name = "Tab"
@@ -1233,9 +1371,17 @@ function Library:CreateWindow(info)
             Title_1.Position = UDim2.new(0.5, 0, 0.87, 0)
 
             local FuncFrameSec = Instance.new("Frame")
+FuncFrameSec.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+FuncFrameSec.BackgroundTransparency = 0.5
             local UIPaddingSec_1 = Instance.new("UIPadding")
+UIPaddingSec_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIPaddingSec_1.BackgroundTransparency = 0.5
             local Section_1 = Instance.new("ScrollingFrame")
+Section_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Section_1.BackgroundTransparency = 0.5
             local UIListLayoutSec_1 = Instance.new("UIListLayout")
+UIListLayoutSec_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIListLayoutSec_1.BackgroundTransparency = 0.5
 
             FuncFrameSec.Name = "FuncFrameSec"
             FuncFrameSec.Parent = Page_1
@@ -1367,8 +1513,12 @@ function Library:CreateWindow(info)
             function Main:CreateSection(info)
                 local Title = info.Title
                 local Section_2 = Instance.new("Frame")
+Section_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Section_2.BackgroundTransparency = 0.5
                 local TextLabel_2 = Instance.new("TextLabel")
                 local UIPadding_3Sec = Instance.new("UIPadding")
+UIPadding_3Sec.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIPadding_3Sec.BackgroundTransparency = 0.5
 
                 Section_2.Name = "Section"
                 Section_2.Parent = Section_1
@@ -1412,6 +1562,8 @@ function Library:CreateWindow(info)
                 LabelFrame.Parent = info.Parent
 
                 local Layout = Instance.new("UIListLayout")
+Layout.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Layout.BackgroundTransparency = 0.5
                 Layout.Parent = LabelFrame
                 Layout.FillDirection = Enum.FillDirection.Horizontal
                 Layout.VerticalAlignment = Enum.VerticalAlignment.Center
@@ -1419,6 +1571,8 @@ function Library:CreateWindow(info)
                 Layout.Padding = UDim.new(0, 5)
 
                 local IconImage = Instance.new("ImageLabel")
+IconImage.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+IconImage.BackgroundTransparency = 0.5
                 IconImage.Name = "Icon"
                 IconImage.Size = UDim2.new(0, 20, 0, 20)
                 IconImage.BackgroundTransparency = 1
@@ -1466,14 +1620,32 @@ function Library:CreateWindow(info)
                 local Toggle = background(Section_1, Title, Desc)
 
                 local Frame = Instance.new("Frame")
+Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BackgroundTransparency = 0.5
                 local UIListLayout_1 = Instance.new("UIListLayout")
+UIListLayout_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIListLayout_1.BackgroundTransparency = 0.5
                 local UIPadding_1 = Instance.new("UIPadding")
+UIPadding_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIPadding_1.BackgroundTransparency = 0.5
                 local Frame_1 = Instance.new("Frame")
+Frame_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame_1.BackgroundTransparency = 0.5
                 local UICorner_1 = Instance.new("UICorner")
+UICorner_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UICorner_1.BackgroundTransparency = 0.5
                 local Frame_2 = Instance.new("Frame")
+Frame_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame_2.BackgroundTransparency = 0.5
                 local UICorner_2 = Instance.new("UICorner")
+UICorner_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UICorner_2.BackgroundTransparency = 0.5
                 local UIGradient_1 = Instance.new("UIGradient")
+UIGradient_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIGradient_1.BackgroundTransparency = 0.5
                 local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIStroke_1.BackgroundTransparency = 0.5
 
                 Frame.Parent = Toggle
                 Frame.AnchorPoint = Vector2.new(1, 0.5)
@@ -1648,20 +1820,50 @@ function Library:CreateWindow(info)
                 Slider.Frame.UIPadding.PaddingRight = UDim.new(0, 270)
 
                 local Frame = Instance.new("Frame")
+Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BackgroundTransparency = 0.5
                 local UIListLayout_1 = Instance.new("UIListLayout")
+UIListLayout_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIListLayout_1.BackgroundTransparency = 0.5
                 local UIPadding_1 = Instance.new("UIPadding")
+UIPadding_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIPadding_1.BackgroundTransparency = 0.5
                 local ValueBar_1 = Instance.new("Frame")
+ValueBar_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ValueBar_1.BackgroundTransparency = 0.5
                 local UICorner_1 = Instance.new("UICorner")
+UICorner_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UICorner_1.BackgroundTransparency = 0.5
                 local BarValue_1 = Instance.new("Frame")
+BarValue_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+BarValue_1.BackgroundTransparency = 0.5
                 local Frame_1 = Instance.new("Frame")
+Frame_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame_1.BackgroundTransparency = 0.5
                 local UICorner_2 = Instance.new("UICorner")
+UICorner_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UICorner_2.BackgroundTransparency = 0.5
                 local UIGradient_1 = Instance.new("UIGradient")
+UIGradient_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIGradient_1.BackgroundTransparency = 0.5
                 local UICorner_3 = Instance.new("UICorner")
+UICorner_3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UICorner_3.BackgroundTransparency = 0.5
                 local UIGradient_2 = Instance.new("UIGradient")
+UIGradient_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIGradient_2.BackgroundTransparency = 0.5
                 local Click_1 = Instance.new("TextButton")
+Click_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Click_1.BackgroundTransparency = 0.5
                 local ValueBox_1 = Instance.new("Frame")
+ValueBox_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ValueBox_1.BackgroundTransparency = 0.5
                 local UICorner_4 = Instance.new("UICorner")
+UICorner_4.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UICorner_4.BackgroundTransparency = 0.5
                 local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIStroke_1.BackgroundTransparency = 0.5
                 local TextBox_1 = Instance.new("TextBox")
 
                 Frame.Parent = Slider
@@ -1887,13 +2089,27 @@ function Library:CreateWindow(info)
                 Dropdown.Frame.UIPadding.PaddingRight = UDim.new(0, 150)
 
                 local Frame = Instance.new("Frame")
+Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BackgroundTransparency = 0.5
                 local UIListLayout_1 = Instance.new("UIListLayout")
+UIListLayout_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIListLayout_1.BackgroundTransparency = 0.5
                 local UIPadding_1 = Instance.new("UIPadding")
+UIPadding_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIPadding_1.BackgroundTransparency = 0.5
                 local ValueBox_1 = Instance.new("Frame")
+ValueBox_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ValueBox_1.BackgroundTransparency = 0.5
                 local UICorner_1 = Instance.new("UICorner")
+UICorner_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UICorner_1.BackgroundTransparency = 0.5
                 local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIStroke_1.BackgroundTransparency = 0.5
                 local TextLabelValue_1 = Instance.new("TextLabel")
                 local UIPadding_2 = Instance.new("UIPadding")
+UIPadding_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIPadding_2.BackgroundTransparency = 0.5
                 local ImageLabel_1D = Instance.new("ImageLabel")
 
                 Frame.Parent = Dropdown
@@ -1962,18 +2178,40 @@ function Library:CreateWindow(info)
                 ImageLabel_1D.Rotation = 90
 
                 local MainDD = Instance.new("Frame")
+MainDD.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+MainDD.BackgroundTransparency = 0.5
                 local DropdownSelect = Instance.new("Frame")
+DropdownSelect.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+DropdownSelect.BackgroundTransparency = 0.5
                 local UICorner_1 = Instance.new("UICorner")
+UICorner_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UICorner_1.BackgroundTransparency = 0.5
                 local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIStroke_1.BackgroundTransparency = 0.5
                 local UIListLayout_1 = Instance.new("UIListLayout")
+UIListLayout_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIListLayout_1.BackgroundTransparency = 0.5
                 local Search_1 = Instance.new("Frame")
+Search_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Search_1.BackgroundTransparency = 0.5
                 local UICorner_2 = Instance.new("UICorner")
+UICorner_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UICorner_2.BackgroundTransparency = 0.5
                 local TextBox_1 = Instance.new("TextBox")
                 local UIPadding_1 = Instance.new("UIPadding")
+UIPadding_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIPadding_1.BackgroundTransparency = 0.5
                 local ImageLabel_1 = Instance.new("ImageLabel")
                 local UIPadding_2 = Instance.new("UIPadding")
+UIPadding_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIPadding_2.BackgroundTransparency = 0.5
                 local ScrollingFrame_1 = Instance.new("ScrollingFrame")
+ScrollingFrame_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ScrollingFrame_1.BackgroundTransparency = 0.5
                 local UIListLayout_2 = Instance.new("UIListLayout")
+UIListLayout_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIListLayout_2.BackgroundTransparency = 0.5
 
                 MainDD.Name = "Frame2"
                 MainDD.Parent = Background_1
@@ -1989,6 +2227,8 @@ function Library:CreateWindow(info)
                 MainDD.Name = "Dropdown Select"
 
                 local Shadow = Instance.new("ImageLabel")
+Shadow.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Shadow.BackgroundTransparency = 0.5
                 Shadow.Parent = MainDD
                 Shadow.Name = "DropShadow"
                 Shadow.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -2245,10 +2485,18 @@ function Library:CreateWindow(info)
 
                 function itemslist:Add(text)
                     local Item_1 = Instance.new("Frame")
+Item_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Item_1.BackgroundTransparency = 0.5
                     local UICorner_3 = Instance.new("UICorner")
+UICorner_3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UICorner_3.BackgroundTransparency = 0.5
                     local TextLabel_1 = Instance.new("TextLabel")
                     local UIPadding_3 = Instance.new("UIPadding")
+UIPadding_3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIPadding_3.BackgroundTransparency = 0.5
                     local Fade = Instance.new("UIGradient")
+Fade.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Fade.BackgroundTransparency = 0.5
 
                     Item_1.Name = "Item"
                     Item_1.Parent = ScrollingFrame_1
@@ -2459,7 +2707,11 @@ function Library:CreateWindow(info)
                 Button.Frame.UIPadding.PaddingRight = UDim.new(0, 50)
 
                 local Frame = Instance.new("Frame")
+Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BackgroundTransparency = 0.5
                 local UIPadding_1 = Instance.new("UIPadding")
+UIPadding_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIPadding_1.BackgroundTransparency = 0.5
                 local ImageLabel_1 = Instance.new("ImageLabel")
 
                 Frame.Parent = Button
@@ -2520,7 +2772,11 @@ function Library:CreateWindow(info)
                 local Label = background(Section_1, Title, Desc)
 
                 local Image = Instance.new("ImageLabel")
+Image.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Image.BackgroundTransparency = 0.5
                 local UICorner = Instance.new("UICorner")
+UICorner.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UICorner.BackgroundTransparency = 0.5
                 UICorner.Parent = Image
                 UICorner.CornerRadius = UDim.new(0, 6)
                 Image.Parent = Label
@@ -2570,11 +2826,23 @@ function Library:CreateWindow(info)
                 local Title_1 = Keybind.Frame.Title
 
                 local Frame = Instance.new("Frame")
+Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BackgroundTransparency = 0.5
                 local UIListLayout_1 = Instance.new("UIListLayout")
+UIListLayout_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIListLayout_1.BackgroundTransparency = 0.5
                 local UIPadding_1 = Instance.new("UIPadding")
+UIPadding_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIPadding_1.BackgroundTransparency = 0.5
                 local ValueBox_1 = Instance.new("Frame")
+ValueBox_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ValueBox_1.BackgroundTransparency = 0.5
                 local UICorner_1 = Instance.new("UICorner")
+UICorner_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UICorner_1.BackgroundTransparency = 0.5
                 local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIStroke_1.BackgroundTransparency = 0.5
                 local TextBox_1 = Instance.new("TextLabel")
 
                 Frame.Parent = Keybind
@@ -2748,9 +3016,17 @@ function Library:CreateWindow(info)
 
                 local Textbox = Instance.new("Frame")
                 local UICorner_1 = Instance.new("UICorner")
+UICorner_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UICorner_1.BackgroundTransparency = 0.5
                 local ValueBox_1 = Instance.new("Frame")
+ValueBox_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ValueBox_1.BackgroundTransparency = 0.5
                 local UICorner_2 = Instance.new("UICorner")
+UICorner_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UICorner_2.BackgroundTransparency = 0.5
                 local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIStroke_1.BackgroundTransparency = 0.5
                 local TextBox_1 = Instance.new("TextBox")
                 local Title_1 = Instance.new("TextLabel")
                 local Desc_1 = Instance.new("TextLabel")
@@ -2847,15 +3123,35 @@ function Library:CreateWindow(info)
                 Selected.Frame.UIPadding.PaddingRight = UDim.new(0, 170)
 
                 local Frame = Instance.new("Frame")
+Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BackgroundTransparency = 0.5
                 local UIListLayout_1 = Instance.new("UIListLayout")
+UIListLayout_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIListLayout_1.BackgroundTransparency = 0.5
                 local UIPadding_1 = Instance.new("UIPadding")
+UIPadding_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIPadding_1.BackgroundTransparency = 0.5
                 local ValueBox_1 = Instance.new("Frame")
+ValueBox_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ValueBox_1.BackgroundTransparency = 0.5
                 local UICorner_1 = Instance.new("UICorner")
+UICorner_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UICorner_1.BackgroundTransparency = 0.5
                 local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIStroke_1.BackgroundTransparency = 0.5
                 local UIPadding_2 = Instance.new("UIPadding")
+UIPadding_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIPadding_2.BackgroundTransparency = 0.5
                 local UIPageLayout_1 = Instance.new("UIPageLayout")
+UIPageLayout_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIPageLayout_1.BackgroundTransparency = 0.5
                 local Left_1 = Instance.new("ImageButton")
+Left_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Left_1.BackgroundTransparency = 0.5
                 local Right_1 = Instance.new("ImageButton")
+Right_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Right_1.BackgroundTransparency = 0.5
 
                 Frame.Parent = Selected
                 Frame.AnchorPoint = Vector2.new(1, 0.5)
@@ -2932,6 +3228,8 @@ function Library:CreateWindow(info)
 
                 function g:addlist(item)
                     local Value_1 = Instance.new("TextLabel")
+Value_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Value_1.BackgroundTransparency = 0.5
                     Value_1.Name = "Value"
                     Value_1.Parent = ValueBox_1
                     Value_1.Active = true
@@ -3043,18 +3341,38 @@ function Library:CreateWindow(info)
                     end
 
                 local Discord = Instance.new("Frame")
+Discord.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Discord.BackgroundTransparency = 0.5
                 local Click = click(Discord)
                 local UICorner_1 = Instance.new("UICorner")
+UICorner_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UICorner_1.BackgroundTransparency = 0.5
                 local Frame_1 = Instance.new("Frame")
+Frame_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame_1.BackgroundTransparency = 0.5
                 local UIListLayout_1 = Instance.new("UIListLayout")
+UIListLayout_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIListLayout_1.BackgroundTransparency = 0.5
                 local UIPadding_1 = Instance.new("UIPadding")
+UIPadding_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIPadding_1.BackgroundTransparency = 0.5
                 local TextLabel_1 = Instance.new("TextLabel")
                 local Title_1 = Instance.new("TextLabel")
                 local UIGradient_1 = Instance.new("UIGradient")
+UIGradient_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIGradient_1.BackgroundTransparency = 0.5
                 local Icon_1 = Instance.new("Frame")
+Icon_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Icon_1.BackgroundTransparency = 0.5
                 local IconDiscord_1 = Instance.new("ImageLabel")
+IconDiscord_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+IconDiscord_1.BackgroundTransparency = 0.5
                 local Frame_2 = Instance.new("Frame")
+Frame_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame_2.BackgroundTransparency = 0.5
                 local UIPadding_2 = Instance.new("UIPadding")
+UIPadding_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIPadding_2.BackgroundTransparency = 0.5
                 local ImageLabel_1 = Instance.new("ImageLabel")
                 local TextLabel_2 = Instance.new("TextButton")
 
@@ -3233,7 +3551,11 @@ function Library:CreateWindow(info)
                 local Icon = info.Icon
                 local Size = info.Size
                 local Image_1 = Instance.new("ImageLabel")
+Image_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Image_1.BackgroundTransparency = 0.5
                 local UICorner_1 = Instance.new("UICorner")
+UICorner_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UICorner_1.BackgroundTransparency = 0.5
 
                 Image_1.Parent = Section_1
                 Image_1.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -3252,6 +3574,8 @@ function Library:CreateWindow(info)
 
             function Main:Line()
                 local Line_1 = Instance.new("Frame")
+Line_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Line_1.BackgroundTransparency = 0.5
                 Line_1.Name = "Line"
                 Line_1.Parent = Section_1
                 Line_1.AnchorPoint = Vector2.new(0, 1)
@@ -3273,17 +3597,33 @@ function Library:CreateWindow(info)
         local Time = info.Time or 5
         local Button = info.Button or {}
         local Notifytemple_1 = Instance.new("Frame")
+Notifytemple_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Notifytemple_1.BackgroundTransparency = 0.5
         local UICorner_1 = Instance.new("UICorner")
+UICorner_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UICorner_1.BackgroundTransparency = 0.5
         local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIStroke_1.BackgroundTransparency = 0.5
         local Frame_1 = Instance.new("Frame")
+Frame_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame_1.BackgroundTransparency = 0.5
         local UIPadding_1 = Instance.new("UIPadding")
+UIPadding_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIPadding_1.BackgroundTransparency = 0.5
         local Desc_1 = Instance.new("TextLabel")
         local UIListLayout_2 = Instance.new("UIListLayout")
+UIListLayout_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIListLayout_2.BackgroundTransparency = 0.5
         local Title_1 = Instance.new("TextLabel")
         local ImageLabel_1 = Instance.new("ImageLabel")
 
         local Background = Instance.new("Frame")
+Background.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Background.BackgroundTransparency = 0.5
         local UIListLayoutBackgorund = Instance.new("UIListLayout")
+UIListLayoutBackgorund.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIListLayoutBackgorund.BackgroundTransparency = 0.5
 
         Background.Name = "Background"
         Background.Parent = Notification
@@ -3409,12 +3749,26 @@ function Library:CreateWindow(info)
 
         if type(Time) == "number" then
             local Cool_1 = Instance.new("Frame")
+Cool_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Cool_1.BackgroundTransparency = 0.5
             local Cooldown_1 = Instance.new("Frame")
+Cooldown_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Cooldown_1.BackgroundTransparency = 0.5
             local UIStroke_2 = Instance.new("UIStroke")
+UIStroke_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIStroke_2.BackgroundTransparency = 0.5
             local Cooldown_2 = Instance.new("Frame")
+Cooldown_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Cooldown_2.BackgroundTransparency = 0.5
             local UICorner_2 = Instance.new("UICorner")
+UICorner_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UICorner_2.BackgroundTransparency = 0.5
             local UICorner_3 = Instance.new("UICorner")
+UICorner_3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UICorner_3.BackgroundTransparency = 0.5
             local UIPadding_2 = Instance.new("UIPadding")
+UIPadding_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIPadding_2.BackgroundTransparency = 0.5
 
             Cool_1.Name = "Cool"
             Cool_1.Parent = Notifytemple_1
@@ -3517,9 +3871,15 @@ function Library:CreateWindow(info)
     do
     local Closeui = Instance.new("Frame")
     local UICorner_1 = Instance.new("UICorner")
+UICorner_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UICorner_1.BackgroundTransparency = 0.5
     local UIStroke_1 = Instance.new("UIStroke")
+UIStroke_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UIStroke_1.BackgroundTransparency = 1
     local ImageLabel_1 = Instance.new("ImageLabel")
     local Click_1 = Instance.new("TextButton")
+Click_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Click_1.BackgroundTransparency = 0.5
 
     Closeui.Name = "Closeui"
     Closeui.Parent = ScreenGui
