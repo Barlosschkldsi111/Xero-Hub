@@ -291,8 +291,7 @@ function Library:CreateWindow(info)
 
         local ClickButtonCircle = Instance.new("Frame")
         ClickButtonCircle.Parent = p
-        ClickButtonCircle.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+        ClickButtonCircle.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
         ClickButtonCircle.BackgroundTransparency = 0.5
         ClickButtonCircle.BorderSizePixel = 0
         ClickButtonCircle.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -324,8 +323,7 @@ function Library:CreateWindow(info)
     local function jcf(p, p2)
         local ClickButtonCircle = Instance.new("Frame")
         ClickButtonCircle.Parent = p
-        ClickButtonCircle.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+        ClickButtonCircle.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
         ClickButtonCircle.BackgroundTransparency = 0.5
         ClickButtonCircle.BorderSizePixel = 0
         ClickButtonCircle.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -455,8 +453,7 @@ function Library:CreateWindow(info)
 
         Click.Name = "Click"
         Click.Parent = p
-        Click.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+        Click.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
         Click.BackgroundTransparency = 1.000
         Click.BorderColor3 = Color3.fromRGB(0, 0, 0)
         Click.BorderSizePixel = 0
@@ -482,7 +479,6 @@ function Library:CreateWindow(info)
         ToggleDesc.Parent = p
         ToggleDesc.BackgroundTransparency = Transparency
         ToggleDesc.BackgroundColor3 = Color3.fromRGB(18, 19, 23)
-    BackgroundTransparency = 0.5
         ToggleDesc.BorderColor3 = Color3.fromRGB(0, 0, 0)
         ToggleDesc.BorderSizePixel = 0
         ToggleDesc.Size = UDim2.new(1, 0, 0, 40) -- ขยายขึ้นมานิดหน่อย
@@ -493,8 +489,7 @@ function Library:CreateWindow(info)
 
         Frame_4.Parent = ToggleDesc
         Frame_4.AnchorPoint = Vector2.new(0, 0.5)
-        Frame_4.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+        Frame_4.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
         Frame_4.BackgroundTransparency = 1
         Frame_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
         Frame_4.BorderSizePixel = 0
@@ -511,8 +506,7 @@ function Library:CreateWindow(info)
 
         -- Desc
         TextLabel_1.Parent = Frame_4
-        TextLabel_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+        TextLabel_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
         TextLabel_1.BackgroundTransparency = 1
         TextLabel_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
         TextLabel_1.BorderSizePixel = 0
@@ -520,7 +514,7 @@ function Library:CreateWindow(info)
         TextLabel_1.Size = UDim2.new(1, 0, 0, 16)
         TextLabel_1.Font = Enum.Font.Gotham
         TextLabel_1.RichText = true
-        TextLabel_1.TextColor3 = Color3.fromRGB(127, 127, 127)
+        TextLabel_1.TextColor3 = Color3.fromRGB(63, 63, 63)
         TextLabel_1.TextSize = 10
         TextLabel_1.TextTransparency = 0.5
         TextLabel_1.TextWrapped = true
@@ -532,8 +526,7 @@ function Library:CreateWindow(info)
         -- Title
         Title_1.Name = "Title"
         Title_1.Parent = Frame_4
-        Title_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+        Title_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
         Title_1.BackgroundTransparency = 1
         Title_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
         Title_1.BorderSizePixel = 0
@@ -542,7 +535,7 @@ function Library:CreateWindow(info)
         Title_1.Font = Enum.Font.GothamBold
         Title_1.RichText = true
         Title_1.Text = t
-        Title_1.TextColor3 = Color3.fromRGB(127, 127, 127)
+        Title_1.TextColor3 = Color3.fromRGB(63, 63, 63)
         Title_1.TextSize = 13
         Title_1.TextWrapped = true
         Title_1.TextXAlignment = Enum.TextXAlignment.Left
@@ -600,7 +593,6 @@ function Library:CreateWindow(info)
     Background_1.AnchorPoint = Vector2.new(0.5, 0.5)
     Background_1.BackgroundTransparency = Transparency
     Background_1.BackgroundColor3 = Color3.fromRGB(15, 17, 20)
-    BackgroundTransparency = 0.5
     Background_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Background_1.BorderSizePixel = 0
     Background_1.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -624,7 +616,6 @@ function Library:CreateWindow(info)
     frameef.Parent = Background_1
     frameef.BackgroundTransparency = 1
     frameef.BackgroundColor3 = Color3.fromRGB(15, 17, 20)
-    BackgroundTransparency = 0.5
     frameef.BorderColor3 = Color3.fromRGB(0, 0, 0)
     frameef.BorderSizePixel = 0
     frameef.Size = UDim2.new(1, 0, 1, 0)
@@ -731,7 +722,6 @@ function Library:CreateWindow(info)
     Shadow.Name = "DropShadow"
     Shadow.AnchorPoint = Vector2.new(0.5, 0.5)
     Shadow.BackgroundColor3 = Color3.fromRGB(14, 14, 15)
-    BackgroundTransparency = 0.5
     Shadow.BackgroundTransparency = 1
     Shadow.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Shadow.BorderSizePixel = 0
@@ -749,8 +739,7 @@ function Library:CreateWindow(info)
 
     Topbar_1.Name = "Topbar"
     Topbar_1.Parent = Background_1
-    Topbar_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+    Topbar_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
     Topbar_1.BackgroundTransparency = 1
     Topbar_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Topbar_1.BorderSizePixel = 0
@@ -761,7 +750,6 @@ function Library:CreateWindow(info)
     Line_1.Parent = Topbar_1
     Line_1.AnchorPoint = Vector2.new(0, 1)
     Line_1.BackgroundColor3 = Color3.fromRGB(27, 29, 34)
-    BackgroundTransparency = 0.5
     Line_1.BackgroundTransparency = Transparency
     Line_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Line_1.BorderSizePixel = 0
@@ -770,8 +758,7 @@ function Library:CreateWindow(info)
 
     Func_1.Name = "Func"
     Func_1.Parent = Topbar_1
-    Func_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+    Func_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
     Func_1.BackgroundTransparency = 1
     Func_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Func_1.BorderSizePixel = 0
@@ -783,8 +770,7 @@ function Library:CreateWindow(info)
 
     ImageLabel_1.Parent = Func_1
     ImageLabel_1.AnchorPoint = Vector2.new(0, 0.5)
-    ImageLabel_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+    ImageLabel_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
     ImageLabel_1.BackgroundTransparency = 1
     ImageLabel_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
     ImageLabel_1.BorderSizePixel = 0
@@ -795,8 +781,7 @@ function Library:CreateWindow(info)
     TabFrame_1.Name = "TabFrame"
     TabFrame_1.Parent = Func_1
     TabFrame_1.AnchorPoint = Vector2.new(0, 0.5)
-    TabFrame_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+    TabFrame_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
     TabFrame_1.BackgroundTransparency = 1
     TabFrame_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
     TabFrame_1.BorderSizePixel = 0
@@ -811,8 +796,7 @@ function Library:CreateWindow(info)
     Profile.Name = "Profile"
     Profile.Parent = Func_1
     Profile.AnchorPoint = Vector2.new(1, 0.5)
-    Profile.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+    Profile.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
     Profile.BackgroundTransparency = 1
     Profile.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Profile.BorderSizePixel = 0
@@ -844,8 +828,7 @@ function Library:CreateWindow(info)
     ScrollingFrame_1.Name = "ScrollingFrame"
     ScrollingFrame_1.Parent = TabFrame_1
     ScrollingFrame_1.Active = true
-    ScrollingFrame_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+    ScrollingFrame_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
     ScrollingFrame_1.BackgroundTransparency = 1
     ScrollingFrame_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
     ScrollingFrame_1.BorderSizePixel = 0
@@ -868,8 +851,7 @@ function Library:CreateWindow(info)
 
     FrameTab_1.Name = "FrameTab"
     FrameTab_1.Parent = ScrollingFrame_1
-    FrameTab_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+    FrameTab_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
     FrameTab_1.BackgroundTransparency = 1
     FrameTab_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
     FrameTab_1.BorderSizePixel = 0
@@ -892,8 +874,7 @@ function Library:CreateWindow(info)
     Select_1.Name = "Select"
     Select_1.Parent = ScrollingFrame_1
     Select_1.AnchorPoint = Vector2.new(0, 1)
-    Select_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+    Select_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
     Select_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Select_1.BorderSizePixel = 0
     Select_1.Position = UDim2.new(0, 0, 1, 0)
@@ -909,8 +890,7 @@ function Library:CreateWindow(info)
     Notification.Name = "Notification"
     Notification.Parent = ScreenGui
     Notification.AnchorPoint = Vector2.new(1, 1)
-    Notification.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+    Notification.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
     Notification.BackgroundTransparency = 1
     Notification.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Notification.BorderSizePixel = 0
@@ -928,8 +908,7 @@ function Library:CreateWindow(info)
 
     PageFolder.Name = "PageFolder"
     PageFolder.Parent = Background_1
-    PageFolder.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+    PageFolder.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
     PageFolder.BackgroundTransparency = 1
     PageFolder.BorderColor3 = Color3.fromRGB(0, 0, 0)
     PageFolder.BorderSizePixel = 0
@@ -967,7 +946,6 @@ function Library:CreateWindow(info)
         Tab.Name = "Tab"
         Tab.Parent = FrameTab_1
         Tab.BackgroundColor3 = Color3.fromRGB(18, 19, 23)
-    BackgroundTransparency = 0.5
         Tab.BackgroundTransparency = Transparency
         Tab.BorderColor3 = Color3.fromRGB(0, 0, 0)
         Tab.BorderSizePixel = 0
@@ -979,8 +957,7 @@ function Library:CreateWindow(info)
 
         Tab_1.Name = "Tab"
         Tab_1.Parent = Tab
-        Tab_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+        Tab_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
         Tab_1.BackgroundTransparency = 1
         Tab_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
         Tab_1.BorderSizePixel = 0
@@ -990,7 +967,7 @@ function Library:CreateWindow(info)
         UICorner_2.CornerRadius = UDim.new(1, 0)
 
         UIStroke_2.Parent = Tab_1
-        UIStroke_2.Color = Color3.fromRGB(127, 127, 127)
+        UIStroke_2.Color = Color3.fromRGB(63, 63, 63)
         UIStroke_2.Thickness = 2
         UIStroke_2.Transparency = Transparency
 
@@ -1005,8 +982,7 @@ function Library:CreateWindow(info)
 
         ImageLabel_2.Parent = Tab_1
         ImageLabel_2.AnchorPoint = Vector2.new(0.5, 0.5)
-        ImageLabel_2.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+        ImageLabel_2.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
         ImageLabel_2.BackgroundTransparency = 1
         ImageLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
         ImageLabel_2.BorderSizePixel = 0
@@ -1027,8 +1003,7 @@ function Library:CreateWindow(info)
 
         Page_1.Name = "Page"
         Page_1.Parent = PageFolder
-        Page_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+        Page_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
         Page_1.BackgroundTransparency = 1
         Page_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
         Page_1.BorderSizePixel = 0
@@ -1040,8 +1015,7 @@ function Library:CreateWindow(info)
 
         TabFrame_1Tab.Name = "TabFrame"
         TabFrame_1Tab.Parent = Page_1
-        TabFrame_1Tab.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+        TabFrame_1Tab.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
         TabFrame_1Tab.BackgroundTransparency = 1
         TabFrame_1Tab.BorderColor3 = Color3.fromRGB(0, 0, 0)
         TabFrame_1Tab.BorderSizePixel = 0
@@ -1053,7 +1027,6 @@ function Library:CreateWindow(info)
         Line.Parent = TabFrame_1Tab
         Line.AnchorPoint = Vector2.new(0, 1)
         Line.BackgroundColor3 = Color3.fromRGB(27, 29, 34)
-    BackgroundTransparency = 0.5
         Line.BorderColor3 = Color3.fromRGB(0, 0, 0)
         Line.BorderSizePixel = 0
         Line.Position = UDim2.new(1, 0, 1, 0)
@@ -1063,8 +1036,7 @@ function Library:CreateWindow(info)
         ScrollingFrame_1Tab.Name = "ScrollingFrame"
         ScrollingFrame_1Tab.Parent = TabFrame_1Tab
         ScrollingFrame_1Tab.Active = true
-        ScrollingFrame_1Tab.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+        ScrollingFrame_1Tab.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
         ScrollingFrame_1Tab.BackgroundTransparency = 1
         ScrollingFrame_1Tab.BorderColor3 = Color3.fromRGB(0, 0, 0)
         ScrollingFrame_1Tab.BorderSizePixel = 0
@@ -1085,8 +1057,7 @@ function Library:CreateWindow(info)
         ScrollingFrame_1Tab.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Right
 
         Frame_1.Parent = ScrollingFrame_1Tab
-        Frame_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+        Frame_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
         Frame_1.BackgroundTransparency = 1
         Frame_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
         Frame_1.BorderSizePixel = 0
@@ -1105,8 +1076,7 @@ function Library:CreateWindow(info)
 
         SelectTab.Name = "Line"
         SelectTab.Parent = ScrollingFrame_1Tab
-        SelectTab.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+        SelectTab.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
         SelectTab.BorderColor3 = Color3.fromRGB(0, 0, 0)
         SelectTab.BorderSizePixel = 0
         SelectTab.Position = UDim2.new(0, 0, 0, 4)
@@ -1166,7 +1136,7 @@ function Library:CreateWindow(info)
                     t = 0.15,
                     s = Enum.EasingStyle.Linear,
                     d = "Out",
-                    g = {Color = Color3.fromRGB(127, 127, 127)}
+                    g = {Color = Color3.fromRGB(63, 63, 63)}
                 }
             ):Play()
             tw({v = ImageLabel_2, t = 0.15, s = Enum.EasingStyle.Linear, d = "Out", g = {ImageTransparency = 0}}):Play()
@@ -1210,7 +1180,6 @@ function Library:CreateWindow(info)
             Tab_2.Name = "Tab"
             Tab_2.Parent = Frame_1
             Tab_2.BackgroundColor3 = Color3.fromRGB(18, 19, 23)
-    BackgroundTransparency = 0.5
             Tab_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Tab_2.BorderSizePixel = 0
             Tab_2.Size = UDim2.new(0, 60, 0, 50)
@@ -1221,8 +1190,7 @@ function Library:CreateWindow(info)
 
             Tab_1.Name = "Tab"
             Tab_1.Parent = Tab_2
-            Tab_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+            Tab_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
             Tab_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Tab_1.BorderSizePixel = 0
             Tab_1.Size = UDim2.new(1, 0, 1, 0)
@@ -1238,8 +1206,7 @@ function Library:CreateWindow(info)
 
             ImageLabel_1.Parent = Tab_1
             ImageLabel_1.AnchorPoint = Vector2.new(0.5, 0.5)
-            ImageLabel_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+            ImageLabel_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
             ImageLabel_1.BackgroundTransparency = 1
             ImageLabel_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
             ImageLabel_1.BorderSizePixel = 0
@@ -1252,8 +1219,7 @@ function Library:CreateWindow(info)
             Title_1.Name = "Title"
             Title_1.Parent = Tab_1
             Title_1.AnchorPoint = Vector2.new(0.5, 1)
-            Title_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+            Title_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
             Title_1.BackgroundTransparency = 1
             Title_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Title_1.BorderSizePixel = 0
@@ -1261,7 +1227,7 @@ function Library:CreateWindow(info)
             Title_1.Size = UDim2.new(0, 50, 0, 15)
             Title_1.Font = Enum.Font.GothamBold
             Title_1.Text = Title
-            Title_1.TextColor3 = Color3.fromRGB(127, 127, 127)
+            Title_1.TextColor3 = Color3.fromRGB(63, 63, 63)
             Title_1.TextSize = 11
             Title_1.TextXAlignment = Enum.TextXAlignment.Center
             Title_1.Position = UDim2.new(0.5, 0, 0.87, 0)
@@ -1273,8 +1239,7 @@ function Library:CreateWindow(info)
 
             FuncFrameSec.Name = "FuncFrameSec"
             FuncFrameSec.Parent = Page_1
-            FuncFrameSec.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+            FuncFrameSec.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
             FuncFrameSec.BackgroundTransparency = 1
             FuncFrameSec.BorderColor3 = Color3.fromRGB(0, 0, 0)
             FuncFrameSec.BorderSizePixel = 0
@@ -1290,8 +1255,7 @@ function Library:CreateWindow(info)
 
             Section_1.Name = "Section"
             Section_1.Parent = FuncFrameSec
-            Section_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+            Section_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
             Section_1.BackgroundTransparency = 1
             Section_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Section_1.BorderSizePixel = 0
@@ -1408,16 +1372,14 @@ function Library:CreateWindow(info)
 
                 Section_2.Name = "Section"
                 Section_2.Parent = Section_1
-                Section_2.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                Section_2.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 Section_2.BackgroundTransparency = 1
                 Section_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Section_2.BorderSizePixel = 0
                 Section_2.Size = UDim2.new(1, 0, 0, 30)
 
                 TextLabel_2.Parent = Section_2
-                TextLabel_2.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                TextLabel_2.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 TextLabel_2.BackgroundTransparency = 1
                 TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 TextLabel_2.BorderSizePixel = 0
@@ -1425,7 +1387,7 @@ function Library:CreateWindow(info)
                 TextLabel_2.Size = UDim2.new(0, 200, 0, 30)
                 TextLabel_2.Font = Enum.Font.GothamBold
                 TextLabel_2.Text = Title
-                TextLabel_2.TextColor3 = Color3.fromRGB(127, 127, 127)
+                TextLabel_2.TextColor3 = Color3.fromRGB(63, 63, 63)
                 TextLabel_2.TextSize = 18
                 TextLabel_2.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -1468,7 +1430,7 @@ function Library:CreateWindow(info)
                 TextLabel.Size = UDim2.new(1, 0, 1, 0)
                 TextLabel.BackgroundTransparency = 1
                 TextLabel.Text = TitleText
-                TextLabel.TextColor3 = Color3.fromRGB(127, 127, 127)
+                TextLabel.TextColor3 = Color3.fromRGB(63, 63, 63)
                 TextLabel.Font = Enum.Font.Gotham
                 TextLabel.TextSize = 16
                 TextLabel.TextWrapped = true
@@ -1515,8 +1477,7 @@ function Library:CreateWindow(info)
 
                 Frame.Parent = Toggle
                 Frame.AnchorPoint = Vector2.new(1, 0.5)
-                Frame.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                Frame.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 Frame.BackgroundTransparency = 1
                 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Frame.BorderSizePixel = 0
@@ -1533,8 +1494,7 @@ function Library:CreateWindow(info)
                 UIPadding_1.PaddingRight = UDim.new(0, 13)
 
                 Frame_1.Parent = Frame
-                Frame_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                Frame_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 Frame_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Frame_1.BorderSizePixel = 0
                 Frame_1.Size = UDim2.new(0, 45, 0, 23)
@@ -1545,8 +1505,7 @@ function Library:CreateWindow(info)
 
                 Frame_2.Parent = Frame_1
                 Frame_2.AnchorPoint = Vector2.new(0.5, 0.5)
-                Frame_2.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                Frame_2.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 Frame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Frame_2.BorderSizePixel = 0
                 Frame_2.Position = UDim2.new(0.3, 0, 0.5, 0)
@@ -1589,8 +1548,7 @@ function Library:CreateWindow(info)
                                 d = "Out",
                                 g = {
                                     Position = UDim2.new(0.75, 0, 0.5, 0),
-                                    BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                                    BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                                 }
                             }
                         ):Play()
@@ -1625,7 +1583,6 @@ function Library:CreateWindow(info)
                                 g = {
                                     Position = UDim2.new(0.27, 0, 0.5, 0),
                                     BackgroundColor3 = Color3.fromRGB(27, 29, 34)
-    BackgroundTransparency = 0.5
                                 }
                             }
                         ):Play()
@@ -1709,8 +1666,7 @@ function Library:CreateWindow(info)
 
                 Frame.Parent = Slider
                 Frame.AnchorPoint = Vector2.new(1, 0.5)
-                Frame.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                Frame.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 Frame.BackgroundTransparency = 1
                 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Frame.BorderSizePixel = 0
@@ -1730,7 +1686,6 @@ function Library:CreateWindow(info)
                 ValueBar_1.Name = "ValueBar"
                 ValueBar_1.Parent = Frame
                 ValueBar_1.BackgroundColor3 = Color3.fromRGB(23, 24, 25)
-    BackgroundTransparency = 0.5
                 ValueBar_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 ValueBar_1.BorderSizePixel = 0
                 ValueBar_1.Size = UDim2.new(0, 200, 0, 4)
@@ -1740,16 +1695,14 @@ function Library:CreateWindow(info)
 
                 BarValue_1.Name = "BarValue"
                 BarValue_1.Parent = ValueBar_1
-                BarValue_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                BarValue_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 BarValue_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 BarValue_1.BorderSizePixel = 0
                 BarValue_1.Size = UDim2.new(0.800000012, 0, 1, 0)
 
                 Frame_1.Parent = BarValue_1
                 Frame_1.AnchorPoint = Vector2.new(1, 0.5)
-                Frame_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                Frame_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 Frame_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Frame_1.BorderSizePixel = 0
                 Frame_1.Position = UDim2.new(1, 0, 0.5, 0)
@@ -1773,8 +1726,7 @@ function Library:CreateWindow(info)
                 Click_1.Parent = ValueBar_1
                 Click_1.Active = true
                 Click_1.AnchorPoint = Vector2.new(0.5, 0.5)
-                Click_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                Click_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 Click_1.BackgroundTransparency = 1
                 Click_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Click_1.BorderSizePixel = 0
@@ -1787,7 +1739,6 @@ function Library:CreateWindow(info)
                 ValueBox_1.Name = "ValueBox"
                 ValueBox_1.Parent = Frame
                 ValueBox_1.BackgroundColor3 = Color3.fromRGB(14, 14, 15)
-    BackgroundTransparency = 0.5
                 ValueBox_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 ValueBox_1.BorderSizePixel = 0
                 ValueBox_1.LayoutOrder = -1
@@ -1802,8 +1753,7 @@ function Library:CreateWindow(info)
 
                 TextBox_1.Parent = ValueBox_1
                 TextBox_1.Active = true
-                TextBox_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                TextBox_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 TextBox_1.BackgroundTransparency = 1
                 TextBox_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 TextBox_1.BorderSizePixel = 0
@@ -1812,7 +1762,7 @@ function Library:CreateWindow(info)
                 TextBox_1.PlaceholderColor3 = Color3.fromRGB(89, 89, 89)
                 TextBox_1.PlaceholderText = ""
                 TextBox_1.Text = "80"
-                TextBox_1.TextColor3 = Color3.fromRGB(127, 127, 127)
+                TextBox_1.TextColor3 = Color3.fromRGB(63, 63, 63)
                 TextBox_1.TextSize = 9
 
                 local function roundToDecimal(value, decimals)
@@ -1948,8 +1898,7 @@ function Library:CreateWindow(info)
 
                 Frame.Parent = Dropdown
                 Frame.AnchorPoint = Vector2.new(1, 0.5)
-                Frame.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                Frame.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 Frame.BackgroundTransparency = 1
                 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Frame.BorderSizePixel = 0
@@ -1969,7 +1918,6 @@ function Library:CreateWindow(info)
                 ValueBox_1.Name = "ValueBox"
                 ValueBox_1.Parent = Frame
                 ValueBox_1.BackgroundColor3 = Color3.fromRGB(15, 17, 20)
-    BackgroundTransparency = 0.5
                 ValueBox_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 ValueBox_1.BorderSizePixel = 0
                 ValueBox_1.LayoutOrder = -1
@@ -1985,15 +1933,14 @@ function Library:CreateWindow(info)
                 TextLabelValue_1.Name = "TextBox"
                 TextLabelValue_1.Parent = ValueBox_1
                 TextLabelValue_1.Active = true
-                TextLabelValue_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                TextLabelValue_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 TextLabelValue_1.BackgroundTransparency = 1
                 TextLabelValue_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 TextLabelValue_1.BorderSizePixel = 0
                 TextLabelValue_1.Size = UDim2.new(0.800000012, 0, 1, 0)
                 TextLabelValue_1.Font = Enum.Font.GothamBold
                 TextLabelValue_1.Text = tostring(Value)
-                TextLabelValue_1.TextColor3 = Color3.fromRGB(127, 127, 127)
+                TextLabelValue_1.TextColor3 = Color3.fromRGB(63, 63, 63)
                 TextLabelValue_1.TextSize = 10
                 TextLabelValue_1.TextTruncate = Enum.TextTruncate.AtEnd
                 TextLabelValue_1.TextXAlignment = Enum.TextXAlignment.Left
@@ -2004,8 +1951,7 @@ function Library:CreateWindow(info)
 
                 ImageLabel_1D.Parent = ValueBox_1
                 ImageLabel_1D.AnchorPoint = Vector2.new(1, 0.5)
-                ImageLabel_1D.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                ImageLabel_1D.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 ImageLabel_1D.BackgroundTransparency = 1
                 ImageLabel_1D.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 ImageLabel_1D.BorderSizePixel = 0
@@ -2033,7 +1979,6 @@ function Library:CreateWindow(info)
                 MainDD.Parent = Background_1
                 MainDD.AnchorPoint = Vector2.new(0.5, 0.5)
                 MainDD.BackgroundColor3 = Color3.fromRGB(15, 17, 20)
-    BackgroundTransparency = 0.5
                 MainDD.BackgroundTransparency = 1
                 MainDD.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 MainDD.BorderSizePixel = 0
@@ -2048,7 +1993,6 @@ function Library:CreateWindow(info)
                 Shadow.Name = "DropShadow"
                 Shadow.AnchorPoint = Vector2.new(0.5, 0.5)
                 Shadow.BackgroundColor3 = Color3.fromRGB(14, 14, 15)
-    BackgroundTransparency = 0.5
                 Shadow.BackgroundTransparency = 1
                 Shadow.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Shadow.BorderSizePixel = 0
@@ -2069,7 +2013,6 @@ function Library:CreateWindow(info)
                 DropdownSelect.Parent = MainDD
                 DropdownSelect.AnchorPoint = Vector2.new(0.5, 0.5)
                 DropdownSelect.BackgroundColor3 = Color3.fromRGB(15, 17, 20)
-    BackgroundTransparency = 0.5
                 DropdownSelect.BackgroundTransparency = 0
                 DropdownSelect.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 DropdownSelect.BorderSizePixel = 0
@@ -2092,7 +2035,6 @@ function Library:CreateWindow(info)
                 Search_1.Name = "Search"
                 Search_1.Parent = DropdownSelect
                 Search_1.BackgroundColor3 = Color3.fromRGB(12, 13, 15)
-    BackgroundTransparency = 0.5
                 Search_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Search_1.BorderSizePixel = 0
                 Search_1.LayoutOrder = -1
@@ -2103,8 +2045,7 @@ function Library:CreateWindow(info)
 
                 TextBox_1.Parent = Search_1
                 TextBox_1.Active = true
-                TextBox_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                TextBox_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 TextBox_1.BackgroundTransparency = 1
                 TextBox_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 TextBox_1.BorderSizePixel = 0
@@ -2113,7 +2054,7 @@ function Library:CreateWindow(info)
                 TextBox_1.PlaceholderColor3 = Color3.fromRGB(89, 89, 89)
                 TextBox_1.PlaceholderText = "Search"
                 TextBox_1.Text = ""
-                TextBox_1.TextColor3 = Color3.fromRGB(127, 127, 127)
+                TextBox_1.TextColor3 = Color3.fromRGB(63, 63, 63)
                 TextBox_1.TextSize = 9
                 TextBox_1.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -2123,8 +2064,7 @@ function Library:CreateWindow(info)
 
                 ImageLabel_1.Parent = Search_1
                 ImageLabel_1.AnchorPoint = Vector2.new(1, 0.5)
-                ImageLabel_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                ImageLabel_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 ImageLabel_1.BackgroundTransparency = 1
                 ImageLabel_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 ImageLabel_1.BorderSizePixel = 0
@@ -2141,8 +2081,7 @@ function Library:CreateWindow(info)
                 ScrollingFrame_1.Name = "ScrollingFrame"
                 ScrollingFrame_1.Parent = DropdownSelect
                 ScrollingFrame_1.Active = true
-                ScrollingFrame_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                ScrollingFrame_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 ScrollingFrame_1.BackgroundTransparency = 1
                 ScrollingFrame_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 ScrollingFrame_1.BorderSizePixel = 0
@@ -2313,8 +2252,7 @@ function Library:CreateWindow(info)
 
                     Item_1.Name = "Item"
                     Item_1.Parent = ScrollingFrame_1
-                    Item_1.BackgroundColor3 = Color3.fromRGB(100, 108, 127)
-    BackgroundTransparency = 0.5
+                    Item_1.BackgroundColor3 = Color3.fromRGB(50, 54, 63)
                     Item_1.BackgroundTransparency = 1
                     Item_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                     Item_1.BorderSizePixel = 0
@@ -2324,15 +2262,14 @@ function Library:CreateWindow(info)
                     UICorner_3.CornerRadius = UDim.new(0, 6)
 
                     TextLabel_1.Parent = Item_1
-                    TextLabel_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                    TextLabel_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                     TextLabel_1.BackgroundTransparency = 1
                     TextLabel_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                     TextLabel_1.BorderSizePixel = 0
                     TextLabel_1.Size = UDim2.new(1, 0, 1, 0)
                     TextLabel_1.Font = Enum.Font.GothamBold
                     TextLabel_1.Text = text
-                    TextLabel_1.TextColor3 = Color3.fromRGB(127, 127, 127)
+                    TextLabel_1.TextColor3 = Color3.fromRGB(63, 63, 63)
                     TextLabel_1.TextSize = 10
                     TextLabel_1.TextXAlignment = Enum.TextXAlignment.Left
                     TextLabel_1.TextTransparency = 0.5
@@ -2527,8 +2464,7 @@ function Library:CreateWindow(info)
 
                 Frame.Parent = Button
                 Frame.AnchorPoint = Vector2.new(1, 0.5)
-                Frame.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                Frame.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 Frame.BackgroundTransparency = 1
                 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Frame.BorderSizePixel = 0
@@ -2540,8 +2476,7 @@ function Library:CreateWindow(info)
 
                 ImageLabel_1.Parent = Frame
                 ImageLabel_1.AnchorPoint = Vector2.new(1, 0.5)
-                ImageLabel_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                ImageLabel_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 ImageLabel_1.BackgroundTransparency = 1
                 ImageLabel_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 ImageLabel_1.BorderSizePixel = 0
@@ -2644,8 +2579,7 @@ function Library:CreateWindow(info)
 
                 Frame.Parent = Keybind
                 Frame.AnchorPoint = Vector2.new(1, 0.5)
-                Frame.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                Frame.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 Frame.BackgroundTransparency = 1
                 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Frame.BorderSizePixel = 0
@@ -2665,7 +2599,6 @@ function Library:CreateWindow(info)
                 ValueBox_1.Name = "ValueBox"
                 ValueBox_1.Parent = Frame
                 ValueBox_1.BackgroundColor3 = Color3.fromRGB(15, 17, 20)
-    BackgroundTransparency = 0.5
                 ValueBox_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 ValueBox_1.BorderSizePixel = 0
                 ValueBox_1.LayoutOrder = -1
@@ -2681,15 +2614,14 @@ function Library:CreateWindow(info)
                 TextBox_1.Name = "TextBox"
                 TextBox_1.Parent = ValueBox_1
                 TextBox_1.Active = true
-                TextBox_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                TextBox_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 TextBox_1.BackgroundTransparency = 1
                 TextBox_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 TextBox_1.BorderSizePixel = 0
                 TextBox_1.Size = UDim2.new(1, 0, 1, 0)
                 TextBox_1.Font = Enum.Font.GothamBold
                 TextBox_1.Text = tostring(Key):gsub("Enum.KeyCode.", "")
-                TextBox_1.TextColor3 = Color3.fromRGB(127, 127, 127)
+                TextBox_1.TextColor3 = Color3.fromRGB(63, 63, 63)
                 TextBox_1.TextSize = 14
                 TextBox_1.TextTruncate = Enum.TextTruncate.AtEnd
 
@@ -2826,7 +2758,6 @@ function Library:CreateWindow(info)
                 Textbox.Name = "Textbox"
                 Textbox.Parent = Section_1
                 Textbox.BackgroundColor3 = Color3.fromRGB(18, 19, 23)
-    BackgroundTransparency = 0.5
                 Textbox.BackgroundTransparency = Transparency
                 Textbox.BorderSizePixel = 0
                 Textbox.Size = UDim2.new(1, 0, 0, 50)
@@ -2842,7 +2773,7 @@ function Library:CreateWindow(info)
                 Title_1.Size = UDim2.new(1, -140, 0, 16) -- เหลือที่ให้กล่องขวา
                 Title_1.Font = Enum.Font.GothamBold
                 Title_1.Text = Title
-                Title_1.TextColor3 = Color3.fromRGB(127, 127, 127)
+                Title_1.TextColor3 = Color3.fromRGB(63, 63, 63)
                 Title_1.TextSize = 13
                 Title_1.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -2865,7 +2796,6 @@ function Library:CreateWindow(info)
                 ValueBox_1.Position = UDim2.new(1, -10, 0.5, 0) -- ชิดขวา
                 ValueBox_1.Size = UDim2.new(0, 120, 0, 28) -- กว้าง 120px สูง 28px
                 ValueBox_1.BackgroundColor3 = Color3.fromRGB(15, 17, 20)
-    BackgroundTransparency = 0.5
                 ValueBox_1.BorderSizePixel = 0
 
                 UICorner_2.Parent = ValueBox_1
@@ -2883,7 +2813,7 @@ function Library:CreateWindow(info)
                 TextBox_1.PlaceholderColor3 = Color3.fromRGB(89, 89, 89)
                 TextBox_1.PlaceholderText = Placeholder
                 TextBox_1.Text = Value
-                TextBox_1.TextColor3 = Color3.fromRGB(127, 127, 127)
+                TextBox_1.TextColor3 = Color3.fromRGB(63, 63, 63)
                 TextBox_1.TextSize = 12
                 TextBox_1.ClearTextOnFocus = ClearText
 
@@ -2929,8 +2859,7 @@ function Library:CreateWindow(info)
 
                 Frame.Parent = Selected
                 Frame.AnchorPoint = Vector2.new(1, 0.5)
-                Frame.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                Frame.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 Frame.BackgroundTransparency = 1
                 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Frame.BorderSizePixel = 0
@@ -2950,7 +2879,6 @@ function Library:CreateWindow(info)
                 ValueBox_1.Name = "ValueBox"
                 ValueBox_1.Parent = Frame
                 ValueBox_1.BackgroundColor3 = Color3.fromRGB(15, 17, 20)
-    BackgroundTransparency = 0.5
                 ValueBox_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 ValueBox_1.BorderSizePixel = 0
                 ValueBox_1.Size = UDim2.new(0, 100, 0, 25)
@@ -2977,8 +2905,7 @@ function Library:CreateWindow(info)
                 Left_1.Name = "Left"
                 Left_1.Parent = Frame
                 Left_1.AnchorPoint = Vector2.new(1, 0.5)
-                Left_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                Left_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 Left_1.BackgroundTransparency = 1
                 Left_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Left_1.BorderSizePixel = 0
@@ -2991,8 +2918,7 @@ function Library:CreateWindow(info)
                 Right_1.Name = "Right"
                 Right_1.Parent = Frame
                 Right_1.AnchorPoint = Vector2.new(1, 0.5)
-                Right_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                Right_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 Right_1.BackgroundTransparency = 1
                 Right_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Right_1.BorderSizePixel = 0
@@ -3009,15 +2935,14 @@ function Library:CreateWindow(info)
                     Value_1.Name = "Value"
                     Value_1.Parent = ValueBox_1
                     Value_1.Active = true
-                    Value_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                    Value_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                     Value_1.BackgroundTransparency = 1
                     Value_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                     Value_1.BorderSizePixel = 0
                     Value_1.Size = UDim2.new(1, 0, 1, 0)
                     Value_1.Font = Enum.Font.GothamBold
                     Value_1.Text = item
-                    Value_1.TextColor3 = Color3.fromRGB(127, 127, 127)
+                    Value_1.TextColor3 = Color3.fromRGB(63, 63, 63)
                     Value_1.TextSize = 10
                     Value_1.TextTruncate = Enum.TextTruncate.AtEnd
                 end
@@ -3113,7 +3038,7 @@ function Library:CreateWindow(info)
                 local Title = info.Title
                 local Desc = info.Desc or ""
                 local Icon = info.Icon
-                local Color = info.Color or Color3.fromRGB(127, 127, 127)
+                local Color = info.Color or Color3.fromRGB(63, 63, 63)
                 local Callback = info.Callback or function()
                     end
 
@@ -3135,8 +3060,7 @@ function Library:CreateWindow(info)
 
                 Discord.Name = "Discord"
                 Discord.Parent = Section_1
-                Discord.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                Discord.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 Discord.BackgroundTransparency = Transparency
                 Discord.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Discord.BorderSizePixel = 0
@@ -3148,8 +3072,7 @@ function Library:CreateWindow(info)
 
                 Frame_1.Parent = Discord
                 Frame_1.AnchorPoint = Vector2.new(0, 0.5)
-                Frame_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                Frame_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 Frame_1.BackgroundTransparency = 1
                 Frame_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Frame_1.BorderSizePixel = 0
@@ -3165,8 +3088,7 @@ function Library:CreateWindow(info)
                 UIPadding_1.PaddingRight = UDim.new(0, 13)
 
                 TextLabel_1.Parent = Frame_1
-                TextLabel_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                TextLabel_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 TextLabel_1.BackgroundTransparency = 1
                 TextLabel_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 TextLabel_1.BorderSizePixel = 0
@@ -3175,7 +3097,7 @@ function Library:CreateWindow(info)
                 TextLabel_1.Font = Enum.Font.GothamBold
                 TextLabel_1.RichText = true
                 TextLabel_1.Text = "<i>" .. Desc .. "</i>"
-                TextLabel_1.TextColor3 = Color3.fromRGB(127, 127, 127)
+                TextLabel_1.TextColor3 = Color3.fromRGB(63, 63, 63)
                 TextLabel_1.TextSize = 11
                 TextLabel_1.TextTransparency = 0.5
                 TextLabel_1.TextWrapped = true
@@ -3183,8 +3105,7 @@ function Library:CreateWindow(info)
 
                 Title_1.Name = "Title"
                 Title_1.Parent = Frame_1
-                Title_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                Title_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 Title_1.BackgroundTransparency = 1
                 Title_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Title_1.BorderSizePixel = 0
@@ -3192,7 +3113,7 @@ function Library:CreateWindow(info)
                 Title_1.Font = Enum.Font.GothamBold
                 Title_1.RichText = true
                 Title_1.Text = "<i>" .. Title .. "</i>"
-                Title_1.TextColor3 = Color3.fromRGB(127, 127, 127)
+                Title_1.TextColor3 = Color3.fromRGB(63, 63, 63)
                 Title_1.TextSize = 14
                 Title_1.TextWrapped = true
                 Title_1.TextXAlignment = Enum.TextXAlignment.Left
@@ -3206,8 +3127,7 @@ function Library:CreateWindow(info)
 
                 Icon_1.Name = "Icon"
                 Icon_1.Parent = Discord
-                Icon_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                Icon_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 Icon_1.BackgroundTransparency = 1
                 Icon_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Icon_1.BorderSizePixel = 0
@@ -3216,8 +3136,7 @@ function Library:CreateWindow(info)
                 IconDiscord_1.Name = "IconDiscord"
                 IconDiscord_1.Parent = Icon_1
                 IconDiscord_1.AnchorPoint = Vector2.new(0.5, 0.5)
-                IconDiscord_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                IconDiscord_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 IconDiscord_1.BackgroundTransparency = 1
                 IconDiscord_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 IconDiscord_1.BorderSizePixel = 0
@@ -3228,8 +3147,7 @@ function Library:CreateWindow(info)
 
                 Frame_2.Parent = Discord
                 Frame_2.AnchorPoint = Vector2.new(1, 0.5)
-                Frame_2.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                Frame_2.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 Frame_2.BackgroundTransparency = 1
                 Frame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Frame_2.BorderSizePixel = 0
@@ -3241,8 +3159,7 @@ function Library:CreateWindow(info)
 
                 ImageLabel_1.Parent = Frame_2
                 ImageLabel_1.AnchorPoint = Vector2.new(1, 0.5)
-                ImageLabel_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                ImageLabel_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 ImageLabel_1.BackgroundTransparency = 1
                 ImageLabel_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 ImageLabel_1.BorderSizePixel = 0
@@ -3254,8 +3171,7 @@ function Library:CreateWindow(info)
 
                 TextLabel_2.Name = "TextLabel"
                 TextLabel_2.Parent = Frame_2
-                TextLabel_2.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                TextLabel_2.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 TextLabel_2.BackgroundTransparency = 1
                 TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 TextLabel_2.BorderSizePixel = 0
@@ -3263,7 +3179,7 @@ function Library:CreateWindow(info)
                 TextLabel_2.Font = Enum.Font.GothamBold
                 TextLabel_2.RichText = true
                 TextLabel_2.Text = "<i><u>Click Here</u></i>"
-                TextLabel_2.TextColor3 = Color3.fromRGB(127, 127, 127)
+                TextLabel_2.TextColor3 = Color3.fromRGB(63, 63, 63)
                 TextLabel_2.TextSize = 14
                 TextLabel_2.TextTransparency = 0.5
                 TextLabel_2.TextXAlignment = Enum.TextXAlignment.Left
@@ -3321,8 +3237,7 @@ function Library:CreateWindow(info)
 
                 Image_1.Parent = Section_1
                 Image_1.AnchorPoint = Vector2.new(0.5, 0.5)
-                Image_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+                Image_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
                 Image_1.BackgroundTransparency = 1
                 Image_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Image_1.BorderSizePixel = 0
@@ -3341,7 +3256,6 @@ function Library:CreateWindow(info)
                 Line_1.Parent = Section_1
                 Line_1.AnchorPoint = Vector2.new(0, 1)
                 Line_1.BackgroundColor3 = Color3.fromRGB(27, 29, 34)
-    BackgroundTransparency = 0.5
                 Line_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Line_1.BorderSizePixel = 0
                 Line_1.Position = UDim2.new(0, 0, 1, 0)
@@ -3373,8 +3287,7 @@ function Library:CreateWindow(info)
 
         Background.Name = "Background"
         Background.Parent = Notification
-        Background.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+        Background.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
         Background.BackgroundTransparency = 1.000
         Background.BorderColor3 = Color3.fromRGB(0, 0, 0)
         Background.BorderSizePixel = 0
@@ -3392,7 +3305,6 @@ function Library:CreateWindow(info)
         Notifytemple_1.Name = "Notifytemple"
         Notifytemple_1.Parent = Background
         Notifytemple_1.BackgroundColor3 = Color3.fromRGB(14, 14, 15)
-    BackgroundTransparency = 0.5
         Notifytemple_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
         Notifytemple_1.BorderSizePixel = 0
         Notifytemple_1.Size = UDim2.new(0, 0, 0, 0)
@@ -3405,8 +3317,7 @@ function Library:CreateWindow(info)
         UIStroke_1.Thickness = 2
 
         Frame_1.Parent = Notifytemple_1
-        Frame_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+        Frame_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
         Frame_1.BackgroundTransparency = 1
         Frame_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
         Frame_1.BorderSizePixel = 0
@@ -3420,8 +3331,7 @@ function Library:CreateWindow(info)
 
         Desc_1.Name = "Desc"
         Desc_1.Parent = Frame_1
-        Desc_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+        Desc_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
         Desc_1.BackgroundTransparency = 1
         Desc_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
         Desc_1.BorderSizePixel = 0
@@ -3429,7 +3339,7 @@ function Library:CreateWindow(info)
         Desc_1.Size = UDim2.new(1, 0, 0, 65)
         Desc_1.Font = Enum.Font.GothamBold -- ตัวหนังสือเข้มเท่ากับ Title
         Desc_1.Text = Desc
-        Desc_1.TextColor3 = Color3.fromRGB(127, 127, 127)
+        Desc_1.TextColor3 = Color3.fromRGB(63, 63, 63)
         Desc_1.TextSize = 12
         Desc_1.TextTransparency = 0.5
         Desc_1.TextXAlignment = Enum.TextXAlignment.Left
@@ -3441,22 +3351,20 @@ function Library:CreateWindow(info)
 
         Title_1.Name = "Title"
         Title_1.Parent = Frame_1
-        Title_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+        Title_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
         Title_1.BackgroundTransparency = 1
         Title_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
         Title_1.BorderSizePixel = 0
         Title_1.Size = UDim2.new(1, 0, 0, 20)
         Title_1.Font = Enum.Font.GothamBold
         Title_1.Text = Title
-        Title_1.TextColor3 = Color3.fromRGB(127, 127, 127)
+        Title_1.TextColor3 = Color3.fromRGB(63, 63, 63)
         Title_1.TextSize = 14
         Title_1.TextXAlignment = Enum.TextXAlignment.Left
 
         ImageLabel_1.Parent = Notifytemple_1
         ImageLabel_1.AnchorPoint = Vector2.new(1, 0.5)
-        ImageLabel_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+        ImageLabel_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
         ImageLabel_1.BackgroundTransparency = 1
         ImageLabel_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
         ImageLabel_1.BorderSizePixel = 0
@@ -3510,8 +3418,7 @@ function Library:CreateWindow(info)
 
             Cool_1.Name = "Cool"
             Cool_1.Parent = Notifytemple_1
-            Cool_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
+            Cool_1.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
             Cool_1.BackgroundTransparency = 1
             Cool_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Cool_1.BorderSizePixel = 0
@@ -3521,7 +3428,6 @@ function Library:CreateWindow(info)
             Cooldown_1.Parent = Cool_1
             Cooldown_1.AnchorPoint = Vector2.new(0, 1)
             Cooldown_1.BackgroundColor3 = Color3.fromRGB(20, 21, 22)
-    BackgroundTransparency = 0.5
             Cooldown_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Cooldown_1.BorderSizePixel = 0
             Cooldown_1.Position = UDim2.new(0, 0, 1, 0)
@@ -3535,7 +3441,6 @@ function Library:CreateWindow(info)
             Cooldown_2.Parent = Cool_1
             Cooldown_2.AnchorPoint = Vector2.new(0, 1)
             Cooldown_2.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
-    BackgroundTransparency = 0.5
             Cooldown_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Cooldown_2.BorderSizePixel = 0
             Cooldown_2.Position = UDim2.new(0, 0, 1, 0)
@@ -3610,213 +3515,132 @@ function Library:CreateWindow(info)
     end
 
     do
-        local Closeui = Instance.new("Frame")
-        local UICorner_1 = Instance.new("UICorner")
-        local UIStroke_1 = Instance.new("UIStroke")
-        local ImageLabel_1 = Instance.new("ImageLabel")
-        local Click_1 = Instance.new("TextButton")
+    local Closeui = Instance.new("Frame")
+    local UICorner_1 = Instance.new("UICorner")
+    local UIStroke_1 = Instance.new("UIStroke")
+    local ImageLabel_1 = Instance.new("ImageLabel")
+    local Click_1 = Instance.new("TextButton")
 
-        Closeui.Name = "Closeui"
-        Closeui.Parent = ScreenGui
-        Closeui.AnchorPoint = Vector2.new(0, 1)
-        Closeui.BackgroundColor3 = Color3.fromRGB(18, 19, 23)
-    BackgroundTransparency = 0.5
-        Closeui.BorderColor3 = Color3.fromRGB(0, 0, 0)
-        Closeui.BorderSizePixel = 0
-        Closeui.Position = UDim2.new(0.00999999978, 0, 0.99000001, 0)
-        Closeui.Size = UDim2.new(0, 45, 0, 45)
+    Closeui.Name = "Closeui"
+    Closeui.Parent = ScreenGui
+    Closeui.AnchorPoint = Vector2.new(0, 1)
+    Closeui.BackgroundColor3 = Color3.fromRGB(0, 0, 0) 
+    Closeui.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Closeui.BorderSizePixel = 0
+    Closeui.Position = UDim2.new(0.01, 0, 0.99, 0)
+    Closeui.Size = UDim2.new(0, 45, 0, 45) 
 
-        UICorner_1.Parent = Closeui
-        UICorner_1.CornerRadius = UDim.new(1, 0)
+    UICorner_1.Parent = Closeui
+    UICorner_1.CornerRadius = UDim.new(0, 10) 
 
-        UIStroke_1.Parent = Closeui
-        UIStroke_1.Color = Color3.fromRGB(27, 29, 34)
-        UIStroke_1.Thickness = 4
-        UIStroke_1.Transparency = 0.5
+    UIStroke_1.Parent = Closeui
+    UIStroke_1.Color = Color3.fromRGB(50, 50, 50)
+    UIStroke_1.Thickness = 2
+    UIStroke_1.Transparency = 0.5
 
-        game:GetService("RunService").RenderStepped:Connect(
-            function()
-                local fps = 1 / game:GetService("RunService").RenderStepped:Wait() -- คำนวณ FPS
-                if fps > 45 then
-                    tw(
-                        {
-                            v = UIStroke_1,
-                            t = 1,
-                            s = Enum.EasingStyle.Back,
-                            d = "Out",
-                            g = {Color = Color3.fromRGB(0, 85, 127)}
-                        }
-                    ):Play()
-                elseif fps > 29 then
-                    tw(
-                        {
-                            v = UIStroke_1,
-                            t = 1,
-                            s = Enum.EasingStyle.Back,
-                            d = "Out",
-                            g = {Color = Color3.fromRGB(127, 127, 0)}
-                        }
-                    ):Play()
-                elseif fps > 15 then
-                    tw(
-                        {
-                            v = UIStroke_1,
-                            t = 1,
-                            s = Enum.EasingStyle.Back,
-                            d = "Out",
-                            g = {Color = Color3.fromRGB(127, 82, 0)}
-                        }
-                    ):Play()
-                elseif fps > 0 then
-                    tw(
-                        {
-                            v = UIStroke_1,
-                            t = 1,
-                            s = Enum.EasingStyle.Back,
-                            d = "Out",
-                            g = {Color = Color3.fromRGB(127, 0, 0)}
-                        }
-                    ):Play()
-                end
-                task.wait(0.4)
+    local UserInputService = game:GetService("UserInputService")
+
+    local function Resize(DragFrame, Frame)
+        local resizing = false
+        local startSize, startMouse
+        local function StartResize(input)
+            if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+                resizing = true
+                startSize = Frame.Size
+                startMouse = UserInputService:GetMouseLocation()
             end
-        )
-
-        local UserInputService = game:GetService("UserInputService")
-
-        local function Resize(DragFrame, Frame)
-            local resizing = false
-            local startSize, startMouse
-            local function StartResize(input)
-                if
-                    input.UserInputType == Enum.UserInputType.MouseButton1 or
-                        input.UserInputType == Enum.UserInputType.Touch
-                 then
-                    resizing = true
-                    startSize = Frame.Size
-                    startMouse = UserInputService:GetMouseLocation()
-                end
-            end
-            local function UpdateResize(input)
-                if
-                    resizing and
-                        (input.UserInputType == Enum.UserInputType.MouseMovement or
-                            input.UserInputType == Enum.UserInputType.Touch)
-                 then
-                    local mouseDelta = UserInputService:GetMouseLocation() - startMouse
-                    local newSize = startSize + UDim2.new(0, mouseDelta.X, 0, mouseDelta.Y)
-                    newSize = UDim2.new(0, math.max(newSize.X.Offset, 540), 0, math.max(newSize.Y.Offset, 350))
-                    Frame.Size = newSize
-                end
-            end
-            local function EndResize(input)
-                if
-                    input.UserInputType == Enum.UserInputType.MouseButton1 or
-                        input.UserInputType == Enum.UserInputType.Touch
-                 then
-                    resizing = false
-                end
-            end
-            DragFrame.InputBegan:Connect(StartResize)
-            UserInputService.InputChanged:Connect(UpdateResize)
-            UserInputService.InputEnded:Connect(EndResize)
         end
-        Resize(resize, Background_1)
-
-        ImageLabel_1.Parent = Closeui
-        ImageLabel_1.AnchorPoint = Vector2.new(0.5, 0.5)
-        ImageLabel_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
-        ImageLabel_1.BackgroundTransparency = 1
-        ImageLabel_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
-        ImageLabel_1.BorderSizePixel = 0
-        ImageLabel_1.Position = UDim2.new(0.5, 0, 0.5, 0)
-        ImageLabel_1.Size = UDim2.new(0.9, 0, 0.9, 0)
-        ImageLabel_1.Image = gl(Logo)
-
-        Click_1.Name = "Click"
-        Click_1.Parent = Closeui
-        Click_1.Active = true
-        Click_1.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
-    BackgroundTransparency = 0.5
-        Click_1.BackgroundTransparency = 1
-        Click_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
-        Click_1.BorderSizePixel = 0
-        Click_1.Size = UDim2.new(1, 0, 1, 0)
-        Click_1.Font = Enum.Font.SourceSans
-        Click_1.Text = ""
-        Click_1.TextSize = 14
-
-        lak2(Click_1, Closeui)
-        local OpenUI = true
-        local function o()
-            if OpenUI then
-                OpenUI = false
-                Background_1.Visible = false
-                frameef.Visible = false
-                for i = 1, 2 do
-                    BlurFrame2[i]:Destroy()
-                end
-            else
-                OpenUI = true
-                Background_1.Visible = true
-                frameef.Visible = true
-                BlurFrame2 = init(Background_1)
+        local function UpdateResize(input)
+            if resizing and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+                local mouseDelta = UserInputService:GetMouseLocation() - startMouse
+                local newSize = startSize + UDim2.new(0, mouseDelta.X, 0, mouseDelta.Y)
+                newSize = UDim2.new(0, math.max(newSize.X.Offset, 540), 0, math.max(newSize.Y.Offset, 350))
+                Frame.Size = newSize
             end
-            tw(
-                {
-                    v = Closeui,
-                    t = 0.15,
-                    s = Enum.EasingStyle.Back,
-                    d = "Out",
-                    g = {BackgroundColor3 = Color3.fromRGB(15, 17, 20)
-    BackgroundTransparency = 0.5}
-                }
-            ):Play()
-            tw(
-                {
-                    v = ImageLabel_1,
-                    t = 0.15,
-                    s = Enum.EasingStyle.Back,
-                    d = "Out",
-                    g = {Size = UDim2.new(0.80, 0, 0.80, 0)}
-                }
-            ):Play()
-            delay(
-                0.016,
-                function()
-                    tw(
-                        {
-                            v = ImageLabel_1,
-                            t = 0.15,
-                            s = Enum.EasingStyle.Back,
-                            d = "Out",
-                            g = {Size = UDim2.new(0.9, 0, 0.9, 0)}
-                        }
-                    ):Play()
-                    tw(
-                        {
-                            v = Closeui,
-                            t = 0.15,
-                            s = Enum.EasingStyle.Back,
-                            d = "Out",
-                            g = {BackgroundColor3 = Color3.fromRGB(18, 19, 23)
-    BackgroundTransparency = 0.5}
-                        }
-                    ):Play()
-                end
-            )
         end
-        UserInputService.InputBegan:Connect(
-            function(input)
-                if input.KeyCode == Keycode then
-                    o()
-                end
+        local function EndResize(input)
+            if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+                resizing = false
             end
-        )
-        Click_1.MouseButton1Click:Connect(o)
+        end
+        DragFrame.InputBegan:Connect(StartResize)
+        UserInputService.InputChanged:Connect(UpdateResize)
+        UserInputService.InputEnded:Connect(EndResize)
+    end
+    Resize(resize, Background_1)
+
+    ImageLabel_1.Parent = Closeui
+    ImageLabel_1.AnchorPoint = Vector2.new(0.5, 0.5)
+    ImageLabel_1.BackgroundTransparency = 1
+    ImageLabel_1.Position = UDim2.new(0.5, 0, 0.5, 0)
+    ImageLabel_1.Size = UDim2.new(0.9, 0, 0.9, 0)
+    ImageLabel_1.Image = gl(Logo)
+
+    Click_1.Name = "Click"
+    Click_1.Parent = Closeui
+    Click_1.Active = true
+    Click_1.BackgroundTransparency = 1
+    Click_1.Size = UDim2.new(1, 0, 1, 0)
+    Click_1.Font = Enum.Font.SourceSans
+    Click_1.Text = ""
+    Click_1.TextSize = 14
+
+    lak2(Click_1, Closeui)
+
+    local OpenUI = true
+    local function o()
+        if OpenUI then
+            OpenUI = false
+            Background_1.Visible = false
+            frameef.Visible = false
+            for i = 1, 2 do
+                BlurFrame2[i]:Destroy()
+            end
+        else
+            OpenUI = true
+            Background_1.Visible = true
+            frameef.Visible = true
+            BlurFrame2 = init(Background_1)
+        end
+        tw({
+            v = Closeui,
+            t = 0.15,
+            s = Enum.EasingStyle.Back,
+            d = "Out",
+            g = {BackgroundColor3 = Color3.fromRGB(15, 17, 20)}
+        }):Play()
+        tw({
+            v = ImageLabel_1,
+            t = 0.15,
+            s = Enum.EasingStyle.Back,
+            d = "Out",
+            g = {Size = UDim2.new(0.80, 0, 0.80, 0)}
+        }):Play()
+        delay(0.016, function()
+            tw({
+                v = ImageLabel_1,
+                t = 0.15,
+                s = Enum.EasingStyle.Back,
+                d = "Out",
+                g = {Size = UDim2.new(0.9, 0, 0.9, 0)}
+            }):Play()
+            tw({
+                v = Closeui,
+                t = 0.15,
+                s = Enum.EasingStyle.Back,
+                d = "Out",
+                g = {BackgroundColor3 = Color3.fromRGB(0, 0, 0)}
+            }):Play()
+        end)
     end
 
+    UserInputService.InputBegan:Connect(function(input)
+        if input.KeyCode == Keycode then
+            o()
+        end
+    end)
+    Click_1.MouseButton1Click:Connect(o)
+end
     return Library.Tabs
 end
 
