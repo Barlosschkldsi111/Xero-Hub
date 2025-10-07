@@ -208,7 +208,7 @@ function Library:CreateWindow(info)
 
         local function UpdateOrientation(fetchProps)
             local properties = {
-                Transparency = 0.98,
+                Transparency = 0.5,
                 BrickColor = BrickColor.new("Institutional white")
             }
             local zIndex = 1 - 0.05 * frame.ZIndex
@@ -293,7 +293,7 @@ function Library:CreateWindow(info)
         ClickButtonCircle.Parent = p
         ClickButtonCircle.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
     BackgroundTransparency = 0.5
-        ClickButtonCircle.BackgroundTransparency = 0.7
+        ClickButtonCircle.BackgroundTransparency = 0.5
         ClickButtonCircle.BorderSizePixel = 0
         ClickButtonCircle.AnchorPoint = Vector2.new(0.5, 0.5)
         ClickButtonCircle.Position = UDim2.new(0, relativeX, 0, relativeY)
@@ -326,7 +326,7 @@ function Library:CreateWindow(info)
         ClickButtonCircle.Parent = p
         ClickButtonCircle.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
     BackgroundTransparency = 0.5
-        ClickButtonCircle.BackgroundTransparency = 0.7
+        ClickButtonCircle.BackgroundTransparency = 0.5
         ClickButtonCircle.BorderSizePixel = 0
         ClickButtonCircle.AnchorPoint = Vector2.new(0.5, 0.5)
         ClickButtonCircle.Position =
@@ -610,7 +610,7 @@ function Library:CreateWindow(info)
 
     UIStroke_1.Parent = Background_1
     UIStroke_1.Color = Color3.fromRGB(23, 24, 25)
-    UIStroke_1.Transparency = 0.3
+    UIStroke_1.Transparency = 0.5
     UIStroke_1.Thickness = 3
 
     resize.Parent = Background_1
@@ -632,7 +632,7 @@ function Library:CreateWindow(info)
     effect.Parent = Background_1
     effect.Size = UDim2.new(1, 0, 1, 0)
     effect.Image = "rbxassetid://133167155418861"
-    effect.ImageTransparency = 0.85
+    effect.ImageTransparency = 0.5
     effect.BackgroundTransparency = 1
     effect.Position = UDim2.new(0, 0, 0, 0)
     UIcornEffect.Parent = effect
@@ -640,34 +640,34 @@ function Library:CreateWindow(info)
     effectcircle.Parent = frameef
     effectcircle.Size = UDim2.new(0, 400, 0, 400)
     effectcircle.Image = "rbxassetid://132180927784800"
-    effectcircle.ImageTransparency = 0.8
+    effectcircle.ImageTransparency = 0.5
     effectcircle.BackgroundTransparency = 1
     effectcircle.Position = UDim2.new(0.5, 0, 0.5, 0)
 
     effectcircle2.Parent = frameef
     effectcircle2.Size = UDim2.new(0, 400, 0, 400)
     effectcircle2.Image = "rbxassetid://135880574040377"
-    effectcircle2.ImageTransparency = 0.8
+    effectcircle2.ImageTransparency = 0.5
     effectcircle2.BackgroundTransparency = 1
 
     effectcircle3.Parent = frameef
     effectcircle3.Size = UDim2.new(0, 600, 0, 600)
     effectcircle3.Image = "rbxassetid://78169354814171"
-    effectcircle3.ImageTransparency = 0.8
+    effectcircle3.ImageTransparency = 0.5
     effectcircle3.BackgroundTransparency = 1
     effectcircle3.Position = UDim2.new(0.5, 0, 0.1, 0)
 
     effectcircle4.Parent = frameef
     effectcircle4.Size = UDim2.new(0, 600, 0, 600)
     effectcircle4.Image = "rbxassetid://119323583847129"
-    effectcircle4.ImageTransparency = 0.8
+    effectcircle4.ImageTransparency = 0.5
     effectcircle4.BackgroundTransparency = 1
     effectcircle4.Position = UDim2.new(0.9, 0, 0.5, 0)
 
     effectcircle5.Parent = frameef
     effectcircle5.Size = UDim2.new(0, 600, 0, 600)
     effectcircle5.Image = "rbxassetid://133790688650660"
-    effectcircle5.ImageTransparency = 0.8
+    effectcircle5.ImageTransparency = 0.5
     effectcircle5.BackgroundTransparency = 1
     effectcircle5.Position = UDim2.new(0.9, 0, 0.5, 0)
 
@@ -688,45 +688,7 @@ function Library:CreateWindow(info)
 
         return position
     end
-    local function randomTween(object)
-        while true do
-            local randomX = math.random() * 2 - 1
-            local randomY = math.random() * 2 - 1
-            local randomPosition = UDim2.new(math.clamp(randomX, 0, 1), 0, math.clamp(randomY, 0, 1), 0)
-            local tweenInfo =
-                TweenInfo.new(math.random(5, 10), Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, 0, false)
-            local tween = game:GetService("TweenService"):Create(object, tweenInfo, {Position = randomPosition})
-            tween:Play()
-            tween.Completed:Wait()
-            object.Position = checkBoundaries(object)
-        end
-    end
-    coroutine.wrap(
-        function()
-            randomTween(effectcircle)
-        end
-    )()
-    coroutine.wrap(
-        function()
-            randomTween(effectcircle3)
-        end
-    )()
-    coroutine.wrap(
-        function()
-            randomTween(effectcircle2)
-        end
-    )()
-    coroutine.wrap(
-        function()
-            randomTween(effectcircle4)
-        end
-    )()
-    coroutine.wrap(
-        function()
-            randomTween(effectcircle5)
-        end
-    )()
-
+    
     Shadow.Parent = Background_1
     Shadow.Name = "DropShadow"
     Shadow.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -740,7 +702,7 @@ function Library:CreateWindow(info)
     Shadow.ZIndex = 0
     Shadow.Image = "rbxassetid://8992230677"
     Shadow.ImageColor3 = Color3.new(0, 0, 0)
-    Shadow.ImageTransparency = 0.4
+    Shadow.ImageTransparency = 0.5
     Shadow.ResampleMode = Enum.ResamplerMode.Default
     Shadow.ScaleType = Enum.ScaleType.Slice
     Shadow.SliceScale = 1
@@ -1562,7 +1524,7 @@ function Library:CreateWindow(info)
                 UIStroke_1.Parent = Frame_1
                 UIStroke_1.Color = Color3.fromRGB(53, 65, 73)
                 UIStroke_1.Thickness = 1.5
-                UIStroke_1.Transparency = 0.8
+                UIStroke_1.Transparency = 0.5
 
                 local Click = click(Toggle)
 
@@ -1638,7 +1600,7 @@ function Library:CreateWindow(info)
                                 g = {BackgroundTransparency = 1}
                             }
                         ):Play()
-                        tw({v = UIStroke_1, t = 0.15, s = Enum.EasingStyle.Linear, d = "Out", g = {Transparency = 0.8}}):Play(
+                        tw({v = UIStroke_1, t = 0.15, s = Enum.EasingStyle.Linear, d = "Out", g = {Transparency = 0.5}}):Play(
 
                         )
                     end
@@ -2057,7 +2019,7 @@ function Library:CreateWindow(info)
                 Shadow.ZIndex = 0
                 Shadow.Image = "rbxassetid://8992230677"
                 Shadow.ImageColor3 = Color3.new(0, 0, 0)
-                Shadow.ImageTransparency = 0.6
+                Shadow.ImageTransparency = 0.5
                 Shadow.ResampleMode = Enum.ResamplerMode.Default
                 Shadow.ScaleType = Enum.ScaleType.Slice
                 Shadow.SliceScale = 1
@@ -2379,7 +2341,7 @@ function Library:CreateWindow(info)
                                 t = 0.15,
                                 s = Enum.EasingStyle.Linear,
                                 d = "Out",
-                                g = {BackgroundTransparency = 0.8}
+                                g = {BackgroundTransparency = 0.5}
                             }
                         ):Play()
                     end
@@ -3463,7 +3425,7 @@ function Library:CreateWindow(info)
         ImageLabel_1.Position = UDim2.new(1.5, 0, 0.5, 0)
         ImageLabel_1.Size = UDim2.new(0, 200, 0, 200)
         ImageLabel_1.Image = "rbxassetid://107475662985726"
-        ImageLabel_1.ImageTransparency = 0.8999999761581421
+        ImageLabel_1.ImageTransparency = 0.5
 
         tw(
             {
@@ -3632,7 +3594,7 @@ function Library:CreateWindow(info)
         UIStroke_1.Parent = Closeui
         UIStroke_1.Color = Color3.fromRGB(27, 29, 34)
         UIStroke_1.Thickness = 4
-        UIStroke_1.Transparency = 0.7
+        UIStroke_1.Transparency = 0.5
 
         game:GetService("RunService").RenderStepped:Connect(
             function()
