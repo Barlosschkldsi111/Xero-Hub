@@ -1,6 +1,5 @@
 -- https://github.com/LorekeeperZinnia/Dex
 
-
 --[[
 	Dex
 	Created by Moon
@@ -11864,7 +11863,7 @@ Main = (function()
 			return success and name or "Your executor"
 		end)()
 
-		Main.GuiHolder = plr:FindFirstChildWhichIsA("PlayerGui")
+		Main.GuiHolder = Main.Elevated and service.CoreGui or plr:FindFirstChildWhichIsA("PlayerGui")
 
 		setmetatable(env, nil)
 	end
