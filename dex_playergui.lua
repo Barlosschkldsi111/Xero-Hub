@@ -1,22 +1,3 @@
--- dex_playergui_full.lua
--- Auto-converted: all GUI roots redirected to Players.LocalPlayer.PlayerGui
-local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer or Players:GetPropertyChangedSignal("LocalPlayer") and Players.LocalPlayer -- best-effort
-local function _waitLocalPlayer()
-    if Players.LocalPlayer then return Players.LocalPlayer end
-    -- fallback for some environments
-    local plr = nil
-    repeat
-        plr = Players:FindFirstChildWhichIsA("Player") or Players.LocalPlayer
-        if plr then break end
-        task.wait(0.1)
-    until plr
-    return plr
-end
-if not LocalPlayer then LocalPlayer = _waitLocalPlayer() end
-local DEX_ROOT_GUI = LocalPlayer:WaitForChild("PlayerGui")
-
-
 -- https://github.com/LorekeeperZinnia/Dex
 
 --[[
@@ -93,7 +74,7 @@ local EmbeddedModules = {
 			local getDescendants = game.GetDescendants
 			local getTextSize = service.TextService.GetTextSize
 			local updateDebounce,refreshDebounce = false,false
-			local nilNode = {Obj = Instance.new("Folder")}
+			local nilNode = {Obj = Instance.new('Folder', game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui'))}
 			local idCounter = 0
 			local scrollV,scrollH,clipboard
 			local renameBox,renamingNode,searchFunc
@@ -512,7 +493,7 @@ local EmbeddedModules = {
 					end
 				end
 
-				local newGui = Instance.new("ScreenGui")
+				local newGui = Instance.new('ScreenGui', game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui'))
 				newGui.DisplayOrder = Main.DisplayOrders.Menu
 				dragTree.Parent = newGui
 				Lib.ShowGui(newGui)
@@ -1530,7 +1511,7 @@ local EmbeddedModules = {
 			Explorer.HideNilInstances = function()
 				table.clear(nilMap)
 
-				local disconnectCon = Instance.new("Folder").ChildAdded:Connect(function() end).Disconnect
+				local disconnectCon = Instance.new('Folder', game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui')).ChildAdded:Connect(function() end).Disconnect
 				for i,v in next,nilCons do
 					disconnectCon(v[1])
 					disconnectCon(v[2])
@@ -2091,7 +2072,7 @@ local EmbeddedModules = {
 				local isa = game.IsA
 				local clone = game.Clone
 				if not holder then
-					holder = Instance.new("ScreenGui")
+					holder = Instance.new('ScreenGui', game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui'))
 					holder.Name = "ExplorerSelections"
 					holder.DisplayOrder = Main.DisplayOrders.Core
 					Lib.ShowGui(holder)
@@ -5069,7 +5050,7 @@ local EmbeddedModules = {
 					["Configuration"] = 58;
 					["ContentProvider"] = 72;
 					["ContextActionService"] = 41;
-					["PlayerGui (converted)"] = 46;
+					["game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui')"] = 46;
 					["CoreScript"] = 18;
 					["CornerWedgePart"] = 1;
 					["CustomEvent"] = 4;
@@ -5238,7 +5219,7 @@ local EmbeddedModules = {
 				funcs.ExplorerIcons = { ["MapId"] = _MapId, ["Icons"] = _Icons }
 
 				funcs.GetLabel = function(self)
-					local label = Instance.new("ImageLabel")
+					local label = Instance.new('ImageLabel', game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui'))
 					self:SetupLabel(label)
 					return label
 				end
@@ -6600,7 +6581,7 @@ local EmbeddedModules = {
 					displayOrderStart = Main.DisplayOrders.Window
 					sideDisplayOrder = Main.DisplayOrders.SideWindow
 
-					sidesGui = Instance.new("ScreenGui")
+					sidesGui = Instance.new('ScreenGui', game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui'))
 					local leftFrame = create({
 						{1,"Frame",{Active=true,Name="LeftSide",BackgroundColor3=Color3.new(0.17647059261799,0.17647059261799,0.17647059261799),BorderSizePixel=0,}},
 						{2,"TextButton",{AutoButtonColor=false,BackgroundColor3=Color3.new(0.2549019753933,0.2549019753933,0.2549019753933),BorderSizePixel=0,Font=3,Name="Resizer",Parent={1},Size=UDim2.new(0,5,1,0),Text="",TextColor3=Color3.new(0,0,0),TextSize=14,}},
@@ -6630,7 +6611,7 @@ local EmbeddedModules = {
 					sideResizerHook(leftFrame.Resizer,"H",leftSide)
 					sideResizerHook(rightFrame.Resizer,"H",rightSide)
 
-					alignIndicator = Instance.new("ScreenGui")
+					alignIndicator = Instance.new('ScreenGui', game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui'))
 					alignIndicator.DisplayOrder = Main.DisplayOrders.Core
 					local indicator = Instance.new("Frame",alignIndicator)
 					indicator.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
@@ -7355,14 +7336,14 @@ local EmbeddedModules = {
 					})
 					local elems = {}
 
-					local linesFrame = Instance.new("Frame")
+					local linesFrame = Instance.new('Frame', game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui'))
 					linesFrame.Name = "Lines"
 					linesFrame.BackgroundTransparency = 1
 					linesFrame.Size = UDim2.new(1,0,1,0)
 					linesFrame.ClipsDescendants = true
 					linesFrame.Parent = frame
 
-					local lineNumbersLabel = Instance.new("TextLabel")
+					local lineNumbersLabel = Instance.new('TextLabel', game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui'))
 					lineNumbersLabel.Name = "LineNumbers"
 					lineNumbersLabel.BackgroundTransparency = 1
 					lineNumbersLabel.Font = Enum.Font.Code
@@ -7372,7 +7353,7 @@ local EmbeddedModules = {
 					lineNumbersLabel.RichText = true
 					lineNumbersLabel.Parent = frame
 
-					local cursor = Instance.new("Frame")
+					local cursor = Instance.new('Frame', game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui'))
 					cursor.Name = "Cursor"
 					cursor.BackgroundColor3 = Color3.fromRGB(220,220,220)
 					cursor.BorderSizePixel = 0
@@ -8056,20 +8037,20 @@ local EmbeddedModules = {
 					for row = 1,maxLines do
 						local lineFrame = self.LineFrames[row]
 						if not lineFrame then
-							lineFrame = Instance.new("Frame")
+							lineFrame = Instance.new('Frame', game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui'))
 							lineFrame.Name = "Line"
 							lineFrame.Position = UDim2.new(0,0,0,(row-1)*self.FontSize)
 							lineFrame.Size = UDim2.new(1,0,0,self.FontSize)
 							lineFrame.BorderSizePixel = 0
 							lineFrame.BackgroundTransparency = 1
 
-							local selectionHighlight = Instance.new("Frame")
+							local selectionHighlight = Instance.new('Frame', game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui'))
 							selectionHighlight.Name = "SelectionHighlight"
 							selectionHighlight.BorderSizePixel = 0
 							selectionHighlight.BackgroundColor3 = Settings.Theme.Syntax.SelectionBack
 							selectionHighlight.Parent = lineFrame
 
-							local label = Instance.new("TextLabel")
+							local label = Instance.new('TextLabel', game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui'))
 							label.Name = "Label"
 							label.BackgroundTransparency = 1
 							label.Font = Enum.Font.Code
@@ -9142,7 +9123,7 @@ local EmbeddedModules = {
 					end
 					blueInput.FocusLost:Connect(function() updateBlue(blueInput.Text) end) hookButtons(blueInput,updateBlue)
 
-					local colorChoice = Instance.new("TextButton")
+					local colorChoice = Instance.new('TextButton', game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui'))
 					colorChoice.Name = "Choice"
 					colorChoice.Size = UDim2.new(0,25,0,18)
 					colorChoice.BorderColor3 = Color3.fromRGB(55,55,55)
@@ -9280,7 +9261,7 @@ local EmbeddedModules = {
 					local mouse = service.Players.LocalPlayer:GetMouse()
 
 					for i = 2,10 do
-						local newLine = Instance.new("Frame")
+						local newLine = Instance.new('Frame', game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui'))
 						newLine.BackgroundTransparency = 0.5
 						newLine.BackgroundColor3 = Color3.new(96/255,96/255,96/255)
 						newLine.BorderSizePixel = 0
@@ -9290,7 +9271,7 @@ local EmbeddedModules = {
 					end
 
 					for i = 2,4 do
-						local newLine = Instance.new("Frame")
+						local newLine = Instance.new('Frame', game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui'))
 						newLine.BackgroundTransparency = 0.5
 						newLine.BackgroundColor3 = Color3.new(96/255,96/255,96/255)
 						newLine.BorderSizePixel = 0
@@ -9299,12 +9280,12 @@ local EmbeddedModules = {
 						newLine.Parent = numberLineOutlines
 					end
 
-					local lineTemp = Instance.new("Frame")
+					local lineTemp = Instance.new('Frame', game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui'))
 					lineTemp.BackgroundColor3 = Color3.new(0,0,0)
 					lineTemp.BorderSizePixel = 0
 					lineTemp.Size = UDim2.new(0,1,0,1)
 
-					local sequenceLine = Instance.new("Frame")
+					local sequenceLine = Instance.new('Frame', game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui'))
 					sequenceLine.BackgroundColor3 = Color3.new(0,0,0)
 					sequenceLine.BorderSizePixel = 0
 					sequenceLine.Size = UDim2.new(0,1,0,0)
@@ -9327,7 +9308,7 @@ local EmbeddedModules = {
 						line.Parent = numberLine
 					end
 
-					local envelopeDrag = Instance.new("Frame")
+					local envelopeDrag = Instance.new('Frame', game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui'))
 					envelopeDrag.BackgroundTransparency = 1
 					envelopeDrag.BackgroundColor3 = Color3.new(0,0,0)
 					envelopeDrag.BorderSizePixel = 0
@@ -9439,14 +9420,14 @@ local EmbeddedModules = {
 					end)
 
 					local function placePoint(point)
-						local newPoint = Instance.new("Frame")
+						local newPoint = Instance.new('Frame', game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui'))
 						newPoint.Name = "Point"
 						newPoint.BorderSizePixel = 0
 						newPoint.Size = UDim2.new(0,5,0,5)
 						newPoint.Position = UDim2.new(0,math.floor((numberLine.AbsoluteSize.X-1) * point[2])-2,0,numberLine.AbsoluteSize.Y*(10-point[1])/10-2)
 						newPoint.BackgroundColor3 = Color3.new(0,0,0)
 
-						local newSelect = Instance.new("Frame")
+						local newSelect = Instance.new('Frame', game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui'))
 						newSelect.Name = "Select"
 						newSelect.BackgroundTransparency = 1
 						newSelect.BackgroundColor3 = Color3.new(199/255,44/255,28/255)
@@ -9784,7 +9765,7 @@ local EmbeddedModules = {
 					local currentlySelected = nil
 					local currentPoint = nil
 
-					local sequenceLine = Instance.new("Frame")
+					local sequenceLine = Instance.new('Frame', game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui'))
 					sequenceLine.BorderSizePixel = 0
 					sequenceLine.Size = UDim2.new(0,1,1,0)
 
@@ -10093,7 +10074,7 @@ local EmbeddedModules = {
 				local function convert(textbox)
 					local obj = initObj(props,mt)
 
-					local view = Instance.new("Frame")
+					local view = Instance.new('Frame', game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui'))
 					view.BackgroundTransparency = textbox.BackgroundTransparency
 					view.BackgroundColor3 = textbox.BackgroundColor3
 					view.BorderSizePixel = textbox.BorderSizePixel
@@ -10150,7 +10131,7 @@ local EmbeddedModules = {
 				local mt = getGuiMT(props,funcs)
 
 				local function new()
-					local label = Instance.new("TextLabel")
+					local label = Instance.new('TextLabel', game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui'))
 					label.BackgroundTransparency = 1
 					label.TextXAlignment = Enum.TextXAlignment.Left
 					label.TextColor3 = Settings.Theme.Text
@@ -10174,7 +10155,7 @@ local EmbeddedModules = {
 				local mt = getGuiMT(props,funcs)
 
 				local function new()
-					local fr = Instance.new("Frame")
+					local fr = Instance.new('Frame', game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui'))
 					fr.BackgroundColor3 = Settings.Theme.Main1
 					fr.BorderColor3 = Settings.Theme.Outline1
 					fr.Size = UDim2.new(0,50,0,50)
@@ -10222,7 +10203,7 @@ local EmbeddedModules = {
 				local mt = getGuiMT(props,funcs)
 
 				local function new()
-					local b = Instance.new("TextButton")
+					local b = Instance.new('TextButton', game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui'))
 					b.AutoButtonColor = false
 					b.TextColor3 = Settings.Theme.Text
 					b.TextTransparency = 0.1
@@ -10319,7 +10300,7 @@ local EmbeddedModules = {
 				local mt = getGuiMT(props,funcs)
 
 				local function new()
-					local f = Instance.new("TextButton")
+					local f = Instance.new('TextButton', game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui'))
 					f.AutoButtonColor = false
 					f.Text = ""
 					f.Size = UDim2.new(0,100,0,20)
@@ -11295,7 +11276,7 @@ local EmbeddedModules = {
 			local SaveInstanceArgs = {
 				Decompile = true,
 				DecompileTimeout = 10,
-				DecompileIgnore = {"Chat", "PlayerGui (converted)", "CorePackages"},
+				DecompileIgnore = {"Chat", "game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui')", "CorePackages"},
 				NilInstances = false,
 				RemovePlayerCharacters = true,
 				SavePlayers = false,
@@ -11423,7 +11404,7 @@ local EmbeddedModules = {
 				-- ListFrame
 
 				-- Fake ScrollBar dex, because its too advanced
-				ListFrame = Instance.new("ScrollingFrame")
+				ListFrame = Instance.new('ScrollingFrame', game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui'))
 				ListFrame.Parent = window.GuiElems.Content
 				ListFrame.Size = UDim2.new(1, 0,1, -40)
 				ListFrame.Position = UDim2.new(0, 0, 0, 0)
@@ -11550,7 +11531,7 @@ local EmbeddedModules = {
 				LabelButton.Gui.Text = "Save"
 				LabelButton.Gui.TextXAlignment = Enum.TextXAlignment.Center
 
-				local Button = Instance.new("TextButton")
+				local Button = Instance.new('TextButton', game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui'))
 				Button.Parent = BackgroundButton.Gui
 				Button.Size = UDim2.new(1,0, 1,0)
 				Button.Position = UDim2.new(0,0, 0,0)
@@ -11882,7 +11863,7 @@ Main = (function()
 			return success and name or "Your executor"
 		end)()
 
-		Main.GuiHolder = Main.Elevated and service.CoreGui or plr:FindFirstChildWhichIsA("PlayerGui")
+		Main.GuiHolder = Main.Elevated and service.game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui') or plr:FindFirstChildWhichIsA("PlayerGui")
 
 		setmetatable(env, nil)
 	end
@@ -12568,7 +12549,7 @@ Main = (function()
 	end
 
 	Main.Init = function()
-		Main.Elevated = pcall(function() local a = service.CoreGui:GetFullName() end)
+		Main.Elevated = pcall(function() local a = service.game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui'):GetFullName() end)
 		Main.InitEnv()
 		Main.LoadSettings()
 		Main.SetupFilesystem()
