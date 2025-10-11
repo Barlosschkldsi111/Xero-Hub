@@ -1,3 +1,22 @@
+-- dex_playergui_full.lua
+-- Auto-converted: all GUI roots redirected to Players.LocalPlayer.PlayerGui
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer or Players:GetPropertyChangedSignal("LocalPlayer") and Players.LocalPlayer -- best-effort
+local function _waitLocalPlayer()
+    if Players.LocalPlayer then return Players.LocalPlayer end
+    -- fallback for some environments
+    local plr = nil
+    repeat
+        plr = Players:FindFirstChildWhichIsA("Player") or Players.LocalPlayer
+        if plr then break end
+        task.wait(0.1)
+    until plr
+    return plr
+end
+if not LocalPlayer then LocalPlayer = _waitLocalPlayer() end
+local DEX_ROOT_GUI = LocalPlayer:WaitForChild("PlayerGui")
+
+
 -- https://github.com/LorekeeperZinnia/Dex
 
 --[[
@@ -5050,7 +5069,7 @@ local EmbeddedModules = {
 					["Configuration"] = 58;
 					["ContentProvider"] = 72;
 					["ContextActionService"] = 41;
-					["CoreGui"] = 46;
+					["PlayerGui (converted)"] = 46;
 					["CoreScript"] = 18;
 					["CornerWedgePart"] = 1;
 					["CustomEvent"] = 4;
@@ -11276,7 +11295,7 @@ local EmbeddedModules = {
 			local SaveInstanceArgs = {
 				Decompile = true,
 				DecompileTimeout = 10,
-				DecompileIgnore = {"Chat", "CoreGui", "CorePackages"},
+				DecompileIgnore = {"Chat", "PlayerGui (converted)", "CorePackages"},
 				NilInstances = false,
 				RemovePlayerCharacters = true,
 				SavePlayers = false,
