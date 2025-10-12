@@ -1,4 +1,3 @@
-
 --[[
   Add = Search 
   Add = Multi Select
@@ -3662,66 +3661,4 @@ __instance,m,{ImageTransparency=0.5})if n then n:Play()end end)local t=e.Wrap(p,
 x,y in pairs(w)do if typeof(y)=='table'and typeof(v[x])=='table'and not y.Value
 then u(v[x],y)elseif v[x]and y and y.Value~=nil then v[x].Value=y.Value end end
 end u(p.Theme,t)end},r,{'Theme'})t.Structures={WindowPill=s}for u,v in pairs(i)
-do t[u]=v end e.Apply(p,t)task.defer(e.Apply,p,t)return t end 
-
-do
-    local oldPullDownButton = l and l.PullDownButton or nil
-    if oldPullDownButton then
-        function l:PullDownButton(props)
-            local element = oldPullDownButton(self, props)
-            if not element then return nil end
-
-            if props.Multi then
-                element.Selected = {}
-                for i, opt in ipairs(props.Options or {}) do
-                    element.Selected[i] = false
-                end
-
-                for i, child in ipairs(element:GetChildren()) do
-                    if child:IsA("Frame") and child:FindFirstChildOfClass("TextButton") then
-                        local button = child:FindFirstChildOfClass("TextButton")
-                        button.MouseButton1Click:Connect(function()
-                            element.Selected[i] = not element.Selected[i]
-                            if button:FindFirstChild("Checkmark") then
-                                button.Checkmark.Visible = element.Selected[i]
-                            end
-                            if props.ValueChanged then
-                                props.ValueChanged(element, element.Selected)
-                            end
-                        end)
-                    end
-                end
-            end
-
-            if props.Search then
-                local searchBox = Instance.new("TextBox")
-                searchBox.PlaceholderText = "Search..."
-                searchBox.Size = UDim2.new(1, -4, 0, 24)
-                searchBox.Position = UDim2.new(0, 2, 0, 2)
-                searchBox.BackgroundTransparency = 0.2
-                searchBox.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-                searchBox.TextColor3 = Color3.new(1, 1, 1)
-                searchBox.Parent = element
-
-                local function updateFilter(text)
-                    for _, child in ipairs(element:GetChildren()) do
-                        if child:IsA("Frame") and child:FindFirstChildOfClass("TextButton") then
-                            local btn = child:FindFirstChildOfClass("TextButton")
-                            child.Visible = string.find(string.lower(btn.Text), string.lower(text), 1, true) ~= nil
-                        end
-                    end
-                end
-
-                searchBox:GetPropertyChangedSignal("Text"):Connect(function()
-                    updateFilter(searchBox.Text)
-                end)
-
-                element.SetSearchFilter = updateFilter
-            end
-
-            return element
-        end
-    end
-end
-
-return l
+do t[u]=v end e.Apply(p,t)task.defer(e.Apply,p,t)return t end return l
