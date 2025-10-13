@@ -3,15 +3,15 @@ local TeleportService = game:GetService("TeleportService")
 local HttpService = game:GetService("HttpService")
 local Players = game:GetService("Players")
 local Workspace = game:GetService("Workspace")
-
 local LocalPlayer = Players.LocalPlayer
 local PlaceId = game.PlaceId
-
 
 local AllIDs = {}
 local foundAnything = ""
 local actualHour = os.date("!*t").hour
 local hasLoadedZenith = false
+local lastFishState = false
+
 
 local function LoadServerFile()
 	local success = pcall(function()
@@ -65,7 +65,7 @@ local function ServerHop()
 				end)
 				print("[ServerHop] Switching to new server:", id)
 				TeleportService:TeleportToPlaceInstance(PlaceId, id, LocalPlayer)
-				task.wait(1)
+				task.wait(4)
 			end
 		end
 	end
@@ -73,7 +73,8 @@ end
 
 local function CheckForFish()
 	local fish = Workspace:FindFirstChild("fish_Scylla")
-	if fish and not hasLoadedZenith then
+	local fishExists = fish ~= nil
+	if fishExists and not hasLoadedZenith then
 		hasLoadedZenith = true
 		print("[Found] fish_Scylla detected — loading ZenithHub...")
 		local ok, err = pcall(function()
@@ -82,14 +83,28 @@ local function CheckForFish()
 		if not ok then
 			warn("[ZenithHub Loader Error]", err)
 		end
-	elseif not fish and not hasLoadedZenith then
+	end
+	if not fishExists and lastFishState == true then
+		print("[Lost] fish_Scylla disappeared — hopping server...")
+		ServerHop()
+	elseif not fishExists and not hasLoadedZenith then
 		print("[Not Found] fish_Scylla not found — hopping server...")
 		ServerHop()
 	end
+	lastFishState = fishExists
 end
 
 task.spawn(function()
-	while task.wait() do
-		pcall(CheckForFish)
+	while task.wait(3) do
+		local ok, err = pcall(CheckForFish)
+		if not ok then
+			warn("[CheckForFish Error]:", err)
+		end
 	end
+end)
+
+task.spawn(function()
+	while task.wait() do 
+		LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2512.1189, -11223.1875, 6880.61035, -0.0766542777, 2.41835458e-08, -0.997057736, -4.09237444e-08, 1, 2.7401148e-08, 0.997057736, 4.29037499e-08, -0.0766542777)
+	end 
 end)
