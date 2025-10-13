@@ -1,46 +1,67 @@
 
 local TeleportService = game:GetService("TeleportService")
 local Players = game:GetService("Players")
+local HttpService = game:GetService("HttpService")
+local Workspace = game:GetService("Workspace")
 local LocalPlayer = Players.LocalPlayer
+local PlaceId = game.PlaceId
+local hasLoadedZenith = false
 
 local function RejoinOrSwitchServer()
 	local servers = {}
-	local PlaceId = game.PlaceId
-
 	local success, response = pcall(function()
 		return game:HttpGet(
 			string.format("https://games.roblox.com/v1/games/%d/servers/Public?sortOrder=Asc&limit=100", PlaceId)
 		)
 	end)
 
-	if success then
-		local data = game:GetService("HttpService"):JSONDecode(response)
-		for _, v in ipairs(data.data) do
-			if v.playing < v.maxPlayers and v.id ~= game.JobId then
-				table.insert(servers, v.id)
+	if success and response then
+		local ok, data = pcall(function()
+			return HttpService:JSONDecode(response)
+		end)
+
+		if ok and data and data.data and #data.data > 0 then
+			for _, v in ipairs(data.data) do
+				if v.playing < v.maxPlayers and v.id ~= game.JobId then
+					table.insert(servers, v.id)
+				end
 			end
+		else
+			warn("[Server Switch] No valid data received from Roblox API")
 		end
+	else
+		warn("[Server Switch] Failed to fetch server list")
 	end
 
 	if #servers > 0 then
 		local randomServer = servers[math.random(1, #servers)]
+		print("[Server Switch] Switching to another server:", randomServer)
 		TeleportService:TeleportToPlaceInstance(PlaceId, randomServer, LocalPlayer)
+	else
+		warn("[Server Switch] No available servers found.")
 	end
 end
 
-RejoinOrSwitchServer()
+local function CheckForFish()
+	local fish = Workspace:FindFirstChild("fish_Scylla")
 
-task.spawn(function() 
-  while task.wait() do
-    if workspace:FindFirstChild("fish_Scylla") then
-      return task.wait(0.1)
-    else 
-      RejoinOrSwitchServer()
-      task.wait(1)
-    end 
-  end 
-end)
-
-if workspace:FindFirstChild("fish_Scylla") then 
-  loadstring(game:HttpGet("https://raw.githubusercontent.com/rxito/ZenithHub/refs/heads/main/Loader"))()
+	if fish and not hasLoadedZenith then
+		hasLoadedZenith = true
+		print("[Found] fish_Scylla detected — loading ZenithHub...")
+		local success, err = pcall(function()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/rxito/ZenithHub/refs/heads/main/Loader"))()
+		end)
+		if not success then
+			warn("[ZenithHub Loader Error]", err)
+		end
+	elseif not fish and not hasLoadedZenith then
+		print("[Not Found] fish_Scylla not found, switching server...")
+		RejoinOrSwitchServer()
+	end
 end
+
+task.spawn(function()
+	while task.wait(3) do
+		pcall(CheckForFish)
+	end
+end)
