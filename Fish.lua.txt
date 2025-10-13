@@ -1,67 +1,95 @@
 
 local TeleportService = game:GetService("TeleportService")
-local Players = game:GetService("Players")
 local HttpService = game:GetService("HttpService")
+local Players = game:GetService("Players")
 local Workspace = game:GetService("Workspace")
+
 local LocalPlayer = Players.LocalPlayer
 local PlaceId = game.PlaceId
+
+
+local AllIDs = {}
+local foundAnything = ""
+local actualHour = os.date("!*t").hour
 local hasLoadedZenith = false
 
-local function RejoinOrSwitchServer()
-	local servers = {}
-	local success, response = pcall(function()
-		return game:HttpGet(
-			string.format("https://games.roblox.com/v1/games/%d/servers/Public?sortOrder=Asc&limit=100", PlaceId)
-		)
+local function LoadServerFile()
+	local success = pcall(function()
+		AllIDs = HttpService:JSONDecode(readfile("server-hop-temp.json"))
+	end)
+	if not success then
+		table.insert(AllIDs, actualHour)
+		pcall(function()
+			writefile("server-hop-temp.json", HttpService:JSONEncode(AllIDs))
+		end)
+	end
+end
+
+LoadServerFile()
+
+local function ServerHop()
+	local Site
+	local success, err = pcall(function()
+		local url
+		if foundAnything == "" then
+			url = string.format("https://games.roblox.com/v1/games/%d/servers/Public?sortOrder=Asc&limit=100", PlaceId)
+		else
+			url = string.format("https://games.roblox.com/v1/games/%d/servers/Public?sortOrder=Asc&limit=100&cursor=%s", PlaceId, foundAnything)
+		end
+		Site = HttpService:JSONDecode(game:HttpGet(url))
 	end)
 
-	if success and response then
-		local ok, data = pcall(function()
-			return HttpService:JSONDecode(response)
-		end)
-
-		if ok and data and data.data and #data.data > 0 then
-			for _, v in ipairs(data.data) do
-				if v.playing < v.maxPlayers and v.id ~= game.JobId then
-					table.insert(servers, v.id)
-				end
-			end
-		else
-			warn("[Server Switch] No valid data received from Roblox API")
-		end
-	else
-		warn("[Server Switch] Failed to fetch server list")
+	if not success or not Site then
+		warn("[ServerHop] Failed to fetch servers:", err)
+		return
 	end
 
-	if #servers > 0 then
-		local randomServer = servers[math.random(1, #servers)]
-		print("[Server Switch] Switching to another server:", randomServer)
-		TeleportService:TeleportToPlaceInstance(PlaceId, randomServer, LocalPlayer)
-	else
-		warn("[Server Switch] No available servers found.")
+	if Site.nextPageCursor then
+		foundAnything = Site.nextPageCursor
+	end
+
+	for _, v in pairs(Site.data or {}) do
+		if v.playing < v.maxPlayers then
+			local id = tostring(v.id)
+			local possible = true
+			for _, existing in pairs(AllIDs) do
+				if id == tostring(existing) then
+					possible = false
+					break
+				end
+			end
+			if possible then
+				table.insert(AllIDs, id)
+				pcall(function()
+					writefile("server-hop-temp.json", HttpService:JSONEncode(AllIDs))
+				end)
+				print("[ServerHop] Switching to new server:", id)
+				TeleportService:TeleportToPlaceInstance(PlaceId, id, LocalPlayer)
+				task.wait(1)
+			end
+		end
 	end
 end
 
 local function CheckForFish()
 	local fish = Workspace:FindFirstChild("fish_Scylla")
-
 	if fish and not hasLoadedZenith then
 		hasLoadedZenith = true
 		print("[Found] fish_Scylla detected — loading ZenithHub...")
-		local success, err = pcall(function()
+		local ok, err = pcall(function()
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/rxito/ZenithHub/refs/heads/main/Loader"))()
 		end)
-		if not success then
+		if not ok then
 			warn("[ZenithHub Loader Error]", err)
 		end
 	elseif not fish and not hasLoadedZenith then
-		print("[Not Found] fish_Scylla not found, switching server...")
-		RejoinOrSwitchServer()
+		print("[Not Found] fish_Scylla not found — hopping server...")
+		ServerHop()
 	end
 end
 
 task.spawn(function()
-	while task.wait(3) do
+	while task.wait() do
 		pcall(CheckForFish)
 	end
 end)
