@@ -1,8 +1,15 @@
 
+--!nolint
+--!nocheck
+--!optimize 2
 
 --[[
-  Add Search 
-  @By Smooth X
+    @author biggaboy212
+    @name Cascade
+    @description A LuaU UI library based on macOS
+    @license MIT License
+
+    This file was automatically generated with darklua, it is not intended for manual editing.
 --]]
 
 _P = {
@@ -9319,24 +9326,38 @@ return function(self, properties: PullDownButtonProperties__DARKLUA_TYPE_0): Pul
 	local guiService = services.GuiService
 	local camera = workspace.CurrentCamera
 
+	--// Variables
 	local parent = self.__container or self.__instance or self
 	local theme = self.Theme.Controls.MenuButton
 	local structures = { Options = {} }
 
+	--// Constants
 	local HORIZONTAL_OFFSET = -1
 	local VERTICAL_PADDING = 6
 	local EDGE_BUFFER = 6
 
-	--// Anchor menu
+	--// Functions
 	local function anchor()
-		local body, menu = structures.Body, structures.Menu
-		if not menu or not body then return end
+		local body = structures.Body
+		local menu = structures.Menu
+		if not menu or not body then
+			return
+		end
 
-		local bodyPos, bodySize, menuSize, viewportSize =
-			body.AbsolutePosition, body.AbsoluteSize, menu.AbsoluteSize, camera.ViewportSize
+		local bodyPos = body.AbsolutePosition
+		local bodySize = body.AbsoluteSize
+		local menuSize = menu.AbsoluteSize
+		local viewportSize = camera.ViewportSize
 
-		local desiredX = math.clamp(bodyPos.X + HORIZONTAL_OFFSET, EDGE_BUFFER, viewportSize.X - EDGE_BUFFER - menuSize.X)
-		local desiredY = math.clamp(bodyPos.Y + (bodySize.Y * 3) + (VERTICAL_PADDING * 3), EDGE_BUFFER, viewportSize.Y - EDGE_BUFFER - menuSize.Y)
+		local desiredX = bodyPos.X + HORIZONTAL_OFFSET
+		local desiredY = bodyPos.Y + (bodySize.Y * 3) + (VERTICAL_PADDING * 3)
+
+		local maxX = math.max(EDGE_BUFFER, viewportSize.X - EDGE_BUFFER - menuSize.X)
+		local maxY = math.max(EDGE_BUFFER, viewportSize.Y - EDGE_BUFFER - menuSize.Y)
+
+		desiredX = math.clamp(desiredX, EDGE_BUFFER, maxX)
+		desiredY = math.clamp(desiredY, EDGE_BUFFER, maxY)
+
 		menu.Position = UDim2.new(0, desiredX, 0, desiredY)
 	end
 
@@ -9349,60 +9370,63 @@ return function(self, properties: PullDownButtonProperties__DARKLUA_TYPE_0): Pul
 			label.TextTransparency = self.Theme.Text.Primary[2].Value
 			return
 		end
+
 		option.BackgroundTransparency = self.Theme.Controls.SelectionFocused[2].Value
 		label.TextColor3 = self.Theme.Controls.SelectionFocusedAccent[1].Value
 		label.TextTransparency = self.Theme.Controls.SelectionFocusedAccent[2].Value
 	end
 
 	local function update_structures()
-		if not structures or not structures.CurrentTab then return end
+		if not structures or not structures.CurrentTab then
+			return
+		end
+
 		if not selectedValues[1] then
 			structures.CurrentTab.Text = ""
 			return
 		end
-		structures.CurrentTab.Text = selectedValues[1] .. ","
+
+		structures.CurrentTab.Text = table.concat(selectedValues, ", ")
 	end
 
-	--// Create option
 	local function option(object, name, index)
 		local option = create("TextButton")({
 			Name = "Item",
-			Size = UDim2.new(1, 0, 0, 28),
+			Size = UDim2.fromScale(1, 0),
 			AutoButtonColor = false,
+			AutomaticSize = Enum.AutomaticSize.XY,
 			BackgroundTransparency = 1,
 			Text = "",
 			LayoutOrder = index,
-			Parent = structures.Menu,
+			Parent = structures.ListHolder,
 
 			create("UIPadding")({
-				PaddingBottom = UDim.new(0, 3),
 				PaddingLeft = UDim.new(0, 7),
-				PaddingRight = UDim.new(0, 12),
 				PaddingTop = UDim.new(0, 3),
+				PaddingBottom = UDim.new(0, 3),
 			}),
 
 			create("TextLabel")({
 				Name = "Label",
-				Size = UDim2.new(1, -10, 1, 0),
+				AutomaticSize = Enum.AutomaticSize.XY,
 				BackgroundTransparency = 1,
 				FontFace = Font.new("rbxassetid://12187365364"),
 				Text = name,
-				TextSize = 17,
-				TextTransparency = 0.1,
-				TextXAlignment = Enum.TextXAlignment.Left,
-				TextYAlignment = Enum.TextYAlignment.Center,
-				TextTruncate = Enum.TextTruncate.AtEnd,
-
+				TextSize = 15,
+				TextColor3 = Color3.fromRGB(0, 0, 0),
 				__dynamicKeys = {
 					TextColor3 = self.Theme.Text.Primary[1],
 					TextTransparency = self.Theme.Text.Primary[2],
 				},
 			}),
 
-			create("UICorner")({ CornerRadius = UDim.new(0, 5) }),
-		})
+			create("UICorner")({
+				CornerRadius = UDim.new(0, 5),
+			}),
+		}) :: TextButton
 
 		local label = option:FindFirstChild("Label")
+
 		table.insert(backup, { option = option, label = label })
 		structures.Options[index] = option.__instance
 
@@ -9415,186 +9439,168 @@ return function(self, properties: PullDownButtonProperties__DARKLUA_TYPE_0): Pul
 		end
 
 		option.MouseButton1Click:Connect(function()
-			if object then
-				local key = properties.Options[index]
-				if multi then
-					if not table.find(selectedValues, key) then
-						table.insert(selectedValues, key)
-						updateHover(option, label, true)
-					else
-						local removeKey = table.find(selectedValues, key)
-						if removeKey then
-							table.remove(selectedValues, removeKey)
-							updateHover(option, label, false)
-						end
-					end
-					if properties.ValueChanged then
-						properties.Value = table.clone(selectedValues)
-						object.Value = properties.Value
-					end
-					update_structures()
+			local key = properties.Options[index]
+			if multi then
+				if not table.find(selectedValues, key) then
+					table.insert(selectedValues, key)
+					updateHover(option, label, true)
 				else
-					object.Expanded = false
-					object.Value = index
-					if properties.ValueChanged then
-						for _, val in next, backup do
-							pcall(updateHover, val.option, val.label, false)
-						end
-						updateHover(option, label, true)
-						structures.CurrentTab.Text = tostring(key)
+					local removeKey = table.find(selectedValues, key)
+					if removeKey then
+						table.remove(selectedValues, removeKey)
+						updateHover(option, label, false)
 					end
+				end
+				if properties.ValueChanged then
+					properties.Value = table.clone(selectedValues)
+					object.Value = properties.Value
+					properties.ValueChanged(object, table.clone(selectedValues))
+				end
+				update_structures()
+			else
+				object.Expanded = false
+				object.Value = index
+				if properties.ValueChanged then
+					for _, val in next, backup do
+						pcall(updateHover, val.option, val.label, false)
+					end
+					updateHover(option, label, true)
+					local key = properties.Options[index]
+					properties.ValueChanged(object, key)
 				end
 			end
 		end)
 	end
 
-	--// UI setup
+	--// UI
 	properties = properties or {}
 	properties.Expanded = properties.Expanded or false
 
-	structures.Body = binder.Apply(properties, create("TextButton")({
-		Name = "PullDownButton",
-		AutomaticSize = Enum.AutomaticSize.None,
-		Size = UDim2.new(0, 180, 0, 34),
-		BackgroundTransparency = 1,
-		Text = "",
-		Parent = parent,
+	structures.Body = binder.Apply(
+		properties,
+		create("TextButton")({
+			Name = "PullDownButton",
+			AutomaticSize = Enum.AutomaticSize.XY,
+			BackgroundTransparency = 1,
+			Text = "",
+			Parent = parent,
 
-		create("UIListLayout")({
-			FillDirection = Enum.FillDirection.Horizontal,
-			Padding = UDim.new(0, 7),
-			SortOrder = Enum.SortOrder.LayoutOrder,
-			VerticalAlignment = Enum.VerticalAlignment.Center,
-		}),
+			create("UIListLayout")({
+				FillDirection = Enum.FillDirection.Horizontal,
+				Padding = UDim.new(0, 7),
+				VerticalAlignment = Enum.VerticalAlignment.Center,
+			}),
 
-		create("Frame")({
-			Name = "PullDownIndicator",
-			Size = UDim2.fromOffset(16, 16),
-			__dynamicKeys = {
-				BackgroundColor3 = theme.IndicatorBackground[1],
-				BackgroundTransparency = theme.IndicatorBackground[2],
-			},
-
-			create("UICorner")({ CornerRadius = UDim.new(0, 4) }),
-			create("ImageLabel")({
-				Name = "Indicators",
+			create("TextLabel")({
+				Name = "Label",
+				AutomaticSize = Enum.AutomaticSize.XY,
 				BackgroundTransparency = 1,
-				Image = "rbxassetid://86693411280110",
-				Size = UDim2.fromScale(1, 1),
+				FontFace = Font.new("rbxassetid://12187365364"),
+				TextSize = 15,
+				Text = properties.Label,
+				Visible = true,
 				__dynamicKeys = {
-					ImageColor3 = self.Theme.Text.Primary[1],
-					ImageTransparency = self.Theme.Text.Primary[2],
+					TextColor3 = self.Theme.Text.Primary[1],
+					TextTransparency = self.Theme.Text.Primary[2],
 				},
 			}),
-		}),
+		})
+	) :: TextButton
 
-		create("TextLabel")({
-			Name = "Label",
-			Size = UDim2.new(1, -20, 1, 0),
-			BackgroundTransparency = 1,
-			FontFace = Font.new("rbxassetid://12187365364"),
-			TextSize = 17,
-			TextTransparency = 0.1,
-			TextXAlignment = Enum.TextXAlignment.Left,
-			TextYAlignment = Enum.TextYAlignment.Center,
-			__dynamicKeys = {
-				TextColor3 = self.Theme.Text.Primary[1],
-				TextTransparency = self.Theme.Text.Primary[2],
-			},
-		}),
-	})) :: TextButton
-
-	structures.PullDownIndicator = structures.Body:FindFirstChild("PullDownIndicator") :: Frame
 	structures.CurrentTab = structures.Body:FindFirstChild("Label") :: TextLabel
 
 	structures.MenuContainer = create("ScreenGui")({
 		Name = "Container",
 		IgnoreGuiInset = true,
 		DisplayOrder = 201,
-		OnTopOfCoreBlur = true,
 
 		create("CanvasGroup")({
 			Name = "MenuBody",
 			BackgroundTransparency = 1,
-			Size = UDim2.fromScale(1, 1),
 
 			create("ScrollingFrame")({
 				Name = "PullDownMenu",
-				AutomaticSize = Enum.AutomaticSize.None,
+				AutomaticCanvasSize = Enum.AutomaticSize.Y,
 				CanvasSize = UDim2.new(),
-				Size = UDim2.new(0, 200, 0, 260),
-				ScrollBarThickness = 4,
-				__dynamicKeys = {
-					BackgroundColor3 = theme.MenuBackground[1],
-					BackgroundTransparency = theme.MenuBackground[2],
-				},
+				Size = UDim2.new(0, 0, 0, 200),
+				ScrollBarThickness = 3,
 
-				create("UICorner")({ CornerRadius = UDim.new(0, 6) }),
-				create("UIStroke")({ ApplyStrokeMode = Enum.ApplyStrokeMode.Border, Transparency = 0.9 }),
-				create("UIPadding")({ PaddingBottom = UDim.new(0, 5), PaddingLeft = UDim.new(0, 5), PaddingRight = UDim.new(0, 5), PaddingTop = UDim.new(0, 5) }),
-				create("UIListLayout")({ SortOrder = Enum.SortOrder.LayoutOrder, Padding = UDim.new(0, 3) }),
+				create("UIListLayout")({
+					SortOrder = Enum.SortOrder.LayoutOrder,
+					Padding = UDim.new(0, 4),
+				}),
+
+				-- SEARCH BAR
+				create("TextBox")({
+					Name = "SearchBox",
+					PlaceholderText = "Search...",
+					Size = UDim2.new(1, -10, 0, 25),
+					Position = UDim2.fromOffset(5, 5),
+					BackgroundTransparency = 0.9,
+					TextXAlignment = Enum.TextXAlignment.Left,
+					FontFace = Font.new("rbxassetid://12187365364"),
+					TextSize = 15,
+				}),
+
+				create("Frame")({
+					Name = "ListHolder",
+					AutomaticSize = Enum.AutomaticSize.Y,
+					Size = UDim2.new(1, 0, 0, 0),
+					BackgroundTransparency = 1,
+
+					create("UIListLayout")({
+						SortOrder = Enum.SortOrder.LayoutOrder,
+						Padding = UDim.new(0, 2),
+					}),
+				}),
 			}),
 		}),
 	}) :: ScreenGui
 
 	structures.MenuBody = structures.MenuContainer.MenuBody
 	structures.Menu = structures.MenuBody.PullDownMenu
+	structures.SearchBox = structures.Menu.SearchBox
+	structures.ListHolder = structures.Menu.ListHolder
 
-	-- 🔍 Search box
-	local searchBox = create("TextBox")({
-		Name = "SearchBox",
-		Parent = structures.Menu,
-		PlaceholderText = "Search...",
-		ClearTextOnFocus = true,
-		Text = "",
-		FontFace = Font.new("rbxassetid://12187365364"),
-		TextSize = 17,
-		TextColor3 = Color3.new(1, 1, 1),
-		BackgroundColor3 = Color3.fromRGB(40, 40, 40),
-		BackgroundTransparency = 0.15,
-		Size = UDim2.new(1, -10, 0, 28),
-		BorderSizePixel = 0,
-	})
-
-	searchBox.FocusLost:Connect(function()
-		searchBox.Text = ""
-		for _, opt in ipairs(structures.Options) do
-			opt.Visible = true
-		end
-	end)
-
-	searchBox:GetPropertyChangedSignal("Text"):Connect(function()
-		local query = string.lower(searchBox.Text)
-		for _, opt in ipairs(structures.Options) do
-			local lbl = opt:FindFirstChild("Label")
-			if lbl then
-				opt.Visible = (query == "" or string.find(string.lower(lbl.Text), query))
+	-- realtime search
+	structures.SearchBox:GetPropertyChangedSignal("Text"):Connect(function()
+		local query = string.lower(structures.SearchBox.Text)
+		for i, opt in ipairs(structures.ListHolder:GetChildren()) do
+			if opt:IsA("TextButton") then
+				local label = opt:FindFirstChild("Label")
+				if label then
+					opt.Visible = query == "" or string.find(string.lower(label.Text), query)
+				end
 			end
 		end
 	end)
 
-	--// Bindings
 	local object
 	local bindings = {
 		Options = function(value)
-			for _, option in ipairs(structures.Options) do
-				option:Destroy()
+			for _, v in ipairs(structures.Options) do
+				if v.Destroy then pcall(v.Destroy, v) end
 			end
-			structures.Options = {}
-			for index, opt in ipairs(value) do
-				option(object, opt, index)
+			table.clear(structures.Options)
+			for index, _option in ipairs(value) do
+				option(object, _option, index)
 			end
 		end,
 
 		Expanded = function(value)
 			local expand = value == true
-			if expand then structures.MenuContainer.Parent = structures.Body.__instance end
+			if expand then
+				structures.MenuContainer.Parent = structures.Body.__instance
+			end
+
 			anchor()
 			local goal = { GroupTransparency = expand and 0 or 1 }
-			local tween = tweenService:Create(structures.MenuBody, TweenInfo.new(expand and 0 or 0.4, Enum.EasingStyle.Exponential), goal)
+			local tween = tweenService:Create(structures.MenuBody, TweenInfo.new(expand and 0 or 0.3), goal)
 			tween:Play()
 			tween.Completed:Connect(function()
-				if not object.Expanded then structures.MenuContainer.Parent = nil end
+				if not object.Expanded then
+					structures.MenuContainer.Parent = nil
+				end
 			end)
 		end,
 
@@ -9604,18 +9610,6 @@ return function(self, properties: PullDownButtonProperties__DARKLUA_TYPE_0): Pul
 				structures.CurrentTab.Text = value
 			end
 		end,
-
-		Value = function(value)
-			if properties.ValueChanged then
-				properties.Value = value
-				if multi then
-					properties.ValueChanged(object, value)
-					return
-				end
-				local key = properties.Options[value] or value
-				task.spawn(properties.ValueChanged, object, key)
-			end
-		end,
 	}
 
 	object = binder.Wrap(properties, bindings, structures.Body)
@@ -9623,10 +9617,28 @@ return function(self, properties: PullDownButtonProperties__DARKLUA_TYPE_0): Pul
 	object.Theme = self.Theme
 	object.Structures = structures
 
-	binder.Apply(properties, object)
-
 	structures.Body.MouseButton1Click:Connect(function()
 		object.Expanded = not object.Expanded
+	end)
+
+	userInputService.InputBegan:Connect(function(input)
+		if object.Expanded and (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then
+			local mouse = userInputService:GetMouseLocation()
+			local inset = guiService:GetGuiInset()
+			local menuFrame = structures.Menu
+			local pos = menuFrame.AbsolutePosition
+			local size = menuFrame.AbsoluteSize
+			local adjustedMouseY = mouse.Y - inset.Y
+
+			if
+				mouse.X < pos.X
+				or mouse.X > pos.X + size.X
+				or adjustedMouseY < pos.Y
+				or adjustedMouseY > pos.Y + size.Y
+			then
+				object.Expanded = false
+			end
+		end
 	end)
 
 	return object
