@@ -9326,7 +9326,6 @@ return function(self, properties: PullDownButtonProperties__DARKLUA_TYPE_0): Pul
 	local guiService = services.GuiService
 	local camera = workspace.CurrentCamera
 
-	--// Variables
 	local parent = self.__container or self.__instance or self
 	local theme = self.Theme.Controls.MenuButton
 	local structures = { Options = {} }
@@ -9335,7 +9334,7 @@ return function(self, properties: PullDownButtonProperties__DARKLUA_TYPE_0): Pul
 	local VERTICAL_PADDING = 6
 	local EDGE_BUFFER = 6
 
-	--// Position update
+	--// Anchor menu
 	local function anchor()
 		local body, menu = structures.Body, structures.Menu
 		if not menu or not body then return end
@@ -9345,7 +9344,6 @@ return function(self, properties: PullDownButtonProperties__DARKLUA_TYPE_0): Pul
 
 		local desiredX = math.clamp(bodyPos.X + HORIZONTAL_OFFSET, EDGE_BUFFER, viewportSize.X - EDGE_BUFFER - menuSize.X)
 		local desiredY = math.clamp(bodyPos.Y + (bodySize.Y * 3) + (VERTICAL_PADDING * 3), EDGE_BUFFER, viewportSize.Y - EDGE_BUFFER - menuSize.Y)
-
 		menu.Position = UDim2.new(0, desiredX, 0, desiredY)
 	end
 
@@ -9358,7 +9356,6 @@ return function(self, properties: PullDownButtonProperties__DARKLUA_TYPE_0): Pul
 			label.TextTransparency = self.Theme.Text.Primary[2].Value
 			return
 		end
-
 		option.BackgroundTransparency = self.Theme.Controls.SelectionFocused[2].Value
 		label.TextColor3 = self.Theme.Controls.SelectionFocusedAccent[1].Value
 		label.TextTransparency = self.Theme.Controls.SelectionFocusedAccent[2].Value
@@ -9373,11 +9370,11 @@ return function(self, properties: PullDownButtonProperties__DARKLUA_TYPE_0): Pul
 		structures.CurrentTab.Text = selectedValues[1] .. ","
 	end
 
-	--// Create Option Row
+	--// Create option
 	local function option(object, name, index)
 		local option = create("TextButton")({
 			Name = "Item",
-			Size = UDim2.new(1, 0, 0, 26),
+			Size = UDim2.new(1, 0, 0, 28),
 			AutoButtonColor = false,
 			BackgroundTransparency = 1,
 			Text = "",
@@ -9393,12 +9390,14 @@ return function(self, properties: PullDownButtonProperties__DARKLUA_TYPE_0): Pul
 
 			create("TextLabel")({
 				Name = "Label",
-				AutomaticSize = Enum.AutomaticSize.XY,
+				Size = UDim2.new(1, -10, 1, 0),
 				BackgroundTransparency = 1,
 				FontFace = Font.new("rbxassetid://12187365364"),
 				Text = name,
 				TextSize = 17,
 				TextTransparency = 0.1,
+				TextXAlignment = Enum.TextXAlignment.Left,
+				TextYAlignment = Enum.TextYAlignment.Center,
 				TextTruncate = Enum.TextTruncate.AtEnd,
 
 				__dynamicKeys = {
@@ -9456,23 +9455,17 @@ return function(self, properties: PullDownButtonProperties__DARKLUA_TYPE_0): Pul
 		end)
 	end
 
-	--// UI Setup
+	--// UI setup
 	properties = properties or {}
 	properties.Expanded = properties.Expanded or false
 
 	structures.Body = binder.Apply(properties, create("TextButton")({
 		Name = "PullDownButton",
-		AutomaticSize = Enum.AutomaticSize.XY,
+		AutomaticSize = Enum.AutomaticSize.None,
+		Size = UDim2.new(0, 180, 0, 34),
 		BackgroundTransparency = 1,
 		Text = "",
 		Parent = parent,
-
-		create("UIPadding")({
-			PaddingBottom = UDim.new(0, 3),
-			PaddingLeft = UDim.new(0, 7),
-			PaddingRight = UDim.new(0, 3),
-			PaddingTop = UDim.new(0, 3),
-		}),
 
 		create("UIListLayout")({
 			FillDirection = Enum.FillDirection.Horizontal,
@@ -9504,12 +9497,13 @@ return function(self, properties: PullDownButtonProperties__DARKLUA_TYPE_0): Pul
 
 		create("TextLabel")({
 			Name = "Label",
-			AutomaticSize = Enum.AutomaticSize.XY,
+			Size = UDim2.new(1, -20, 1, 0),
 			BackgroundTransparency = 1,
 			FontFace = Font.new("rbxassetid://12187365364"),
 			TextSize = 17,
 			TextTransparency = 0.1,
-			Visible = false,
+			TextXAlignment = Enum.TextXAlignment.Left,
+			TextYAlignment = Enum.TextYAlignment.Center,
 			__dynamicKeys = {
 				TextColor3 = self.Theme.Text.Primary[1],
 				TextTransparency = self.Theme.Text.Primary[2],
@@ -9533,9 +9527,9 @@ return function(self, properties: PullDownButtonProperties__DARKLUA_TYPE_0): Pul
 
 			create("ScrollingFrame")({
 				Name = "PullDownMenu",
-				AutomaticSize = Enum.AutomaticSize.X,
+				AutomaticSize = Enum.AutomaticSize.None,
 				CanvasSize = UDim2.new(),
-				Size = UDim2.new(0, 0, 0, 240),
+				Size = UDim2.new(0, 200, 0, 260),
 				ScrollBarThickness = 4,
 				__dynamicKeys = {
 					BackgroundColor3 = theme.MenuBackground[1],
@@ -9550,10 +9544,10 @@ return function(self, properties: PullDownButtonProperties__DARKLUA_TYPE_0): Pul
 		}),
 	}) :: ScreenGui
 
-	structures.MenuBody = structures.MenuContainer:FindFirstChild("MenuBody") :: CanvasGroup
-	structures.Menu = structures.MenuBody:FindFirstChild("PullDownMenu") :: ScrollingFrame
+	structures.MenuBody = structures.MenuContainer.MenuBody
+	structures.Menu = structures.MenuBody.PullDownMenu
 
-	-- 🔍 Add Search Box
+	-- 🔍 Search box
 	local searchBox = create("TextBox")({
 		Name = "SearchBox",
 		Parent = structures.Menu,
@@ -9564,7 +9558,7 @@ return function(self, properties: PullDownButtonProperties__DARKLUA_TYPE_0): Pul
 		TextSize = 17,
 		TextColor3 = Color3.new(1, 1, 1),
 		BackgroundColor3 = Color3.fromRGB(40, 40, 40),
-		BackgroundTransparency = 0.2,
+		BackgroundTransparency = 0.15,
 		Size = UDim2.new(1, -10, 0, 28),
 		BorderSizePixel = 0,
 	})
@@ -9635,43 +9629,8 @@ return function(self, properties: PullDownButtonProperties__DARKLUA_TYPE_0): Pul
 	object.Type = "PullDownButton"
 	object.Theme = self.Theme
 	object.Structures = structures
-	object.Option = function(self, name: string?)
-		local index = #structures.Options + 1
-		option(object, name, index)
-		table.insert(object.Options, name)
-		return structures.Options[index]
-	end
-
-	object.SetValues = function(self, values)
-		if not values or type(values) ~= "table" then return end
-		for _, val in next, structures.Options do val:Destroy() end
-		table.clear(object.Options)
-		table.clear(structures.Options)
-		for _, val in next, values do
-			table.insert(object.Options, val)
-			option(object, val, #structures.Options + 1)
-		end
-	end
 
 	binder.Apply(properties, object)
-
-	structures.Body:GetPropertyChangedSignal("AbsolutePosition"):Connect(anchor)
-	structures.Body:GetPropertyChangedSignal("AbsoluteSize"):Connect(anchor)
-	structures.Menu:GetPropertyChangedSignal("AbsoluteSize"):Connect(anchor)
-
-	userInputService.InputBegan:Connect(function(input)
-		if object.Expanded and (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then
-			local mouse = userInputService:GetMouseLocation()
-			local inset = guiService:GetGuiInset()
-			local menuFrame = structures.Menu
-			local pos, size = menuFrame.AbsolutePosition, menuFrame.AbsoluteSize
-			local adjustedMouseY = mouse.Y - inset.Y
-
-			if mouse.X < pos.X or mouse.X > pos.X + size.X or adjustedMouseY < pos.Y or adjustedMouseY > pos.Y + size.Y then
-				object.Expanded = false
-			end
-		end
-	end)
 
 	structures.Body.MouseButton1Click:Connect(function()
 		object.Expanded = not object.Expanded
