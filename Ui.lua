@@ -51,8 +51,8 @@ local function MakeDraggable(topbarobject, object)
 	local StartSize = nil
 	
 	-- ✅ ขนาดเริ่มต้นที่ปรับให้พอดี ไม่เล็กไม่ใหญ่
-	local maxSizeX = 640
-	local maxSizeY = 420
+	local maxSizeX = 580
+	local maxSizeY = 450
 	object.Size = UDim2.new(0, maxSizeX, 0, maxSizeY)
 
 	-- กรอบลากขยาย (อยู่มุมล่างขวา)
@@ -62,7 +62,7 @@ local function MakeDraggable(topbarobject, object)
 	changesizeobject.BackgroundTransparency = 1
 	changesizeobject.BorderSizePixel = 0
 	changesizeobject.Position = UDim2.new(1, 0, 1, 0)
-	changesizeobject.Size = UDim2.new(0, 25, 0, 25)
+	changesizeobject.Size = UDim2.new(0, 580, 0, 450)
 	changesizeobject.Name = "changesizeobject"
 	changesizeobject.Parent = object
 
@@ -70,8 +70,8 @@ local function MakeDraggable(topbarobject, object)
 		local Delta = input.Position - DragStart
 		local newWidth = StartSize.X.Offset + Delta.X
 		local newHeight = StartSize.Y.Offset + Delta.Y
-		newWidth = math.max(newWidth, 400)
-		newHeight = math.max(newHeight, 300)
+		newWidth = math.max(newWidth, 580)
+		newHeight = math.max(newHeight, 450)
 		local Tween = TweenService:Create(object, TweenInfo.new(0.2), {Size = UDim2.new(0, newWidth, 0, newHeight)})
 		Tween:Play()
 	end
@@ -210,7 +210,7 @@ function FlurioreLib:MakeNotify(NotifyConfig)
 		NotifyFrameReal.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 		NotifyFrameReal.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		NotifyFrameReal.BorderSizePixel = 0
-		NotifyFrameReal.Position = UDim2.new(0, 400, 0, 0)
+		NotifyFrameReal.Position = UDim2.new(0, 580, 0, 450)
 		NotifyFrameReal.Size = UDim2.new(1, 0, 1, 0)
 		NotifyFrameReal.Name = "NotifyFrameReal"
 		NotifyFrameReal.Parent = NotifyFrame
@@ -258,7 +258,7 @@ function FlurioreLib:MakeNotify(NotifyConfig)
 		TextLabel.BorderSizePixel = 0
 		TextLabel.Size = UDim2.new(1, 0, 1, 0)
 		TextLabel.Parent = Top
-		TextLabel.Position = UDim2.new(0, 10, 0, 0)
+		TextLabel.Position = UDim2.new(0, 580, 0, 450)
 
 		UIStroke.Color = Color3.fromRGB(255, 255, 255)
 		UIStroke.Thickness = 0.30000001192092896
@@ -294,7 +294,7 @@ function FlurioreLib:MakeNotify(NotifyConfig)
 		Close.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		Close.BorderSizePixel = 0
 		Close.Position = UDim2.new(1, -5, 0.5, 0)
-		Close.Size = UDim2.new(0, 25, 0, 25)
+		Close.Size = UDim2.new(0, 580, 0, 450)
 		Close.Name = "Close"
 		Close.Parent = Top
 
@@ -319,7 +319,7 @@ function FlurioreLib:MakeNotify(NotifyConfig)
 		TextLabel2.TextColor3 = Color3.fromRGB(150.0000062584877, 150.0000062584877, 150.0000062584877)
 		TextLabel2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		TextLabel2.BorderSizePixel = 0
-		TextLabel2.Position = UDim2.new(0, 10, 0, 27)
+		TextLabel2.Position = UDim2.new(0, 580, 0, 450)
 		TextLabel2.Parent = NotifyFrameReal
 		TextLabel2.Size = UDim2.new(1, -20, 0, 13)
 
@@ -340,7 +340,7 @@ function FlurioreLib:MakeNotify(NotifyConfig)
 			TweenService:Create(
 				NotifyFrameReal,
 				TweenInfo.new(tonumber(NotifyConfig.Time), Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
-				{Position = UDim2.new(0, 400, 0, 0)}
+				{Position = UDim2.new(0, 580, 0, 450)}
 			):Play()
 			task.wait(tonumber(NotifyConfig.Time) / 1.2)
 			NotifyFrame:Destroy()
@@ -351,7 +351,7 @@ function FlurioreLib:MakeNotify(NotifyConfig)
 		TweenService:Create(
 			NotifyFrameReal,
 			TweenInfo.new(tonumber(NotifyConfig.Time), Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
-			{Position = UDim2.new(0, 0, 0, 0)}
+			{Position = UDim2.new(0, 580, 0, 450)}
 		):Play()
 		task.wait(tonumber(NotifyConfig.Delay))
 		NotifyFunction:Close()
@@ -464,7 +464,7 @@ TextLabel.BackgroundTransparency = 0.9990000128746033
 TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)  
 TextLabel.BorderSizePixel = 0  
 TextLabel.Size = UDim2.new(1, -100, 1, 0)  
-TextLabel.Position = UDim2.new(0, 10, 0, 0)  
+TextLabel.Position = UDim2.new(0, 580, 0, 450)  
 TextLabel.Parent = Top  
 
 UICorner1.Parent = Top  
@@ -497,7 +497,7 @@ MaxRestore.BackgroundTransparency = 0.9990000128746033
 MaxRestore.BorderColor3 = Color3.fromRGB(0, 0, 0)  
 MaxRestore.BorderSizePixel = 0  
 MaxRestore.Position = UDim2.new(1, -42, 0.5, 0)  
-MaxRestore.Size = UDim2.new(0, 25, 0, 25)  
+MaxRestore.Size = UDim2.new(0, 580, 0, 450)  
 MaxRestore.Name = "MaxRestore"  
 MaxRestore.Parent = Top  
 
@@ -521,7 +521,7 @@ Close.BackgroundTransparency = 0.9990000128746033
 Close.BorderColor3 = Color3.fromRGB(0, 0, 0)  
 Close.BorderSizePixel = 0  
 Close.Position = UDim2.new(1, -8, 0.5, 0)  
-Close.Size = UDim2.new(0, 25, 0, 25)  
+Close.Size = UDim2.new(0, 580, 0, 450)  
 Close.Name = "Close"  
 Close.Parent = Top  
 
@@ -545,7 +545,7 @@ Min.BackgroundTransparency = 0.9990000128746033
 Min.BorderColor3 = Color3.fromRGB(0, 0, 0)  
 Min.BorderSizePixel = 0  
 Min.Position = UDim2.new(1, -78, 0.5, 0)  
-Min.Size = UDim2.new(0, 25, 0, 25)  
+Min.Size = UDim2.new(0, 580, 0, 450)  
 Min.Name = "Min"  
 Min.Parent = Top  
 
@@ -564,7 +564,7 @@ LayersTab.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 LayersTab.BackgroundTransparency = 0.9990000128746033  
 LayersTab.BorderColor3 = Color3.fromRGB(0, 0, 0)  
 LayersTab.BorderSizePixel = 0  
-LayersTab.Position = UDim2.new(0, 9, 0, 50)  
+LayersTab.Position = UDim2.new(0, 580, 0, 450)  
 LayersTab.Size = UDim2.new(0, GuiConfig["Tab Width"], 1, -59)  
 LayersTab.Name = "LayersTab"  
 LayersTab.Parent = Main  
@@ -681,7 +681,7 @@ MaxRestore.Activated:Connect(function()
 		ImageLabel.Image = "rbxassetid://9886659001"  
 		OldPos = DropShadowHolder.Position  
 		OldSize = DropShadowHolder.Size  
-		TweenService:Create(DropShadowHolder, TweenInfo.new(0.3), {Position = UDim2.new(0, 0, 0, 0)}):Play()  
+		TweenService:Create(DropShadowHolder, TweenInfo.new(0.3), {Position = UDim2.new(0, 580, 0, 450)}):Play()  
 		TweenService:Create(DropShadowHolder, TweenInfo.new(0.3), {Size = UDim2.new(1, 0, 1, 0)}):Play()  
 	else  
 		ImageLabel.Image = "rbxassetid://9886659406"  
@@ -711,7 +711,7 @@ ToggleButton.Name = "ToggleButton"
 ToggleButton.Parent = ScreenGui1
 ToggleButton.AnchorPoint = Vector2.new(0, 1)
 ToggleButton.Position = UDim2.new(0, 20, 1, -20)
-ToggleButton.Size = UDim2.new(0, 45, 0, 45)
+ToggleButton.Size = UDim2.new(0, 580, 0, 450)
 ToggleButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 ToggleButton.BackgroundTransparency = 0
 ToggleButton.BorderSizePixel = 0
@@ -916,7 +916,7 @@ DropPageLayout.Parent = DropdownFolder
 		TabName.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		TabName.BorderSizePixel = 0
 		TabName.Size = UDim2.new(1, 0, 1, 0)
-		TabName.Position = UDim2.new(0, 30, 0, 0)
+		TabName.Position = UDim2.new(0, 580, 0, 450)
 		TabName.Name = "TabName"
 		TabName.Parent = Tab
 
@@ -925,8 +925,8 @@ DropPageLayout.Parent = DropdownFolder
 		FeatureImg.BackgroundTransparency = 0.9990000128746033
 		FeatureImg.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		FeatureImg.BorderSizePixel = 0
-		FeatureImg.Position = UDim2.new(0, 9, 0, 7)
-		FeatureImg.Size = UDim2.new(0, 16, 0, 16)
+		FeatureImg.Position = UDim2.new(0, 580, 0, 450)
+		FeatureImg.Size = UDim2.new(0, 580, 0, 450)
 		FeatureImg.Name = "FeatureImg"
 		FeatureImg.Parent = Tab
 		if CountTab == 0 then
@@ -936,8 +936,8 @@ DropPageLayout.Parent = DropdownFolder
 			ChooseFrame.BackgroundColor3 = GuiConfig.Color
 			ChooseFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			ChooseFrame.BorderSizePixel = 0
-			ChooseFrame.Position = UDim2.new(0, 2, 0, 9)
-			ChooseFrame.Size = UDim2.new(0, 1, 0, 12)
+			ChooseFrame.Position = UDim2.new(0, 580, 0, 450)
+			ChooseFrame.Size = UDim2.new(0, 580, 0, 450)
 			ChooseFrame.Name = "ChooseFrame"
 			ChooseFrame.Parent = Tab
 
@@ -984,13 +984,13 @@ DropPageLayout.Parent = DropdownFolder
 				TweenService:Create(
 					FrameChoose,
 					TweenInfo.new(0.35, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
-					{Size = UDim2.new(0, 1, 0, 20)}
+					{Size = UDim2.new(0, 580, 0, 450)}
 				):Play()
 				task.wait(0.2)
 				TweenService:Create(
 					FrameChoose,
 					TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
-					{Size = UDim2.new(0, 1, 0, 12)}
+					{Size = UDim2.new(0, 580, 0, 450)}
 				):Play()
 			end
 		end)
@@ -1055,7 +1055,7 @@ DropPageLayout.Parent = DropdownFolder
 			FeatureFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			FeatureFrame.BorderSizePixel = 0
 			FeatureFrame.Position = UDim2.new(1, -5, 0.5, 0)
-			FeatureFrame.Size = UDim2.new(0, 20, 0, 20)
+			FeatureFrame.Size = UDim2.new(0, 580, 0, 450)
 			FeatureFrame.Name = "FeatureFrame"
 			FeatureFrame.Parent = SectionReal
 
@@ -1092,7 +1092,7 @@ DropPageLayout.Parent = DropdownFolder
 			SectionDecideFrame.AnchorPoint = Vector2.new(0.5, 0)
 			SectionDecideFrame.BorderSizePixel = 0
 			SectionDecideFrame.Position = UDim2.new(0.5, 0, 0, 33)
-			SectionDecideFrame.Size = UDim2.new(0, 0, 0, 2)
+			SectionDecideFrame.Size = UDim2.new(0, 580, 0, 450)
 			SectionDecideFrame.Name = "SectionDecideFrame"
 			SectionDecideFrame.Parent = Section
 
@@ -1158,7 +1158,7 @@ DropPageLayout.Parent = DropdownFolder
 				if OpenSection then
 					TweenService:Create(FeatureFrame, TweenInfo.new(0.5), {Rotation = 0}):Play()
 					TweenService:Create(Section, TweenInfo.new(0.5), {Size = UDim2.new(1, 1, 0, 30)}):Play()
-					TweenService:Create(SectionDecideFrame, TweenInfo.new(0.5), {Size = UDim2.new(0, 0, 0, 2)}):Play()
+					TweenService:Create(SectionDecideFrame, TweenInfo.new(0.5), {Size = UDim2.new(0, 580, 0, 450)}):Play()
 					OpenSection = false
 					task.wait(0.5)
 					UpdateSizeScroll()
@@ -1206,7 +1206,7 @@ DropPageLayout.Parent = DropdownFolder
 				ParagraphTitle.BackgroundTransparency = 0.9990000128746033
 				ParagraphTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				ParagraphTitle.BorderSizePixel = 0
-				ParagraphTitle.Position = UDim2.new(0, 10, 0, 10)
+				ParagraphTitle.Position = UDim2.new(0, 580, 0, 450)
 				ParagraphTitle.Size = UDim2.new(1, -16, 0, 13)
 				ParagraphTitle.Name = "ParagraphTitle"
 				ParagraphTitle.Parent = Paragraph
@@ -1222,7 +1222,7 @@ DropPageLayout.Parent = DropdownFolder
 				ParagraphContent.BackgroundTransparency = 0.9990000128746033
 				ParagraphContent.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				ParagraphContent.BorderSizePixel = 0
-				ParagraphContent.Position = UDim2.new(0, 10, 0, 23)
+				ParagraphContent.Position = UDim2.new(0, 580, 0, 450)
 				ParagraphContent.Name = "ParagraphContent"
 				ParagraphContent.Parent = Paragraph
 
@@ -1280,7 +1280,7 @@ DropPageLayout.Parent = DropdownFolder
 				TextTitle.BackgroundTransparency = 0.9990000128746033
 				TextTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				TextTitle.BorderSizePixel = 0
-				TextTitle.Position = UDim2.new(0, 10, 0, 5)
+				TextTitle.Position = UDim2.new(0, 580, 0, 450)
 				TextTitle.Size = UDim2.new(1, -16, 0, 13)
 				TextTitle.Name = "TextTitle"
 				TextTitle.Parent = Text
@@ -1323,7 +1323,7 @@ DropPageLayout.Parent = DropdownFolder
 				ButtonTitle.BackgroundTransparency = 0.9990000128746033
 				ButtonTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				ButtonTitle.BorderSizePixel = 0
-				ButtonTitle.Position = UDim2.new(0, 10, 0, 10)
+				ButtonTitle.Position = UDim2.new(0, 580, 0, 450)
 				ButtonTitle.Size = UDim2.new(1, -100, 0, 13)
 				ButtonTitle.Name = "ButtonTitle"
 				ButtonTitle.Parent = Button
@@ -1339,7 +1339,7 @@ DropPageLayout.Parent = DropdownFolder
 				ButtonContent.BackgroundTransparency = 0.9990000128746033
 				ButtonContent.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				ButtonContent.BorderSizePixel = 0
-				ButtonContent.Position = UDim2.new(0, 10, 0, 23)
+				ButtonContent.Position = UDim2.new(0, 580, 0, 450)
 				ButtonContent.Name = "ButtonContent"
 				ButtonContent.Parent = Button
 				ButtonContent.Size = UDim2.new(1, -100, 0, 12)
@@ -1374,7 +1374,7 @@ DropPageLayout.Parent = DropdownFolder
 				FeatureFrame1.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				FeatureFrame1.BorderSizePixel = 0
 				FeatureFrame1.Position = UDim2.new(1, -15, 0.5, 0)
-				FeatureFrame1.Size = UDim2.new(0, 25, 0, 25)
+				FeatureFrame1.Size = UDim2.new(0, 580, 0, 450)
 				FeatureFrame1.Name = "FeatureFrame"
 				FeatureFrame1.Parent = Button
 
@@ -1441,7 +1441,7 @@ DropPageLayout.Parent = DropdownFolder
 				ToggleTitle.BackgroundTransparency = 0.9990000128746033
 				ToggleTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				ToggleTitle.BorderSizePixel = 0
-				ToggleTitle.Position = UDim2.new(0, 10, 0, 10)
+				ToggleTitle.Position = UDim2.new(0, 580, 0, 450)
 				ToggleTitle.Size = UDim2.new(1, -100, 0, 13)
 				ToggleTitle.Name = "ToggleTitle"
 				ToggleTitle.Parent = Toggle
@@ -1455,7 +1455,7 @@ DropPageLayout.Parent = DropdownFolder
     			ToggleTitle2.TextYAlignment = Enum.TextYAlignment.Top
     			ToggleTitle2.BackgroundTransparency = 1
     			ToggleTitle2.BorderSizePixel = 0
-    			ToggleTitle2.Position = UDim2.new(0, 10, 0, 23) 
+    			ToggleTitle2.Position = UDim2.new(0, 580, 0, 450) 
     			ToggleTitle2.Size = UDim2.new(1, -100, 0, 12)
     			ToggleTitle2.Name = "ToggleTitle2"
     			ToggleTitle2.Parent = Toggle
@@ -1477,11 +1477,11 @@ DropPageLayout.Parent = DropdownFolder
 				
 				if ToggleConfig.Title2 ~= "" then
 				    Toggle.Size = UDim2.new(1, 0, 0, 57)
-                    ToggleContent.Position = UDim2.new(0, 10, 0, 36)
+                    ToggleContent.Position = UDim2.new(0, 580, 0, 450)
                     ToggleTitle2.Visible = true
                 else
                     Toggle.Size = UDim2.new(1, 0, 0, 46)
-                    ToggleContent.Position = UDim2.new(0, 10, 0, 23)
+                    ToggleContent.Position = UDim2.new(0, 580, 0, 450)
                     ToggleTitle2.Visible = false
                 end
 				
@@ -1523,7 +1523,7 @@ DropPageLayout.Parent = DropdownFolder
 				FeatureFrame2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				FeatureFrame2.BorderSizePixel = 0
 				FeatureFrame2.Position = UDim2.new(1, -30, 0.5, 0)
-				FeatureFrame2.Size = UDim2.new(0, 30, 0, 15)
+				FeatureFrame2.Size = UDim2.new(0, 580, 0, 450)
 				FeatureFrame2.Name = "FeatureFrame"
 				FeatureFrame2.Parent = Toggle
 
@@ -1537,8 +1537,8 @@ DropPageLayout.Parent = DropdownFolder
 				ToggleCircle.BackgroundColor3 = Color3.fromRGB(230.00000149011612, 230.00000149011612, 230.00000149011612)
 				ToggleCircle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				ToggleCircle.BorderSizePixel = 0
-				ToggleCircle.Position = UDim2.new(0, 0, 0, 0)
-				ToggleCircle.Size = UDim2.new(0, 14, 0, 14)
+				ToggleCircle.Position = UDim2.new(0, 580, 0, 450)
+				ToggleCircle.Size = UDim2.new(0, 580, 0, 450)
 				ToggleCircle.Name = "ToggleCircle"
 				ToggleCircle.Parent = FeatureFrame2
 
@@ -1561,7 +1561,7 @@ DropPageLayout.Parent = DropdownFolder
 						TweenService:Create(
 							ToggleCircle,
 							TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
-							{Position = UDim2.new(0, 15, 0, 0)}
+							{Position = UDim2.new(0, 580, 0, 450)}
 						):Play()
 						TweenService:Create(
 							UIStroke8,
@@ -1582,7 +1582,7 @@ DropPageLayout.Parent = DropdownFolder
 						TweenService:Create(
 							ToggleCircle,
 							TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
-							{Position = UDim2.new(0, 0, 0, 0)}
+							{Position = UDim2.new(0, 580, 0, 450)}
 						):Play()
 						TweenService:Create(
 							UIStroke8,
@@ -1650,7 +1650,7 @@ DropPageLayout.Parent = DropdownFolder
 				SliderTitle.BackgroundTransparency = 0.9990000128746033
 				SliderTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				SliderTitle.BorderSizePixel = 0
-				SliderTitle.Position = UDim2.new(0, 10, 0, 10)
+				SliderTitle.Position = UDim2.new(0, 580, 0, 450)
 				SliderTitle.Size = UDim2.new(1, -180, 0, 13)
 				SliderTitle.Name = "SliderTitle"
 				SliderTitle.Parent = Slider
@@ -1666,7 +1666,7 @@ DropPageLayout.Parent = DropdownFolder
 				SliderContent.BackgroundTransparency = 0.9990000128746033
 				SliderContent.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				SliderContent.BorderSizePixel = 0
-				SliderContent.Position = UDim2.new(0, 10, 0, 23)
+				SliderContent.Position = UDim2.new(0, 580, 0, 450)
 				SliderContent.Size = UDim2.new(1, -180, 0, 12)
 				SliderContent.Name = "SliderContent"
 				SliderContent.Parent = Slider
@@ -1688,7 +1688,7 @@ DropPageLayout.Parent = DropdownFolder
 				SliderInput.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				SliderInput.BorderSizePixel = 0
 				SliderInput.Position = UDim2.new(1, -155, 0.5, 0)
-				SliderInput.Size = UDim2.new(0, 28, 0, 20)
+				SliderInput.Size = UDim2.new(0, 580, 0, 450)
 				SliderInput.Name = "SliderInput"
 				SliderInput.Parent = Slider
 
@@ -1714,7 +1714,7 @@ DropPageLayout.Parent = DropdownFolder
 				SliderFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				SliderFrame.BorderSizePixel = 0
 				SliderFrame.Position = UDim2.new(1, -20, 0.5, 0)
-				SliderFrame.Size = UDim2.new(0, 100, 0, 3)
+				SliderFrame.Size = UDim2.new(0, 580, 0, 450)
 				SliderFrame.Name = "SliderFrame"
 				SliderFrame.Parent = Slider
 
@@ -1736,7 +1736,7 @@ DropPageLayout.Parent = DropdownFolder
 				SliderCircle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				SliderCircle.BorderSizePixel = 0
 				SliderCircle.Position = UDim2.new(1, 4, 0.5, 0)
-				SliderCircle.Size = UDim2.new(0, 8, 0, 8)
+				SliderCircle.Size = UDim2.new(0, 580, 0, 450)
 				SliderCircle.Name = "SliderCircle"
 				SliderCircle.Parent = SliderDraggable
 
@@ -1833,7 +1833,7 @@ DropPageLayout.Parent = DropdownFolder
 				InputTitle.BackgroundTransparency = 0.9990000128746033
 				InputTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				InputTitle.BorderSizePixel = 0
-				InputTitle.Position = UDim2.new(0, 10, 0, 10)
+				InputTitle.Position = UDim2.new(0, 580, 0, 450)
 				InputTitle.Size = UDim2.new(1, -180, 0, 13)
 				InputTitle.Name = "InputTitle"
 				InputTitle.Parent = Input
@@ -1850,7 +1850,7 @@ DropPageLayout.Parent = DropdownFolder
 				InputContent.BackgroundTransparency = 0.9990000128746033
 				InputContent.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				InputContent.BorderSizePixel = 0
-				InputContent.Position = UDim2.new(0, 10, 0, 23)
+				InputContent.Position = UDim2.new(0, 580, 0, 450)
 				InputContent.Size = UDim2.new(1, -180, 0, 12)
 				InputContent.Name = "InputContent"
 				InputContent.Parent = Input
@@ -1874,7 +1874,7 @@ DropPageLayout.Parent = DropdownFolder
 				InputFrame.BorderSizePixel = 0
 				InputFrame.ClipsDescendants = true
 				InputFrame.Position = UDim2.new(1, -7, 0.5, 0)
-				InputFrame.Size = UDim2.new(0, 148, 0, 30)
+				InputFrame.Size = UDim2.new(0, 580, 0, 450)
 				InputFrame.Name = "InputFrame"
 				InputFrame.Parent = Input
 
@@ -1967,7 +1967,7 @@ DropPageLayout.Parent = DropdownFolder
 				DropdownTitle.BackgroundTransparency = 0.9990000128746033
 				DropdownTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				DropdownTitle.BorderSizePixel = 0
-				DropdownTitle.Position = UDim2.new(0, 10, 0, 10)
+				DropdownTitle.Position = UDim2.new(0, 580, 0, 450)
 				DropdownTitle.Size = UDim2.new(1, -180, 0, 13)
 				DropdownTitle.Name = "DropdownTitle"
 				DropdownTitle.Parent = Dropdown
@@ -1984,7 +1984,7 @@ DropPageLayout.Parent = DropdownFolder
 				DropdownContent.BackgroundTransparency = 0.9990000128746033
 				DropdownContent.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				DropdownContent.BorderSizePixel = 0
-				DropdownContent.Position = UDim2.new(0, 10, 0, 23)
+				DropdownContent.Position = UDim2.new(0, 580, 0, 450)
 				DropdownContent.Size = UDim2.new(1, -180, 0, 12)
 				DropdownContent.Name = "DropdownContent"
 				DropdownContent.Parent = Dropdown
@@ -2007,7 +2007,7 @@ DropPageLayout.Parent = DropdownFolder
 				SelectOptionsFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				SelectOptionsFrame.BorderSizePixel = 0
 				SelectOptionsFrame.Position = UDim2.new(1, -7, 0.5, 0)
-				SelectOptionsFrame.Size = UDim2.new(0, 148, 0, 30)
+				SelectOptionsFrame.Size = UDim2.new(0, 580, 0, 450)
 				SelectOptionsFrame.Name = "SelectOptionsFrame"
 				SelectOptionsFrame.LayoutOrder = CountDropdown
 				SelectOptionsFrame.Parent = Dropdown
@@ -2049,14 +2049,14 @@ DropPageLayout.Parent = DropdownFolder
 				OptionImg.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				OptionImg.BorderSizePixel = 0
 				OptionImg.Position = UDim2.new(1, 0, 0.5, 0)
-				OptionImg.Size = UDim2.new(0, 25, 0, 25)
+				OptionImg.Size = UDim2.new(0, 580, 0, 450)
 				OptionImg.Name = "OptionImg"
 				OptionImg.Parent = SelectOptionsFrame
 
 				local ScrollSelect = Instance.new("ScrollingFrame");
 				local UIListLayout4 = Instance.new("UIListLayout");
 
-				ScrollSelect.CanvasSize = UDim2.new(0, 0, 0, 0)
+				ScrollSelect.CanvasSize = UDim2.new(0, 580, 0, 450)
 				ScrollSelect.ScrollBarImageColor3 = Color3.fromRGB(0, 0, 0)
 				ScrollSelect.ScrollBarThickness = 0
 				ScrollSelect.Active = true
@@ -2087,7 +2087,7 @@ DropPageLayout.Parent = DropdownFolder
 				SearchBox.BackgroundTransparency = 0.2
 				SearchBox.BorderSizePixel = 0
 				SearchBox.Size = UDim2.new(1, -6, 0, 28)
-				SearchBox.Position = UDim2.new(0, 3, 0, 3)
+				SearchBox.Position = UDim2.new(0, 580, 0, 450)
 				SearchBox.ClearTextOnFocus = false
 				SearchBox.Name = "SearchBox"
 				SearchBox.Parent = ScrollSelect
@@ -2123,11 +2123,11 @@ DropPageLayout.Parent = DropdownFolder
                 				or DropdownFunc.Value == Drop.OptionText.Text
 
             				if isSelected then
-                				TweenService:Create(Drop.ChooseFrame, TweenInfo.new(0.2), {Size = UDim2.new(0, 1, 0, 12)}):Play()
+                				TweenService:Create(Drop.ChooseFrame, TweenInfo.new(0.2), {Size = UDim2.new(0, 580, 0, 450)}):Play()
                 				TweenService:Create(Drop.ChooseFrame.UIStroke, TweenInfo.new(0.2), {Transparency = 0}):Play()
                 				TweenService:Create(Drop, TweenInfo.new(0.2), {BackgroundTransparency = 0.935}):Play()
             				else
-                				TweenService:Create(Drop.ChooseFrame, TweenInfo.new(0.1), {Size = UDim2.new(0, 0, 0, 0)}):Play()
+                				TweenService:Create(Drop.ChooseFrame, TweenInfo.new(0.1), {Size = UDim2.new(0, 580, 0, 450)}):Play()
                 				TweenService:Create(Drop.ChooseFrame.UIStroke, TweenInfo.new(0.1), {Transparency = 0.999}):Play()
                 				TweenService:Create(Drop, TweenInfo.new(0.1), {BackgroundTransparency = 0.999}):Play()
             				end
@@ -2191,7 +2191,7 @@ DropPageLayout.Parent = DropdownFolder
 					OptionText.BackgroundTransparency = 0.9990000128746033
 					OptionText.BorderColor3 = Color3.fromRGB(0, 0, 0)
 					OptionText.BorderSizePixel = 0
-					OptionText.Position = UDim2.new(0, 8, 0, 8)
+					OptionText.Position = UDim2.new(0, 580, 0, 450)
 					OptionText.Size = UDim2.new(1, -100, 0, 13)
 					OptionText.Name = "OptionText"
 					OptionText.Parent = Option
@@ -2201,7 +2201,7 @@ DropPageLayout.Parent = DropdownFolder
 					ChooseFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 					ChooseFrame.BorderSizePixel = 0
 					ChooseFrame.Position = UDim2.new(0, 2, 0.5, 0)
-					ChooseFrame.Size = UDim2.new(0, 0, 0, 0)
+					ChooseFrame.Size = UDim2.new(0, 580, 0, 450)
 					ChooseFrame.Name = "ChooseFrame"
 					ChooseFrame.Parent = Option
 				
