@@ -359,316 +359,347 @@ function FlurioreLib:MakeNotify(NotifyConfig)
 	return NotifyFunction
 end
 function FlurioreLib:MakeGui(GuiConfig)
-	local GuiConfig = GuiConfig or {}
-	GuiConfig.NameHub = GuiConfig.NameHub or "Hirimi Hub"
-	GuiConfig.Description = GuiConfig.Description or "Comeback | developing by Hirimi, Teru"
-	GuiConfig.Color = GuiConfig.Color or Color3.fromRGB(255, 0, 255)	
-	GuiConfig["Tab Width"] = GuiConfig["Tab Width"] or 120
-	local GuiFunc = {}
+local GuiConfig = GuiConfig or {}
+GuiConfig.NameHub = GuiConfig.NameHub or "Hirimi Hub"
+GuiConfig.Description = GuiConfig.Description or "Comeback | developing by Hirimi, Teru"
+GuiConfig.Color = GuiConfig.Color or Color3.fromRGB(255, 0, 255)	
+GuiConfig["Tab Width"] = GuiConfig["Tab Width"] or 120
+local GuiFunc = {}
 
-	local HirimiGui = Instance.new("ScreenGui")
-	local DropShadowHolder = Instance.new("Frame")
-	local DropShadow = Instance.new("ImageLabel")
-	local Main = Instance.new("Frame")
-	local UICorner = Instance.new("UICorner")
-	local UIStroke = Instance.new("UIStroke")
-	local Top = Instance.new("Frame")
-	local TextLabel = Instance.new("TextLabel")
-	local UICorner1 = Instance.new("UICorner")
-	local TextLabel1 = Instance.new("TextLabel")
-	local UIStroke1 = Instance.new("UIStroke")
-	local MaxRestore = Instance.new("TextButton")
-	local ImageLabel = Instance.new("ImageLabel")
-	local Close = Instance.new("TextButton")
-	local ImageLabel1 = Instance.new("ImageLabel")
-	local Min = Instance.new("TextButton")
-	local ImageLabel2 = Instance.new("ImageLabel")
-	local LayersTab = Instance.new("Frame")
-	local UICorner2 = Instance.new("UICorner")
-	local DecideFrame = Instance.new("Frame")
-	local UIStroke3 = Instance.new("UIStroke")
-	local Layers = Instance.new("Frame")
-	local UICorner6 = Instance.new("UICorner")
-	local NameTab = Instance.new("TextLabel")
-	local LayersReal = Instance.new("Frame")
-	local LayersFolder = Instance.new("Folder")
-	local LayersPageLayout = Instance.new("UIPageLayout")
+local HirimiGui = Instance.new("ScreenGui");  
+local DropShadowHolder = Instance.new("Frame");  
+local DropShadow = Instance.new("ImageLabel");  
+local Main = Instance.new("Frame");  
+local UICorner = Instance.new("UICorner");  
+local UIStroke = Instance.new("UIStroke");  
+local Top = Instance.new("Frame");  
+local TextLabel = Instance.new("TextLabel");  
+local UICorner1 = Instance.new("UICorner");  
+local TextLabel1 = Instance.new("TextLabel");  
+local UIStroke1 = Instance.new("UIStroke");  
+local MaxRestore = Instance.new("TextButton");  
+local ImageLabel = Instance.new("ImageLabel");  
+local Close = Instance.new("TextButton");  
+local ImageLabel1 = Instance.new("ImageLabel");  
+local Min = Instance.new("TextButton");  
+local ImageLabel2 = Instance.new("ImageLabel");  
+local LayersTab = Instance.new("Frame");  
+local UICorner2 = Instance.new("UICorner");  
+local DecideFrame = Instance.new("Frame");  
+local UIStroke3 = Instance.new("UIStroke");  
+local Layers = Instance.new("Frame");  
+local UICorner6 = Instance.new("UICorner");  
+local NameTab = Instance.new("TextLabel");  
+local LayersReal = Instance.new("Frame");  
+local LayersFolder = Instance.new("Folder");  
+local LayersPageLayout = Instance.new("UIPageLayout");  
 
-	HirimiGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-    HirimiGui.Name = "HirimiGui"
-    HirimiGui.ResetOnSpawn = false
-    HirimiGui.Parent = CoreGui
+HirimiGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling  
+HirimiGui.Name = "HirimiGui"  
+HirimiGui.ResetOnSpawn = false  
+HirimiGui.Parent = CoreGui  
 
-	DropShadowHolder.BackgroundTransparency = 1
-	DropShadowHolder.BorderSizePixel = 0
-	DropShadowHolder.Size = UDim2.new(0.9, 0, 0.8, 0)
-	DropShadowHolder.ZIndex = 0
-	DropShadowHolder.AnchorPoint = Vector2.new(0.5, 0.5)
-	DropShadowHolder.Position = UDim2.new(0.5, 0, 0.5, 0)
-	DropShadowHolder.Name = "DropShadowHolder"
-	DropShadowHolder.Parent = HirimiGui
-	
-	DropShadow.Image = "rbxassetid://6015897843"
-	DropShadow.ImageColor3 = Color3.fromRGB(15, 15, 15)
-	DropShadow.ImageTransparency = 0.5
-	DropShadow.ScaleType = Enum.ScaleType.Slice
-	DropShadow.SliceCenter = Rect.new(49, 49, 450, 450)
-	DropShadow.AnchorPoint = Vector2.new(0.5, 0.5)
-	DropShadow.BackgroundTransparency = 1
-	DropShadow.BorderSizePixel = 0
-	DropShadow.Position = UDim2.new(0.5, 0, 0.5, 0)
-	DropShadow.Size = UDim2.new(1, 0, 1, 0)
-	DropShadow.ZIndex = 0
-	DropShadow.Name = "DropShadow"
-	DropShadow.Parent = DropShadowHolder
+DropShadowHolder.BackgroundTransparency = 1  
+DropShadowHolder.BorderSizePixel = 0  
+DropShadowHolder.Size = UDim2.new(0, 580, 0, 450)  
+DropShadowHolder.ZIndex = 0  
+DropShadowHolder.Name = "DropShadowHolder"  
+DropShadowHolder.Parent = HirimiGui
 
-	if GuiConfig.Theme then
-    	Main:Destroy()
-    	Main = Instance.new("ImageLabel")
-    	Main.Image = "rbxassetid://" .. GuiConfig.Theme
-    	Main.ScaleType = Enum.ScaleType.Crop
-    	Main.BackgroundTransparency = 1
-	else
-    	Main.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-    	Main.BackgroundTransparency = 0.1
-	end
+DropShadowHolder.Position = UDim2.new(0, (HirimiGui.AbsoluteSize.X // 2 - DropShadowHolder.Size.X.Offset // 2), 0, (HirimiGui.AbsoluteSize.Y // 2 - DropShadowHolder.Size.Y.Offset // 2))
+DropShadow.Image = "rbxassetid://6015897843"
+DropShadow.ImageColor3 = Color3.fromRGB(15, 15, 15)
+DropShadow.ImageTransparency = 0.5
+DropShadow.ScaleType = Enum.ScaleType.Slice
+DropShadow.SliceCenter = Rect.new(49, 49, 450, 450)
+DropShadow.AnchorPoint = Vector2.new(0.5, 0.5)
+DropShadow.BackgroundTransparency = 1
+DropShadow.BorderSizePixel = 0
+DropShadow.Position = UDim2.new(0.5, 0, 0.5, 0)
+DropShadow.Size = UDim2.new(1, 47, 1, 47)
+DropShadow.ZIndex = 0
+DropShadow.Name = "DropShadow"
+DropShadow.Parent = DropShadowHolder
 
-	Main.AnchorPoint = Vector2.new(0.5, 0.5)
-	Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	Main.BorderSizePixel = 0
-	Main.Position = UDim2.new(0.5, 0, 0.5, 0)
-	Main.Size = UDim2.new(1, -20, 1, -20)
-	Main.Name = "Main"
-	Main.Parent = DropShadow
+if GuiConfig.Theme then  
+	Main:Destroy()  
+	Main = Instance.new("ImageLabel")  
+	Main.Image = "rbxassetid://" .. GuiConfig.Theme  
+	Main.ScaleType = Enum.ScaleType.Crop  
+	Main.BackgroundTransparency = 1  
+else  
+	Main.BackgroundColor3 = Color3.fromRGB(15, 15, 15)  
+	Main.BackgroundTransparency = 0.1  
+end  
 
-	UICorner.Parent = Main
+Main.AnchorPoint = Vector2.new(0.5, 0.5)  
+Main.BorderColor3 = Color3.fromRGB(0, 0, 0)  
+Main.BorderSizePixel = 0  
+Main.Position = UDim2.new(0.5, 0, 0.5, 0)  
+Main.Size = UDim2.new(1, -47, 1, -47)  
+Main.Name = "Main"  
+Main.Parent = DropShadow  
 
-	UIStroke.Color = Color3.fromRGB(50, 50, 50)
-	UIStroke.Thickness = 1.6
-	UIStroke.Parent = Main
+UICorner.Parent = Main  
 
-	Top.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	Top.BackgroundTransparency = 0.999
-	Top.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	Top.BorderSizePixel = 0
-	Top.Size = UDim2.new(1, 0, 0, 38)
-	Top.Name = "Top"
-	Top.Parent = Main
+UIStroke.Color = Color3.fromRGB(50, 50, 50)  
+UIStroke.Thickness = 1.600000023841858  
+UIStroke.Parent = Main  
 
-	TextLabel.Font = Enum.Font.GothamBold
-	TextLabel.Text = GuiConfig.NameHub
-	TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-	TextLabel.TextSize = 14
-	TextLabel.TextXAlignment = Enum.TextXAlignment.Left
-	TextLabel.BackgroundTransparency = 0.999
-	TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	TextLabel.BorderSizePixel = 0
-	TextLabel.Size = UDim2.new(1, -100, 1, 0)
-	TextLabel.Position = UDim2.new(0, 10, 0, 0)
-	TextLabel.Parent = Top
+Top.BackgroundColor3 = Color3.fromRGB(0, 0, 0)  
+Top.BackgroundTransparency = 0.9990000128746033  
+Top.BorderColor3 = Color3.fromRGB(0, 0, 0)  
+Top.BorderSizePixel = 0  
+Top.Size = UDim2.new(1, 0, 0, 38)  
+Top.Name = "Top"  
+Top.Parent = Main  
 
-	UICorner1.Parent = Top
+TextLabel.Font = Enum.Font.GothamBold  
+TextLabel.Text = GuiConfig.NameHub  
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)  
+TextLabel.TextSize = 14  
+TextLabel.TextXAlignment = Enum.TextXAlignment.Left  
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)  
+TextLabel.BackgroundTransparency = 0.9990000128746033  
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)  
+TextLabel.BorderSizePixel = 0  
+TextLabel.Size = UDim2.new(1, -100, 1, 0)  
+TextLabel.Position = UDim2.new(0, 10, 0, 0)  
+TextLabel.Parent = Top  
 
-	TextLabel1.Font = Enum.Font.GothamBold
-	TextLabel1.Text = GuiConfig.Description
-	TextLabel1.TextColor3 = Color3.fromRGB(255, 255, 255)
-	TextLabel1.TextSize = 14
-	TextLabel1.TextXAlignment = Enum.TextXAlignment.Left
-	TextLabel1.BackgroundTransparency = 0.999
-	TextLabel1.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	TextLabel1.BorderSizePixel = 0
-	TextLabel1.Size = UDim2.new(1, -(TextLabel.TextBounds.X + 104), 1, 0)
-	TextLabel1.Position = UDim2.new(0, TextLabel.TextBounds.X + 25, 0, 0)
-	TextLabel1.Parent = Top
+UICorner1.Parent = Top  
 
-	UIStroke1.Color = GuiConfig.Color
-	UIStroke1.Thickness = 0.4
-	UIStroke1.Parent = TextLabel1
+TextLabel1.Font = Enum.Font.GothamBold
 
-	MaxRestore.Font = Enum.Font.SourceSans
-	MaxRestore.Text = ""
-	MaxRestore.TextColor3 = Color3.fromRGB(0, 0, 0)
-	MaxRestore.TextSize = 14
-	MaxRestore.AnchorPoint = Vector2.new(1, 0.5)
-	MaxRestore.BackgroundTransparency = 0.999
-	MaxRestore.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	MaxRestore.BorderSizePixel = 0
-	MaxRestore.Position = UDim2.new(1, -42, 0.5, 0)
-	MaxRestore.Size = UDim2.new(0, 25, 0, 25)
-	MaxRestore.Name = "MaxRestore"
-	MaxRestore.Parent = Top
+TextLabel1.Text = GuiConfig.Description
+TextLabel1.TextColor3 = Color3.fromRGB(255, 255, 255) -- สีขาว
+TextLabel1.TextSize = 14
+TextLabel1.TextXAlignment = Enum.TextXAlignment.Left
+TextLabel1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel1.BackgroundTransparency = 0.999
+TextLabel1.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel1.BorderSizePixel = 0
+TextLabel1.Size = UDim2.new(1, -(TextLabel.TextBounds.X + 104), 1, 0)
+TextLabel1.Position = UDim2.new(0, TextLabel.TextBounds.X + 25, 0, 0) -- เพิ่มช่องว่างจาก Name
+TextLabel1.Parent = Top
 
-	ImageLabel.Image = "rbxassetid://9886659406"
-	ImageLabel.AnchorPoint = Vector2.new(0.5, 0.5)
-	ImageLabel.BackgroundTransparency = 0.999
-	ImageLabel.BorderSizePixel = 0
-	ImageLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
-	ImageLabel.Size = UDim2.new(1, -8, 1, -8)
-	ImageLabel.Parent = MaxRestore
+UIStroke1.Color = GuiConfig.Color  
+UIStroke1.Thickness = 0.4000000059604645  
+UIStroke1.Parent = TextLabel1  
 
-	Close.Font = Enum.Font.SourceSans
-	Close.Text = ""
-	Close.TextColor3 = Color3.fromRGB(0, 0, 0)
-	Close.TextSize = 14
-	Close.AnchorPoint = Vector2.new(1, 0.5)
-	Close.BackgroundTransparency = 0.999
-	Close.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	Close.BorderSizePixel = 0
-	Close.Position = UDim2.new(1, -8, 0.5, 0)
-	Close.Size = UDim2.new(0, 25, 0, 25)
-	Close.Name = "Close"
-	Close.Parent = Top
+MaxRestore.Font = Enum.Font.SourceSans  
+MaxRestore.Text = ""  
+MaxRestore.TextColor3 = Color3.fromRGB(0, 0, 0)  
+MaxRestore.TextSize = 14  
+MaxRestore.AnchorPoint = Vector2.new(1, 0.5)  
+MaxRestore.BackgroundColor3 = Color3.fromRGB(255, 255, 255)  
+MaxRestore.BackgroundTransparency = 0.9990000128746033  
+MaxRestore.BorderColor3 = Color3.fromRGB(0, 0, 0)  
+MaxRestore.BorderSizePixel = 0  
+MaxRestore.Position = UDim2.new(1, -42, 0.5, 0)  
+MaxRestore.Size = UDim2.new(0, 25, 0, 25)  
+MaxRestore.Name = "MaxRestore"  
+MaxRestore.Parent = Top  
 
-	ImageLabel1.Image = "rbxassetid://9886659671"
-	ImageLabel1.AnchorPoint = Vector2.new(0.5, 0.5)
-	ImageLabel1.BackgroundTransparency = 0.999
-	ImageLabel1.BorderSizePixel = 0
-	ImageLabel1.Position = UDim2.new(0.5, 0, 0.5, 0)
-	ImageLabel1.Size = UDim2.new(1, -8, 1, -8)
-	ImageLabel1.Parent = Close
+ImageLabel.Image = "rbxassetid://9886659406"  
+ImageLabel.AnchorPoint = Vector2.new(0.5, 0.5)  
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)  
+ImageLabel.BackgroundTransparency = 0.9990000128746033  
+ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)  
+ImageLabel.BorderSizePixel = 0  
+ImageLabel.Position = UDim2.new(0.5, 0, 0.5, 0)  
+ImageLabel.Size = UDim2.new(1, -8, 1, -8)  
+ImageLabel.Parent = MaxRestore  
 
-	Min.Font = Enum.Font.SourceSans
-	Min.Text = ""
-	Min.TextColor3 = Color3.fromRGB(0, 0, 0)
-	Min.TextSize = 14
-	Min.AnchorPoint = Vector2.new(1, 0.5)
-	Min.BackgroundTransparency = 0.999
-	Min.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	Min.BorderSizePixel = 0
-	Min.Position = UDim2.new(1, -78, 0.5, 0)
-	Min.Size = UDim2.new(0, 25, 0, 25)
-	Min.Name = "Min"
-	Min.Parent = Top
+Close.Font = Enum.Font.SourceSans  
+Close.Text = ""  
+Close.TextColor3 = Color3.fromRGB(0, 0, 0)  
+Close.TextSize = 14  
+Close.AnchorPoint = Vector2.new(1, 0.5)  
+Close.BackgroundColor3 = Color3.fromRGB(255, 255, 255)  
+Close.BackgroundTransparency = 0.9990000128746033  
+Close.BorderColor3 = Color3.fromRGB(0, 0, 0)  
+Close.BorderSizePixel = 0  
+Close.Position = UDim2.new(1, -8, 0.5, 0)  
+Close.Size = UDim2.new(0, 25, 0, 25)  
+Close.Name = "Close"  
+Close.Parent = Top  
 
-	ImageLabel2.Image = "rbxassetid://9886659276"
-	ImageLabel2.AnchorPoint = Vector2.new(0.5, 0.5)
-	ImageLabel2.BackgroundTransparency = 0.999
-	ImageLabel2.ImageTransparency = 0.2
-	ImageLabel2.BorderSizePixel = 0
-	ImageLabel2.Position = UDim2.new(0.5, 0, 0.5, 0)
-	ImageLabel2.Size = UDim2.new(1, -9, 1, -9)
-	ImageLabel2.Parent = Min
+ImageLabel1.Image = "rbxassetid://9886659671"  
+ImageLabel1.AnchorPoint = Vector2.new(0.5, 0.5)  
+ImageLabel1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)  
+ImageLabel1.BackgroundTransparency = 0.9990000128746033  
+ImageLabel1.BorderColor3 = Color3.fromRGB(0, 0, 0)  
+ImageLabel1.BorderSizePixel = 0  
+ImageLabel1.Position = UDim2.new(0.49, 0, 0.5, 0)  
+ImageLabel1.Size = UDim2.new(1, -8, 1, -8)  
+ImageLabel1.Parent = Close  
 
-	LayersTab.BackgroundTransparency = 0.999
-	LayersTab.BorderSizePixel = 0
-	LayersTab.Position = UDim2.new(0, 9, 0, 50)
-	LayersTab.Size = UDim2.new(0, GuiConfig["Tab Width"], 1, -59)
-	LayersTab.Name = "LayersTab"
-	LayersTab.Parent = Main
+Min.Font = Enum.Font.SourceSans  
+Min.Text = ""  
+Min.TextColor3 = Color3.fromRGB(0, 0, 0)  
+Min.TextSize = 14  
+Min.AnchorPoint = Vector2.new(1, 0.5)  
+Min.BackgroundColor3 = Color3.fromRGB(255, 255, 255)  
+Min.BackgroundTransparency = 0.9990000128746033  
+Min.BorderColor3 = Color3.fromRGB(0, 0, 0)  
+Min.BorderSizePixel = 0  
+Min.Position = UDim2.new(1, -78, 0.5, 0)  
+Min.Size = UDim2.new(0, 25, 0, 25)  
+Min.Name = "Min"  
+Min.Parent = Top  
 
-	UICorner2.CornerRadius = UDim.new(0, 2)
-	UICorner2.Parent = LayersTab
+ImageLabel2.Image = "rbxassetid://9886659276"  
+ImageLabel2.AnchorPoint = Vector2.new(0.5, 0.5)  
+ImageLabel2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)  
+ImageLabel2.BackgroundTransparency = 0.9990000128746033  
+ImageLabel2.ImageTransparency = 0.2  
+ImageLabel2.BorderColor3 = Color3.fromRGB(0, 0, 0)  
+ImageLabel2.BorderSizePixel = 0  
+ImageLabel2.Position = UDim2.new(0.5, 0, 0.5, 0)  
+ImageLabel2.Size = UDim2.new(1, -9, 1, -9)  
+ImageLabel2.Parent = Min  
 
-	DecideFrame.AnchorPoint = Vector2.new(0.5, 0)
-	DecideFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	DecideFrame.BackgroundTransparency = 0.85
-	DecideFrame.BorderSizePixel = 0
-	DecideFrame.Position = UDim2.new(0.5, 0, 0, 38)
-	DecideFrame.Size = UDim2.new(1, 0, 0, 1)
-	DecideFrame.Name = "DecideFrame"
-	DecideFrame.Parent = Main
+LayersTab.BackgroundColor3 = Color3.fromRGB(255, 255, 255)  
+LayersTab.BackgroundTransparency = 0.9990000128746033  
+LayersTab.BorderColor3 = Color3.fromRGB(0, 0, 0)  
+LayersTab.BorderSizePixel = 0  
+LayersTab.Position = UDim2.new(0, 9, 0, 50)  
+LayersTab.Size = UDim2.new(0, GuiConfig["Tab Width"], 1, -59)  
+LayersTab.Name = "LayersTab"  
+LayersTab.Parent = Main  
 
-	Layers.BackgroundTransparency = 0.999
-	Layers.BorderSizePixel = 0
-	Layers.Position = UDim2.new(0, GuiConfig["Tab Width"] + 18, 0, 50)
-	Layers.Size = UDim2.new(1, -(GuiConfig["Tab Width"] + 9 + 18), 1, -59)
-	Layers.Name = "Layers"
-	Layers.Parent = Main
+UICorner2.CornerRadius = UDim.new(0, 2)  
+UICorner2.Parent = LayersTab  
 
-	UICorner6.CornerRadius = UDim.new(0, 2)
-	UICorner6.Parent = Layers
+DecideFrame.AnchorPoint = Vector2.new(0.5, 0)  
+DecideFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)  
+DecideFrame.BackgroundTransparency = 0.85  
+DecideFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)  
+DecideFrame.BorderSizePixel = 0  
+DecideFrame.Position = UDim2.new(0.5, 0, 0, 38)  
+DecideFrame.Size = UDim2.new(1, 0, 0, 1)  
+DecideFrame.Name = "DecideFrame"  
+DecideFrame.Parent = Main  
 
-	NameTab.Font = Enum.Font.GothamBold
-	NameTab.Text = ""
-	NameTab.TextColor3 = Color3.fromRGB(255, 255, 255)
-	NameTab.TextSize = 24
-	NameTab.TextWrapped = true
-	NameTab.TextXAlignment = Enum.TextXAlignment.Left
-	NameTab.BackgroundTransparency = 0.999
-	NameTab.BorderSizePixel = 0
-	NameTab.Size = UDim2.new(1, 0, 0, 30)
-	NameTab.Name = "NameTab"
-	NameTab.Parent = Layers
+Layers.BackgroundColor3 = Color3.fromRGB(255, 255, 255)  
+Layers.BackgroundTransparency = 0.9990000128746033  
+Layers.BorderColor3 = Color3.fromRGB(0, 0, 0)  
+Layers.BorderSizePixel = 0  
+Layers.Position = UDim2.new(0, GuiConfig["Tab Width"] + 18, 0, 50)  
+Layers.Size = UDim2.new(1, -(GuiConfig["Tab Width"] + 9 + 18), 1, -59)  
+Layers.Name = "Layers"  
+Layers.Parent = Main  
 
-	LayersReal.AnchorPoint = Vector2.new(0, 1)
-	LayersReal.BackgroundTransparency = 0.999
-	LayersReal.BorderSizePixel = 0
-	LayersReal.ClipsDescendants = true
-	LayersReal.Position = UDim2.new(0, 0, 1, 0)
-	LayersReal.Size = UDim2.new(1, 0, 1, -33)
-	LayersReal.Name = "LayersReal"
-	LayersReal.Parent = Layers
+UICorner6.CornerRadius = UDim.new(0, 2)  
+UICorner6.Parent = Layers  
 
-	LayersFolder.Name = "LayersFolder"
-	LayersFolder.Parent = LayersReal
+NameTab.Font = Enum.Font.GothamBold  
+NameTab.Text = ""  
+NameTab.TextColor3 = Color3.fromRGB(255, 255, 255)  
+NameTab.TextSize = 24  
+NameTab.TextWrapped = true  
+NameTab.TextXAlignment = Enum.TextXAlignment.Left  
+NameTab.BackgroundColor3 = Color3.fromRGB(255, 255, 255)  
+NameTab.BackgroundTransparency = 0.9990000128746033  
+NameTab.BorderColor3 = Color3.fromRGB(0, 0, 0)  
+NameTab.BorderSizePixel = 0  
+NameTab.Size = UDim2.new(1, 0, 0, 30)  
+NameTab.Name = "NameTab"  
+NameTab.Parent = Layers  
 
-	LayersPageLayout.SortOrder = Enum.SortOrder.LayoutOrder
-	LayersPageLayout.Name = "LayersPageLayout"
-	LayersPageLayout.Parent = LayersFolder
-	LayersPageLayout.TweenTime = 0.5
-	LayersPageLayout.EasingDirection = Enum.EasingDirection.InOut
-	LayersPageLayout.EasingStyle = Enum.EasingStyle.Quad
+LayersReal.AnchorPoint = Vector2.new(0, 1)  
+LayersReal.BackgroundColor3 = Color3.fromRGB(255, 255, 255)  
+LayersReal.BackgroundTransparency = 0.9990000128746033  
+LayersReal.BorderColor3 = Color3.fromRGB(0, 0, 0)  
+LayersReal.BorderSizePixel = 0  
+LayersReal.ClipsDescendants = true  
+LayersReal.Position = UDim2.new(0, 0, 1, 0)  
+LayersReal.Size = UDim2.new(1, 0, 1, -33)  
+LayersReal.Name = "LayersReal"  
+LayersReal.Parent = Layers  
 
-	--// Layer Tabs
-	local ScrollTab = Instance.new("ScrollingFrame")
-	local UIListLayout = Instance.new("UIListLayout")
+LayersFolder.Name = "LayersFolder"  
+LayersFolder.Parent = LayersReal  
 
-	ScrollTab.CanvasSize = UDim2.new(0, 0, 1.1, 0)
-	ScrollTab.ScrollBarImageColor3 = Color3.fromRGB(0, 0, 0)
-	ScrollTab.ScrollBarThickness = 0
-	ScrollTab.Active = true
-	ScrollTab.BackgroundTransparency = 0.999
-	ScrollTab.BorderSizePixel = 0
-	ScrollTab.Size = UDim2.new(1, 0, 1, 0)
-	ScrollTab.Name = "ScrollTab"
-	ScrollTab.Parent = LayersTab
+LayersPageLayout.SortOrder = Enum.SortOrder.LayoutOrder  
+LayersPageLayout.Name = "LayersPageLayout"  
+LayersPageLayout.Parent = LayersFolder  
+LayersPageLayout.TweenTime = 0.5  
+LayersPageLayout.EasingDirection = Enum.EasingDirection.InOut  
+LayersPageLayout.EasingStyle = Enum.EasingStyle.Quad  
+--// Layer Tabs  
+local ScrollTab = Instance.new("ScrollingFrame");  
+local UIListLayout = Instance.new("UIListLayout");  
 
-	UIListLayout.Padding = UDim.new(0, 3)
-	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-	UIListLayout.Parent = ScrollTab
+ScrollTab.CanvasSize = UDim2.new(0, 0, 1.10000002, 0)  
+ScrollTab.ScrollBarImageColor3 = Color3.fromRGB(0, 0, 0)  
+ScrollTab.ScrollBarThickness = 0  
+ScrollTab.Active = true  
+ScrollTab.BackgroundColor3 = Color3.fromRGB(255, 255, 255)  
+ScrollTab.BackgroundTransparency = 0.9990000128746033  
+ScrollTab.BorderColor3 = Color3.fromRGB(0, 0, 0)  
+ScrollTab.BorderSizePixel = 0  
+ScrollTab.Size = UDim2.new(1, 0, 1, 0)  
+ScrollTab.Name = "ScrollTab"  
+ScrollTab.Parent = LayersTab  
 
-	local function UpdateSize1()
-		local OffsetY = 0
-		for _, child in ScrollTab:GetChildren() do
-			if child.Name ~= "UIListLayout" then
-				OffsetY = OffsetY + 3 + child.Size.Y.Offset
-			end
+UIListLayout.Padding = UDim.new(0, 3)  
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder  
+UIListLayout.Parent = ScrollTab  
+
+local function UpdateSize1()
+	local OffsetY = 0
+	for _, child in ScrollTab:GetChildren() do
+		if child.Name ~= "UIListLayout" then
+			OffsetY = OffsetY + 3 + child.Size.Y.Offset
 		end
+	end
+	
+	if OffsetY == 0 then
+		ScrollTab.CanvasSize = UDim2.new(0, 580, 0, 450)
+	else
 		ScrollTab.CanvasSize = UDim2.new(0, 0, 0, OffsetY)
 	end
-	ScrollTab.ChildAdded:Connect(UpdateSize1)
-	ScrollTab.ChildRemoved:Connect(UpdateSize1)
-		
-	function GuiFunc:DestroyGui()
-		if CoreGui:FindFirstChild("HirimiGui") then 
-			HirimiGui:Destroy()
-		end
-	end
-
-	local TweenService = game:GetService("TweenService")
-	local OldPos = DropShadowHolder.Position
-	local OldSize = DropShadowHolder.Size
-	MaxRestore.Activated:Connect(function()
-		if ImageLabel.Image == "rbxassetid://9886659406" then
-			ImageLabel.Image = "rbxassetid://9886659001"
-			OldPos = DropShadowHolder.Position
-			OldSize = DropShadowHolder.Size
-			TweenService:Create(DropShadowHolder, TweenInfo.new(0.3), {Position = UDim2.new(0, 0, 0, 0)}):Play()
-			TweenService:Create(DropShadowHolder, TweenInfo.new(0.3), {Size = UDim2.new(1, 0, 1, 0)}):Play()
-		else
-			ImageLabel.Image = "rbxassetid://9886659406"
-			TweenService:Create(DropShadowHolder, TweenInfo.new(0.3), {Position = OldPos}):Play()
-			TweenService:Create(DropShadowHolder, TweenInfo.new(0.3), {Size = OldSize}):Play()
-		end
-	end)
-	Min.Activated:Connect(function()
-		DropShadowHolder.Visible = false
-	end)
-	Close.Activated:Connect(function()
-		DropShadowHolder.Visible = false
-	end)
 end
-	local ScreenGui1 = Instance.new("ScreenGui")
+
+UpdateSize1()
+
+ScrollTab.ChildAdded:Connect(UpdateSize1)
+ScrollTab.ChildRemoved:Connect(UpdateSize1)
+
+function GuiFunc:DestroyGui()  
+	if CoreGui:FindFirstChild("HirimiGui") then   
+		HirimiGui:Destroy()  
+	end  
+end  
+local OldPos = DropShadowHolder.Position  
+local OldSize = DropShadowHolder.Size  
+MaxRestore.Activated:Connect(function()  
+	CircleClick(MaxRestore, Mouse.X, Mouse.Y)  
+	if ImageLabel.Image == "rbxassetid://9886659406" then  
+		ImageLabel.Image = "rbxassetid://9886659001"  
+		OldPos = DropShadowHolder.Position  
+		OldSize = DropShadowHolder.Size  
+		TweenService:Create(DropShadowHolder, TweenInfo.new(0.3), {Position = UDim2.new(0, 0, 0, 0)}):Play()  
+		TweenService:Create(DropShadowHolder, TweenInfo.new(0.3), {Size = UDim2.new(1, 0, 1, 0)}):Play()  
+	else  
+		ImageLabel.Image = "rbxassetid://9886659406"  
+		TweenService:Create(DropShadowHolder, TweenInfo.new(0.3), {Position = OldPos}):Play()  
+		TweenService:Create(DropShadowHolder, TweenInfo.new(0.3), {Size = OldSize}):Play()  
+	end  
+end)  
+Min.Activated:Connect(function()  
+	CircleClick(Min, Mouse.X, Mouse.Y)  
+	DropShadowHolder.Visible = false  
+end)  
+Close.Activated:Connect(function()  
+	CircleClick(Close, Mouse.X, Mouse.Y)  
+	DropShadowHolder.Visible = false  
+end)  
+  
+local ScreenGui1 = Instance.new("ScreenGui")
+
 local ToggleButton = Instance.new("ImageButton")
 local UICorner1 = Instance.new("UICorner")
 
@@ -679,9 +710,9 @@ ScreenGui1.Parent = game:GetService("CoreGui")
 ToggleButton.Name = "ToggleButton"
 ToggleButton.Parent = ScreenGui1
 ToggleButton.AnchorPoint = Vector2.new(0, 1)
-ToggleButton.Position = UDim2.new(0, 20, 1, -20) 
-ToggleButton.Size = UDim2.new(0, 45, 0, 45) 
-ToggleButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0) 
+ToggleButton.Position = UDim2.new(0, 20, 1, -20)
+ToggleButton.Size = UDim2.new(0, 45, 0, 45)
+ToggleButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 ToggleButton.BackgroundTransparency = 0
 ToggleButton.BorderSizePixel = 0
 ToggleButton.Draggable = true
@@ -692,122 +723,124 @@ UICorner1.CornerRadius = UDim.new(0.25, 0)
 UICorner1.Parent = ToggleButton
 
 ToggleButton.MouseButton1Click:Connect(function()
-	if DropShadowHolder then
-    DropShadowHolder.Visible = not DropShadowHolder.Visible
-    end
+if DropShadowHolder then
+DropShadowHolder.Visible = not DropShadowHolder.Visible
+end
 end)
 
-	DropShadowHolder.Size = UDim2.new(0, 115 + TextLabel.TextBounds.X + 1 + TextLabel1.TextBounds.X, 0, 350)
-	MakeDraggable(Top, DropShadowHolder)
-	--// Blur
-	local MoreBlur = Instance.new("Frame");
-	local DropShadowHolder1 = Instance.new("Frame");
-	local DropShadow1 = Instance.new("ImageLabel");
-	local UICorner28 = Instance.new("UICorner");
-	local ConnectButton = Instance.new("TextButton");
-	
-	MoreBlur.AnchorPoint = Vector2.new(1, 1)
-	MoreBlur.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	MoreBlur.BackgroundTransparency = 0.999
-	MoreBlur.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	MoreBlur.BorderSizePixel = 0
-	MoreBlur.ClipsDescendants = true
-	MoreBlur.Position = UDim2.new(1, 8, 1, 8)
-	MoreBlur.Size = UDim2.new(1, 154, 1, 54)
-	MoreBlur.Visible = false
-	MoreBlur.Name = "MoreBlur"
-	MoreBlur.Parent = Layers
+DropShadowHolder.Size = UDim2.new(0, 115 + TextLabel.TextBounds.X + 1 + TextLabel1.TextBounds.X, 0, 350)  
+MakeDraggable(Top, DropShadowHolder)  
+--// Blur  
+local MoreBlur = Instance.new("Frame");  
+local DropShadowHolder1 = Instance.new("Frame");  
+local DropShadow1 = Instance.new("ImageLabel");  
+local UICorner28 = Instance.new("UICorner");  
+local ConnectButton = Instance.new("TextButton");  
+  
+MoreBlur.AnchorPoint = Vector2.new(1, 1)  
+MoreBlur.BackgroundColor3 = Color3.fromRGB(0, 0, 0)  
+MoreBlur.BackgroundTransparency = 0.999  
+MoreBlur.BorderColor3 = Color3.fromRGB(0, 0, 0)  
+MoreBlur.BorderSizePixel = 0  
+MoreBlur.ClipsDescendants = true  
+MoreBlur.Position = UDim2.new(1, 8, 1, 8)  
+MoreBlur.Size = UDim2.new(1, 154, 1, 54)  
+MoreBlur.Visible = false  
+MoreBlur.Name = "MoreBlur"  
+MoreBlur.Parent = Layers  
 
-	DropShadowHolder1.BackgroundTransparency = 1
-	DropShadowHolder1.BorderSizePixel = 0
-	DropShadowHolder1.Size = UDim2.new(1, 0, 1, 0)
-	DropShadowHolder1.ZIndex = 0
-	DropShadowHolder1.Name = "DropShadowHolder"
-	DropShadowHolder1.Parent = MoreBlur
+DropShadowHolder1.BackgroundTransparency = 1  
+DropShadowHolder1.BorderSizePixel = 0  
+DropShadowHolder1.Size = UDim2.new(1, 0, 1, 0)  
+DropShadowHolder1.ZIndex = 0  
+DropShadowHolder1.Name = "DropShadowHolder"  
+DropShadowHolder1.Parent = MoreBlur  
 
-	DropShadow1.Image = "rbxassetid://6015897843"
-	DropShadow1.ImageColor3 = Color3.fromRGB(0, 0, 0)
-	DropShadow1.ImageTransparency = 0.5
-	DropShadow1.ScaleType = Enum.ScaleType.Slice
-	DropShadow1.SliceCenter = Rect.new(49, 49, 450, 450)
-	DropShadow1.AnchorPoint = Vector2.new(0.5, 0.5)
-	DropShadow1.BackgroundTransparency = 1
-	DropShadow1.BorderSizePixel = 0
-	DropShadow1.Position = UDim2.new(0.5, 0, 0.5, 0)
-	DropShadow1.Size = UDim2.new(1, 35, 1, 35)
-	DropShadow1.ZIndex = 0
-	DropShadow1.Name = "DropShadow"
-	DropShadow1.Parent = DropShadowHolder1
+DropShadow1.Image = "rbxassetid://6015897843"  
+DropShadow1.ImageColor3 = Color3.fromRGB(0, 0, 0)  
+DropShadow1.ImageTransparency = 0.5  
+DropShadow1.ScaleType = Enum.ScaleType.Slice  
+DropShadow1.SliceCenter = Rect.new(49, 49, 450, 450)  
+DropShadow1.AnchorPoint = Vector2.new(0.5, 0.5)  
+DropShadow1.BackgroundTransparency = 1  
+DropShadow1.BorderSizePixel = 0  
+DropShadow1.Position = UDim2.new(0.5, 0, 0.5, 0)  
+DropShadow1.Size = UDim2.new(1, 35, 1, 35)  
+DropShadow1.ZIndex = 0  
+DropShadow1.Name = "DropShadow"  
+DropShadow1.Parent = DropShadowHolder1  
 
-	UICorner28.Parent = MoreBlur
+UICorner28.Parent = MoreBlur  
 
-	ConnectButton.Font = Enum.Font.SourceSans
-	ConnectButton.Text = ""
-	ConnectButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-	ConnectButton.TextSize = 14
-	ConnectButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	ConnectButton.BackgroundTransparency = 0.999
-	ConnectButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	ConnectButton.BorderSizePixel = 0
-	ConnectButton.Size = UDim2.new(1, 0, 1, 0)
-	ConnectButton.Name = "ConnectButton"
-	ConnectButton.Parent = MoreBlur
+ConnectButton.Font = Enum.Font.SourceSans  
+ConnectButton.Text = ""  
+ConnectButton.TextColor3 = Color3.fromRGB(0, 0, 0)  
+ConnectButton.TextSize = 14  
+ConnectButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)  
+ConnectButton.BackgroundTransparency = 0.999  
+ConnectButton.BorderColor3 = Color3.fromRGB(0, 0, 0)  
+ConnectButton.BorderSizePixel = 0  
+ConnectButton.Size = UDim2.new(1, 0, 1, 0)  
+ConnectButton.Name = "ConnectButton"  
+ConnectButton.Parent = MoreBlur  
 
-	local DropdownSelect = Instance.new("Frame");
-	local UICorner36 = Instance.new("UICorner");
-	local UIStroke14 = Instance.new("UIStroke");
-	local DropdownSelectReal = Instance.new("Frame");
-	local DropdownFolder = Instance.new("Folder");
-	local DropPageLayout = Instance.new("UIPageLayout");
+local DropdownSelect = Instance.new("Frame");  
+local UICorner36 = Instance.new("UICorner");  
+local UIStroke14 = Instance.new("UIStroke");  
+local DropdownSelectReal = Instance.new("Frame");  
+local DropdownFolder = Instance.new("Folder");  
+local DropPageLayout = Instance.new("UIPageLayout");  
 
-	DropdownSelect.AnchorPoint = Vector2.new(1, 0.5)
-	DropdownSelect.BackgroundColor3 = Color3.fromRGB(30.00000011175871, 30.00000011175871, 30.00000011175871)
-	DropdownSelect.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	DropdownSelect.BorderSizePixel = 0
-	DropdownSelect.LayoutOrder = 1
-	DropdownSelect.Position = UDim2.new(1, 172, 0.5, 0)
-	DropdownSelect.Size = UDim2.new(0, 160, 1, -16)
-	DropdownSelect.Name = "DropdownSelect"
-	DropdownSelect.ClipsDescendants = true
-	DropdownSelect.Parent = MoreBlur
+DropdownSelect.AnchorPoint = Vector2.new(1, 0.5)  
+DropdownSelect.BackgroundColor3 = Color3.fromRGB(30.00000011175871, 30.00000011175871, 30.00000011175871)  
+DropdownSelect.BorderColor3 = Color3.fromRGB(0, 0, 0)  
+DropdownSelect.BorderSizePixel = 0  
+DropdownSelect.LayoutOrder = 1  
+DropdownSelect.Position = UDim2.new(1, 172, 0.5, 0)  
+DropdownSelect.Size = UDim2.new(0, 160, 1, -16)  
+DropdownSelect.Name = "DropdownSelect"  
+DropdownSelect.ClipsDescendants = true  
+DropdownSelect.Parent = MoreBlur  
 
-	ConnectButton.Activated:Connect(function()
-		if MoreBlur.Visible then
-			TweenService:Create(MoreBlur, TweenInfo.new(0.3), {BackgroundTransparency = 0.999}):Play()
-			TweenService:Create(DropdownSelect, TweenInfo.new(0.3), {Position = UDim2.new(1, 172, 0.5, 0)}):Play()
-			task.wait(0.3)
-			MoreBlur.Visible = false
-		end
-	end)
-	UICorner36.CornerRadius = UDim.new(0, 3)
-	UICorner36.Parent = DropdownSelect
+ConnectButton.Activated:Connect(function()  
+	if MoreBlur.Visible then  
+		TweenService:Create(MoreBlur, TweenInfo.new(0.3), {BackgroundTransparency = 0.999}):Play()  
+		TweenService:Create(DropdownSelect, TweenInfo.new(0.3), {Position = UDim2.new(1, 172, 0.5, 0)}):Play()  
+		task.wait(0.3)  
+		MoreBlur.Visible = false  
+	end  
+end)  
+UICorner36.CornerRadius = UDim.new(0, 3)  
+UICorner36.Parent = DropdownSelect  
 
-	UIStroke14.Color = Color3.fromRGB(255, 255, 255)
-	UIStroke14.Thickness = 2.5
-	UIStroke14.Transparency = 0.8
-	UIStroke14.Parent = DropdownSelect
+UIStroke14.Color = Color3.fromRGB(255, 255, 255)  
+UIStroke14.Thickness = 2.5  
+UIStroke14.Transparency = 0.8  
+UIStroke14.Parent = DropdownSelect  
 
-	DropdownSelectReal.AnchorPoint = Vector2.new(0.5, 0.5)
-	DropdownSelectReal.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	DropdownSelectReal.BackgroundTransparency = 0.9990000128746033
-	DropdownSelectReal.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	DropdownSelectReal.BorderSizePixel = 0
-	DropdownSelectReal.LayoutOrder = 1
-	DropdownSelectReal.Position = UDim2.new(0.5, 0, 0.5, 0)
-	DropdownSelectReal.Size = UDim2.new(1, -10, 1, -10)
-	DropdownSelectReal.Name = "DropdownSelectReal"
-	DropdownSelectReal.Parent = DropdownSelect
+DropdownSelectReal.AnchorPoint = Vector2.new(0.5, 0.5)  
+DropdownSelectReal.BackgroundColor3 = Color3.fromRGB(0, 0, 0)  
+DropdownSelectReal.BackgroundTransparency = 0.9990000128746033  
+DropdownSelectReal.BorderColor3 = Color3.fromRGB(0, 0, 0)  
+DropdownSelectReal.BorderSizePixel = 0  
+DropdownSelectReal.LayoutOrder = 1  
+DropdownSelectReal.Position = UDim2.new(0.5, 0, 0.5, 0)  
+DropdownSelectReal.Size = UDim2.new(1, -10, 1, -10)  
+DropdownSelectReal.Name = "DropdownSelectReal"  
+DropdownSelectReal.Parent = DropdownSelect  
 
-	DropdownFolder.Name = "DropdownFolder"
-	DropdownFolder.Parent = DropdownSelectReal
+DropdownFolder.Name = "DropdownFolder"  
+DropdownFolder.Parent = DropdownSelectReal  
 
-	DropPageLayout.EasingDirection = Enum.EasingDirection.InOut
-	DropPageLayout.EasingStyle = Enum.EasingStyle.Quad
-	DropPageLayout.TweenTime = 0.009999999776482582
-	DropPageLayout.SortOrder = Enum.SortOrder.LayoutOrder
-	DropPageLayout.Archivable = false
-	DropPageLayout.Name = "DropPageLayout"
-	DropPageLayout.Parent = DropdownFolder
+DropPageLayout.EasingDirection = Enum.EasingDirection.InOut  
+DropPageLayout.EasingStyle = Enum.EasingStyle.Quad  
+DropPageLayout.TweenTime = 0.009999999776482582  
+DropPageLayout.SortOrder = Enum.SortOrder.LayoutOrder  
+DropPageLayout.Archivable = false  
+DropPageLayout.Name = "DropPageLayout"  
+DropPageLayout.Parent = DropdownFolder
+
+
 	--// Tabs
 	local Tabs = {}
 	local CountTab = 0
