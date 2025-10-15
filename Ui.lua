@@ -403,7 +403,7 @@ function FlurioreLib:MakeGui(GuiConfig)
 
 	DropShadowHolder.BackgroundTransparency = 1
 	DropShadowHolder.BorderSizePixel = 0
-	DropShadowHolder.Size = UDim2.new(0, 455, 0, 350)
+	DropShadowHolder.Size = UDim2.new(0, 550, 0, 400)
 	DropShadowHolder.ZIndex = 0
 	DropShadowHolder.Name = "DropShadowHolder"
 	DropShadowHolder.Parent = HirimiGui
@@ -472,17 +472,17 @@ function FlurioreLib:MakeGui(GuiConfig)
 	UICorner1.Parent = Top
 
 	TextLabel1.Font = Enum.Font.GothamBold
-	TextLabel1.Text = GuiConfig.Description
-	TextLabel1.TextColor3 = GuiConfig.Color
-	TextLabel1.TextSize = 14
-	TextLabel1.TextXAlignment = Enum.TextXAlignment.Left
-	TextLabel1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	TextLabel1.BackgroundTransparency = 0.9990000128746033
-	TextLabel1.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	TextLabel1.BorderSizePixel = 0
-	TextLabel1.Size = UDim2.new(1, -(TextLabel.TextBounds.X + 104), 1, 0)
-	TextLabel1.Position = UDim2.new(0, TextLabel.TextBounds.X + 15, 0, 0)
-	TextLabel1.Parent = Top
+TextLabel1.Text = GuiConfig.Description
+TextLabel1.TextColor3 = Color3.fromRGB(255, 255, 255) -- สีขาว
+TextLabel1.TextSize = 14
+TextLabel1.TextXAlignment = Enum.TextXAlignment.Left
+TextLabel1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel1.BackgroundTransparency = 0.999
+TextLabel1.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel1.BorderSizePixel = 0
+TextLabel1.Size = UDim2.new(1, -(TextLabel.TextBounds.X + 104), 1, 0)
+TextLabel1.Position = UDim2.new(0, TextLabel.TextBounds.X + 25, 0, 0) -- เพิ่มช่องว่างจาก Name
+TextLabel1.Parent = Top
 
 	UIStroke1.Color = GuiConfig.Color
 	UIStroke1.Thickness = 0.4000000059604645
