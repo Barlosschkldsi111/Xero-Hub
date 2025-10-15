@@ -43,65 +43,67 @@ local function MakeDraggable(topbarobject, object)
 			end
 		end)
 	end
-	
 	local function CustomSize(object)
-	local Dragging = false
-	local DragInput = nil
-	local DragStart = nil
-	local StartSize = nil
-	
-	-- ✅ ขนาดเริ่มต้นที่ปรับให้พอดี ไม่เล็กไม่ใหญ่
-	local maxSizeX = 580
-	local maxSizeY = 450
-	object.Size = UDim2.new(0, maxSizeX, 0, maxSizeY)
+		local Dragging = false
+		local DragInput = nil
+		local DragStart = nil
+		local StartSize = nil
+		local maxSizeX = object.Size.X.Offset
+		if maxSizeX < 400 then
+			maxSizeX = 400
+		end
+		local maxSizeY = maxSizeX - 100
+		object.Size = UDim2.new(0, maxSizeX, 0, maxSizeY)
+		local changesizeobject = Instance.new("Frame");
 
-	-- กรอบลากขยาย (อยู่มุมล่างขวา)
-	local changesizeobject = Instance.new("Frame")
-	changesizeobject.AnchorPoint = Vector2.new(1, 1)
-	changesizeobject.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	changesizeobject.BackgroundTransparency = 1
-	changesizeobject.BorderSizePixel = 0
-	changesizeobject.Position = UDim2.new(1, 0, 1, 0)
-	changesizeobject.Size = UDim2.new(0, 580, 0, 450)
-	changesizeobject.Name = "changesizeobject"
-	changesizeobject.Parent = object
+		changesizeobject.AnchorPoint = Vector2.new(1, 1)
+		changesizeobject.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		changesizeobject.BackgroundTransparency = 0.9990000128746033
+		changesizeobject.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		changesizeobject.BorderSizePixel = 0
+		changesizeobject.Position = UDim2.new(1, 20, 1, 20)
+		changesizeobject.Size = UDim2.new(0, 40, 0, 40)
+		changesizeobject.Name = "changesizeobject"
+		changesizeobject.Parent = object
 
-	local function UpdateSize(input)
-		local Delta = input.Position - DragStart
-		local newWidth = StartSize.X.Offset + Delta.X
-		local newHeight = StartSize.Y.Offset + Delta.Y
-		newWidth = math.max(newWidth, 580)
-		newHeight = math.max(newHeight, 450)
-		local Tween = TweenService:Create(object, TweenInfo.new(0.2), {Size = UDim2.new(0, newWidth, 0, newHeight)})
-		Tween:Play()
+		local function UpdateSize(input)
+			local Delta = input.Position - DragStart
+			local newWidth = StartSize.X.Offset + Delta.X
+			local newHeight = StartSize.Y.Offset + Delta.Y
+			newWidth = math.max(newWidth, maxSizeX)
+			newHeight = math.max(newHeight, maxSizeY)
+			local Tween = TweenService:Create(object, TweenInfo.new(0.2), {Size = UDim2.new(0, newWidth, 0, newHeight)})
+			Tween:Play()
+		end
+
+		changesizeobject.InputBegan:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+				Dragging = true
+				DragStart = input.Position
+				StartSize = object.Size
+				input.Changed:Connect(function()
+					if input.UserInputState == Enum.UserInputState.End then
+						Dragging = false
+					end
+				end)
+			end
+		end)
+
+		changesizeobject.InputChanged:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+				DragInput = input
+			end
+		end)
+
+		UserInputService.InputChanged:Connect(function(input)
+			if input == DragInput and Dragging then
+				UpdateSize(input)
+			end
+		end)
 	end
-
-	changesizeobject.InputBegan:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-			Dragging = true
-			DragStart = input.Position
-			StartSize = object.Size
-			input.Changed:Connect(function()
-				if input.UserInputState == Enum.UserInputState.End then
-					Dragging = false
-				end
-			end)
-		end
-	end)
-
-	changesizeobject.InputChanged:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-			DragInput = input
-		end
-	end)
-
-	UserInputService.InputChanged:Connect(function(input)
-		if input == DragInput and Dragging then
-			UpdateSize(input)
-		end
-	end)
+	CustomSize(object)
+	CustomPos(topbarobject, object)
 end
-
 function CircleClick(Button, X, Y)
 	spawn(function()
 		Button.ClipsDescendants = true
@@ -210,7 +212,7 @@ function FlurioreLib:MakeNotify(NotifyConfig)
 		NotifyFrameReal.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 		NotifyFrameReal.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		NotifyFrameReal.BorderSizePixel = 0
-		NotifyFrameReal.Position = UDim2.new(0, 580, 0, 450)
+		NotifyFrameReal.Position = UDim2.new(0, 400, 0, 0)
 		NotifyFrameReal.Size = UDim2.new(1, 0, 1, 0)
 		NotifyFrameReal.Name = "NotifyFrameReal"
 		NotifyFrameReal.Parent = NotifyFrame
@@ -258,7 +260,7 @@ function FlurioreLib:MakeNotify(NotifyConfig)
 		TextLabel.BorderSizePixel = 0
 		TextLabel.Size = UDim2.new(1, 0, 1, 0)
 		TextLabel.Parent = Top
-		TextLabel.Position = UDim2.new(0, 580, 0, 450)
+		TextLabel.Position = UDim2.new(0, 10, 0, 0)
 
 		UIStroke.Color = Color3.fromRGB(255, 255, 255)
 		UIStroke.Thickness = 0.30000001192092896
@@ -294,7 +296,7 @@ function FlurioreLib:MakeNotify(NotifyConfig)
 		Close.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		Close.BorderSizePixel = 0
 		Close.Position = UDim2.new(1, -5, 0.5, 0)
-		Close.Size = UDim2.new(0, 580, 0, 450)
+		Close.Size = UDim2.new(0, 25, 0, 25)
 		Close.Name = "Close"
 		Close.Parent = Top
 
@@ -319,7 +321,7 @@ function FlurioreLib:MakeNotify(NotifyConfig)
 		TextLabel2.TextColor3 = Color3.fromRGB(150.0000062584877, 150.0000062584877, 150.0000062584877)
 		TextLabel2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		TextLabel2.BorderSizePixel = 0
-		TextLabel2.Position = UDim2.new(0, 580, 0, 450)
+		TextLabel2.Position = UDim2.new(0, 10, 0, 27)
 		TextLabel2.Parent = NotifyFrameReal
 		TextLabel2.Size = UDim2.new(1, -20, 0, 13)
 
@@ -340,7 +342,7 @@ function FlurioreLib:MakeNotify(NotifyConfig)
 			TweenService:Create(
 				NotifyFrameReal,
 				TweenInfo.new(tonumber(NotifyConfig.Time), Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
-				{Position = UDim2.new(0, 580, 0, 450)}
+				{Position = UDim2.new(0, 400, 0, 0)}
 			):Play()
 			task.wait(tonumber(NotifyConfig.Time) / 1.2)
 			NotifyFrame:Destroy()
@@ -351,7 +353,7 @@ function FlurioreLib:MakeNotify(NotifyConfig)
 		TweenService:Create(
 			NotifyFrameReal,
 			TweenInfo.new(tonumber(NotifyConfig.Time), Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
-			{Position = UDim2.new(0, 580, 0, 450)}
+			{Position = UDim2.new(0, 0, 0, 0)}
 		):Play()
 		task.wait(tonumber(NotifyConfig.Delay))
 		NotifyFunction:Close()
@@ -395,19 +397,18 @@ function FlurioreLib:MakeGui(GuiConfig)
 	local LayersPageLayout = Instance.new("UIPageLayout");
 
 	HirimiGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-	HirimiGui.Name = "HirimiGui"
-	HirimiGui.ResetOnSpawn = false
-	HirimiGui.Parent = CoreGui
+    HirimiGui.Name = "HirimiGui"
+    HirimiGui.ResetOnSpawn = false
+    HirimiGui.Parent = CoreGui
 
-	-- ✅ ปรับขนาด GUI หลัก
 	DropShadowHolder.BackgroundTransparency = 1
 	DropShadowHolder.BorderSizePixel = 0
 	DropShadowHolder.Size = UDim2.new(0, 580, 0, 450)
-	DropShadowHolder.Position = UDim2.new(0.5, -580/2, 0.5, -450/2)
 	DropShadowHolder.ZIndex = 0
 	DropShadowHolder.Name = "DropShadowHolder"
 	DropShadowHolder.Parent = HirimiGui
-
+	
+  DropShadowHolder.Position = UDim2.new(0, (HirimiGui.AbsoluteSize.X // 2 - DropShadowHolder.Size.X.Offset // 2), 0, (HirimiGui.AbsoluteSize.Y // 2 - DropShadowHolder.Size.Y.Offset // 2))
 	DropShadow.Image = "rbxassetid://6015897843"
 	DropShadow.ImageColor3 = Color3.fromRGB(15, 15, 15)
 	DropShadow.ImageTransparency = 0.5
@@ -423,14 +424,14 @@ function FlurioreLib:MakeGui(GuiConfig)
 	DropShadow.Parent = DropShadowHolder
 
 	if GuiConfig.Theme then
-		Main:Destroy()
-		Main = Instance.new("ImageLabel")
-		Main.Image = "rbxassetid://" .. GuiConfig.Theme
-		Main.ScaleType = Enum.ScaleType.Crop
-		Main.BackgroundTransparency = 1
+    	Main:Destroy()
+    	Main = Instance.new("ImageLabel")
+    	Main.Image = "rbxassetid://" .. GuiConfig.Theme
+    	Main.ScaleType = Enum.ScaleType.Crop
+    	Main.BackgroundTransparency = 1
 	else
-		Main.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-		Main.BackgroundTransparency = 0.1
+    	Main.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+    	Main.BackgroundTransparency = 0.1
 	end
 
 	Main.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -442,44 +443,61 @@ function FlurioreLib:MakeGui(GuiConfig)
 	Main.Parent = DropShadow
 
 	UICorner.Parent = Main
+
 	UIStroke.Color = Color3.fromRGB(50, 50, 50)
-	UIStroke.Thickness = 1.6
+	UIStroke.Thickness = 1.600000023841858
 	UIStroke.Parent = Main
 
-	Top.BackgroundTransparency = 1
+	Top.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	Top.BackgroundTransparency = 0.9990000128746033
+	Top.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Top.BorderSizePixel = 0
 	Top.Size = UDim2.new(1, 0, 0, 38)
 	Top.Name = "Top"
 	Top.Parent = Main
 
-	-- ✅ ปรับระยะห่างและสี Text
 	TextLabel.Font = Enum.Font.GothamBold
 	TextLabel.Text = GuiConfig.NameHub
 	TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-	TextLabel.TextSize = 16
+	TextLabel.TextSize = 14
 	TextLabel.TextXAlignment = Enum.TextXAlignment.Left
-	TextLabel.BackgroundTransparency = 1
-	TextLabel.Size = UDim2.new(0, 300, 1, 0)
-	TextLabel.Position = UDim2.new(0, 12, 0, 0)
+	TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TextLabel.BackgroundTransparency = 0.9990000128746033
+	TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	TextLabel.BorderSizePixel = 0
+	TextLabel.Size = UDim2.new(1, -100, 1, 0)
+	TextLabel.Position = UDim2.new(0, 10, 0, 0)
 	TextLabel.Parent = Top
+
+	UICorner1.Parent = Top
 
 	TextLabel1.Font = Enum.Font.GothamBold
 	TextLabel1.Text = GuiConfig.Description
-	TextLabel1.TextColor3 = Color3.fromRGB(255, 255, 255) -- ✅ สีขาว
+	TextLabel1.TextColor3 = Color3.fromRGB(255, 255, 255) -- ปรับเป็นสีขาว
 	TextLabel1.TextSize = 14
 	TextLabel1.TextXAlignment = Enum.TextXAlignment.Left
-	TextLabel1.BackgroundTransparency = 1
-	TextLabel1.Size = UDim2.new(1, -400, 1, 0)
-	TextLabel1.Position = UDim2.new(0, TextLabel.Position.X.Offset + TextLabel.Size.X.Offset + 20, 0, 0) -- ✅ เพิ่มช่องว่าง
+	TextLabel1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TextLabel1.BackgroundTransparency = 0.9990000128746033
+	TextLabel1.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	TextLabel1.BorderSizePixel = 0
+	TextLabel1.Size = UDim2.new(1, -(TextLabel.TextBounds.X + 104), 1, 0)
+	TextLabel1.Position = UDim2.new(0, TextLabel.TextBounds.X + 25, 0, 0) -- เพิ่มระยะห่าง
 	TextLabel1.Parent = Top
 
-	UIStroke1.Color = GuiConfig.Color
-	UIStroke1.Thickness = 0.4
+	UIStroke1.Color = Color3.fromRGB(255, 255, 255) -- สีขาว
+	UIStroke1.Thickness = 0.4000000059604645
 	UIStroke1.Parent = TextLabel1
 
+	-- ส่วนที่เหลือเหมือนเดิมทั้งหมด ไม่เปลี่ยนแปลง
 	MaxRestore.Font = Enum.Font.SourceSans
 	MaxRestore.Text = ""
+	MaxRestore.TextColor3 = Color3.fromRGB(0, 0, 0)
+	MaxRestore.TextSize = 14
 	MaxRestore.AnchorPoint = Vector2.new(1, 0.5)
-	MaxRestore.BackgroundTransparency = 1
+	MaxRestore.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	MaxRestore.BackgroundTransparency = 0.9990000128746033
+	MaxRestore.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	MaxRestore.BorderSizePixel = 0
 	MaxRestore.Position = UDim2.new(1, -42, 0.5, 0)
 	MaxRestore.Size = UDim2.new(0, 25, 0, 25)
 	MaxRestore.Name = "MaxRestore"
@@ -487,15 +505,23 @@ function FlurioreLib:MakeGui(GuiConfig)
 
 	ImageLabel.Image = "rbxassetid://9886659406"
 	ImageLabel.AnchorPoint = Vector2.new(0.5, 0.5)
-	ImageLabel.BackgroundTransparency = 1
+	ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	ImageLabel.BackgroundTransparency = 0.9990000128746033
+	ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	ImageLabel.BorderSizePixel = 0
 	ImageLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
 	ImageLabel.Size = UDim2.new(1, -8, 1, -8)
 	ImageLabel.Parent = MaxRestore
 
 	Close.Font = Enum.Font.SourceSans
 	Close.Text = ""
+	Close.TextColor3 = Color3.fromRGB(0, 0, 0)
+	Close.TextSize = 14
 	Close.AnchorPoint = Vector2.new(1, 0.5)
-	Close.BackgroundTransparency = 1
+	Close.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Close.BackgroundTransparency = 0.9990000128746033
+	Close.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Close.BorderSizePixel = 0
 	Close.Position = UDim2.new(1, -8, 0.5, 0)
 	Close.Size = UDim2.new(0, 25, 0, 25)
 	Close.Name = "Close"
@@ -503,15 +529,23 @@ function FlurioreLib:MakeGui(GuiConfig)
 
 	ImageLabel1.Image = "rbxassetid://9886659671"
 	ImageLabel1.AnchorPoint = Vector2.new(0.5, 0.5)
-	ImageLabel1.BackgroundTransparency = 1
+	ImageLabel1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	ImageLabel1.BackgroundTransparency = 0.9990000128746033
+	ImageLabel1.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	ImageLabel1.BorderSizePixel = 0
 	ImageLabel1.Position = UDim2.new(0.49, 0, 0.5, 0)
 	ImageLabel1.Size = UDim2.new(1, -8, 1, -8)
 	ImageLabel1.Parent = Close
 
 	Min.Font = Enum.Font.SourceSans
 	Min.Text = ""
+	Min.TextColor3 = Color3.fromRGB(0, 0, 0)
+	Min.TextSize = 14
 	Min.AnchorPoint = Vector2.new(1, 0.5)
-	Min.BackgroundTransparency = 1
+	Min.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Min.BackgroundTransparency = 0.9990000128746033
+	Min.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Min.BorderSizePixel = 0
 	Min.Position = UDim2.new(1, -78, 0.5, 0)
 	Min.Size = UDim2.new(0, 25, 0, 25)
 	Min.Name = "Min"
@@ -519,13 +553,19 @@ function FlurioreLib:MakeGui(GuiConfig)
 
 	ImageLabel2.Image = "rbxassetid://9886659276"
 	ImageLabel2.AnchorPoint = Vector2.new(0.5, 0.5)
-	ImageLabel2.BackgroundTransparency = 1
+	ImageLabel2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	ImageLabel2.BackgroundTransparency = 0.9990000128746033
 	ImageLabel2.ImageTransparency = 0.2
+	ImageLabel2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	ImageLabel2.BorderSizePixel = 0
 	ImageLabel2.Position = UDim2.new(0.5, 0, 0.5, 0)
 	ImageLabel2.Size = UDim2.new(1, -9, 1, -9)
 	ImageLabel2.Parent = Min
 
-	LayersTab.BackgroundTransparency = 1
+	LayersTab.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	LayersTab.BackgroundTransparency = 0.9990000128746033
+	LayersTab.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	LayersTab.BorderSizePixel = 0
 	LayersTab.Position = UDim2.new(0, 9, 0, 50)
 	LayersTab.Size = UDim2.new(0, GuiConfig["Tab Width"], 1, -59)
 	LayersTab.Name = "LayersTab"
@@ -535,14 +575,21 @@ function FlurioreLib:MakeGui(GuiConfig)
 	UICorner2.Parent = LayersTab
 
 	DecideFrame.AnchorPoint = Vector2.new(0.5, 0)
+	DecideFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	DecideFrame.BackgroundTransparency = 0.85
+	DecideFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	DecideFrame.BorderSizePixel = 0
 	DecideFrame.Position = UDim2.new(0.5, 0, 0, 38)
 	DecideFrame.Size = UDim2.new(1, 0, 0, 1)
+	DecideFrame.Name = "DecideFrame"
 	DecideFrame.Parent = Main
 
-	Layers.BackgroundTransparency = 1
+	Layers.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Layers.BackgroundTransparency = 0.9990000128746033
+	Layers.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Layers.BorderSizePixel = 0
 	Layers.Position = UDim2.new(0, GuiConfig["Tab Width"] + 18, 0, 50)
-	Layers.Size = UDim2.new(1, -(GuiConfig["Tab Width"] + 27), 1, -59)
+	Layers.Size = UDim2.new(1, -(GuiConfig["Tab Width"] + 9 + 18), 1, -59)
 	Layers.Name = "Layers"
 	Layers.Parent = Main
 
@@ -553,27 +600,100 @@ function FlurioreLib:MakeGui(GuiConfig)
 	NameTab.Text = ""
 	NameTab.TextColor3 = Color3.fromRGB(255, 255, 255)
 	NameTab.TextSize = 24
-	NameTab.BackgroundTransparency = 1
+	NameTab.TextWrapped = true
+	NameTab.TextXAlignment = Enum.TextXAlignment.Left
+	NameTab.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	NameTab.BackgroundTransparency = 0.9990000128746033
+	NameTab.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	NameTab.BorderSizePixel = 0
 	NameTab.Size = UDim2.new(1, 0, 0, 30)
+	NameTab.Name = "NameTab"
 	NameTab.Parent = Layers
 
 	LayersReal.AnchorPoint = Vector2.new(0, 1)
-	LayersReal.BackgroundTransparency = 1
+	LayersReal.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	LayersReal.BackgroundTransparency = 0.9990000128746033
+	LayersReal.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	LayersReal.BorderSizePixel = 0
 	LayersReal.ClipsDescendants = true
 	LayersReal.Position = UDim2.new(0, 0, 1, 0)
 	LayersReal.Size = UDim2.new(1, 0, 1, -33)
+	LayersReal.Name = "LayersReal"
 	LayersReal.Parent = Layers
 
 	LayersFolder.Name = "LayersFolder"
 	LayersFolder.Parent = LayersReal
 
 	LayersPageLayout.SortOrder = Enum.SortOrder.LayoutOrder
+	LayersPageLayout.Name = "LayersPageLayout"
 	LayersPageLayout.Parent = LayersFolder
 	LayersPageLayout.TweenTime = 0.5
 	LayersPageLayout.EasingDirection = Enum.EasingDirection.InOut
 	LayersPageLayout.EasingStyle = Enum.EasingStyle.Quad
-end
-  
+	
+--// Layer Tabs
+	local ScrollTab = Instance.new("ScrollingFrame");
+	local UIListLayout = Instance.new("UIListLayout");
+
+	ScrollTab.CanvasSize = UDim2.new(0, 0, 1.10000002, 0)
+	ScrollTab.ScrollBarImageColor3 = Color3.fromRGB(0, 0, 0)
+	ScrollTab.ScrollBarThickness = 0
+	ScrollTab.Active = true
+	ScrollTab.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	ScrollTab.BackgroundTransparency = 0.9990000128746033
+	ScrollTab.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	ScrollTab.BorderSizePixel = 0
+	ScrollTab.Size = UDim2.new(1, 0, 1, 0)
+	ScrollTab.Name = "ScrollTab"
+	ScrollTab.Parent = LayersTab
+
+	UIListLayout.Padding = UDim.new(0, 3)
+	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+	UIListLayout.Parent = ScrollTab 
+
+	local function UpdateSize1()
+		local OffsetY = 0
+		for _, child in ScrollTab:GetChildren() do
+			if child.Name ~= "UIListLayout" then
+				OffsetY = OffsetY + 3 + child.Size.Y.Offset
+			end
+		end
+		ScrollTab.CanvasSize = UDim2.new(0, 0, 0, OffsetY)
+	end
+	ScrollTab.ChildAdded:Connect(UpdateSize1)
+	ScrollTab.ChildRemoved:Connect(UpdateSize1)
+		
+	function GuiFunc:DestroyGui()
+		if CoreGui:FindFirstChild("HirimiGui") then 
+			HirimiGui:Destroy()
+		end
+	end
+	local OldPos = DropShadowHolder.Position
+	local OldSize = DropShadowHolder.Size
+	MaxRestore.Activated:Connect(function()
+		CircleClick(MaxRestore, Mouse.X, Mouse.Y)
+		if ImageLabel.Image == "rbxassetid://9886659406" then
+			ImageLabel.Image = "rbxassetid://9886659001"
+			OldPos = DropShadowHolder.Position
+			OldSize = DropShadowHolder.Size
+			TweenService:Create(DropShadowHolder, TweenInfo.new(0.3), {Position = UDim2.new(0, 0, 0, 0)}):Play()
+			TweenService:Create(DropShadowHolder, TweenInfo.new(0.3), {Size = UDim2.new(1, 0, 1, 0)}):Play()
+		else
+			ImageLabel.Image = "rbxassetid://9886659406"
+			TweenService:Create(DropShadowHolder, TweenInfo.new(0.3), {Position = OldPos}):Play()
+			TweenService:Create(DropShadowHolder, TweenInfo.new(0.3), {Size = OldSize}):Play()
+		end
+	end)
+	Min.Activated:Connect(function()
+		CircleClick(Min, Mouse.X, Mouse.Y)
+		DropShadowHolder.Visible = false
+	end)
+	Close.Activated:Connect(function()
+		CircleClick(Close, Mouse.X, Mouse.Y)
+		DropShadowHolder.Visible = false
+	end)
+	
+
 local ScreenGui1 = Instance.new("ScreenGui")
 
 local ToggleButton = Instance.new("ImageButton")
@@ -604,119 +724,117 @@ DropShadowHolder.Visible = not DropShadowHolder.Visible
 end
 end)
 
-DropShadowHolder.Size = UDim2.new(0, 115 + TextLabel.TextBounds.X + 1 + TextLabel1.TextBounds.X, 0, 350)  
-MakeDraggable(Top, DropShadowHolder)  
---// Blur  
-local MoreBlur = Instance.new("Frame");  
-local DropShadowHolder1 = Instance.new("Frame");  
-local DropShadow1 = Instance.new("ImageLabel");  
-local UICorner28 = Instance.new("UICorner");  
-local ConnectButton = Instance.new("TextButton");  
-  
-MoreBlur.AnchorPoint = Vector2.new(1, 1)  
-MoreBlur.BackgroundColor3 = Color3.fromRGB(0, 0, 0)  
-MoreBlur.BackgroundTransparency = 0.999  
-MoreBlur.BorderColor3 = Color3.fromRGB(0, 0, 0)  
-MoreBlur.BorderSizePixel = 0  
-MoreBlur.ClipsDescendants = true  
-MoreBlur.Position = UDim2.new(1, 8, 1, 8)  
-MoreBlur.Size = UDim2.new(1, 154, 1, 54)  
-MoreBlur.Visible = false  
-MoreBlur.Name = "MoreBlur"  
-MoreBlur.Parent = Layers  
+	DropShadowHolder.Size = UDim2.new(0, 115 + TextLabel.TextBounds.X + 1 + TextLabel1.TextBounds.X, 0, 350)
+	MakeDraggable(Top, DropShadowHolder)
+	--// Blur
+	local MoreBlur = Instance.new("Frame");
+	local DropShadowHolder1 = Instance.new("Frame");
+	local DropShadow1 = Instance.new("ImageLabel");
+	local UICorner28 = Instance.new("UICorner");
+	local ConnectButton = Instance.new("TextButton");
+	
+	MoreBlur.AnchorPoint = Vector2.new(1, 1)
+	MoreBlur.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	MoreBlur.BackgroundTransparency = 0.999
+	MoreBlur.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	MoreBlur.BorderSizePixel = 0
+	MoreBlur.ClipsDescendants = true
+	MoreBlur.Position = UDim2.new(1, 8, 1, 8)
+	MoreBlur.Size = UDim2.new(1, 154, 1, 54)
+	MoreBlur.Visible = false
+	MoreBlur.Name = "MoreBlur"
+	MoreBlur.Parent = Layers
 
-DropShadowHolder1.BackgroundTransparency = 1  
-DropShadowHolder1.BorderSizePixel = 0  
-DropShadowHolder1.Size = UDim2.new(1, 0, 1, 0)  
-DropShadowHolder1.ZIndex = 0  
-DropShadowHolder1.Name = "DropShadowHolder"  
-DropShadowHolder1.Parent = MoreBlur  
+	DropShadowHolder1.BackgroundTransparency = 1
+	DropShadowHolder1.BorderSizePixel = 0
+	DropShadowHolder1.Size = UDim2.new(1, 0, 1, 0)
+	DropShadowHolder1.ZIndex = 0
+	DropShadowHolder1.Name = "DropShadowHolder"
+	DropShadowHolder1.Parent = MoreBlur
 
-DropShadow1.Image = "rbxassetid://6015897843"  
-DropShadow1.ImageColor3 = Color3.fromRGB(0, 0, 0)  
-DropShadow1.ImageTransparency = 0.5  
-DropShadow1.ScaleType = Enum.ScaleType.Slice  
-DropShadow1.SliceCenter = Rect.new(49, 49, 450, 450)  
-DropShadow1.AnchorPoint = Vector2.new(0.5, 0.5)  
-DropShadow1.BackgroundTransparency = 1  
-DropShadow1.BorderSizePixel = 0  
-DropShadow1.Position = UDim2.new(0.5, 0, 0.5, 0)  
-DropShadow1.Size = UDim2.new(1, 35, 1, 35)  
-DropShadow1.ZIndex = 0  
-DropShadow1.Name = "DropShadow"  
-DropShadow1.Parent = DropShadowHolder1  
+	DropShadow1.Image = "rbxassetid://6015897843"
+	DropShadow1.ImageColor3 = Color3.fromRGB(0, 0, 0)
+	DropShadow1.ImageTransparency = 0.5
+	DropShadow1.ScaleType = Enum.ScaleType.Slice
+	DropShadow1.SliceCenter = Rect.new(49, 49, 450, 450)
+	DropShadow1.AnchorPoint = Vector2.new(0.5, 0.5)
+	DropShadow1.BackgroundTransparency = 1
+	DropShadow1.BorderSizePixel = 0
+	DropShadow1.Position = UDim2.new(0.5, 0, 0.5, 0)
+	DropShadow1.Size = UDim2.new(1, 35, 1, 35)
+	DropShadow1.ZIndex = 0
+	DropShadow1.Name = "DropShadow"
+	DropShadow1.Parent = DropShadowHolder1
 
-UICorner28.Parent = MoreBlur  
+	UICorner28.Parent = MoreBlur
 
-ConnectButton.Font = Enum.Font.SourceSans  
-ConnectButton.Text = ""  
-ConnectButton.TextColor3 = Color3.fromRGB(0, 0, 0)  
-ConnectButton.TextSize = 14  
-ConnectButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)  
-ConnectButton.BackgroundTransparency = 0.999  
-ConnectButton.BorderColor3 = Color3.fromRGB(0, 0, 0)  
-ConnectButton.BorderSizePixel = 0  
-ConnectButton.Size = UDim2.new(1, 0, 1, 0)  
-ConnectButton.Name = "ConnectButton"  
-ConnectButton.Parent = MoreBlur  
+	ConnectButton.Font = Enum.Font.SourceSans
+	ConnectButton.Text = ""
+	ConnectButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+	ConnectButton.TextSize = 14
+	ConnectButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	ConnectButton.BackgroundTransparency = 0.999
+	ConnectButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	ConnectButton.BorderSizePixel = 0
+	ConnectButton.Size = UDim2.new(1, 0, 1, 0)
+	ConnectButton.Name = "ConnectButton"
+	ConnectButton.Parent = MoreBlur
 
-local DropdownSelect = Instance.new("Frame");  
-local UICorner36 = Instance.new("UICorner");  
-local UIStroke14 = Instance.new("UIStroke");  
-local DropdownSelectReal = Instance.new("Frame");  
-local DropdownFolder = Instance.new("Folder");  
-local DropPageLayout = Instance.new("UIPageLayout");  
+	local DropdownSelect = Instance.new("Frame");
+	local UICorner36 = Instance.new("UICorner");
+	local UIStroke14 = Instance.new("UIStroke");
+	local DropdownSelectReal = Instance.new("Frame");
+	local DropdownFolder = Instance.new("Folder");
+	local DropPageLayout = Instance.new("UIPageLayout");
 
-DropdownSelect.AnchorPoint = Vector2.new(1, 0.5)  
-DropdownSelect.BackgroundColor3 = Color3.fromRGB(30.00000011175871, 30.00000011175871, 30.00000011175871)  
-DropdownSelect.BorderColor3 = Color3.fromRGB(0, 0, 0)  
-DropdownSelect.BorderSizePixel = 0  
-DropdownSelect.LayoutOrder = 1  
-DropdownSelect.Position = UDim2.new(1, 172, 0.5, 0)  
-DropdownSelect.Size = UDim2.new(0, 160, 1, -16)  
-DropdownSelect.Name = "DropdownSelect"  
-DropdownSelect.ClipsDescendants = true  
-DropdownSelect.Parent = MoreBlur  
+	DropdownSelect.AnchorPoint = Vector2.new(1, 0.5)
+	DropdownSelect.BackgroundColor3 = Color3.fromRGB(30.00000011175871, 30.00000011175871, 30.00000011175871)
+	DropdownSelect.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	DropdownSelect.BorderSizePixel = 0
+	DropdownSelect.LayoutOrder = 1
+	DropdownSelect.Position = UDim2.new(1, 172, 0.5, 0)
+	DropdownSelect.Size = UDim2.new(0, 160, 1, -16)
+	DropdownSelect.Name = "DropdownSelect"
+	DropdownSelect.ClipsDescendants = true
+	DropdownSelect.Parent = MoreBlur
 
-ConnectButton.Activated:Connect(function()  
-	if MoreBlur.Visible then  
-		TweenService:Create(MoreBlur, TweenInfo.new(0.3), {BackgroundTransparency = 0.999}):Play()  
-		TweenService:Create(DropdownSelect, TweenInfo.new(0.3), {Position = UDim2.new(1, 172, 0.5, 0)}):Play()  
-		task.wait(0.3)  
-		MoreBlur.Visible = false  
-	end  
-end)  
-UICorner36.CornerRadius = UDim.new(0, 3)  
-UICorner36.Parent = DropdownSelect  
+	ConnectButton.Activated:Connect(function()
+		if MoreBlur.Visible then
+			TweenService:Create(MoreBlur, TweenInfo.new(0.3), {BackgroundTransparency = 0.999}):Play()
+			TweenService:Create(DropdownSelect, TweenInfo.new(0.3), {Position = UDim2.new(1, 172, 0.5, 0)}):Play()
+			task.wait(0.3)
+			MoreBlur.Visible = false
+		end
+	end)
+	UICorner36.CornerRadius = UDim.new(0, 3)
+	UICorner36.Parent = DropdownSelect
 
-UIStroke14.Color = Color3.fromRGB(255, 255, 255)  
-UIStroke14.Thickness = 2.5  
-UIStroke14.Transparency = 0.8  
-UIStroke14.Parent = DropdownSelect  
+	UIStroke14.Color = Color3.fromRGB(255, 255, 255)
+	UIStroke14.Thickness = 2.5
+	UIStroke14.Transparency = 0.8
+	UIStroke14.Parent = DropdownSelect
 
-DropdownSelectReal.AnchorPoint = Vector2.new(0.5, 0.5)  
-DropdownSelectReal.BackgroundColor3 = Color3.fromRGB(0, 0, 0)  
-DropdownSelectReal.BackgroundTransparency = 0.9990000128746033  
-DropdownSelectReal.BorderColor3 = Color3.fromRGB(0, 0, 0)  
-DropdownSelectReal.BorderSizePixel = 0  
-DropdownSelectReal.LayoutOrder = 1  
-DropdownSelectReal.Position = UDim2.new(0.5, 0, 0.5, 0)  
-DropdownSelectReal.Size = UDim2.new(1, -10, 1, -10)  
-DropdownSelectReal.Name = "DropdownSelectReal"  
-DropdownSelectReal.Parent = DropdownSelect  
+	DropdownSelectReal.AnchorPoint = Vector2.new(0.5, 0.5)
+	DropdownSelectReal.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	DropdownSelectReal.BackgroundTransparency = 0.9990000128746033
+	DropdownSelectReal.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	DropdownSelectReal.BorderSizePixel = 0
+	DropdownSelectReal.LayoutOrder = 1
+	DropdownSelectReal.Position = UDim2.new(0.5, 0, 0.5, 0)
+	DropdownSelectReal.Size = UDim2.new(1, -10, 1, -10)
+	DropdownSelectReal.Name = "DropdownSelectReal"
+	DropdownSelectReal.Parent = DropdownSelect
 
-DropdownFolder.Name = "DropdownFolder"  
-DropdownFolder.Parent = DropdownSelectReal  
+	DropdownFolder.Name = "DropdownFolder"
+	DropdownFolder.Parent = DropdownSelectReal
 
-DropPageLayout.EasingDirection = Enum.EasingDirection.InOut  
-DropPageLayout.EasingStyle = Enum.EasingStyle.Quad  
-DropPageLayout.TweenTime = 0.009999999776482582  
-DropPageLayout.SortOrder = Enum.SortOrder.LayoutOrder  
-DropPageLayout.Archivable = false  
-DropPageLayout.Name = "DropPageLayout"  
-DropPageLayout.Parent = DropdownFolder
-
-
+	DropPageLayout.EasingDirection = Enum.EasingDirection.InOut
+	DropPageLayout.EasingStyle = Enum.EasingStyle.Quad
+	DropPageLayout.TweenTime = 0.009999999776482582
+	DropPageLayout.SortOrder = Enum.SortOrder.LayoutOrder
+	DropPageLayout.Archivable = false
+	DropPageLayout.Name = "DropPageLayout"
+	DropPageLayout.Parent = DropdownFolder
 	--// Tabs
 	local Tabs = {}
 	local CountTab = 0
@@ -792,7 +910,7 @@ DropPageLayout.Parent = DropdownFolder
 		TabName.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		TabName.BorderSizePixel = 0
 		TabName.Size = UDim2.new(1, 0, 1, 0)
-		TabName.Position = UDim2.new(0, 580, 0, 450)
+		TabName.Position = UDim2.new(0, 30, 0, 0)
 		TabName.Name = "TabName"
 		TabName.Parent = Tab
 
@@ -801,8 +919,8 @@ DropPageLayout.Parent = DropdownFolder
 		FeatureImg.BackgroundTransparency = 0.9990000128746033
 		FeatureImg.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		FeatureImg.BorderSizePixel = 0
-		FeatureImg.Position = UDim2.new(0, 580, 0, 450)
-		FeatureImg.Size = UDim2.new(0, 580, 0, 450)
+		FeatureImg.Position = UDim2.new(0, 9, 0, 7)
+		FeatureImg.Size = UDim2.new(0, 16, 0, 16)
 		FeatureImg.Name = "FeatureImg"
 		FeatureImg.Parent = Tab
 		if CountTab == 0 then
@@ -812,8 +930,8 @@ DropPageLayout.Parent = DropdownFolder
 			ChooseFrame.BackgroundColor3 = GuiConfig.Color
 			ChooseFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			ChooseFrame.BorderSizePixel = 0
-			ChooseFrame.Position = UDim2.new(0, 580, 0, 450)
-			ChooseFrame.Size = UDim2.new(0, 580, 0, 450)
+			ChooseFrame.Position = UDim2.new(0, 2, 0, 9)
+			ChooseFrame.Size = UDim2.new(0, 1, 0, 12)
 			ChooseFrame.Name = "ChooseFrame"
 			ChooseFrame.Parent = Tab
 
@@ -860,13 +978,13 @@ DropPageLayout.Parent = DropdownFolder
 				TweenService:Create(
 					FrameChoose,
 					TweenInfo.new(0.35, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
-					{Size = UDim2.new(0, 580, 0, 450)}
+					{Size = UDim2.new(0, 1, 0, 20)}
 				):Play()
 				task.wait(0.2)
 				TweenService:Create(
 					FrameChoose,
 					TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
-					{Size = UDim2.new(0, 580, 0, 450)}
+					{Size = UDim2.new(0, 1, 0, 12)}
 				):Play()
 			end
 		end)
@@ -931,7 +1049,7 @@ DropPageLayout.Parent = DropdownFolder
 			FeatureFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			FeatureFrame.BorderSizePixel = 0
 			FeatureFrame.Position = UDim2.new(1, -5, 0.5, 0)
-			FeatureFrame.Size = UDim2.new(0, 580, 0, 450)
+			FeatureFrame.Size = UDim2.new(0, 20, 0, 20)
 			FeatureFrame.Name = "FeatureFrame"
 			FeatureFrame.Parent = SectionReal
 
@@ -968,7 +1086,7 @@ DropPageLayout.Parent = DropdownFolder
 			SectionDecideFrame.AnchorPoint = Vector2.new(0.5, 0)
 			SectionDecideFrame.BorderSizePixel = 0
 			SectionDecideFrame.Position = UDim2.new(0.5, 0, 0, 33)
-			SectionDecideFrame.Size = UDim2.new(0, 580, 0, 450)
+			SectionDecideFrame.Size = UDim2.new(0, 0, 0, 2)
 			SectionDecideFrame.Name = "SectionDecideFrame"
 			SectionDecideFrame.Parent = Section
 
@@ -1034,7 +1152,7 @@ DropPageLayout.Parent = DropdownFolder
 				if OpenSection then
 					TweenService:Create(FeatureFrame, TweenInfo.new(0.5), {Rotation = 0}):Play()
 					TweenService:Create(Section, TweenInfo.new(0.5), {Size = UDim2.new(1, 1, 0, 30)}):Play()
-					TweenService:Create(SectionDecideFrame, TweenInfo.new(0.5), {Size = UDim2.new(0, 580, 0, 450)}):Play()
+					TweenService:Create(SectionDecideFrame, TweenInfo.new(0.5), {Size = UDim2.new(0, 0, 0, 2)}):Play()
 					OpenSection = false
 					task.wait(0.5)
 					UpdateSizeScroll()
@@ -1082,7 +1200,7 @@ DropPageLayout.Parent = DropdownFolder
 				ParagraphTitle.BackgroundTransparency = 0.9990000128746033
 				ParagraphTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				ParagraphTitle.BorderSizePixel = 0
-				ParagraphTitle.Position = UDim2.new(0, 580, 0, 450)
+				ParagraphTitle.Position = UDim2.new(0, 10, 0, 10)
 				ParagraphTitle.Size = UDim2.new(1, -16, 0, 13)
 				ParagraphTitle.Name = "ParagraphTitle"
 				ParagraphTitle.Parent = Paragraph
@@ -1098,7 +1216,7 @@ DropPageLayout.Parent = DropdownFolder
 				ParagraphContent.BackgroundTransparency = 0.9990000128746033
 				ParagraphContent.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				ParagraphContent.BorderSizePixel = 0
-				ParagraphContent.Position = UDim2.new(0, 580, 0, 450)
+				ParagraphContent.Position = UDim2.new(0, 10, 0, 23)
 				ParagraphContent.Name = "ParagraphContent"
 				ParagraphContent.Parent = Paragraph
 
@@ -1156,7 +1274,7 @@ DropPageLayout.Parent = DropdownFolder
 				TextTitle.BackgroundTransparency = 0.9990000128746033
 				TextTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				TextTitle.BorderSizePixel = 0
-				TextTitle.Position = UDim2.new(0, 580, 0, 450)
+				TextTitle.Position = UDim2.new(0, 10, 0, 5)
 				TextTitle.Size = UDim2.new(1, -16, 0, 13)
 				TextTitle.Name = "TextTitle"
 				TextTitle.Parent = Text
@@ -1199,7 +1317,7 @@ DropPageLayout.Parent = DropdownFolder
 				ButtonTitle.BackgroundTransparency = 0.9990000128746033
 				ButtonTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				ButtonTitle.BorderSizePixel = 0
-				ButtonTitle.Position = UDim2.new(0, 580, 0, 450)
+				ButtonTitle.Position = UDim2.new(0, 10, 0, 10)
 				ButtonTitle.Size = UDim2.new(1, -100, 0, 13)
 				ButtonTitle.Name = "ButtonTitle"
 				ButtonTitle.Parent = Button
@@ -1215,7 +1333,7 @@ DropPageLayout.Parent = DropdownFolder
 				ButtonContent.BackgroundTransparency = 0.9990000128746033
 				ButtonContent.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				ButtonContent.BorderSizePixel = 0
-				ButtonContent.Position = UDim2.new(0, 580, 0, 450)
+				ButtonContent.Position = UDim2.new(0, 10, 0, 23)
 				ButtonContent.Name = "ButtonContent"
 				ButtonContent.Parent = Button
 				ButtonContent.Size = UDim2.new(1, -100, 0, 12)
@@ -1250,7 +1368,7 @@ DropPageLayout.Parent = DropdownFolder
 				FeatureFrame1.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				FeatureFrame1.BorderSizePixel = 0
 				FeatureFrame1.Position = UDim2.new(1, -15, 0.5, 0)
-				FeatureFrame1.Size = UDim2.new(0, 580, 0, 450)
+				FeatureFrame1.Size = UDim2.new(0, 25, 0, 25)
 				FeatureFrame1.Name = "FeatureFrame"
 				FeatureFrame1.Parent = Button
 
@@ -1317,7 +1435,7 @@ DropPageLayout.Parent = DropdownFolder
 				ToggleTitle.BackgroundTransparency = 0.9990000128746033
 				ToggleTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				ToggleTitle.BorderSizePixel = 0
-				ToggleTitle.Position = UDim2.new(0, 580, 0, 450)
+				ToggleTitle.Position = UDim2.new(0, 10, 0, 10)
 				ToggleTitle.Size = UDim2.new(1, -100, 0, 13)
 				ToggleTitle.Name = "ToggleTitle"
 				ToggleTitle.Parent = Toggle
@@ -1331,7 +1449,7 @@ DropPageLayout.Parent = DropdownFolder
     			ToggleTitle2.TextYAlignment = Enum.TextYAlignment.Top
     			ToggleTitle2.BackgroundTransparency = 1
     			ToggleTitle2.BorderSizePixel = 0
-    			ToggleTitle2.Position = UDim2.new(0, 580, 0, 450) 
+    			ToggleTitle2.Position = UDim2.new(0, 10, 0, 23) 
     			ToggleTitle2.Size = UDim2.new(1, -100, 0, 12)
     			ToggleTitle2.Name = "ToggleTitle2"
     			ToggleTitle2.Parent = Toggle
@@ -1353,11 +1471,11 @@ DropPageLayout.Parent = DropdownFolder
 				
 				if ToggleConfig.Title2 ~= "" then
 				    Toggle.Size = UDim2.new(1, 0, 0, 57)
-                    ToggleContent.Position = UDim2.new(0, 580, 0, 450)
+                    ToggleContent.Position = UDim2.new(0, 10, 0, 36)
                     ToggleTitle2.Visible = true
                 else
                     Toggle.Size = UDim2.new(1, 0, 0, 46)
-                    ToggleContent.Position = UDim2.new(0, 580, 0, 450)
+                    ToggleContent.Position = UDim2.new(0, 10, 0, 23)
                     ToggleTitle2.Visible = false
                 end
 				
@@ -1399,7 +1517,7 @@ DropPageLayout.Parent = DropdownFolder
 				FeatureFrame2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				FeatureFrame2.BorderSizePixel = 0
 				FeatureFrame2.Position = UDim2.new(1, -30, 0.5, 0)
-				FeatureFrame2.Size = UDim2.new(0, 580, 0, 450)
+				FeatureFrame2.Size = UDim2.new(0, 30, 0, 15)
 				FeatureFrame2.Name = "FeatureFrame"
 				FeatureFrame2.Parent = Toggle
 
@@ -1413,8 +1531,8 @@ DropPageLayout.Parent = DropdownFolder
 				ToggleCircle.BackgroundColor3 = Color3.fromRGB(230.00000149011612, 230.00000149011612, 230.00000149011612)
 				ToggleCircle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				ToggleCircle.BorderSizePixel = 0
-				ToggleCircle.Position = UDim2.new(0, 580, 0, 450)
-				ToggleCircle.Size = UDim2.new(0, 580, 0, 450)
+				ToggleCircle.Position = UDim2.new(0, 0, 0, 0)
+				ToggleCircle.Size = UDim2.new(0, 14, 0, 14)
 				ToggleCircle.Name = "ToggleCircle"
 				ToggleCircle.Parent = FeatureFrame2
 
@@ -1437,7 +1555,7 @@ DropPageLayout.Parent = DropdownFolder
 						TweenService:Create(
 							ToggleCircle,
 							TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
-							{Position = UDim2.new(0, 580, 0, 450)}
+							{Position = UDim2.new(0, 15, 0, 0)}
 						):Play()
 						TweenService:Create(
 							UIStroke8,
@@ -1458,7 +1576,7 @@ DropPageLayout.Parent = DropdownFolder
 						TweenService:Create(
 							ToggleCircle,
 							TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
-							{Position = UDim2.new(0, 580, 0, 450)}
+							{Position = UDim2.new(0, 0, 0, 0)}
 						):Play()
 						TweenService:Create(
 							UIStroke8,
@@ -1526,7 +1644,7 @@ DropPageLayout.Parent = DropdownFolder
 				SliderTitle.BackgroundTransparency = 0.9990000128746033
 				SliderTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				SliderTitle.BorderSizePixel = 0
-				SliderTitle.Position = UDim2.new(0, 580, 0, 450)
+				SliderTitle.Position = UDim2.new(0, 10, 0, 10)
 				SliderTitle.Size = UDim2.new(1, -180, 0, 13)
 				SliderTitle.Name = "SliderTitle"
 				SliderTitle.Parent = Slider
@@ -1542,7 +1660,7 @@ DropPageLayout.Parent = DropdownFolder
 				SliderContent.BackgroundTransparency = 0.9990000128746033
 				SliderContent.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				SliderContent.BorderSizePixel = 0
-				SliderContent.Position = UDim2.new(0, 580, 0, 450)
+				SliderContent.Position = UDim2.new(0, 10, 0, 23)
 				SliderContent.Size = UDim2.new(1, -180, 0, 12)
 				SliderContent.Name = "SliderContent"
 				SliderContent.Parent = Slider
@@ -1564,7 +1682,7 @@ DropPageLayout.Parent = DropdownFolder
 				SliderInput.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				SliderInput.BorderSizePixel = 0
 				SliderInput.Position = UDim2.new(1, -155, 0.5, 0)
-				SliderInput.Size = UDim2.new(0, 580, 0, 450)
+				SliderInput.Size = UDim2.new(0, 28, 0, 20)
 				SliderInput.Name = "SliderInput"
 				SliderInput.Parent = Slider
 
@@ -1590,7 +1708,7 @@ DropPageLayout.Parent = DropdownFolder
 				SliderFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				SliderFrame.BorderSizePixel = 0
 				SliderFrame.Position = UDim2.new(1, -20, 0.5, 0)
-				SliderFrame.Size = UDim2.new(0, 580, 0, 450)
+				SliderFrame.Size = UDim2.new(0, 100, 0, 3)
 				SliderFrame.Name = "SliderFrame"
 				SliderFrame.Parent = Slider
 
@@ -1612,7 +1730,7 @@ DropPageLayout.Parent = DropdownFolder
 				SliderCircle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				SliderCircle.BorderSizePixel = 0
 				SliderCircle.Position = UDim2.new(1, 4, 0.5, 0)
-				SliderCircle.Size = UDim2.new(0, 580, 0, 450)
+				SliderCircle.Size = UDim2.new(0, 8, 0, 8)
 				SliderCircle.Name = "SliderCircle"
 				SliderCircle.Parent = SliderDraggable
 
@@ -1709,7 +1827,7 @@ DropPageLayout.Parent = DropdownFolder
 				InputTitle.BackgroundTransparency = 0.9990000128746033
 				InputTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				InputTitle.BorderSizePixel = 0
-				InputTitle.Position = UDim2.new(0, 580, 0, 450)
+				InputTitle.Position = UDim2.new(0, 10, 0, 10)
 				InputTitle.Size = UDim2.new(1, -180, 0, 13)
 				InputTitle.Name = "InputTitle"
 				InputTitle.Parent = Input
@@ -1726,7 +1844,7 @@ DropPageLayout.Parent = DropdownFolder
 				InputContent.BackgroundTransparency = 0.9990000128746033
 				InputContent.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				InputContent.BorderSizePixel = 0
-				InputContent.Position = UDim2.new(0, 580, 0, 450)
+				InputContent.Position = UDim2.new(0, 10, 0, 23)
 				InputContent.Size = UDim2.new(1, -180, 0, 12)
 				InputContent.Name = "InputContent"
 				InputContent.Parent = Input
@@ -1750,7 +1868,7 @@ DropPageLayout.Parent = DropdownFolder
 				InputFrame.BorderSizePixel = 0
 				InputFrame.ClipsDescendants = true
 				InputFrame.Position = UDim2.new(1, -7, 0.5, 0)
-				InputFrame.Size = UDim2.new(0, 580, 0, 450)
+				InputFrame.Size = UDim2.new(0, 148, 0, 30)
 				InputFrame.Name = "InputFrame"
 				InputFrame.Parent = Input
 
@@ -1843,7 +1961,7 @@ DropPageLayout.Parent = DropdownFolder
 				DropdownTitle.BackgroundTransparency = 0.9990000128746033
 				DropdownTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				DropdownTitle.BorderSizePixel = 0
-				DropdownTitle.Position = UDim2.new(0, 580, 0, 450)
+				DropdownTitle.Position = UDim2.new(0, 10, 0, 10)
 				DropdownTitle.Size = UDim2.new(1, -180, 0, 13)
 				DropdownTitle.Name = "DropdownTitle"
 				DropdownTitle.Parent = Dropdown
@@ -1860,7 +1978,7 @@ DropPageLayout.Parent = DropdownFolder
 				DropdownContent.BackgroundTransparency = 0.9990000128746033
 				DropdownContent.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				DropdownContent.BorderSizePixel = 0
-				DropdownContent.Position = UDim2.new(0, 580, 0, 450)
+				DropdownContent.Position = UDim2.new(0, 10, 0, 23)
 				DropdownContent.Size = UDim2.new(1, -180, 0, 12)
 				DropdownContent.Name = "DropdownContent"
 				DropdownContent.Parent = Dropdown
@@ -1883,7 +2001,7 @@ DropPageLayout.Parent = DropdownFolder
 				SelectOptionsFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				SelectOptionsFrame.BorderSizePixel = 0
 				SelectOptionsFrame.Position = UDim2.new(1, -7, 0.5, 0)
-				SelectOptionsFrame.Size = UDim2.new(0, 580, 0, 450)
+				SelectOptionsFrame.Size = UDim2.new(0, 148, 0, 30)
 				SelectOptionsFrame.Name = "SelectOptionsFrame"
 				SelectOptionsFrame.LayoutOrder = CountDropdown
 				SelectOptionsFrame.Parent = Dropdown
@@ -1925,14 +2043,14 @@ DropPageLayout.Parent = DropdownFolder
 				OptionImg.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				OptionImg.BorderSizePixel = 0
 				OptionImg.Position = UDim2.new(1, 0, 0.5, 0)
-				OptionImg.Size = UDim2.new(0, 580, 0, 450)
+				OptionImg.Size = UDim2.new(0, 25, 0, 25)
 				OptionImg.Name = "OptionImg"
 				OptionImg.Parent = SelectOptionsFrame
 
 				local ScrollSelect = Instance.new("ScrollingFrame");
 				local UIListLayout4 = Instance.new("UIListLayout");
 
-				ScrollSelect.CanvasSize = UDim2.new(0, 580, 0, 450)
+				ScrollSelect.CanvasSize = UDim2.new(0, 0, 0, 0)
 				ScrollSelect.ScrollBarImageColor3 = Color3.fromRGB(0, 0, 0)
 				ScrollSelect.ScrollBarThickness = 0
 				ScrollSelect.Active = true
@@ -1963,7 +2081,7 @@ DropPageLayout.Parent = DropdownFolder
 				SearchBox.BackgroundTransparency = 0.2
 				SearchBox.BorderSizePixel = 0
 				SearchBox.Size = UDim2.new(1, -6, 0, 28)
-				SearchBox.Position = UDim2.new(0, 580, 0, 450)
+				SearchBox.Position = UDim2.new(0, 3, 0, 3)
 				SearchBox.ClearTextOnFocus = false
 				SearchBox.Name = "SearchBox"
 				SearchBox.Parent = ScrollSelect
@@ -1999,11 +2117,11 @@ DropPageLayout.Parent = DropdownFolder
                 				or DropdownFunc.Value == Drop.OptionText.Text
 
             				if isSelected then
-                				TweenService:Create(Drop.ChooseFrame, TweenInfo.new(0.2), {Size = UDim2.new(0, 580, 0, 450)}):Play()
+                				TweenService:Create(Drop.ChooseFrame, TweenInfo.new(0.2), {Size = UDim2.new(0, 1, 0, 12)}):Play()
                 				TweenService:Create(Drop.ChooseFrame.UIStroke, TweenInfo.new(0.2), {Transparency = 0}):Play()
                 				TweenService:Create(Drop, TweenInfo.new(0.2), {BackgroundTransparency = 0.935}):Play()
             				else
-                				TweenService:Create(Drop.ChooseFrame, TweenInfo.new(0.1), {Size = UDim2.new(0, 580, 0, 450)}):Play()
+                				TweenService:Create(Drop.ChooseFrame, TweenInfo.new(0.1), {Size = UDim2.new(0, 0, 0, 0)}):Play()
                 				TweenService:Create(Drop.ChooseFrame.UIStroke, TweenInfo.new(0.1), {Transparency = 0.999}):Play()
                 				TweenService:Create(Drop, TweenInfo.new(0.1), {BackgroundTransparency = 0.999}):Play()
             				end
@@ -2067,7 +2185,7 @@ DropPageLayout.Parent = DropdownFolder
 					OptionText.BackgroundTransparency = 0.9990000128746033
 					OptionText.BorderColor3 = Color3.fromRGB(0, 0, 0)
 					OptionText.BorderSizePixel = 0
-					OptionText.Position = UDim2.new(0, 580, 0, 450)
+					OptionText.Position = UDim2.new(0, 8, 0, 8)
 					OptionText.Size = UDim2.new(1, -100, 0, 13)
 					OptionText.Name = "OptionText"
 					OptionText.Parent = Option
@@ -2077,7 +2195,7 @@ DropPageLayout.Parent = DropdownFolder
 					ChooseFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 					ChooseFrame.BorderSizePixel = 0
 					ChooseFrame.Position = UDim2.new(0, 2, 0.5, 0)
-					ChooseFrame.Size = UDim2.new(0, 580, 0, 450)
+					ChooseFrame.Size = UDim2.new(0, 0, 0, 0)
 					ChooseFrame.Name = "ChooseFrame"
 					ChooseFrame.Parent = Option
 				
