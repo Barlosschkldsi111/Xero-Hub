@@ -362,259 +362,267 @@ function FlurioreLib:MakeNotify(NotifyConfig)
 end
 
 function FlurioreLib:MakeGui(GuiConfig)
-local GuiConfig = GuiConfig or {}
-GuiConfig.NameHub = GuiConfig.NameHub or "Hirimi Hub"
-GuiConfig.Description = GuiConfig.Description or "Comeback | developing by Hirimi, Teru"
-GuiConfig.Color = GuiConfig.Color or Color3.fromRGB(255, 0, 255)	
-GuiConfig["Tab Width"] = GuiConfig["Tab Width"] or 120
-local GuiFunc = {}
+    local GuiConfig = GuiConfig or {}
+    GuiConfig.NameHub = GuiConfig.NameHub or "Hirimi Hub"
+    GuiConfig.Description = GuiConfig.Description or "Comeback | developing by Hirimi, Teru"
+    GuiConfig.Color = GuiConfig.Color or Color3.fromRGB(255, 0, 255)
+    GuiConfig["Tab Width"] = GuiConfig["Tab Width"] or 120
+    local GuiFunc = {}
 
--- ✅ สร้าง GUI หลัก
-local HirimiGui = Instance.new("ScreenGui")
-local DropShadowHolder = Instance.new("Frame")
-local DropShadow = Instance.new("ImageLabel")
-local Main = Instance.new("Frame")
-local UICorner = Instance.new("UICorner")
-local UIStroke = Instance.new("UIStroke")
-local Top = Instance.new("Frame")
-local TextLabel = Instance.new("TextLabel")
-local UICorner1 = Instance.new("UICorner")
-local TextLabel1 = Instance.new("TextLabel")
-local UIStroke1 = Instance.new("UIStroke")
-local MaxRestore = Instance.new("TextButton")
-local ImageLabel = Instance.new("ImageLabel")
-local Close = Instance.new("TextButton")
-local ImageLabel1 = Instance.new("ImageLabel")
-local Min = Instance.new("TextButton")
-local ImageLabel2 = Instance.new("ImageLabel")
-local LayersTab = Instance.new("Frame")
-local UICorner2 = Instance.new("UICorner")
-local DecideFrame = Instance.new("Frame")
-local UIStroke3 = Instance.new("UIStroke")
-local Layers = Instance.new("Frame")
-local UICorner6 = Instance.new("UICorner")
-local NameTab = Instance.new("TextLabel")
-local LayersReal = Instance.new("Frame")
-local LayersFolder = Instance.new("Folder")
-local LayersPageLayout = Instance.new("UIPageLayout")
+    -- ✅ สร้าง GUI หลัก
+    local HirimiGui = Instance.new("ScreenGui")
+    local DropShadowHolder = Instance.new("Frame")
+    local DropShadow = Instance.new("ImageLabel")
+    local Main = Instance.new("Frame")
+    local UICorner = Instance.new("UICorner")
+    local UIStroke = Instance.new("UIStroke")
+    local Top = Instance.new("Frame")
+    local TextLabel = Instance.new("TextLabel")
+    local UICorner1 = Instance.new("UICorner")
+    local TextLabel1 = Instance.new("TextLabel")
+    local UIStroke1 = Instance.new("UIStroke")
+    local MaxRestore = Instance.new("TextButton")
+    local ImageLabel = Instance.new("ImageLabel")
+    local Close = Instance.new("TextButton")
+    local ImageLabel1 = Instance.new("ImageLabel")
+    local Min = Instance.new("TextButton")
+    local ImageLabel2 = Instance.new("ImageLabel")
+    local LayersTab = Instance.new("Frame")
+    local UICorner2 = Instance.new("UICorner")
+    local DecideFrame = Instance.new("Frame")
+    local UIStroke3 = Instance.new("UIStroke")
+    local Layers = Instance.new("Frame")
+    local UICorner6 = Instance.new("UICorner")
+    local NameTab = Instance.new("TextLabel")
+    local LayersReal = Instance.new("Frame")
+    local LayersFolder = Instance.new("Folder")
+    local LayersPageLayout = Instance.new("UIPageLayout")
 
-HirimiGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-HirimiGui.Name = "HirimiGui"
-HirimiGui.ResetOnSpawn = false
-HirimiGui.Parent = game:GetService("CoreGui")
+    HirimiGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    HirimiGui.Name = "HirimiGui"
+    HirimiGui.ResetOnSpawn = false
+    HirimiGui.Parent = game:GetService("CoreGui")
 
--- ✅ กรอบพื้นหลังหลัก
-DropShadowHolder.BackgroundTransparency = 1
-DropShadowHolder.BorderSizePixel = 0
-DropShadowHolder.Size = UDim2.new(0, 540, 0, 350)
-DropShadowHolder.ZIndex = 0
-DropShadowHolder.Name = "DropShadowHolder"
-DropShadowHolder.Parent = HirimiGui
+    -- ✅ กรอบพื้นหลังหลัก (ปรับขนาดให้ Responsive)
+    DropShadowHolder.BackgroundTransparency = 1
+    DropShadowHolder.BorderSizePixel = 0
+    DropShadowHolder.AnchorPoint = Vector2.new(0.5, 0.5)
+    DropShadowHolder.Position = UDim2.new(0.5, 0, 0.5, 0)
+    -- ใช้สัดส่วนแทนขนาดคงที่ (เดิม 540x350)
+    DropShadowHolder.Size = UDim2.new(0.55, 0, 0.55, 0)
+    DropShadowHolder.ZIndex = 0
+    DropShadowHolder.Name = "DropShadowHolder"
+    DropShadowHolder.Parent = HirimiGui
 
-DropShadow.Image = "rbxassetid://6015897843"
-DropShadow.ImageColor3 = Color3.fromRGB(15, 15, 15)
-DropShadow.ImageTransparency = 0.5
-DropShadow.ScaleType = Enum.ScaleType.Slice
-DropShadow.SliceCenter = Rect.new(49, 49, 450, 450)
-DropShadow.AnchorPoint = Vector2.new(0.5, 0.5)
-DropShadow.BackgroundTransparency = 1
-DropShadow.BorderSizePixel = 0
-DropShadow.Position = UDim2.new(0.5, 0, 0.5, 0)
-DropShadow.Size = UDim2.new(1, 47, 1, 47)
-DropShadow.ZIndex = 0
-DropShadow.Name = "DropShadow"
-DropShadow.Parent = DropShadowHolder
+    DropShadow.Image = "rbxassetid://6015897843"
+    DropShadow.ImageColor3 = Color3.fromRGB(15, 15, 15)
+    DropShadow.ImageTransparency = 0.5
+    DropShadow.ScaleType = Enum.ScaleType.Slice
+    DropShadow.SliceCenter = Rect.new(49, 49, 450, 450)
+    DropShadow.AnchorPoint = Vector2.new(0.5, 0.5)
+    DropShadow.BackgroundTransparency = 1
+    DropShadow.BorderSizePixel = 0
+    DropShadow.Position = UDim2.new(0.5, 0, 0.5, 0)
+    DropShadow.Size = UDim2.new(1, 0, 1, 0)
+    DropShadow.ZIndex = 0
+    DropShadow.Name = "DropShadow"
+    DropShadow.Parent = DropShadowHolder
 
--- ✅ Main GUI
-Main.AnchorPoint = Vector2.new(0.5, 0.5)
-Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Main.BorderSizePixel = 0
-Main.Position = UDim2.new(0.5, 0, 0.5, 0)
-Main.Size = UDim2.new(1, -47, 1, -47)
-Main.Name = "Main"
-Main.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-Main.BackgroundTransparency = 0.1
-Main.Parent = DropShadow
+    -- ✅ Main GUI
+    Main.AnchorPoint = Vector2.new(0.5, 0.5)
+    Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Main.BorderSizePixel = 0
+    Main.Position = UDim2.new(0.5, 0, 0.5, 0)
+    Main.Size = UDim2.new(1, -20, 1, -20)
+    Main.Name = "Main"
+    Main.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+    Main.BackgroundTransparency = 0.1
+    Main.Parent = DropShadow
 
-UICorner.Parent = Main
+    UICorner.Parent = Main
 
-UIStroke.Color = Color3.fromRGB(50, 50, 50)
-UIStroke.Thickness = 1.6
-UIStroke.Parent = Main
+    UIStroke.Color = Color3.fromRGB(50, 50, 50)
+    UIStroke.Thickness = 1.6
+    UIStroke.Parent = Main
 
--- ✅ แถบด้านบน (Title Bar)
-Top.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Top.BackgroundTransparency = 0.999
-Top.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Top.BorderSizePixel = 0
-Top.Size = UDim2.new(1, 0, 0, 35)
-Top.Name = "Top"
-Top.Parent = Main
+    -- ✅ แถบด้านบน (Title Bar)
+    Top.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    Top.BackgroundTransparency = 0.999
+    Top.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Top.BorderSizePixel = 0
+    Top.Size = UDim2.new(1, 0, 0, 35)
+    Top.Name = "Top"
+    Top.Parent = Main
 
-TextLabel.Font = Enum.Font.GothamBold
-TextLabel.Text = GuiConfig.NameHub
-TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.TextSize = 14
-TextLabel.TextXAlignment = Enum.TextXAlignment.Left
-TextLabel.BackgroundTransparency = 1
-TextLabel.Size = UDim2.new(1, -100, 1, 0)
-TextLabel.Position = UDim2.new(0, 10, 0, 0)
-TextLabel.Parent = Top
+    TextLabel.Font = Enum.Font.GothamBold
+    TextLabel.Text = GuiConfig.NameHub
+    TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    TextLabel.TextSize = 14
+    TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+    TextLabel.BackgroundTransparency = 1
+    TextLabel.Size = UDim2.new(1, -100, 1, 0)
+    TextLabel.Position = UDim2.new(0, 10, 0, 0)
+    TextLabel.Parent = Top
 
-UICorner1.Parent = Top
+    UICorner1.Parent = Top
 
-TextLabel1.Font = Enum.Font.GothamBold
-TextLabel1.Text = GuiConfig.Description
-TextLabel1.TextColor3 = Color3.fromRGB(180, 180, 180)
-TextLabel1.TextSize = 13
-TextLabel1.TextXAlignment = Enum.TextXAlignment.Left
-TextLabel1.BackgroundTransparency = 1
-TextLabel1.Size = UDim2.new(1, -(TextLabel.TextBounds.X + 120), 1, 0)
-TextLabel1.Position = UDim2.new(0, TextLabel.TextBounds.X + 25, 0, 0)
-TextLabel1.Parent = Top
+    TextLabel1.Font = Enum.Font.GothamBold
+    TextLabel1.Text = GuiConfig.Description
+    TextLabel1.TextColor3 = Color3.fromRGB(180, 180, 180)
+    TextLabel1.TextSize = 13
+    TextLabel1.TextXAlignment = Enum.TextXAlignment.Left
+    TextLabel1.BackgroundTransparency = 1
+    TextLabel1.Size = UDim2.new(1, -(TextLabel.TextBounds.X + 120), 1, 0)
+    TextLabel1.Position = UDim2.new(0, TextLabel.TextBounds.X + 25, 0, 0)
+    TextLabel1.Parent = Top
 
-UIStroke1.Color = Color3.fromRGB(100, 100, 100)
-UIStroke1.Thickness = 0.4
-UIStroke1.Parent = TextLabel1
+    UIStroke1.Color = Color3.fromRGB(100, 100, 100)
+    UIStroke1.Thickness = 0.4
+    UIStroke1.Parent = TextLabel1
 
--- ✅ ปุ่มด้านขวาบน (Min / Max / Close)
-local function MakeTopButton(btn, iconId, xOffset)
-	btn.Font = Enum.Font.SourceSans
-	btn.Text = ""
-	btn.TextColor3 = Color3.fromRGB(0, 0, 0)
-	btn.TextSize = 14
-	btn.AnchorPoint = Vector2.new(1, 0.5)
-	btn.BackgroundTransparency = 1
-	btn.Position = UDim2.new(1, xOffset, 0.5, 0)
-	btn.Size = UDim2.new(0, 22, 0, 22)
-	local icon = Instance.new("ImageLabel")
-	icon.Image = "rbxassetid://"..iconId
-	icon.AnchorPoint = Vector2.new(0.5, 0.5)
-	icon.BackgroundTransparency = 1
-	icon.Position = UDim2.new(0.5, 0, 0.5, 0)
-	icon.Size = UDim2.new(1, -8, 1, -8)
-	icon.Parent = btn
-	btn.Parent = Top
-end
+    -- ✅ ปุ่มด้านขวาบน (Min / Max / Close)
+    local function MakeTopButton(btn, iconId, xOffset)
+        btn.Font = Enum.Font.SourceSans
+        btn.Text = ""
+        btn.TextColor3 = Color3.fromRGB(0, 0, 0)
+        btn.TextSize = 14
+        btn.AnchorPoint = Vector2.new(1, 0.5)
+        btn.BackgroundTransparency = 1
+        btn.Position = UDim2.new(1, xOffset, 0.5, 0)
+        btn.Size = UDim2.new(0, 22, 0, 22)
+        local icon = Instance.new("ImageLabel")
+        icon.Image = "rbxassetid://" .. iconId
+        icon.AnchorPoint = Vector2.new(0.5, 0.5)
+        icon.BackgroundTransparency = 1
+        icon.Position = UDim2.new(0.5, 0, 0.5, 0)
+        icon.Size = UDim2.new(1, -8, 1, -8)
+        icon.Parent = btn
+        btn.Parent = Top
+    end
 
-MakeTopButton(Min, 9886659276, -70)
-MakeTopButton(MaxRestore, 9886659406, -42)
-MakeTopButton(Close, 9886659671, -8)
+    MakeTopButton(Min, 9886659276, -70)
+    MakeTopButton(MaxRestore, 9886659406, -42)
+    MakeTopButton(Close, 9886659671, -8)
 
--- ✅ Tabs ด้านซ้าย
-LayersTab.BackgroundTransparency = 1
-LayersTab.Position = UDim2.new(0, 9, 0, 45)
-LayersTab.Size = UDim2.new(0, GuiConfig["Tab Width"], 1, -59)
-LayersTab.Name = "LayersTab"
-LayersTab.Parent = Main
-UICorner2.CornerRadius = UDim.new(0, 2)
-UICorner2.Parent = LayersTab
+    -- ✅ Tabs ด้านซ้าย
+    LayersTab.BackgroundTransparency = 1
+    LayersTab.Position = UDim2.new(0, 9, 0, 45)
+    LayersTab.Size = UDim2.new(0, GuiConfig["Tab Width"], 1, -59)
+    LayersTab.Name = "LayersTab"
+    LayersTab.Parent = Main
+    UICorner2.CornerRadius = UDim.new(0, 2)
+    UICorner2.Parent = LayersTab
 
--- ✅ เส้นแบ่งบนล่าง
-DecideFrame.AnchorPoint = Vector2.new(0.5, 0)
-DecideFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-DecideFrame.BackgroundTransparency = 0.85
-DecideFrame.BorderSizePixel = 0
-DecideFrame.Position = UDim2.new(0.5, 0, 0, 35)
-DecideFrame.Size = UDim2.new(1, 0, 0, 1)
-DecideFrame.Name = "DecideFrame"
-DecideFrame.Parent = Main
+    -- ✅ เส้นแบ่งบนล่าง
+    DecideFrame.AnchorPoint = Vector2.new(0.5, 0)
+    DecideFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    DecideFrame.BackgroundTransparency = 0.85
+    DecideFrame.BorderSizePixel = 0
+    DecideFrame.Position = UDim2.new(0.5, 0, 0, 35)
+    DecideFrame.Size = UDim2.new(1, 0, 0, 1)
+    DecideFrame.Name = "DecideFrame"
+    DecideFrame.Parent = Main
 
--- ✅ พื้นที่เนื้อหาหลัก
-Layers.BackgroundTransparency = 1
-Layers.Position = UDim2.new(0, GuiConfig["Tab Width"] + 18, 0, 45)
-Layers.Size = UDim2.new(1, -(GuiConfig["Tab Width"] + 27), 1, -59)
-Layers.Name = "Layers"
-Layers.Parent = Main
-UICorner6.CornerRadius = UDim.new(0, 2)
-UICorner6.Parent = Layers
+    -- ✅ พื้นที่เนื้อหาหลัก
+    Layers.BackgroundTransparency = 1
+    Layers.Position = UDim2.new(0, GuiConfig["Tab Width"] + 18, 0, 45)
+    Layers.Size = UDim2.new(1, -(GuiConfig["Tab Width"] + 27), 1, -59)
+    Layers.Name = "Layers"
+    Layers.Parent = Main
+    UICorner6.CornerRadius = UDim.new(0, 2)
+    UICorner6.Parent = Layers
 
-NameTab.Font = Enum.Font.GothamBold
-NameTab.Text = ""
-NameTab.TextColor3 = Color3.fromRGB(255, 255, 255)
-NameTab.TextSize = 20
-NameTab.TextXAlignment = Enum.TextXAlignment.Left
-NameTab.BackgroundTransparency = 1
-NameTab.Size = UDim2.new(1, 0, 0, 28)
-NameTab.Name = "NameTab"
-NameTab.Parent = Layers
+    NameTab.Font = Enum.Font.GothamBold
+    NameTab.Text = ""
+    NameTab.TextColor3 = Color3.fromRGB(255, 255, 255)
+    NameTab.TextSize = 20
+    NameTab.TextXAlignment = Enum.TextXAlignment.Left
+    NameTab.BackgroundTransparency = 1
+    NameTab.Size = UDim2.new(1, 0, 0, 28)
+    NameTab.Name = "NameTab"
+    NameTab.Parent = Layers
 
-LayersReal.AnchorPoint = Vector2.new(0, 1)
-LayersReal.BackgroundTransparency = 1
-LayersReal.ClipsDescendants = true
-LayersReal.Position = UDim2.new(0, 0, 1, 0)
-LayersReal.Size = UDim2.new(1, 0, 1, -33)
-LayersReal.Name = "LayersReal"
-LayersReal.Parent = Layers
+    LayersReal.AnchorPoint = Vector2.new(0, 1)
+    LayersReal.BackgroundTransparency = 1
+    LayersReal.ClipsDescendants = true
+    LayersReal.Position = UDim2.new(0, 0, 1, 0)
+    LayersReal.Size = UDim2.new(1, 0, 1, -33)
+    LayersReal.Name = "LayersReal"
+    LayersReal.Parent = Layers
 
-LayersFolder.Name = "LayersFolder"
-LayersFolder.Parent = LayersReal
+    LayersFolder.Name = "LayersFolder"
+    LayersFolder.Parent = LayersReal
 
-LayersPageLayout.SortOrder = Enum.SortOrder.LayoutOrder
-LayersPageLayout.Name = "LayersPageLayout"
-LayersPageLayout.Parent = LayersFolder
-LayersPageLayout.TweenTime = 0.5
-LayersPageLayout.EasingDirection = Enum.EasingDirection.InOut
-LayersPageLayout.EasingStyle = Enum.EasingStyle.Quad
+    LayersPageLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    LayersPageLayout.Name = "LayersPageLayout"
+    LayersPageLayout.Parent = LayersFolder
+    LayersPageLayout.TweenTime = 0.5
+    LayersPageLayout.EasingDirection = Enum.EasingDirection.InOut
+    LayersPageLayout.EasingStyle = Enum.EasingStyle.Quad
 
-local ScrollTab = Instance.new("ScrollingFrame")
-local UIListLayout = Instance.new("UIListLayout")
+    local ScrollTab = Instance.new("ScrollingFrame")
+    local UIListLayout = Instance.new("UIListLayout")
 
-ScrollTab.CanvasSize = UDim2.new(0, 0, 1.05, 0)
-ScrollTab.ScrollBarThickness = 0
-ScrollTab.Active = true
-ScrollTab.BackgroundTransparency = 1
-ScrollTab.Size = UDim2.new(1, 0, 1, 0)
-ScrollTab.Name = "ScrollTab"
-ScrollTab.Parent = LayersTab
+    ScrollTab.CanvasSize = UDim2.new(0, 0, 1.05, 0)
+    ScrollTab.ScrollBarThickness = 0
+    ScrollTab.Active = true
+    ScrollTab.BackgroundTransparency = 1
+    ScrollTab.Size = UDim2.new(1, 0, 1, 0)
+    ScrollTab.Name = "ScrollTab"
+    ScrollTab.Parent = LayersTab
 
-UIListLayout.Padding = UDim.new(0, 3)
-UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-UIListLayout.Parent = ScrollTab
+    UIListLayout.Padding = UDim.new(0, 3)
+    UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    UIListLayout.Parent = ScrollTab
 
+    local function UpdateSize1()
+        local OffsetY = 0
+        for _, child in ScrollTab:GetChildren() do
+            if child.Name ~= "UIListLayout" then
+                OffsetY = OffsetY + 3 + child.Size.Y.Offset
+            end
+        end
+        ScrollTab.CanvasSize = UDim2.new(0, 0, 0, OffsetY)
+    end
+    ScrollTab.ChildAdded:Connect(UpdateSize1)
+    ScrollTab.ChildRemoved:Connect(UpdateSize1)
 
-	local function UpdateSize1()
-		local OffsetY = 0
-		for _, child in ScrollTab:GetChildren() do
-			if child.Name ~= "UIListLayout" then
-				OffsetY = OffsetY + 3 + child.Size.Y.Offset
-			end
-		end
-		ScrollTab.CanvasSize = UDim2.new(0, 0, 0, OffsetY)
-	end
-	ScrollTab.ChildAdded:Connect(UpdateSize1)
-	ScrollTab.ChildRemoved:Connect(UpdateSize1)
-		
-	function GuiFunc:DestroyGui()
-		if CoreGui:FindFirstChild("HirimiGui") then 
-			HirimiGui:Destroy()
-		end
-	end
-	local OldPos = DropShadowHolder.Position
-	local OldSize = DropShadowHolder.Size
-	MaxRestore.Activated:Connect(function()
-		CircleClick(MaxRestore, Mouse.X, Mouse.Y)
-		if ImageLabel.Image == "rbxassetid://9886659406" then
-			ImageLabel.Image = "rbxassetid://9886659001"
-			OldPos = DropShadowHolder.Position
-			OldSize = DropShadowHolder.Size
-			TweenService:Create(DropShadowHolder, TweenInfo.new(0.3), {Position = UDim2.new(0, 0, 0, 0)}):Play()
-			TweenService:Create(DropShadowHolder, TweenInfo.new(0.3), {Size = UDim2.new(1, 0, 1, 0)}):Play()
-		else
-			ImageLabel.Image = "rbxassetid://9886659406"
-			TweenService:Create(DropShadowHolder, TweenInfo.new(0.3), {Position = OldPos}):Play()
-			TweenService:Create(DropShadowHolder, TweenInfo.new(0.3), {Size = OldSize}):Play()
-		end
-	end)
-	Min.Activated:Connect(function()
-		CircleClick(Min, Mouse.X, Mouse.Y)
-		DropShadowHolder.Visible = false
-	end)
-	Close.Activated:Connect(function()
-		CircleClick(Close, Mouse.X, Mouse.Y)
-		DropShadowHolder.Visible = false
-	end)
-	
+    function GuiFunc:DestroyGui()
+        if CoreGui:FindFirstChild("HirimiGui") then
+            HirimiGui:Destroy()
+        end
+    end
+
+    local OldPos = DropShadowHolder.Position
+    local OldSize = DropShadowHolder.Size
+    MaxRestore.Activated:Connect(
+        function()
+            CircleClick(MaxRestore, Mouse.X, Mouse.Y)
+            if ImageLabel.Image == "rbxassetid://9886659406" then
+                ImageLabel.Image = "rbxassetid://9886659001"
+                OldPos = DropShadowHolder.Position
+                OldSize = DropShadowHolder.Size
+                TweenService:Create(DropShadowHolder, TweenInfo.new(0.3), {Position = UDim2.new(0, 0, 0, 0)}):Play()
+                TweenService:Create(DropShadowHolder, TweenInfo.new(0.3), {Size = UDim2.new(1, 0, 1, 0)}):Play()
+            else
+                ImageLabel.Image = "rbxassetid://9886659406"
+                TweenService:Create(DropShadowHolder, TweenInfo.new(0.3), {Position = OldPos}):Play()
+                TweenService:Create(DropShadowHolder, TweenInfo.new(0.3), {Size = OldSize}):Play()
+            end
+        end
+    )
+    Min.Activated:Connect(
+        function()
+            CircleClick(Min, Mouse.X, Mouse.Y)
+            DropShadowHolder.Visible = false
+        end
+    )
+    Close.Activated:Connect(
+        function()
+            CircleClick(Close, Mouse.X, Mouse.Y)
+            DropShadowHolder.Visible = false
+        end
+    )
 
 local ScreenGui1 = Instance.new("ScreenGui")
 
