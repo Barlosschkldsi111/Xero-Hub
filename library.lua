@@ -445,138 +445,164 @@ local Draggable_1 = Instance.new("ImageLabel")
 local Input_1 = Instance.new("TextButton")
 local Size_1 = Instance.new("Frame")
 
-Components.Name = "Components"
-Components.Parent = Backgroud_1
-Components.AnchorPoint = Vector2.new(1,1)
-Components.Position = UDim2.new(1, -20, 1, -20)
-Components.Size = UDim2.new(0, 300, 0, 200)
-Components.BackgroundTransparency = 1
+Components.Name = "Components"  
+Components.Parent = Backgroud_1  
+Components.AnchorPoint = Vector2.new(0.5, 0.5)  
+Components.BackgroundColor3 = Color3.fromRGB(0,0,0)  
+Components.BackgroundTransparency = 1  
+Components.BorderColor3 = Color3.fromRGB(0,0,0)  
+Components.BorderSizePixel = 0  
+Components.Position = UDim2.new(0.5, 0,0.5, 0)  
+Components.Size = UDim2.new(1, 0,1, 0)  
 
-Draggable_1.Name = "Draggable"
-Draggable_1.Parent = Components
-Draggable_1.AnchorPoint = Vector2.new(0.5,0)
-Draggable_1.BackgroundColor3 = Color3.fromRGB(100,100,100)
-Draggable_1.BackgroundTransparency = 0.2
-Draggable_1.BorderColor3 = Color3.fromRGB(0,0,0)
-Draggable_1.BorderSizePixel = 0
-Draggable_1.Position = UDim2.new(0.5, 0,1, -10)
-Draggable_1.Size = UDim2.new(1,0,0,6)
-Draggable_1.Image = "rbxassetid://80999662900595"
-Draggable_1.ImageTransparency = 0.5
-Draggable_1.ScaleType = Enum.ScaleType.Slice
-Draggable_1.SliceCenter = Rect.new(256,256,256,256)
-Draggable_1.SliceScale = 0.38671875
+Draggable_1.Name = "Draggable"  
+Draggable_1.Parent = Components  
+Draggable_1.AnchorPoint = Vector2.new(0.5, 0)  
+Draggable_1.BackgroundColor3 = Color3.fromRGB(30,30,30)  
+Draggable_1.BackgroundTransparency = 0.4  
+Draggable_1.BorderSizePixel = 0  
+Draggable_1.Position = UDim2.new(0.5, 0,1, 4)  
+Draggable_1.Size = UDim2.new(0, 200,0, 6)  
+Draggable_1.Image = "rbxassetid://80999662900595"  
+Draggable_1.ImageColor3 = Color3.fromRGB(0,0,0)  
+Draggable_1.ImageTransparency = 0.85  
+Draggable_1.ScaleType = Enum.ScaleType.Slice  
+Draggable_1.SliceCenter = Rect.new(256, 256, 256, 256)  
+Draggable_1.SliceScale = 0.38671875  
 
-Input_1.Name = "Input"
-Input_1.Parent = Draggable_1
-Input_1.Active = true
-Input_1.AnchorPoint = Vector2.new(0.5,0.5)
-Input_1.BackgroundTransparency = 1
-Input_1.Position = UDim2.new(0.5,0,0.5,0)
-Input_1.Size = UDim2.new(1,12,1,12)
-Input_1.Font = Enum.Font.SourceSans
-Input_1.Text = ""
-Input_1.TextSize = 14
+Input_1.Name = "Input"  
+Input_1.Parent = Draggable_1  
+Input_1.Active = true  
+Input_1.AnchorPoint = Vector2.new(0.5, 0.5)  
+Input_1.BackgroundColor3 = Color3.fromRGB(255,255,255)  
+Input_1.BackgroundTransparency = 1  
+Input_1.BorderSizePixel = 0  
+Input_1.Position = UDim2.new(0.5, 0,0.5, 0)  
+Input_1.Size = UDim2.new(1, 12,1, 12)  
+Input_1.Font = Enum.Font.GothamBold  
+Input_1.Text = ""  
+Input_1.TextSize = 14  
+Input_1.TextColor3 = Color3.fromRGB(255,255,255)
 
-Size_1.Name = "Size"
-Size_1.Parent = Components
-Size_1.AnchorPoint = Vector2.new(1,1)
-Size_1.Position = UDim2.new(1,0,1,0)
-Size_1.Size = UDim2.new(0, 30, 0, 30)
-Size_1.BackgroundColor3 = Color3.fromRGB(120,120,120)
-Size_1.BackgroundTransparency = 0.3
-Size_1.ZIndex = 99
+Size_1.Name = "Size"  
+Size_1.Parent = Components  
+Size_1.AnchorPoint = Vector2.new(0.5, 0.5)  
+Size_1.BackgroundColor3 = Color3.fromRGB(255,255,255)  
+Size_1.BackgroundTransparency = 0.9  
+Size_1.BorderSizePixel = 0  
+Size_1.Position = UDim2.new(1, 0,1, 0)  
+Size_1.Size = UDim2.new(0, 40,0, 40)  
+Size_1.ZIndex = -99  
 
-local SizeCorner = Instance.new("UICorner")
-SizeCorner.Parent = Size_1
-SizeCorner.CornerRadius = UDim.new(1,0)
+local SizeCorner = Instance.new("UICorner")  
+SizeCorner.Parent = Size_1  
+SizeCorner.CornerRadius = UDim.new(1, 0)  
 
-local LFrame = Instance.new("Frame")
-LFrame.Parent = Components
-LFrame.Size = UDim2.new(0, 30,0,30)
-LFrame.Position = UDim2.new(0,0,1,-30)
-LFrame.BackgroundTransparency = 1
+-- เพิ่มขอบเรืองแสงเล็กน้อย
+local stroke = Instance.new("UIStroke")
+stroke.Parent = Size_1
+stroke.Thickness = 1.2
+stroke.Transparency = 0.4
+stroke.Color = Color3.fromRGB(200,200,200)
 
-local TopBar = Instance.new("Frame")
-TopBar.Parent = LFrame
-TopBar.Size = UDim2.new(1,0,0,4)
-TopBar.Position = UDim2.new(0,0,0,0)
-TopBar.BackgroundColor3 = Color3.fromRGB(120,120,120)
+-- Hover effect สวยขึ้น
+Size_1.MouseEnter:Connect(function()  
+	Library:Tween({  
+		v = Size_1,  
+		t = 0.4,  
+		s = "Sine",  
+		d = "Out",  
+		g = {BackgroundTransparency = 0.6}  
+	}):Play()  
+end)  
 
-local LeftBar = Instance.new("Frame")
-LeftBar.Parent = LFrame
-LeftBar.Size = UDim2.new(0,4,1,0)
-LeftBar.Position = UDim2.new(0,0,0,0)
-LeftBar.BackgroundColor3 = Color3.fromRGB(120,120,120)
+Size_1.MouseLeave:Connect(function()  
+	Library:Tween({  
+		v = Size_1,  
+		t = 0.4,  
+		s = "Sine",  
+		d = "Out",  
+		g = {BackgroundTransparency = 0.9}  
+	}):Play()  
+end)  
 
-local Toggle = Instance.new("ImageLabel") do
-    local Input_1 = Instance.new("TextButton")
-    Toggle.Name = "Toggle"
-    Toggle.Parent = Xzer
-    Toggle.AnchorPoint = Vector2.new(1, 0.5)
-    Toggle.BackgroundTransparency = 1
-    Toggle.Position = UDim2.new(0.015, 0,0.5, 0)
-    Toggle.Size = UDim2.new(0, 7,0, 200)
-    Toggle.Image = "rbxassetid://80999662900595"
-    Toggle.ImageTransparency = 0.7
-    Toggle.ScaleType = Enum.ScaleType.Slice
-    Toggle.SliceCenter = Rect.new(256,256,256,256)
-    Toggle.SliceScale = 0.38671875
+-- ปุ่ม Toggle UI (ซ้าย)
+local Toggle = Instance.new("ImageLabel") do  
+	local Input_1 = Instance.new("TextButton")  
+	Toggle.Name = "Toggle"  
+	Toggle.Parent = Xzer  
+	Toggle.AnchorPoint = Vector2.new(1, 0.5)  
+	Toggle.BackgroundTransparency = 1  
+	Toggle.Position = UDim2.new(0.015, 0,0.5, 0)  
+	Toggle.Size = UDim2.new(0, 7,0, 200)  
+	Toggle.Image = "rbxassetid://80999662900595"  
+	Toggle.ImageTransparency = 0.7  
+	Toggle.ScaleType = Enum.ScaleType.Slice  
+	Toggle.SliceCenter = Rect.new(256, 256, 256, 256)  
+	Toggle.SliceScale = 0.38671875  
+	Toggle.ImageColor3 = Color3.fromRGB(30,30,30)
 
-    Input_1.Name = "Input"
-    Input_1.Parent = Toggle
-    Input_1.Active = true
-    Input_1.AnchorPoint = Vector2.new(0.5, 0.5)
-    Input_1.BackgroundTransparency = 1
-    Input_1.Position = UDim2.new(0.5, 0,0.5, 0)
-    Input_1.Size = UDim2.new(1,25,1,25)
-    Input_1.Font = Enum.Font.SourceSans
-    Input_1.Text = ""
-    Input_1.TextSize = 14
-    Input_1.ZIndex = 99
+	Input_1.Name = "Input"  
+	Input_1.Parent = Toggle  
+	Input_1.Active = true  
+	Input_1.AnchorPoint = Vector2.new(0.5, 0.5)  
+	Input_1.BackgroundTransparency = 1  
+	Input_1.Position = UDim2.new(0.5, 0,0.5, 0)  
+	Input_1.Size = UDim2.new(1, 25,1, 25)  
+	Input_1.Font = Enum.Font.GothamBold  
+	Input_1.Text = ""  
+	Input_1.TextSize = 14  
+	Input_1.ZIndex = 99  
 
-    local function closeopenui()
-        Main_1:TweenPosition(UDim2.new(0.5, 0,0.5, 0), "Out", "Sine", 0.1, true)
-        Library:Tween({v = Toggle,t=0.2,s="Back",d="Out",g={ImageTransparency=0.3}}):Play()
-        delay(0.1,function()
-            Library:Tween({v = Toggle,t=0.2,s="Back",d="Out",g={ImageTransparency=0.7}}):Play()
-        end)
-        Main_1.Visible = not Main_1.Visible
-    end
+	local function closeopenui()  
+		Main_1:TweenPosition(UDim2.new(0.5, 0, 0.5, 0), "Out", "Sine", 0.1, true)  
+		Library:Tween({  
+			v = Toggle,  
+			t = 0.2,  
+			s = "Back",  
+			d = "Out",  
+			g = {ImageTransparency = 0.3}  
+		}):Play()  
+		task.delay(0.1, function()  
+			Library:Tween({  
+				v = Toggle,  
+				t = 0.2,  
+				s = "Back",  
+				d = "Out",  
+				g = {ImageTransparency = 0.7}  
+			}):Play()  
+		end)  
+		Main_1.Visible = not Main_1.Visible  
+	end  
 
-    local On = true
-    Input_1.MouseButton1Click:Connect(function()
-        closeopenui()
-        On = not On
-    end)
+	local On = true  
+	Input_1.MouseButton1Click:Connect(function()  
+		closeopenui()  
+		On = not On  
+	end)  
 
-    UserInputService.InputBegan:Connect(function(input, gameProcessed)
-        if not gameProcessed and input.KeyCode == Keybind then
-            closeopenui()
-            On = not On
-        end
-    end)
-end
+	UserInputService.InputBegan:Connect(function(input, gameProcessed)  
+		if not gameProcessed and input.KeyCode == Keybind then  
+			closeopenui()  
+			On = not On  
+		end  
+	end)  
+end  
 
-Size_1.MouseEnter:Connect(function()
-    Library:Tween({v=Size_1,t=0.5,s="Exponential",d="Out",g={BackgroundTransparency=0.1}}):Play()
-end)
-Size_1.MouseLeave:Connect(function()
-    Library:Tween({v=Size_1,t=0.5,s="Exponential",d="Out",g={BackgroundTransparency=0.3}}):Play()
-end)
+if Library.IsMobile then  
+	local MinSize = Vector2.new(430, 315)  
+	local MaxSize = Vector2.new(math.huge, math.huge)
+	local UIScale = Instance.new("UIScale")  
+	UIScale.Scale = 1.075  
+	UIScale.Parent = Xzer  
 
-if Library.IsMobile then
-    local MinSize = Vector2.new(430, 315)
-    local MaxSize = Vector2.new(500, 350)
-    local UIScale = Instance.new("UIScale")
-    UIScale.Scale = 1.075
-    UIScale.Parent = Xzer
-    Main_1.Size = UDim2.new(0,450,0,315)
-    self:Resize(Size_1, Main_1, MinSize, MaxSize, 2)
-else
-    local MinSize = Vector2.new(500,350)
-    local MaxSize = Vector2.new(850,600)
-    self:Resize(Size_1, Main_1, MinSize, MaxSize, 2)
+	Main_1.Size = UDim2.new(0, 580, 0, 400)  
+
+	self:Resize(Size_1, Main_1, MinSize, MaxSize, 2)  
+else  
+	local MinSize = Vector2.new(500, 350)  
+	local MaxSize = Vector2.new(math.huge, math.huge)
+	self:Resize(Size_1, Main_1, MinSize, MaxSize, 2)  
 end
 
 	local Tabs = Instance.new("Frame")
