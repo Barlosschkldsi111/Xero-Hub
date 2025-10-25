@@ -164,46 +164,45 @@ function Library:Effect(c, p)
 	expandTween:Play()
 end
 
-function Library:Resize(inputframe, frametoresize, minSize, maxSize, speed)
-	if Library.IsMobile then return end
+local UserInputService = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
 
-	local resizing = false
-	local resizeStart = nil
-	local startSize = nil
+function Library:Resize(inputFrame, frameToResize, minSize, maxSize, speed)
+    minSize = minSize or Vector2.new(50, 50)
+    maxSize = maxSize or Vector2.new(1000, 1000)
+    speed = speed or 1.5
 
-	minSize = minSize or Vector2.new(50, 50)
-	maxSize = maxSize or Vector2.new(1000, 1000)
-	speed   = speed or 1.5
+    local resizing = false
+    local resizeStart = nil
+    local startSize = nil
 
-	inputframe.InputBegan:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseButton1 
-			or input.UserInputType == Enum.UserInputType.Touch then
-			resizing = true
-			resizeStart = input.Position
-			startSize = frametoresize.Size
+    inputFrame.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1
+        or input.UserInputType == Enum.UserInputType.Touch then
+            resizing = true
+            resizeStart = input.Position
+            startSize = frameToResize.Size
 
-			input.Changed:Connect(function()
-				if input.UserInputState == Enum.UserInputState.End then
-					resizing = false
-				end
-			end)
-		end
-	end)
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    resizing = false
+                end
+            end)
+        end
+    end)
 
-	UserInputService.InputChanged:Connect(function(input)
-		if resizing and (input.UserInputType == Enum.UserInputType.MouseMovement 
-			or input.UserInputType == Enum.UserInputType.Touch) then
-			local delta = (input.Position - resizeStart) * speed
+    UserInputService.InputChanged:Connect(function(input)
+        if resizing and (input.UserInputType == Enum.UserInputType.MouseMovement
+        or input.UserInputType == Enum.UserInputType.Touch) then
 
-			local newX = math.clamp(startSize.X.Offset + delta.X, minSize.X, maxSize.X)
-			local newY = math.clamp(startSize.Y.Offset + delta.Y, minSize.Y, maxSize.Y)
-
-			frametoresize.Size = UDim2.new(
-				startSize.X.Scale, newX,
-				startSize.Y.Scale, newY
-			)
-		end
-	end)
+            local delta = (input.Position - resizeStart) * speed
+            local newX = math.clamp(startSize.X.Offset + delta.X, minSize.X, maxSize.X)
+            local newY = math.clamp(startSize.Y.Offset + delta.Y, minSize.Y, maxSize.Y)
+            TweenService:Create(frameToResize, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+                Size = UDim2.new(startSize.X.Scale, newX, startSize.Y.Scale, newY)
+            }):Play()
+        end
+    end)
 end
 
 function Library:Asset(rbx)
