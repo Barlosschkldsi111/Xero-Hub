@@ -648,7 +648,7 @@ function Library.new(params)
 
 	Close_1.Name = "Close"
 	Close_1.Parent = RE_Light_1
-	Close_1.BackgroundColor3 = Color3.fromRGB(255,112,112)
+	Close_1.BackgroundColor3 = Color3.fromRGB(25, 17, 255)
 	Close_1.BorderColor3 = Color3.fromRGB(0,0,0)
 	Close_1.BorderSizePixel = 0
 	Close_1.Size = UDim2.new(0, 10,0, 10)
@@ -1154,7 +1154,7 @@ function Library.new(params)
 
 		AddTab.Name = "AddTab"
 		AddTab.Parent = RF_Scrolling_1
-		AddTab.BackgroundColor3 = Color3.fromRGB(233, 1, 77)
+		AddTab.BackgroundColor3 = Color3.fromRGB(56, 21, 233)
 		AddTab.BackgroundTransparency = 1
 		AddTab.BorderColor3 = Color3.fromRGB(0,0,0)
 		AddTab.BorderSizePixel = 0
@@ -1195,7 +1195,7 @@ function Library.new(params)
 
 		Icon_1.Name = "Icon"
 		Icon_1.Parent = About_1
-		Icon_1.BackgroundColor3 = Color3.fromRGB(10,130,255)
+		Icon_1.BackgroundColor3 = Color3.fromRGB(59, 20, 255)
 		Icon_1.BackgroundTransparency = 1
 		Icon_1.BorderColor3 = Color3.fromRGB(0,0,0)
 		Icon_1.BorderSizePixel = 0
@@ -1319,7 +1319,7 @@ function Library.new(params)
 						g = {TextTransparency = 0.3}
 					}):Play()
 
-					v.About.Icon.ImageColor3 = Color3.fromRGB(233, 1, 77)
+					v.About.Icon.ImageColor3 = Color3.fromRGB(23, 23, 233)
 				end
 			end
 
