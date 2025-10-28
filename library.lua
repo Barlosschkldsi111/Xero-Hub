@@ -168,42 +168,42 @@ local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 
 function Library:Resize(inputFrame, frameToResize, minSize, maxSize, speed)
-    minSize = minSize or Vector2.new(50, 50)
-    maxSize = maxSize or Vector2.new(10000, 10000)
-    speed = speed or 1.5
+	minSize = minSize or Vector2.new(50, 50)
+	maxSize = maxSize or Vector2.new(10000, 10000)
+	speed = speed or 1.5
 
-    local resizing = false
-    local resizeStart = nil
-    local startSize = nil
+	local resizing = false
+	local resizeStart = nil
+	local startSize = nil
 
-    inputFrame.InputBegan:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseButton1
-        or input.UserInputType == Enum.UserInputType.Touch then
-            resizing = true
-            resizeStart = input.Position
-            startSize = frameToResize.Size
+	inputFrame.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1
+			or input.UserInputType == Enum.UserInputType.Touch then
+			resizing = true
+			resizeStart = input.Position
+			startSize = frameToResize.Size
 
-            input.Changed:Connect(function()
-                if input.UserInputState == Enum.UserInputState.End then
-                    resizing = false
-                end
-            end)
-        end
-    end)
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					resizing = false
+				end
+			end)
+		end
+	end)
 
-    UserInputService.InputChanged:Connect(function(input)
-        if resizing and (input.UserInputType == Enum.UserInputType.MouseMovement
-        or input.UserInputType == Enum.UserInputType.Touch) then
+	UserInputService.InputChanged:Connect(function(input)
+		if resizing and (input.UserInputType == Enum.UserInputType.MouseMovement
+			or input.UserInputType == Enum.UserInputType.Touch) then
 
-            local delta = (input.Position - resizeStart) * speed
-            local newX = math.clamp(startSize.X.Offset + delta.X, minSize.X, maxSize.X)
-            local newY = math.clamp(startSize.Y.Offset + delta.Y, minSize.Y, maxSize.Y)
+			local delta = (input.Position - resizeStart) * speed
+			local newX = math.clamp(startSize.X.Offset + delta.X, minSize.X, maxSize.X)
+			local newY = math.clamp(startSize.Y.Offset + delta.Y, minSize.Y, maxSize.Y)
 
-            TweenService:Create(frameToResize, TweenInfo.new(0.05, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
-                Size = UDim2.new(startSize.X.Scale, newX, startSize.Y.Scale, newY)
-            }):Play()
-        end
-    end)
+			TweenService:Create(frameToResize, TweenInfo.new(0.05, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+				Size = UDim2.new(startSize.X.Scale, newX, startSize.Y.Scale, newY)
+			}):Play()
+		end
+	end)
 end
 
 function Library:Asset(rbx)
@@ -381,7 +381,7 @@ end
 function Library.new(params)
 	local self = Library
 
-	local Title = params.Title or "Xzer"
+	local Title = params.Title or "Chrono Hub"
 	local Author = params.Author or "Premium's Script"
 	local Logo = params.Logo or 89020944660589
 	local Keybind = params.Enum or Enum.KeyCode['F1']
@@ -440,170 +440,170 @@ function Library.new(params)
 	UIStroke_1.Color = Color3.fromRGB(48,48,48)
 	UIStroke_1.Thickness = 1
 
-local Components = Instance.new("Frame")
-local Draggable_1 = Instance.new("ImageLabel")
-local Input_1 = Instance.new("TextButton")
-local Size_1 = Instance.new("Frame")
+	local Components = Instance.new("Frame")
+	local Draggable_1 = Instance.new("ImageLabel")
+	local Input_1 = Instance.new("TextButton")
+	local Size_1 = Instance.new("Frame")
 
-Components.Name = "Components"  
-Components.Parent = Backgroud_1  
-Components.AnchorPoint = Vector2.new(0.5, 0.5)  
-Components.BackgroundColor3 = Color3.fromRGB(0,0,0)  
-Components.BackgroundTransparency = 1  
-Components.BorderColor3 = Color3.fromRGB(0,0,0)  
-Components.BorderSizePixel = 0  
-Components.Position = UDim2.new(0.5, 0,0.5, 0)  
-Components.Size = UDim2.new(1, 0,1, 0)  
+	Components.Name = "Components"  
+	Components.Parent = Backgroud_1  
+	Components.AnchorPoint = Vector2.new(0.5, 0.5)  
+	Components.BackgroundColor3 = Color3.fromRGB(0,0,0)  
+	Components.BackgroundTransparency = 1  
+	Components.BorderColor3 = Color3.fromRGB(0,0,0)  
+	Components.BorderSizePixel = 0  
+	Components.Position = UDim2.new(0.5, 0,0.5, 0)  
+	Components.Size = UDim2.new(1, 0,1, 0)  
 
-Draggable_1.Name = "Draggable"  
-Draggable_1.Parent = Components  
-Draggable_1.AnchorPoint = Vector2.new(0.5, 0)  
-Draggable_1.BackgroundColor3 = Color3.fromRGB(30,30,30)  
-Draggable_1.BackgroundTransparency = 0.4  
-Draggable_1.BorderSizePixel = 0  
-Draggable_1.Position = UDim2.new(0.5, 0,1, 4)  
-Draggable_1.Size = UDim2.new(0, 200,0, 6)  
-Draggable_1.Image = "rbxassetid://80999662900595"  
-Draggable_1.ImageColor3 = Color3.fromRGB(0,0,0)  
-Draggable_1.ImageTransparency = 0.85  
-Draggable_1.ScaleType = Enum.ScaleType.Slice  
-Draggable_1.SliceCenter = Rect.new(256, 256, 256, 256)  
-Draggable_1.SliceScale = 0.38671875  
-
-Input_1.Name = "Input"  
-Input_1.Parent = Draggable_1  
-Input_1.Active = true  
-Input_1.AnchorPoint = Vector2.new(0.5, 0.5)  
-Input_1.BackgroundColor3 = Color3.fromRGB(255,255,255)  
-Input_1.BackgroundTransparency = 1  
-Input_1.BorderSizePixel = 0  
-Input_1.Position = UDim2.new(0.5, 0,0.5, 0)  
-Input_1.Size = UDim2.new(1, 12,1, 12)  
-Input_1.Font = Enum.Font.GothamBold  
-Input_1.Text = ""  
-Input_1.TextSize = 14  
-Input_1.TextColor3 = Color3.fromRGB(255,255,255)
-
-Size_1.Name = "Size"  
-Size_1.Parent = Components  
-Size_1.AnchorPoint = Vector2.new(0.5, 0.5)  
-Size_1.BackgroundColor3 = Color3.fromRGB(255,255,255)  
-Size_1.BackgroundTransparency = 0.9  
-Size_1.BorderSizePixel = 0  
-Size_1.Position = UDim2.new(1, 0,1, 0)  
-Size_1.Size = UDim2.new(0, 40,0, 40)  
-Size_1.ZIndex = -99  
-
-local SizeCorner = Instance.new("UICorner")  
-SizeCorner.Parent = Size_1  
-SizeCorner.CornerRadius = UDim.new(1, 0)  
-
--- เพิ่มขอบเรืองแสงเล็กน้อย
-local stroke = Instance.new("UIStroke")
-stroke.Parent = Size_1
-stroke.Thickness = 1.2
-stroke.Transparency = 0.4
-stroke.Color = Color3.fromRGB(200,200,200)
-
--- Hover effect สวยขึ้น
-Size_1.MouseEnter:Connect(function()  
-	Library:Tween({  
-		v = Size_1,  
-		t = 0.4,  
-		s = "Sine",  
-		d = "Out",  
-		g = {BackgroundTransparency = 0.6}  
-	}):Play()  
-end)  
-
-Size_1.MouseLeave:Connect(function()  
-	Library:Tween({  
-		v = Size_1,  
-		t = 0.4,  
-		s = "Sine",  
-		d = "Out",  
-		g = {BackgroundTransparency = 0.9}  
-	}):Play()  
-end)  
-
--- ปุ่ม Toggle UI (ซ้าย)
-local Toggle = Instance.new("ImageLabel") do  
-	local Input_1 = Instance.new("TextButton")  
-	Toggle.Name = "Toggle"  
-	Toggle.Parent = Xzer  
-	Toggle.AnchorPoint = Vector2.new(1, 0.5)  
-	Toggle.BackgroundTransparency = 1  
-	Toggle.Position = UDim2.new(0.015, 0,0.5, 0)  
-	Toggle.Size = UDim2.new(0, 7,0, 200)  
-	Toggle.Image = "rbxassetid://80999662900595"  
-	Toggle.ImageTransparency = 0.7  
-	Toggle.ScaleType = Enum.ScaleType.Slice  
-	Toggle.SliceCenter = Rect.new(256, 256, 256, 256)  
-	Toggle.SliceScale = 0.38671875  
-	Toggle.ImageColor3 = Color3.fromRGB(30,30,30)
+	Draggable_1.Name = "Draggable"  
+	Draggable_1.Parent = Components  
+	Draggable_1.AnchorPoint = Vector2.new(0.5, 0)  
+	Draggable_1.BackgroundColor3 = Color3.fromRGB(30,30,30)  
+	Draggable_1.BackgroundTransparency = 0.4  
+	Draggable_1.BorderSizePixel = 0  
+	Draggable_1.Position = UDim2.new(0.5, 0,1, 4)  
+	Draggable_1.Size = UDim2.new(0, 200,0, 6)  
+	Draggable_1.Image = "rbxassetid://80999662900595"  
+	Draggable_1.ImageColor3 = Color3.fromRGB(0,0,0)  
+	Draggable_1.ImageTransparency = 0.85  
+	Draggable_1.ScaleType = Enum.ScaleType.Slice  
+	Draggable_1.SliceCenter = Rect.new(256, 256, 256, 256)  
+	Draggable_1.SliceScale = 0.38671875  
 
 	Input_1.Name = "Input"  
-	Input_1.Parent = Toggle  
+	Input_1.Parent = Draggable_1  
 	Input_1.Active = true  
 	Input_1.AnchorPoint = Vector2.new(0.5, 0.5)  
+	Input_1.BackgroundColor3 = Color3.fromRGB(255,255,255)  
 	Input_1.BackgroundTransparency = 1  
+	Input_1.BorderSizePixel = 0  
 	Input_1.Position = UDim2.new(0.5, 0,0.5, 0)  
-	Input_1.Size = UDim2.new(1, 25,1, 25)  
+	Input_1.Size = UDim2.new(1, 12,1, 12)  
 	Input_1.Font = Enum.Font.GothamBold  
 	Input_1.Text = ""  
 	Input_1.TextSize = 14  
-	Input_1.ZIndex = 99  
+	Input_1.TextColor3 = Color3.fromRGB(255,255,255)
 
-	local function closeopenui()  
-		Main_1:TweenPosition(UDim2.new(0.5, 0, 0.5, 0), "Out", "Sine", 0.1, true)  
+	Size_1.Name = "Size"  
+	Size_1.Parent = Components  
+	Size_1.AnchorPoint = Vector2.new(0.5, 0.5)  
+	Size_1.BackgroundColor3 = Color3.fromRGB(255,255,255)  
+	Size_1.BackgroundTransparency = 0.9  
+	Size_1.BorderSizePixel = 0  
+	Size_1.Position = UDim2.new(1, 0,1, 0)  
+	Size_1.Size = UDim2.new(0, 40,0, 40)  
+	Size_1.ZIndex = -99  
+
+	local SizeCorner = Instance.new("UICorner")  
+	SizeCorner.Parent = Size_1  
+	SizeCorner.CornerRadius = UDim.new(1, 0)  
+
+	-- เพิ่มขอบเรืองแสงเล็กน้อย
+	local stroke = Instance.new("UIStroke")
+	stroke.Parent = Size_1
+	stroke.Thickness = 1.2
+	stroke.Transparency = 0.4
+	stroke.Color = Color3.fromRGB(200,200,200)
+
+	-- Hover effect สวยขึ้น
+	Size_1.MouseEnter:Connect(function()  
 		Library:Tween({  
-			v = Toggle,  
-			t = 0.2,  
-			s = "Back",  
+			v = Size_1,  
+			t = 0.4,  
+			s = "Sine",  
 			d = "Out",  
-			g = {ImageTransparency = 0.3}  
+			g = {BackgroundTransparency = 0.6}  
 		}):Play()  
-		task.delay(0.1, function()  
+	end)  
+
+	Size_1.MouseLeave:Connect(function()  
+		Library:Tween({  
+			v = Size_1,  
+			t = 0.4,  
+			s = "Sine",  
+			d = "Out",  
+			g = {BackgroundTransparency = 0.9}  
+		}):Play()  
+	end)  
+
+	-- ปุ่ม Toggle UI (ซ้าย)
+	local Toggle = Instance.new("ImageLabel") do  
+		local Input_1 = Instance.new("TextButton")  
+		Toggle.Name = "Toggle"  
+		Toggle.Parent = Xzer  
+		Toggle.AnchorPoint = Vector2.new(1, 0.5)  
+		Toggle.BackgroundTransparency = 1  
+		Toggle.Position = UDim2.new(0.015, 0,0.5, 0)  
+		Toggle.Size = UDim2.new(0, 7,0, 200)  
+		Toggle.Image = "rbxassetid://80999662900595"  
+		Toggle.ImageTransparency = 0.7  
+		Toggle.ScaleType = Enum.ScaleType.Slice  
+		Toggle.SliceCenter = Rect.new(256, 256, 256, 256)  
+		Toggle.SliceScale = 0.38671875  
+		Toggle.ImageColor3 = Color3.fromRGB(30,30,30)
+
+		Input_1.Name = "Input"  
+		Input_1.Parent = Toggle  
+		Input_1.Active = true  
+		Input_1.AnchorPoint = Vector2.new(0.5, 0.5)  
+		Input_1.BackgroundTransparency = 1  
+		Input_1.Position = UDim2.new(0.5, 0,0.5, 0)  
+		Input_1.Size = UDim2.new(1, 25,1, 25)  
+		Input_1.Font = Enum.Font.GothamBold  
+		Input_1.Text = ""  
+		Input_1.TextSize = 14  
+		Input_1.ZIndex = 99  
+
+		local function closeopenui()  
+			Main_1:TweenPosition(UDim2.new(0.5, 0, 0.5, 0), "Out", "Sine", 0.1, true)  
 			Library:Tween({  
 				v = Toggle,  
 				t = 0.2,  
 				s = "Back",  
 				d = "Out",  
-				g = {ImageTransparency = 0.7}  
+				g = {ImageTransparency = 0.3}  
 			}):Play()  
-		end)  
-		Main_1.Visible = not Main_1.Visible  
-	end  
+			task.delay(0.1, function()  
+				Library:Tween({  
+					v = Toggle,  
+					t = 0.2,  
+					s = "Back",  
+					d = "Out",  
+					g = {ImageTransparency = 0.7}  
+				}):Play()  
+			end)  
+			Main_1.Visible = not Main_1.Visible  
+		end  
 
-	local On = true  
-	Input_1.MouseButton1Click:Connect(function()  
-		closeopenui()  
-		On = not On  
-	end)  
-
-	UserInputService.InputBegan:Connect(function(input, gameProcessed)  
-		if not gameProcessed and input.KeyCode == Keybind then  
+		local On = true  
+		Input_1.MouseButton1Click:Connect(function()  
 			closeopenui()  
 			On = not On  
-		end  
-	end)  
-end  
+		end)  
 
-if Library.IsMobile then  
-	local MinSize = Vector2.new(430, 315)  
-	local MaxSize = Vector2.new(math.huge, math.huge)
-	local UIScale = Instance.new("UIScale")  
-	UIScale.Scale = 1.075  
-	UIScale.Parent = Xzer  
+		UserInputService.InputBegan:Connect(function(input, gameProcessed)  
+			if not gameProcessed and input.KeyCode == Keybind then  
+				closeopenui()  
+				On = not On  
+			end  
+		end)  
+	end  
 
-	Main_1.Size = UDim2.new(0, 580, 0, 400)  
+	if Library.IsMobile then  
+		local MinSize = Vector2.new(430, 315)  
+		local MaxSize = Vector2.new(math.huge, math.huge)
+		local UIScale = Instance.new("UIScale")  
+		UIScale.Scale = 1.075  
+		UIScale.Parent = Xzer  
 
-	self:Resize(Size_1, Main_1, MinSize, MaxSize, 2)  
-else  
-	local MinSize = Vector2.new(500, 350)  
-	local MaxSize = Vector2.new(math.huge, math.huge)
-	self:Resize(Size_1, Main_1, MinSize, MaxSize, 2)  
-end
+		Main_1.Size = UDim2.new(0, 580, 0, 400)  
+
+		self:Resize(Size_1, Main_1, MinSize, MaxSize, 2)  
+	else  
+		local MinSize = Vector2.new(500, 350)  
+		local MaxSize = Vector2.new(math.huge, math.huge)
+		self:Resize(Size_1, Main_1, MinSize, MaxSize, 2)  
+	end
 
 	local Tabs = Instance.new("Frame")
 	local RE_Light_1 = Instance.new("Frame")
@@ -1565,7 +1565,7 @@ end
 							}):Play()
 						end)
 
-						Vanity.BackgroundColor3 = Color3.fromRGB(233, 1, 77)
+						Vanity.BackgroundColor3 = Color3.fromRGB(82, 25, 255)
 					end
 				end
 
@@ -1615,7 +1615,7 @@ end
 				UICorner_1.CornerRadius = UDim.new(0,4)
 
 				UIGradient_1.Parent = Clickable
-				UIGradient_1.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(116, 0, 39)), ColorSequenceKeypoint.new(1, Color3.fromRGB(233, 1, 77))}
+				UIGradient_1.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(30, 25, 188)), ColorSequenceKeypoint.new(1, Color3.fromRGB(233, 1, 77))}
 				UIGradient_1.Rotation = 90
 
 				Title_1.Name = "Title"
@@ -1793,7 +1793,7 @@ end
 				Color_1.Name = "Color"
 				Color_1.Parent = Slider_1
 				Color_1.AnchorPoint = Vector2.new(0, 0.5)
-				Color_1.BackgroundColor3 = Color3.fromRGB(233,1,77)
+				Color_1.BackgroundColor3 = Color3.fromRGB(18, 22, 233)
 				Color_1.BorderColor3 = Color3.fromRGB(0,0,0)
 				Color_1.BorderSizePixel = 0
 				Color_1.Position = UDim2.new(0, 0,0.5, 0)
@@ -2228,7 +2228,7 @@ end
 								d = "Out",
 								g = {TextTransparency = 0}
 							}):Play()
-							AddList.BackgroundColor3 = Color3.fromRGB(233, 1, 77)
+							AddList.BackgroundColor3 = Color3.fromRGB(23, 37, 233)
 						else
 							Library:Tween({
 								v = Title_1,
