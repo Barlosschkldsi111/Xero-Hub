@@ -403,7 +403,7 @@ function Library.new(params)
 	Main_1.Parent = Xzer
 	Main_1.AnchorPoint = Vector2.new(0.5, 0.5)
 	Main_1.BackgroundColor3 = Color3.fromRGB(255,255,255)
-	Main_1.BackgroundTransparency = 1
+	Main_1.BackgroundTransparency = 0.5
 	Main_1.BorderColor3 = Color3.fromRGB(0,0,0)
 	Main_1.BorderSizePixel = 0
 	Main_1.Position = UDim2.new(0.5, 0,0.5, 0)
@@ -422,7 +422,7 @@ function Library.new(params)
 	Blur_1.Parent = Backgroud_1
 	Blur_1.AnchorPoint = Vector2.new(0.5, 0.5)
 	Blur_1.BackgroundColor3 = Color3.fromRGB(28,28,30)
-	Blur_1.BackgroundTransparency = 1
+	Blur_1.BackgroundTransparency = 0.5
 	Blur_1.BorderColor3 = Color3.fromRGB(0,0,0)
 	Blur_1.BorderSizePixel = 0
 	Blur_1.Position = UDim2.new(0.5, 0,0.5, 0)
@@ -449,7 +449,7 @@ function Library.new(params)
 	Components.Parent = Backgroud_1  
 	Components.AnchorPoint = Vector2.new(0.5, 0.5)  
 	Components.BackgroundColor3 = Color3.fromRGB(0,0,0)  
-	Components.BackgroundTransparency = 1  
+	Components.BackgroundTransparency = 0.5
 	Components.BorderColor3 = Color3.fromRGB(0,0,0)  
 	Components.BorderSizePixel = 0  
 	Components.Position = UDim2.new(0.5, 0,0.5, 0)  
@@ -475,7 +475,7 @@ function Library.new(params)
 	Input_1.Active = true  
 	Input_1.AnchorPoint = Vector2.new(0.5, 0.5)  
 	Input_1.BackgroundColor3 = Color3.fromRGB(255,255,255)  
-	Input_1.BackgroundTransparency = 1  
+	Input_1.BackgroundTransparency = 0.5
 	Input_1.BorderSizePixel = 0  
 	Input_1.Position = UDim2.new(0.5, 0,0.5, 0)  
 	Input_1.Size = UDim2.new(1, 12,1, 12)  
@@ -488,7 +488,7 @@ function Library.new(params)
 	Size_1.Parent = Components  
 	Size_1.AnchorPoint = Vector2.new(0.5, 0.5)  
 	Size_1.BackgroundColor3 = Color3.fromRGB(255,255,255)  
-	Size_1.BackgroundTransparency = 0.9  
+	Size_1.BackgroundTransparency = 0.5 
 	Size_1.BorderSizePixel = 0  
 	Size_1.Position = UDim2.new(1, 0,1, 0)  
 	Size_1.Size = UDim2.new(0, 40,0, 40)  
@@ -522,7 +522,7 @@ function Library.new(params)
 			t = 0.4,  
 			s = "Sine",  
 			d = "Out",  
-			g = {BackgroundTransparency = 0.9}  
+			g = {BackgroundTransparency = 0.5}  
 		}):Play()  
 	end)  
 
