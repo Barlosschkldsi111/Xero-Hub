@@ -301,7 +301,7 @@ function Library:Row(Parent, Title, Desc, Size)
 	Raw.Name = "Raw"
 	Raw.Parent = Parent
 	Raw.BackgroundColor3 = Color3.fromRGB(255,255,255)
-	Raw.BackgroundTransparency = 1
+	Raw.BackgroundTransparency = 0.5
 	Raw.BorderColor3 = Color3.fromRGB(0,0,0)
 	Raw.BorderSizePixel = 0
 	Raw.Position = UDim2.new(0.030882353, 0,0, 0)
