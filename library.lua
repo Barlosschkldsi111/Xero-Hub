@@ -648,7 +648,7 @@ function Library.new(params)
 
 	Close_1.Name = "Close"
 	Close_1.Parent = RE_Light_1
-	Close_1.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+	Close_1.BackgroundColor3 = Color3.fromRGB(255, 51, 51)
 	Close_1.BorderColor3 = Color3.fromRGB(0,0,0)
 	Close_1.BorderSizePixel = 0
 	Close_1.Size = UDim2.new(0, 10,0, 10)
