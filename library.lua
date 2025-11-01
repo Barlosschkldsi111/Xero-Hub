@@ -648,7 +648,7 @@ function Library.new(params)
 
 	Close_1.Name = "Close"
 	Close_1.Parent = RE_Light_1
-	Close_1.BackgroundColor3 = Color3.fromRGB(25, 17, 255)
+	Close_1.BackgroundColor3 = Color3.fromRGB(34, 141, 255)
 	Close_1.BorderColor3 = Color3.fromRGB(0,0,0)
 	Close_1.BorderSizePixel = 0
 	Close_1.Size = UDim2.new(0, 10,0, 10)
@@ -1154,7 +1154,7 @@ function Library.new(params)
 
 		AddTab.Name = "AddTab"
 		AddTab.Parent = RF_Scrolling_1
-		AddTab.BackgroundColor3 = Color3.fromRGB(56, 21, 233)
+		AddTab.BackgroundColor3 = Color3.fromRGB(68, 139, 233)
 		AddTab.BackgroundTransparency = 1
 		AddTab.BorderColor3 = Color3.fromRGB(0,0,0)
 		AddTab.BorderSizePixel = 0
@@ -1195,7 +1195,7 @@ function Library.new(params)
 
 		Icon_1.Name = "Icon"
 		Icon_1.Parent = About_1
-		Icon_1.BackgroundColor3 = Color3.fromRGB(59, 20, 255)
+		Icon_1.BackgroundColor3 = Color3.fromRGB(71, 154, 255)
 		Icon_1.BackgroundTransparency = 1
 		Icon_1.BorderColor3 = Color3.fromRGB(0,0,0)
 		Icon_1.BorderSizePixel = 0
@@ -1319,7 +1319,7 @@ function Library.new(params)
 						g = {TextTransparency = 0.3}
 					}):Play()
 
-					v.About.Icon.ImageColor3 = Color3.fromRGB(23, 23, 233)
+					v.About.Icon.ImageColor3 = Color3.fromRGB(59, 166, 233)
 				end
 			end
 
@@ -1565,7 +1565,7 @@ function Library.new(params)
 							}):Play()
 						end)
 
-						Vanity.BackgroundColor3 = Color3.fromRGB(82, 25, 255)
+						Vanity.BackgroundColor3 = Color3.fromRGB(46, 210, 255)
 					end
 				end
 
@@ -1615,7 +1615,7 @@ function Library.new(params)
 				UICorner_1.CornerRadius = UDim.new(0,4)
 
 				UIGradient_1.Parent = Clickable
-				UIGradient_1.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(30, 25, 188)), ColorSequenceKeypoint.new(1, Color3.fromRGB(233, 1, 77))}
+				UIGradient_1.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(63, 127, 188)), ColorSequenceKeypoint.new(1, Color3.fromRGB(59, 164, 233))}
 				UIGradient_1.Rotation = 90
 
 				Title_1.Name = "Title"
@@ -1793,7 +1793,7 @@ function Library.new(params)
 				Color_1.Name = "Color"
 				Color_1.Parent = Slider_1
 				Color_1.AnchorPoint = Vector2.new(0, 0.5)
-				Color_1.BackgroundColor3 = Color3.fromRGB(18, 22, 233)
+				Color_1.BackgroundColor3 = Color3.fromRGB(47, 177, 233)
 				Color_1.BorderColor3 = Color3.fromRGB(0,0,0)
 				Color_1.BorderSizePixel = 0
 				Color_1.Position = UDim2.new(0, 0,0.5, 0)
@@ -2228,7 +2228,7 @@ function Library.new(params)
 								d = "Out",
 								g = {TextTransparency = 0}
 							}):Play()
-							AddList.BackgroundColor3 = Color3.fromRGB(23, 37, 233)
+							AddList.BackgroundColor3 = Color3.fromRGB(81, 175, 233)
 						else
 							Library:Tween({
 								v = Title_1,
